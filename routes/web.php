@@ -19,9 +19,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'DiaryController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware(['auth'])->group(function(){
+    Route::get('/diaries', 'DiaryController@index')->name('home');
     Route::get('/diaries/create', 'DiaryController@create')->name('diary.create');
     Route::post('/diaries', 'DiaryController@store')->name('diary.store');
 });

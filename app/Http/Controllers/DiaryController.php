@@ -14,9 +14,10 @@ class DiaryController extends Controller
      */
     public function index()
     {
-        $diaries = auth()->user()->diaries;
+        $diaries = auth()->user()->diaries()->latest()->paginate(12);
 
-        return view('diary.index',compact('diaries'));
+        return $diaries;
+        return view('diary.index', compact('diaries'));
     }
 
     /**
@@ -37,7 +38,7 @@ class DiaryController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate(['entry'=>['required','string']]);
+        $validatedData = $request->validate(['entry' => ['required', 'string']]);
 
         return auth()->user()->diaries()->create($validatedData);
     }
