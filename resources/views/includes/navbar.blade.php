@@ -21,7 +21,7 @@
                 <div class="hidden sm:block sm:ml-6">
                     <div class="flex">
                         @auth
-                        <a href="{{ url('#') }}"
+                        <a href="{{ url('/diaries/create') }}"
                             class="ml-4 px-3 py-2 rounded-md text-sm font-medium leading-5 text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out  {{url()->current() == url('/orders') ? 'bg-gray-900' : '' }}">Add new</a>
                         @endauth
                     </div>
@@ -36,8 +36,8 @@
     <div :class="{'block': open, 'hidden': !open}" class="sm:hidden">
         <div class="px-2 pt-2 pb-3">
             @auth
-            <a href="{{url('#')}}"
-                class="mt-1 block px-3 py-2 rounded text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out {{url()->current() == url('#') ? 'bg-gray-900' : '' }}">Add new</a>
+            <a href="{{url('/diaries/create')}}"
+                class="mt-1 block px-3 py-2 rounded text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out {{url()->current() == url('/diaries/create') ? 'bg-gray-900' : '' }}">Add new</a>
             @endauth
         </div>
     </div>

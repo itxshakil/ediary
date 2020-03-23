@@ -14,6 +14,9 @@ class DiaryController extends Controller
      */
     public function index()
     {
+        $diaries = auth()->user()->diaries;
+
+        return view('diary.index',compact('diaries'));
     }
 
     /**
@@ -23,6 +26,7 @@ class DiaryController extends Controller
      */
     public function create()
     {
+        return view('diary.create');
     }
 
     /**

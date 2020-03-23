@@ -18,6 +18,7 @@ require('./bootstrap');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('flash', require('./components/Flash.vue').default);
+Vue.component('resizable-textarea', require('./components/ResizableTextarea.vue').default);
 Vue.component('dropdown', require('./components/Dropdown.vue').default);
 
 /**

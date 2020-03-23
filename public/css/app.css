@@ -13946,6 +13946,18 @@ video {
   transition-duration: 1000ms;
 }
 
+.notebook {
+  outline: none;
+  border: none;
+  font-size: 2rem;
+  padding-bottom: 0.5rem;
+  line-height: 2rem;
+  background-color: transparent;
+  background-size: 100% 2rem;
+  background-image: linear-gradient(transparent 95%, rgba(0, 0, 0, 0.2) 5%);
+  border: none;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;
