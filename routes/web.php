@@ -20,3 +20,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/diaries', 'DiaryController@store')->name('diary.store')->middleware('auth');
