@@ -1917,6 +1917,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -1925,7 +1935,9 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       items: "",
-      dataSet: false
+      dataSet: false,
+      addnew: false,
+      entry: ''
     };
   },
   created: function created() {
@@ -1948,6 +1960,28 @@ __webpack_require__.r(__webpack_exports__);
       this.dataSet = data;
       this.items = data.data;
       window.scrollTo(0, 0);
+    },
+    save: function save() {
+      if (this.entry.trim().length) {
+        axios.post('/diaries', {
+          entry: this.entry
+        }).then(this.saving)["catch"](function (error) {
+          flash(error.response.data.message, 'danger');
+        });
+      } else {
+        flash('You can not save empty diary . please write.', 'warning');
+      }
+    },
+    saving: function saving(_ref2) {
+      var data = _ref2.data;
+      flash('Diary saved successfully');
+      this.addnew = false;
+      var query = location.search.match(/page=(\d+)/);
+      var page = query ? query[1] : 1;
+
+      if (page == 1) {
+        this.fetch();
+      }
     }
   }
 });
@@ -1968,12 +2002,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["data"],
   data: function data() {
     return {
-      diary: this.data
+      entry: this.data.entry,
+      created_at: this.data.created_at,
+      full: false
     };
+  },
+  computed: {
+    date: function date() {
+      return this.formatDate(new Date(this.created_at));
+    },
+    text: function text() {
+      if (this.full) {
+        return this.entry;
+      }
+
+      return this.entry.substring(0, 250);
+    }
+  },
+  methods: {
+    formatDate: function formatDate(date) {
+      //  let d = date.toDateString(); //"Fri Nov 11 2016"
+      return ("0" + date.getDate()).slice(-2) + "-" + ("0" + (date.getMonth() + 1)).slice(-2) + "-" + date.getFullYear() + " " + ("0" + date.getHours()).slice(-2) + ":" + ("0" + date.getMinutes()).slice(-2);
+    }
   }
 });
 
@@ -33680,25 +33737,106 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c(
-        "div",
-        { staticClass: "entries flex flex-wrap items-stretch" },
-        _vm._l(_vm.items, function(diary) {
-          return _c("diary", { key: diary.id, attrs: { data: diary } })
-        }),
-        1
-      ),
-      _vm._v(" "),
-      _c("paginator", {
-        attrs: { dataSet: _vm.dataSet },
-        on: { changed: _vm.fetch }
-      })
-    ],
-    1
-  )
+  return _c("div", [
+    _vm.addnew
+      ? _c(
+          "div",
+          {},
+          [
+            _c("resizable-textarea", [
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.entry,
+                    expression: "entry"
+                  }
+                ],
+                staticClass:
+                  "notebook w-full px-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none",
+                attrs: {
+                  name: "entry",
+                  id: "entry",
+                  cols: "30",
+                  rows: "10",
+                  placeholder: "Its was an awesome day today.",
+                  required: "",
+                  autofocus: ""
+                },
+                domProps: { value: _vm.entry },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.entry = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass:
+                  "mt-4 bg-blue-100 active:bg-blue-200 text-blue-800 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs",
+                on: { click: _vm.save }
+              },
+              [_vm._v("Save")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass:
+                  " mt-4 bg-gray-600 text-gray-100 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs",
+                on: {
+                  click: function($event) {
+                    _vm.addnew = false
+                  }
+                }
+              },
+              [_vm._v("Cancel")]
+            )
+          ],
+          1
+        )
+      : _c(
+          "div",
+          [
+            _c(
+              "div",
+              { staticClass: "entries flex flex-wrap items-stretch" },
+              _vm._l(_vm.items, function(diary) {
+                return _c("diary", { key: diary.id, attrs: { data: diary } })
+              }),
+              1
+            ),
+            _vm._v(" "),
+            _c("paginator", {
+              attrs: { dataSet: _vm.dataSet },
+              on: { changed: _vm.fetch }
+            }),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass:
+                  "fixed right-0 bottom-0 mb-6 mr-6 p-4 pb-6 rounded-full text-bold text-4xl h-12 w-12 bg-blue-200 text-blue-800 shadow hover:shadow-lg flex justify-center items-center",
+                attrs: { title: "Add new" },
+                on: {
+                  click: function($event) {
+                    _vm.addnew = true
+                  }
+                }
+              },
+              [_vm._v("+")]
+            )
+          ],
+          1
+        )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -33726,9 +33864,50 @@ var render = function() {
     "div",
     {
       staticClass:
-        "card w-64 bg-gray-100 pb-2 md:p-5 p-2 m-4 shadow-lg rounded overflow-hidden"
+        "card w-64 bg-gray-100 pb-2 md:p-5 p-2 m-4 shadow-lg rounded overflow-hidden",
+      class: _vm.full ? "w-full" : null
     },
-    [_c("p", { domProps: { textContent: _vm._s(_vm.diary.entry) } })]
+    [
+      _c("div", {
+        staticClass: "text-right text-xs text-gray-700",
+        domProps: { textContent: _vm._s(_vm.date) }
+      }),
+      _vm._v(" "),
+      _c("p", {
+        staticClass: "notebook",
+        domProps: { textContent: _vm._s(_vm.text) }
+      }),
+      _vm._v(" "),
+      !_vm.full
+        ? _c(
+            "button",
+            {
+              staticClass: "text-blue-700",
+              on: {
+                click: function($event) {
+                  _vm.full = !_vm.full
+                }
+              }
+            },
+            [_vm._v("show more")]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.full
+        ? _c(
+            "button",
+            {
+              staticClass: "text-blue-700",
+              on: {
+                click: function($event) {
+                  _vm.full = !_vm.full
+                }
+              }
+            },
+            [_vm._v("show less")]
+          )
+        : _vm._e()
+    ]
   )
 }
 var staticRenderFns = []

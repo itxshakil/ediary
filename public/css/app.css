@@ -13949,11 +13949,11 @@ video {
 .notebook {
   outline: none;
   border: none;
-  font-size: 2rem;
+  font-size: 1rem;
   padding-bottom: 0.5rem;
-  line-height: 2rem;
+  line-height: 1.5rem;
   background-color: transparent;
-  background-size: 100% 2rem;
+  background-size: 100% 1.5rem;
   background-image: linear-gradient(transparent 95%, rgba(0, 0, 0, 0.2) 5%);
   border: none;
 }
