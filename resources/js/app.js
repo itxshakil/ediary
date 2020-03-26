@@ -22,6 +22,7 @@ Vue.component('paginator', require('./components/Paginator.vue').default);
 Vue.component('diaries', require('./components/Diaries.vue').default);
 Vue.component('resizable-textarea', require('./components/ResizableTextarea.vue').default);
 Vue.component('dropdown', require('./components/Dropdown.vue').default);
+Vue.component('username-input', require('./components/UsernameInput.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

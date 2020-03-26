@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('checkusername');
     }
 
     /**
@@ -24,5 +25,17 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function checkusername(Request $request)
+    {
+        if (strlen($request->username) < 5) {
+            return response('false');
+        }
+
+        if (User::where('username', $request->username)->exists()) {
+            return response('false');
+        }
+        return response('true');
     }
 }

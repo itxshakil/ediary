@@ -13,10 +13,8 @@
                     <label class="block mb-2 text-sm font-bold text-gray-700" for="username">
                         Username
                     </label>
-                    <input
-                        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none @error('email') border-red-500 @enderror"
-                        id="username" type="text" placeholder="john.doe" name="username" value="{{ old('username') }}"
-                        required autocomplete="username" autofocus />
+                    <username-input @error('email') :iserror="true" @enderror value="{{old('username')}}">
+                    </username-input>
                     @error('username')
                     <p class="text-xs italic text-red-500" role="alert">{{ $message }}</p>
                     @enderror
@@ -27,12 +25,12 @@
                     </label>
                     <input
                         class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none @error('email') border-red-500 @enderror"
-                        id="email" type="email" placeholder="john.doe" name="email" value="{{ old('email') }}"
-                        required autocomplete="email" autofocus />
+                        id="email" type="email" placeholder="john@example.com" name="email" value="{{ old('email') }}" required
+                        autocomplete="email" autofocus />
                     @error('email')
                     <p class="text-xs italic text-red-500" role="alert">{{ $message }}</p>
                     @enderror
-                </div>
+                </div>      
                 <div class="mb-4">
                     <label class="block mb-2 text-sm font-bold text-gray-700" for="password">
                         Password
@@ -50,7 +48,8 @@
                     </label>
                     <input
                         class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded shadow appearance-none focus:outline-none @error('password-confirm') border-red-500 @enderror"
-                        id="password-confirm" type="password" name="password-confirm" placeholder="******************" />
+                        id="password-confirm" type="password" name="password-confirm"
+                        placeholder="******************" />
                     @error('password-confirm')
                     <p class="text-xs italic text-red-500" role="alert">{{ $message }}</p>
                     @enderror
