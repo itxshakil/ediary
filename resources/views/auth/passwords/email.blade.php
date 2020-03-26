@@ -8,7 +8,7 @@
         </div>
         <div class="w-full lg:w-1/2 bg-gray-100 p-2 md:p-5 rounded-lg lg:rounded-l-none">
             <h3 class="pt-4 text-2xl text-center pb-2 md:pb-4">{{ __('Reset Password') }}</h3>
-            <div class="px-8 pt-6 pb-2 mb-4 bg-white rounded">
+            <div class="px-4 md:px-8  pt-6 pb-2 mb-4 bg-white rounded">
                 @if (session('status'))
                 <div class="border px-4 py-3 my-2 rounded w-64 bg-green-100 text-green-700 border-green-400"
                     role="alert">
