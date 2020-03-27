@@ -17,12 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes(['verify'=>true]);
+Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 Route::get('/about', 'PageController@about');
 Route::get('/faq', 'PageController@faq');
 Route::get('/contact', 'PageController@contact');
+Route::get('/success', 'PageController@success');
+Route::post('/contact', 'PageController@send')->name('contact.send');
 Route::get('/request-data', 'PageController@requestData');
 Route::post('/checkusername', 'HomeController@checkusername')->name('checkusername');
 
