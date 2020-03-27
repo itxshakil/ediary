@@ -18,4 +18,9 @@ class PageController extends Controller
     {
         return view('pages.contact');
     }
+
+    public function requestData()
+    {
+        return view('pages.request-data');
+    }
 }

@@ -23,6 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified'
 Route::get('/about', 'PageController@about');
 Route::get('/faq', 'PageController@faq');
 Route::get('/contact', 'PageController@contact');
+Route::get('/request-data', 'PageController@requestData');
 Route::post('/checkusername', 'HomeController@checkusername')->name('checkusername');
 
 Route::middleware(['auth'])->group(function () {
