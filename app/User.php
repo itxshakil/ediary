@@ -2,12 +2,14 @@
 
 namespace App;
 
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable;
+    use Notifiable,VerifiesEmails;
 
     /**
      * The attributes that are mass assignable.
