@@ -31,8 +31,5 @@ Vue.component('username-input', require('./components/UsernameInput.vue').defaul
  */
 
 const app = new Vue({
-    el: '#app',
-    data: {
-        open: false // nav hamburger menu
-    }
+    el: '#app'
 });

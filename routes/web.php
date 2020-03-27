@@ -20,9 +20,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/about', 'PageController@about');
+Route::get('/faq', 'PageController@faq');
+Route::get('/contact', 'PageController@contact');
 Route::post('/checkusername', 'HomeController@checkusername')->name('checkusername');
 
-Route::middleware(['auth'])->group(function(){
+Route::middleware(['auth'])->group(function () {
     Route::get('/diaries', 'DiaryController@index')->name('home');
     Route::get('/diaries/create', 'DiaryController@create')->name('diary.create');
     Route::post('/diaries', 'DiaryController@store')->name('diary.store');

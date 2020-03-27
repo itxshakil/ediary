@@ -46426,11 +46426,7 @@ Vue.component('username-input', __webpack_require__(/*! ./components/UsernameInp
  */
 
 var app = new Vue({
-  el: '#app',
-  data: {
-    open: false // nav hamburger menu
-
-  }
+  el: '#app'
 });
 
 /***/ }),
