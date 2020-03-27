@@ -19,13 +19,14 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" class="min-h-screen flex flex-col justify-between">
         @include('includes.navbar')
-
+        
         <main>
             @yield('content')
             <flash message="{{session('flash')}}"></flash>
         </main>
+        @include('includes.footer')
     </div>
 </body>
 
