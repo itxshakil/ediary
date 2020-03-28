@@ -1,10 +1,10 @@
 @guest
 @if (Route::has('register'))
 <a class="hidden md:block bg-blue-100 active:bg-blue-200 text-blue-800 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
-    href="{{ route('register') }}">{{ __('Register') }}</a>
+    href="/register">{{ __('Register') }}</a>
 @endif
 <a class="bg-gray-700 text-gray-100 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
-    href="{{ route('login') }}">{{ __('Login') }}</a>
+    href="/login">{{ __('Login') }}</a>
 @else
 @auth
 <dropdown v-cloak>
