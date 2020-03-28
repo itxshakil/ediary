@@ -12,7 +12,7 @@
             <diary v-for="diary in items" :key="diary.id" :data="diary"></diary>
           </div>
           <paginator :dataSet="dataSet" @changed="fetch"></paginator>
-          <button class="fixed right-0 bottom-0 mb-6 mr-6 p-4 pb-6 rounded-full text-bold text-4xl h-12 w-12 bg-blue-200 text-blue-800 shadow hover:shadow-lg flex justify-center items-center" title="Add new" @click="addnew=true">+</button>
+          <div class="fixed right-0 bottom-0 mb-6 mr-6 p-4 pb-6 rounded-full text-bold text-4xl h-12 w-12 bg-blue-200 text-blue-800 shadow hover:shadow-lg flex justify-center items-center" title="Add new" @click="addnew=true">+</div>
         </div>
     </div>
 </template>
