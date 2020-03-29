@@ -37,7 +37,7 @@
                     </label>
                     <input
                         class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded shadow appearance-none focus:outline-none @error('password') border-red-500 @enderror"
-                        id="password" type="password" name="password" placeholder="******************" />
+                        id="password" type="password" name="password" placeholder="******************" autocomplete="new-password" />
                     @error('password')
                     <p class="text-xs italic text-red-500" role="alert">{{ $message }}</p>
                     @enderror

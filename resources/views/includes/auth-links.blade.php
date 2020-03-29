@@ -14,6 +14,8 @@
         {{ auth()->user()->username }}
     </p>
     <span slot="items" class="flex flex-col py-1 rounded-md bg-white shadow-xs">
+        <a href="/home"
+            class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">Home</a>
         <a href="{{ route('logout') }}"
             class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
             onclick="event.preventDefault();

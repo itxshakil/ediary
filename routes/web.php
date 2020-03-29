@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::view('/','welcome');
 
 Auth::routes(['verify' => true]);
 
@@ -29,7 +28,7 @@ Route::get('/request-data', 'PageController@requestData');
 Route::post('/checkusername', 'HomeController@checkusername')->name('checkusername');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/diaries', 'DiaryController@index')->name('home');
+    Route::get('/diaries', 'DiaryController@index');
     Route::get('/diaries/create', 'DiaryController@create')->name('diary.create');
     Route::post('/diaries', 'DiaryController@store')->name('diary.store');
 });
