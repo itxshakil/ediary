@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    @include('includes.meta')    
+    @include('includes.meta')
 
     <title>@yield('title',config('app.name'))</title>
 
@@ -17,6 +17,17 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162113606-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-162113606-1');
+    </script>
+
     @stack('scripts')
 </head>
 
