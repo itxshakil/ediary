@@ -1,7 +1,7 @@
 <meta name="description"
     content="E-diary is privacy friendly e-diary Website that securely save your diary. TRY NOW FOR FREE!!!" />
 <meta name="keywords"
-    content="ediary, private diary, secure diary,privacy friendly , diary App , save diary , free ediary offline , pwa, shakil alam" />
+    content="ediary,ediary app, private diary, secure diary,privacy friendly , diary App , save diary , free ediary offline , pwa, shakil alam" />
 <meta name="subject" content="Ediary | Securely write and save your private Diary" />
 <meta name="language" content="en" />
 <meta name="rating" content="General" />
@@ -9,13 +9,13 @@
 <meta name="identifier-URL" content="https://appediary.herokuapp.com/" />
 <meta name="owner" content="Shakil Alam" />
 <meta name="author" content="Shakil Alam , appediary@gmail.com" />
-<meta name="og:title" content="Portfolio" />
+<meta name="og:title" content="Ediary | Securely write and save your private Diary" />
 <meta name="og:url" content="https://appediary.herokuapp.com/" />
 <meta name="og:url" content="https://appediary.herokuapp.com/" />
 <meta name="og:url" content="https://appediary.herokuapp.com//" />
-<meta name="og:site_name" content="Shakil Alam | Portfolio" />
+<meta name="og:site_name" content="appEdiary" />
 <meta name="og:description"
-    content="Hi, I'm Shakil Alam, passionate web developer from Faridabad, India. I have experience in developing a real-time web applications, complex front-end and back-end management systems" />
+    content="E-diary is privacy friendly e-diary Website that securely save your diary. TRY NOW FOR FREE!!!" />
 <meta name="og:email" content="appediary@gamil.com" />
 <meta name="og:country-name" content="India" />
 
