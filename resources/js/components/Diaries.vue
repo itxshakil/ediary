@@ -28,11 +28,18 @@
         <diary v-for="diary in items" :key="diary.id" :data="diary"></diary>
       </div>
       <paginator :dataSet="dataSet" @changed="fetch" v-cloak></paginator>
-      <div
-        class="fixed right-0 bottom-0 mb-6 mr-6 p-4 pb-6 rounded-full text-bold text-4xl h-12 w-12 bg-blue-200 text-blue-800 shadow hover:shadow-lg flex justify-center items-center"
-        title="Add new"
-        @click="addnew=true"
-      >+</div>
+      <div class="fixed right-0 bottom-0 mb-6 mr-6">
+        <div 
+          class="md:hidden mb-2 p-4 rounded-full h-12 w-full bg-blue-200 shadow hover:shadow-lg flex justify-center items-center"
+          title="Share"
+          @click="share"
+        ><img class="w-4" src="/icons/svg/share.svg"></div>
+        <div
+          class="p-4 pb-6 rounded-full text-bold text-4xl h-12 w-12 bg-blue-200 text-blue-800 shadow hover:shadow-lg flex justify-center items-center"
+          title="Add new"
+          @click="addnew=true"
+        >+</div>
+      </div>
     </div>
   </div>
 </template>
@@ -74,7 +81,7 @@ export default {
           this.saving = true;
           axios
             .post("/diaries", { entry: this.entry })
-            .then(this.saving)
+            .then(this.saved)
             .catch(function(error) {
               this.saving = false;
               flash(error.response.data.message, "danger");
@@ -84,7 +91,19 @@ export default {
         flash("You can not save empty diary . please write.", "warning");
       }
     },
-    saving({ data }) {
+    share() {
+      if (navigator.share) {
+        navigator
+          .share({
+            title: "AppEdiary",
+            text: "Check out AppEdiary",
+            url: "https:appediary.herokuapp.com"
+          })
+          .then(() => console.log("Successful share"))
+          .catch(error => console.log("Error sharing", error));
+      }
+    },
+    saved({ data }) {
       flash("Diary saved successfully");
       this.addnew = false;
       this.saving = false;
