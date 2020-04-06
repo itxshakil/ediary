@@ -35,7 +35,7 @@
           @click="share"
         ><img class="w-4" src="/icons/svg/share.svg"></div>
         <div
-          class="p-4 pb-6 rounded-full text-bold text-4xl h-12 w-12 bg-blue-200 text-blue-800 shadow hover:shadow-lg flex justify-center items-center"
+          class="p-4 md:pb-6 rounded-full text-bold text-4xl h-12 w-12 bg-blue-200 text-blue-800 shadow hover:shadow-lg flex justify-center items-center"
           title="Add new"
           @click="addnew=true"
         >+</div>
@@ -97,7 +97,7 @@ export default {
           .share({
             title: "AppEdiary",
             text: "Check out AppEdiary",
-            url: "https:appediary.herokuapp.com"
+            url: "https://appediary.herokuapp.com"
           })
           .then(() => console.log("Successful share"))
           .catch(error => console.log("Error sharing", error));
