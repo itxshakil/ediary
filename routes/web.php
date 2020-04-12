@@ -18,6 +18,9 @@ Route::view('/','welcome');
 
 Auth::routes(['verify' => true]);
 
+Route::get('/password/change','Auth\ChangePasswordController@showForm');
+Route::post('/password/change','Auth\ChangePasswordController@change')->name('password.change');
+
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 Route::get('/about', 'PageController@about');
 Route::get('/faq', 'PageController@faq');
