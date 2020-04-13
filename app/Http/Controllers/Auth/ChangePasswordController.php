@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\PasswordChanged;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,8 +26,10 @@ class ChangePasswordController extends Controller
 
     public function change(Request $request){
         $request->validate($this->rules());
+        
+        $this->changeUserPassword($user=Auth::user(), $request->password);
 
-        $this->changeUserPassword($request->password);
+        event(new PasswordChanged($user));
 
         return redirect('/home')->with('flash','Password Changed Successfully');
     }
@@ -44,9 +47,7 @@ class ChangePasswordController extends Controller
         ];
     }
 
-    protected function changeUserPassword($password){
-        $user = Auth::user();
-
+    protected function changeUserPassword($user, $password){
         $user->password = Hash::make($password);
         $user->save();
     }
