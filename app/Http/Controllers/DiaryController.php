@@ -14,7 +14,7 @@ class DiaryController extends Controller
      */
     public function index()
     {
-        $diaries = auth()->user()->diaries()->latest()->paginate(12);
+        $diaries = auth()->user()->diaries()->orderBy('created_at', 'desc')->paginate(12);
 
         return $diaries;
         return view('diary.index', compact('diaries'));
@@ -40,7 +40,14 @@ class DiaryController extends Controller
     {
         $validatedData = $request->validate(['entry' => ['required', 'string']]);
 
-        return auth()->user()->diaries()->create($validatedData);
+        $diary = auth()->user()->diaries()->create($validatedData);
+
+        if($request->filled('created_at')){
+            $diary->created_at = $request->created_at;
+            $diary->save();   
+        }
+        
+        return $diary;
     }
 
     /**

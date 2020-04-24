@@ -82,14 +82,32 @@ export default {
           axios
             .post("/diaries", { entry: this.entry })
             .then(this.saved)
-            .catch(function(error) {
-              this.saving = false;
-              flash(error.response.data.message, "danger");
-            });
+            .catch(this.handleCatch);
         }
       } else {
         flash("You can not save empty diary . please write.", "warning");
       }
+    },
+    handleCatch(error) {
+      if (!navigator.onLine) {
+        this.handleOffline(error);
+        return;
+      }
+      this.saving = false;
+      flash(error.response.data.message, "danger");
+    },
+    handleOffline(error) {
+      let data = this.getEntries();
+
+      let entry = JSON.parse(error.config.data);
+
+      data.toSave.push({ entry: entry.entry, created_at: new Date().toISOString() });
+
+      this.setEntries(data);
+
+      this.resetForm();
+      
+      flash("Diary will updated when connected to network", "warning");
     },
     share() {
       if (navigator.share) {
@@ -103,15 +121,54 @@ export default {
           .catch(error => console.log("Error sharing", error));
       }
     },
-    saved({ data }) {
-      flash("Diary saved successfully");
+    resetForm(){
       this.addnew = false;
       this.saving = false;
+      this.entry = "";
+    },
+    saved() {
+      flash("Diary saved successfully");
+      this.resetForm();
       let query = location.search.match(/page=(\d+)/);
       let page = query ? query[1] : 1;
       if (page == 1) {
         this.fetch();
       }
+      this.savefromstorage();
+    },
+    savefromstorage() {
+      let entries = this.getEntries();
+
+      if (entries.toSave.length) {
+        let items = entries.toSave;
+        items.forEach((item, index) => {
+          axios
+            .post("/diaries", item)
+            .then(this.savedfromstorage(index))
+            .catch(this.handleCatch);
+        });
+      }
+    },
+    getEntries() {
+      if (localStorage.getItem("entries")) {
+        return JSON.parse(localStorage.getItem("entries"));
+      }
+      let emptyEntries = { toSave: [] };
+      localStorage.setItem("entries", JSON.stringify(emptyEntries));
+      return this.getEntries();
+    },
+    setEntries(item) {
+      try {
+        localStorage.setItem("entries", JSON.stringify(item));
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    savedfromstorage(index) {
+      let entries =this.getEntries();
+      entries.toSave.splice(index, 1);
+      this.setEntries(entries);
+      this.saved();
     }
   }
 };
