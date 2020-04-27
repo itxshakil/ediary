@@ -1,10 +1,11 @@
-var CACHE_NAME = 'my-site-cache-v1';
+var CACHE_NAME = 'my-site-cache-v2';
 var urlsToCache = [
     '/',
     '/home',
     '/css/app.css',
     '/js/app.js',
     '/manifest.json',
+    '/sw.js',
     '/icons/svg/share.svg',
     '/icons/old/icons-192.png',
     '/icons/old/icons-24.png',
@@ -23,6 +24,20 @@ self.addEventListener('install', function (event) {
             .then(function (cache) {
                 return cache.addAll(urlsToCache);
             })
+    );
+});
+
+// activate 
+self.addEventListener('activate', event => {
+    //console.log('service worker activated');
+    event.waitUntil(
+        caches.keys().then(keys => {
+            //console.log(keys);
+            return Promise.all(keys
+                .filter(key => key !== CACHE_NAME)
+                .map(key => caches.delete(key))
+            );
+        })
     );
 });
 
