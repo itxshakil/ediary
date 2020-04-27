@@ -1,7 +1,6 @@
 var CACHE_NAME = 'my-site-cache-v2';
 var urlsToCache = [
     '/',
-    '/home',
     '/css/app.css',
     '/js/app.js',
     '/manifest.json',
@@ -45,7 +44,21 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', function (event) {
     event.respondWith(
         caches.match(event.request).then(function (response) {
-            return response || fetch(event.request);
+            console.log(event.request);
+            if(response){
+                return response;
+            } 
+            if (event.request.url == '/home') {
+                console.log('/home');
+                return fetch(event.request).then(fetchRes => {
+                    return caches.open(CACHE_NAME).then(cache => {
+                        cache.put(event.request.url, fetchRes.clone());
+                        return fetchRes;
+                    })
+                });
+            }
+            console.log('else')
+            return fetch(event.request);
         })
     );
 });
