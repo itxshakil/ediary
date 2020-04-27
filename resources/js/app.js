@@ -24,6 +24,7 @@ Vue.component('resizable-textarea', require('./components/ResizableTextarea.vue'
 Vue.component('dropdown', require('./components/Dropdown.vue').default);
 Vue.component('username-input', require('./components/UsernameInput.vue').default);
 Vue.component('register-form', require('./components/RegisterForm.vue').default);
+Vue.component('logout-button', require('./components/LogoutButton.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -32,5 +33,8 @@ Vue.component('register-form', require('./components/RegisterForm.vue').default)
  */
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data:{
+        'user':window.User
+    }
 });
