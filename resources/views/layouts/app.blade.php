@@ -55,7 +55,6 @@
     @if(Auth::user())
     <script>
         window.User = {!! json_encode(Auth::user()) !!}
-        console.log(window.User)
     </script>
 @endif
 </body>
