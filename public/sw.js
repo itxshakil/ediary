@@ -1,4 +1,4 @@
-var CACHE_NAME = 'my-site-cache-v2';
+var CACHE_NAME = 'my-site-cache-v3';
 var urlsToCache = [
     '/',
     '/css/app.css',
@@ -44,11 +44,11 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', function (event) {
     event.respondWith(
         caches.match(event.request).then(function (response) {
-            console.log(event.request);
             if(response){
                 return response;
             } 
-            if (event.request.url == '/home') {
+            let url = new URL(event.request.url);
+            if (url.pathname == '/home') {
                 console.log('/home');
                 return fetch(event.request).then(fetchRes => {
                     return caches.open(CACHE_NAME).then(cache => {
