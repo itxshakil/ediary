@@ -24,6 +24,7 @@ Vue.component('resizable-textarea', require('./components/ResizableTextarea.vue'
 Vue.component('dropdown', require('./components/Dropdown.vue').default);
 Vue.component('username-input', require('./components/UsernameInput.vue').default);
 Vue.component('register-form', require('./components/RegisterForm.vue').default);
+Vue.component('login-form', require('./components/LoginForm.vue').default);
 Vue.component('auth-links', require('./components/AuthLinks.vue').default);
 
 /**
@@ -34,7 +35,7 @@ Vue.component('auth-links', require('./components/AuthLinks.vue').default);
 
 const app = new Vue({
     el: '#app',
-    data:{
-        'user':window.User
+    data: {
+        'user': window.User
     }
 });
