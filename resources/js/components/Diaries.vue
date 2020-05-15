@@ -29,13 +29,7 @@
       </div>
       <paginator :dataSet="dataSet" @changed="fetch" v-cloak></paginator>
       <div class="fixed right-0 bottom-0 mb-6 mr-6">
-        <div
-          class="md:hidden mb-2 p-4 rounded-full h-12 w-full bg-blue-200 shadow hover:shadow-lg flex justify-center items-center"
-          title="Share"
-          @click="share"
-        >
-          <img class="w-4" src="/icons/svg/share.svg" alt="share-icon" />
-        </div>
+        <share class="md:hidden mb-2 p-4 rounded-full w-full bg-blue-200 shadow hover:shadow-lg"></share>
         <div
           class="p-4 md:pb-6 rounded-full text-bold text-4xl h-12 w-12 bg-blue-200 text-blue-800 shadow hover:shadow-lg flex justify-center items-center"
           title="Add new"
@@ -47,8 +41,9 @@
 </template>
 <script>
 import diary from "./Diary";
+import share from "./Share";
 export default {
-  components: { diary },
+  components: { diary, share },
   data() {
     return {
       items: "",
@@ -113,18 +108,6 @@ export default {
       this.resetForm();
 
       flash("Diary will updated when connected to network", "warning");
-    },
-    share() {
-      if (navigator.share) {
-        navigator
-          .share({
-            title: "AppEdiary",
-            text: "Check out AppEdiary",
-            url: "https://appediary.herokuapp.com"
-          })
-          .then(() => console.log("Successful share"))
-          .catch(error => console.log("Error sharing", error));
-      }
     },
     resetForm() {
       this.addnew = false;
