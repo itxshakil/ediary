@@ -14,21 +14,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::view('/','welcome');
+Route::view('/', 'welcome');
 
 Auth::routes(['verify' => true]);
 
-Route::get('/password/change','Auth\ChangePasswordController@showForm');
-Route::post('/password/change','Auth\ChangePasswordController@change')->name('password.change');
+Route::get('/password/change', 'Auth\ChangePasswordController@showForm');
+Route::post('/password/change', 'Auth\ChangePasswordController@change')->name('password.change');
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
-Route::get('/about', 'PageController@about');
-Route::get('/faq', 'PageController@faq');
-Route::get('/contact', 'PageController@contact');
-Route::get('/success', 'PageController@success');
 Route::post('/contact', 'PageController@send')->name('contact.send');
-Route::get('/request-data', 'PageController@requestData');
 Route::post('/checkusername', 'HomeController@checkusername')->name('checkusername');
+
+Route::view('/about', 'pages.about');
+Route::view('/faq', 'pages.faq');
+Route::view('/contact', 'pages.contact');
+Route::view('/success', 'pages.success');
+Route::view('/request-data', 'pages.request-data');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/diaries', 'DiaryController@index');
