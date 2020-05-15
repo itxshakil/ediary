@@ -54,6 +54,8 @@ export default {
     };
   },
   created() {
+    flash("We are fetching your diary. Please wait...");
+    this.saveFromStorage();
     this.fetch();
   },
   methods: {
@@ -82,7 +84,7 @@ export default {
             .catch(this.handleCatch);
         }
       } else {
-        flash("You can not save empty diary . please write.", "warning");
+        flash("You can not save empty diary . please write.", "danger");
       }
     },
     handleCatch(error) {
@@ -107,7 +109,7 @@ export default {
 
       this.resetForm();
 
-      flash("Diary will updated when connected to network", "warning");
+      flash("Diary will updated when connected to network");
     },
     resetForm() {
       this.addnew = false;
@@ -122,9 +124,8 @@ export default {
       if (page == 1) {
         this.fetch();
       }
-      this.savefromstorage();
     },
-    savefromstorage() {
+    saveFromStorage() {
       let entries = this.getEntries();
 
       if (entries.toSave.length) {
@@ -132,7 +133,7 @@ export default {
         items.forEach((item, index) => {
           axios
             .post("/diaries", item)
-            .then(this.savedfromstorage(index))
+            .then(this.removeFromStorage(index))
             .catch(this.handleCatch);
         });
       }
@@ -152,7 +153,7 @@ export default {
         console.log(error);
       }
     },
-    savedfromstorage(index) {
+    removeFromStorage(index) {
       let entries = this.getEntries();
       entries.toSave.splice(index, 1);
       this.setEntries(entries);
