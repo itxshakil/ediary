@@ -1,5 +1,8 @@
 <template>
-  <div class="card w-64 bg-gray-100 pb-2 md:p-5 p-2 m-4 shadow-lg rounded overflow-hidden" :class="full?'w-full':null">
+  <div
+    class="card w-64 bg-gray-100 pb-2 md:p-5 p-2 m-4 shadow-lg rounded overflow-hidden"
+    :class="full?'w-full':null"
+  >
     <div class="text-right text-xs text-gray-700" v-text="date"></div>
     <p v-text="text" class="notebook"></p>
     <button class="text-blue-700" @click="full=!full" v-if="!full">show more</button>
@@ -11,20 +14,20 @@ export default {
   props: ["data"],
   data() {
     return {
-      entry:this.data.entry,
-      created_at:this.data.created_at,
-      full:false
+      entry: this.data.entry,
+      created_at: this.data.created_at,
+      full: false
     };
   },
   computed: {
     date() {
       return this.formatDate(new Date(this.created_at));
     },
-    text(){
-      if(this.full){
-        return this.entry
+    text() {
+      if (this.full) {
+        return this.entry;
       }
-      return this.entry.substring(0,250);
+      return this.entry.substring(0, 250);
     }
   },
   methods: {

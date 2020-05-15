@@ -41,8 +41,9 @@
                     <resizable-textarea>
                         <textarea
                             class="w-full px-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none @error('message') border-red-500 @enderror"
-                            name="message" id="message" cols="30" rows="10" placeholder="Bug report/ Feature request/Suggestion and more..."
-                            required autofocus value="{{old('message')}}"></textarea>
+                            name="message" id="message" cols="30" rows="10"
+                            placeholder="Bug report/ Feature request/Suggestion and more..." required autofocus
+                            value="{{old('message')}}"></textarea>
                     </resizable-textarea>
                     @error('message')
                     <p class="text-xs italic text-red-500" role="alert">{{ $message }}</p>

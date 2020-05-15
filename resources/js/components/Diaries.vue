@@ -29,11 +29,13 @@
       </div>
       <paginator :dataSet="dataSet" @changed="fetch" v-cloak></paginator>
       <div class="fixed right-0 bottom-0 mb-6 mr-6">
-        <div 
+        <div
           class="md:hidden mb-2 p-4 rounded-full h-12 w-full bg-blue-200 shadow hover:shadow-lg flex justify-center items-center"
           title="Share"
           @click="share"
-        ><img class="w-4" src="/icons/svg/share.svg"></div>
+        >
+          <img class="w-4" src="/icons/svg/share.svg" alt="share-icon" />
+        </div>
         <div
           class="p-4 md:pb-6 rounded-full text-bold text-4xl h-12 w-12 bg-blue-200 text-blue-800 shadow hover:shadow-lg flex justify-center items-center"
           title="Add new"
@@ -101,12 +103,15 @@ export default {
 
       let entry = JSON.parse(error.config.data);
 
-      data.toSave.push({ entry: entry.entry, created_at: new Date().toISOString() });
+      data.toSave.push({
+        entry: entry.entry,
+        created_at: new Date().toISOString()
+      });
 
       this.setEntries(data);
 
       this.resetForm();
-      
+
       flash("Diary will updated when connected to network", "warning");
     },
     share() {
@@ -121,7 +126,7 @@ export default {
           .catch(error => console.log("Error sharing", error));
       }
     },
-    resetForm(){
+    resetForm() {
       this.addnew = false;
       this.saving = false;
       this.entry = "";
@@ -165,7 +170,7 @@ export default {
       }
     },
     savedfromstorage(index) {
-      let entries =this.getEntries();
+      let entries = this.getEntries();
       entries.toSave.splice(index, 1);
       this.setEntries(entries);
       this.saved();

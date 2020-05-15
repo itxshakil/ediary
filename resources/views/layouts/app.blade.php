@@ -56,5 +56,5 @@
     <script>
         window.User = {!! json_encode(Auth::user()) !!}
     </script>
-@endif
+    @endif
 </body>

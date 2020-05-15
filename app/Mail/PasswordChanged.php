@@ -12,6 +12,7 @@ class PasswordChanged extends Mailable
     use Queueable, SerializesModels;
 
     public $user;
+    
     /**
      * Create a new message instance.
      *
@@ -29,6 +30,6 @@ class PasswordChanged extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.passwords.change',['user' =>  $this->user]);
+        return $this->markdown('emails.passwords.change', ['user' =>  $this->user]);
     }
 }

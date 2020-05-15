@@ -1,7 +1,11 @@
 <template>
   <div class="w-full bg-gray-100 p-2 md:p-5 rounded-lg">
     <h1 class="pt-4 text-2xl font-semibold text-gray-800 text-center pb-2 sm:pb-4">Register now!</h1>
-    <form  method="POST" class="px-4 md:px-8  pt-6 pb-2 mb-4 bg-red-100 rounded" @submit.prevent="register">
+    <form
+      method="POST"
+      class="px-4 md:px-8 pt-6 pb-2 mb-4 bg-red-100 rounded"
+      @submit.prevent="register"
+    >
       <div class="flex flex-col sm:flex-row mb-4">
         <div class="sm:mr-2 w-full">
           <label class="block mb-2 text-sm font-bold text-gray-700" for="username">Username</label>
@@ -127,7 +131,7 @@ export default {
 };
 </script>
 <style scoped>
-    .w-full{
-        max-width:42rem;
-    }
+.w-full {
+  max-width: 42rem;
+}
 </style>

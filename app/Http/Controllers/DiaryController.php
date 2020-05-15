@@ -42,9 +42,9 @@ class DiaryController extends Controller
 
         $diary = auth()->user()->diaries()->create($validatedData);
 
-        if($request->filled('created_at')){
+        if ($request->filled('created_at')) {
             $diary->created_at = $request->created_at;
-            $diary->save();   
+            $diary->save();
         }
         
         return $diary;
