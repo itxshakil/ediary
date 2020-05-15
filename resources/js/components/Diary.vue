@@ -5,8 +5,8 @@
   >
     <div class="text-right text-xs text-gray-700" v-text="date"></div>
     <p v-text="text" class="notebook"></p>
-    <button class="text-blue-700" @click="full=!full" v-if="!full">show more</button>
-    <button class="text-blue-700" @click="full=!full" v-if="full">show less</button>
+    <button class="text-blue-700" @click="toggleFull" v-if="full">show less</button>
+    <button class="text-blue-700" @click="toggleFull" v-else>show more</button>
   </div>
 </template>
 <script>
@@ -44,6 +44,9 @@ export default {
         ":" +
         ("0" + date.getMinutes()).slice(-2)
       );
+    },
+    toggleFull() {
+      this.full = !this.full;
     }
   }
 };
