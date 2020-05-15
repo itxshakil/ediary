@@ -1,4 +1,4 @@
-var CACHE_NAME = 'my-site-cache-v4';
+var CACHE_NAME = 'my-site-cache-v5';
 var urlsToCache = [
     '/',
     '/css/app.css',
@@ -44,9 +44,9 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', function (event) {
     event.respondWith(
         caches.match(event.request).then(function (response) {
-            if(response){
+            if (response) {
                 return response;
-            } 
+            }
             let url = new URL(event.request.url);
             if (url.pathname == '/home') {
                 return fetch(event.request).then(fetchRes => {
@@ -57,12 +57,23 @@ self.addEventListener('fetch', function (event) {
                     })
                 });
             }
+            if (url.pathname == '/logout') {
+                return fetch(event.request).then(fetchRes => {
+                    if (fetchRes.status === 204) {
+                        return caches.open(CACHE_NAME).then(cache => {
+                            cache.delete('/home', fetchRes.clone());
+                            return fetchRes;
+                        })
+                    }
+                    return fetchRes;
+                });
+            }
             return fetch(event.request);
         })
     );
 });
 
-function reCacheHomePage(){
+function reCacheHomePage() {
     fetch('/').then(newRes => {
         caches.open(CACHE_NAME).then(cache => {
             cache.put('/', newRes.clone());
