@@ -26,6 +26,7 @@ Vue.component('username-input', require('./components/UsernameInput.vue').defaul
 Vue.component('register-form', require('./components/RegisterForm.vue').default);
 Vue.component('login-form', require('./components/LoginForm.vue').default);
 Vue.component('auth-links', require('./components/AuthLinks.vue').default);
+Vue.component('profile', require('./components/Profile.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

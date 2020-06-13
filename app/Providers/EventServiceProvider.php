@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Events\PasswordChanged;
+use App\Listeners\CreateProfileForUser;
 use App\Listeners\SendPasswordChangedNotification;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -19,6 +20,7 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
+            CreateProfileForUser::class,
         ],
         PasswordChanged::class=> [
             SendPasswordChangedNotification::class,
