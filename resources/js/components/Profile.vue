@@ -1,7 +1,14 @@
 <template>
   <div class="w-full h-auto bg-gray-400 lg:block lg:w-1/2 bg-cover rounded-lg p-8">
     <div class="flex">
-      <img :src="profile.image" :alt="profile.image" class="rounded-full h-16 w-16 border mr-2" />
+      <div class="flex flex-col justify-center">
+        <img :src="image" :alt="image" class="rounded-full h-24 w-24 border mr-2" />
+        <image-upload
+          v-if="editable == true"
+          class="m-2 ml-0 px-3 py-2 text-sm leading-tight text-gray-700 appearance-none focus:outline-none w-24"
+          @loaded="onLoad"
+        ></image-upload>
+      </div>
       <div class="info">
         <div class="flex items-center">
           <div v-if="editing == false" class="text-xl mr-2" v-text="name"></div>
@@ -25,7 +32,7 @@
             v-if="editable == false"
           >Follow</a>
           <a
-            v-if="editable == true && editing ==false"
+            v-if="editable == true && editing == false"
             class="bg-gray-700 text-gray-100 font-normal px-2 py-1 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
             href="#"
             @click="edit"
@@ -67,6 +74,7 @@
   </div>
 </template>
 <script>
+import ImageUpload from "./ImageUpload.vue";
 export default {
   props: {
     canEdit: {
@@ -77,6 +85,7 @@ export default {
       type: Object
     }
   },
+  components: { ImageUpload },
   data() {
     return {
       editable: this.canEdit,
@@ -84,6 +93,8 @@ export default {
       editing: false,
       name: this.data.name,
       bio: this.data.bio,
+      image: this.data.image,
+      user: this.data.user,
       errors: {}
     };
   },
@@ -97,7 +108,7 @@ export default {
       this.bio = this.profile.bio;
     },
     save() {
-      let username = this.$root.user.username;
+      let username = this.user.username;
       axios
         .post("/profile/" + username, {
           name: this.name,
@@ -110,6 +121,17 @@ export default {
         .catch(err => {
           this.errors = err.response.data.errors;
         });
+    },
+    onLoad(image) {
+      this.image = image.src;
+      this.persist(image.file);
+    },
+    persist(image) {
+      let data = new FormData();
+      data.append("image", image);
+      axios.post(`/api/users/${this.user.username}/avatar`, data).then(() => {
+        flash("Image Updated Successfully");
+      });
     }
   }
 };

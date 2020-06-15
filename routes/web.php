@@ -28,6 +28,9 @@ Route::post('/checkusername', 'HomeController@checkusername')->name('checkuserna
 Route::get('/user/{user:username}','ProfileController@show');
 Route::post('/profile/{user:username}','ProfileController@update');
 
+
+Route::post('/api/users/{user:username}/avatar', 'Api\UserAvatarController@store')->middleware('auth');
+
 Route::view('/about', 'pages.about');
 Route::view('/faq', 'pages.faq');
 Route::view('/contact', 'pages.contact');

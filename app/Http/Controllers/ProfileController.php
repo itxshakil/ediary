@@ -47,6 +47,7 @@ class ProfileController extends Controller
     public function show(User $user)
     {
         $profile = $user->profile;
+        $profile->load('user');
 
         return view('profiles.show', compact('profile'));
     }
@@ -72,7 +73,7 @@ class ProfileController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $this->authorize('update',$user->profile);
+        $this->authorize('update', $user->profile);
 
         $data =  $request->validate([
             'name' =>['required','string','min:5'],
