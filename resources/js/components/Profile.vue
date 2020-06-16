@@ -26,11 +26,13 @@
               v-text="errors.name[0]"
             ></p>
           </div>
-          <a
-            class="bg-gray-700 text-gray-100 font-normal px-2 py-1 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
-            href="#"
+          <follow-button
             v-if="editable == false"
-          >Follow</a>
+            :isFollowing="status"
+            :profileUser="user"
+            @followed="follower_count ++ "
+            @unfollowed="follower_count -- "
+          ></follow-button>
           <a
             v-if="editable == true && editing == false"
             class="bg-gray-700 text-gray-100 font-normal px-2 py-1 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
@@ -39,8 +41,12 @@
           >Edit</a>
         </div>
         <div class="flex">
-          <span class="mr-2"><strong v-text="follower_count"></strong> Followers</span>
-          <span><strong v-text="following_count"></strong> Following</span>
+          <span class="mr-2">
+            <strong v-text="follower_count"></strong> Followers
+          </span>
+          <span>
+            <strong v-text="following_count"></strong> Following
+          </span>
         </div>
         <div v-if="editing == false" class="pt-2" v-text="bio" @dblclick="edit"></div>
         <div v-else>
@@ -75,9 +81,14 @@
 </template>
 <script>
 import ImageUpload from "./ImageUpload.vue";
+import FollowButton from "./FollowButton.vue";
 export default {
   props: {
     canEdit: {
+      type: Boolean,
+      default: false
+    },
+    isFollowing: {
       type: Boolean,
       default: false
     },
@@ -85,7 +96,7 @@ export default {
       type: Object
     }
   },
-  components: { ImageUpload },
+  components: { ImageUpload, FollowButton },
   data() {
     return {
       editable: this.canEdit,
@@ -95,8 +106,9 @@ export default {
       bio: this.data.bio,
       image: this.data.image,
       user: this.data.user,
-      follower_count:this.data.follower_count,
-      following_count:this.data.user.following_count,
+      follower_count: this.data.follower_count,
+      following_count: this.data.user.following_count,
+      status: this.isFollowing,
       errors: {}
     };
   },

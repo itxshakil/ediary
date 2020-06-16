@@ -6,7 +6,8 @@
         @can('update', $profile)
         <profile :data="{{$profile->toJson()}}" :can-edit="true"></profile>
         @else
-        <profile :data="{{$profile->toJson()}}" :can-edit="false"></profile>
+        <profile :data="{{$profile->toJson()}}" :can-edit="false" :is-following="{{$isFollowing ? "true" :"false" }}">
+        </profile>
         @endcan
     </div>
 </div>

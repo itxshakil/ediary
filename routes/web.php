@@ -25,9 +25,10 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified'
 Route::post('/contact', 'PageController@send')->name('contact.send');
 Route::post('/checkusername', 'HomeController@checkusername')->name('checkusername');
 
-Route::get('/user/{user:username}','ProfileController@show');
-Route::post('/profile/{user:username}','ProfileController@update');
+Route::get('/user/{user:username}', 'ProfileController@show');
+Route::post('/profile/{user:username}', 'ProfileController@update');
 
+Route::post('/profile/{user:username}/follow', 'FollowController@store')->middleware('auth');
 
 Route::post('/api/users/{user:username}/avatar', 'Api\UserAvatarController@store')->middleware('auth');
 
