@@ -10,11 +10,15 @@ class Profile extends Model
     
     public function user()
     {
-        return $this->belongsTo(User::class)->select(['id','username']);
+        return $this->belongsTo(User::class)->select(['id','username'])->withCount('following');
     }
 
     public function getImageAttribute($value)
     {
         return "/storage/{$value}";
+    }
+
+    public function follower(){
+        return $this->belongsToMany(User::class);
     }
 }

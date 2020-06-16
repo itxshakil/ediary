@@ -39,8 +39,8 @@
           >Edit</a>
         </div>
         <div class="flex">
-          <span class="mr-2">212 Followers</span>
-          <span>212 Following</span>
+          <span class="mr-2"><strong v-text="follower_count"></strong> Followers</span>
+          <span><strong v-text="following_count"></strong> Following</span>
         </div>
         <div v-if="editing == false" class="pt-2" v-text="bio" @dblclick="edit"></div>
         <div v-else>
@@ -95,6 +95,8 @@ export default {
       bio: this.data.bio,
       image: this.data.image,
       user: this.data.user,
+      follower_count:this.data.follower_count,
+      following_count:this.data.user.following_count,
       errors: {}
     };
   },

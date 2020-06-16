@@ -2677,6 +2677,8 @@ __webpack_require__.r(__webpack_exports__);
       bio: this.data.bio,
       image: this.data.image,
       user: this.data.user,
+      follower_count: this.data.follower_count,
+      following_count: this.data.user.following_count,
       errors: {}
     };
   },
@@ -22151,7 +22153,21 @@ var render = function() {
               : _vm._e()
           ]),
           _vm._v(" "),
-          _vm._m(0),
+          _c("div", { staticClass: "flex" }, [
+            _c("span", { staticClass: "mr-2" }, [
+              _c("strong", {
+                domProps: { textContent: _vm._s(_vm.follower_count) }
+              }),
+              _vm._v(" Followers")
+            ]),
+            _vm._v(" "),
+            _c("span", [
+              _c("strong", {
+                domProps: { textContent: _vm._s(_vm.following_count) }
+              }),
+              _vm._v(" Following")
+            ])
+          ]),
           _vm._v(" "),
           _vm.editing == false
             ? _c("div", {
@@ -22220,18 +22236,7 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex" }, [
-      _c("span", { staticClass: "mr-2" }, [_vm._v("212 Followers")]),
-      _vm._v(" "),
-      _c("span", [_vm._v("212 Following")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
