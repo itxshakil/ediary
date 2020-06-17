@@ -15,10 +15,15 @@ class Profile extends Model
 
     public function getImageAttribute($value)
     {
-        return "/storage/{$value}";
-    }
+        if ($value) {
+            return "/storage/{$value}";
+        }
 
-    public function follower(){
+        return "https://source.unsplash.com/96x96/daily";
+    }
+    
+    public function follower()
+    {
         return $this->belongsToMany(User::class);
     }
 }
