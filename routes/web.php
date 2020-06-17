@@ -25,6 +25,8 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified'
 Route::post('/contact', 'PageController@send')->name('contact.send');
 Route::post('/checkusername', 'HomeController@checkusername')->name('checkusername');
 
+Route::get('/search', 'SearchController@show');
+
 Route::get('/user/{user:username}', 'ProfileController@show');
 Route::post('/profile/{user:username}', 'ProfileController@update');
 
