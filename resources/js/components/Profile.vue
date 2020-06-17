@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-auto bg-gray-400 lg:block lg:w-1/2 bg-cover rounded-lg p-8">
+  <div class="w-full h-auto bg-gray-400 lg:block lg:w-1/2 bg-cover rounded-lg py-4 p-2 md:p-8">
     <div class="flex">
       <div class="flex flex-col justify-center">
         <img :src="image" :alt="image" class="rounded-full h-24 w-24 border mr-2" />
