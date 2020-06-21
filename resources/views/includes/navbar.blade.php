@@ -8,6 +8,14 @@
                     <a href="/">{{ config('app.name', 'Ediary') }}</a>
                 </div>
             </div>
+            <form action="/search" method="get" class="w-full text-right">
+                <input
+                    class="w-48 m-1 px-3 py-2 text-sm leading-tight text-gray-700 border  rounded shadow appearance-none focus:outline-none @error('q') border-red-500 @enderror"
+                    id="q" type="search" name="q" placeholder="Search user..." autocomplete="off" required />
+                @error('q')
+                <p class="text-xs italic text-red-500" role="alert">{{ $message }}</p>
+                @enderror
+            </form>
             <auth-links>
             </auth-links>
         </div>

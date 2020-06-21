@@ -17,14 +17,19 @@
       <dropdown v-cloak>
         <p
           slot="toggler"
-          class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-white transition duration-150 ease-in-out text-gray-100"
-          v-text="user.username"
-        ></p>
+          class="flex text-sm border-2 rounded-full focus:outline-none focus:border-white transition duration-150 ease-in-out text-gray-100"
+        >
+          <img class="w-10 rounded-full" :src="user.profile.image" alt />
+        </p>
         <span slot="items" class="flex flex-col py-1 rounded-md bg-white shadow-xs">
+          <a
+            :href="'/user/'+user.username"
+            class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+          >My Profile</a>
           <a
             href="/home"
             class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
-          >Home</a>
+          >Dashboard</a>
           <a
             href="/password/change"
             class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
