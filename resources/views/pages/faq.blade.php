@@ -19,7 +19,7 @@
             class="text-blue-700">Sign up</a>)</p>
 
     <h3 class="font-semibold">How can I print my entries?</h3>
-    <p class="ml-2 mb-2">You have to request <a href="/request-data">here</a> and then We will send your all your data
+    <p class="ml-2 mb-2">You have to <a href="/request-data" class="text-blue-700">request here</a> and then We will send your all your data
         to your email. You can then
         unzip this file and print as many as you'd like. You may also print any diary entry directly from the web
         browser.</p>

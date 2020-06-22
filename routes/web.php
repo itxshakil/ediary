@@ -38,7 +38,8 @@ Route::view('/about', 'pages.about');
 Route::view('/faq', 'pages.faq');
 Route::view('/contact', 'pages.contact');
 Route::view('/success', 'pages.success');
-Route::view('/request-data', 'pages.request-data');
+Route::view('/request-data', 'pages.request-data')->middleware('password.confirm');
+Route::post('/request-data', 'UserDataController@send')->middleware('password.confirm')->name('request.data');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/diaries', 'DiaryController@index');
