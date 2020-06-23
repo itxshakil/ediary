@@ -9,9 +9,9 @@
     <div class="m-1 rounded border flex p-2 items-center">
         <img src="{{$user->profile->image}}" alt="Profile picture of {{$user->username}}"
             class="rounded-full h-24 w-24 border m-2">
-        <div class="flex flex-col">
+        <div class="ml-3 flex flex-col">
             <div class="text-xl">{{$user->profile->name}}</div>
-            <div class="span text-lg">{{$user->username}}</div>
+            <div class="span">{{$user->profile->follower_count}} Followers</div>
             <a href="/user/{{$user->username}}"
                 class="bg-blue-600 text-gray-100 font-normal px-2 py-1 rounded outline-none focus:outline-none mr-2 my-2 uppercase shadow hover:shadow-md font-bold text-xs">View
                 Profile</a>
