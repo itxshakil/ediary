@@ -88,7 +88,9 @@ export default {
       }
     },
     handleCatch(error) {
+      console.log('Entered in handleCatch')
       if (!navigator.onLine) {
+      console.log('Offline')
         this.handleOffline(error);
         return;
       }
@@ -96,12 +98,14 @@ export default {
       flash(error.response.data.message, "danger");
     },
     handleOffline(error) {
+      console.log('Entered into handleOffline')
       let data = this.getEntries();
+      console.log('Entries :', data)
 
-      let entry = JSON.parse(error.config.data);
+      let entry = this.entry
 
       data.toSave.push({
-        entry: entry.entry,
+        entry: entry,
         created_at: new Date().toISOString()
       });
 
@@ -139,6 +143,7 @@ export default {
       }
     },
     getEntries() {
+      console.log("Entered into getEntries")
       if (localStorage.getItem("entries")) {
         return JSON.parse(localStorage.getItem("entries"));
       }
