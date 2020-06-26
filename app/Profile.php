@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Profile extends Model
 {
@@ -16,7 +17,7 @@ class Profile extends Model
     public function getImageAttribute($value)
     {
         if ($value) {
-            return "/storage/{$value}";
+            return Storage::disk('s3')->url($value);
         }
 
         return "https://source.unsplash.com/96x96/daily";
