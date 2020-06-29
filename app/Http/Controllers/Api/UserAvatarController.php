@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Events\ProfilePicChanged;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -19,9 +20,13 @@ class UserAvatarController extends Controller
         $path = $request->file('image')->store('images', 's3');
 
         Storage::disk('s3')->setVisibility($path, 'public');
-        
-        return $profile->update([
+
+        $profile->update([
             'image' =>  $path
         ]);
+
+        event(ProfilePicChanged::class, $profile->image);
+
+        return $path;
     }
 }
