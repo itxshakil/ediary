@@ -4,8 +4,6 @@ namespace App\Listeners;
 
 use App\Events\PasswordChanged;
 use App\Mail\PasswordChanged as MailPasswordChanged;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Mail;
 
 class SendPasswordChangedNotification
@@ -17,13 +15,12 @@ class SendPasswordChangedNotification
      */
     public function __construct()
     {
-        //
     }
 
     /**
      * Handle the event.
      *
-     * @param  PasswordChanged  $event
+     * @param  PasswordChanged $event
      * @return void
      */
     public function handle(PasswordChanged $event)

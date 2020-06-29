@@ -14,13 +14,12 @@ class DeleteOldPic
      */
     public function __construct()
     {
-        //
     }
 
     /**
      * Handle the event.
      *
-     * @param  PasswordChanged  $event
+     * @param  PasswordChanged $event
      * @return void
      */
     public function handle(PasswordChanged $event)

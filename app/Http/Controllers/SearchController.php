@@ -9,11 +9,11 @@ class SearchController extends Controller
 {
     public function show(Request $request)
     {
-        $query =$request->query('q');
+        $query = $request->query('q');
         $users = User::search($query)
                     ->with('profile')
                 ->paginate(12);
-            
+
         return view('search.show', compact('users'));
     }
 }

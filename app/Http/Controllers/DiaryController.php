@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Diary;
 use Illuminate\Http\Request;
 
 class DiaryController extends Controller
@@ -17,6 +16,7 @@ class DiaryController extends Controller
         $diaries = auth()->user()->diaries()->orderBy('created_at', 'desc')->paginate(12);
 
         return $diaries;
+
         return view('diary.index', compact('diaries'));
     }
 
@@ -46,48 +46,7 @@ class DiaryController extends Controller
             $diary->created_at = $request->created_at;
             $diary->save();
         }
-        
+
         return $diary;
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Diary  $diary
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Diary $diary)
-    {
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Diary  $diary
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Diary $diary)
-    {
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Diary  $diary
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Diary $diary)
-    {
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Diary  $diary
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Diary $diary)
-    {
     }
 }

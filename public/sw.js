@@ -1,4 +1,4 @@
-var CACHE_NAME = 'my-site-cache-v8';
+var CACHE_NAME = 'my-site-cache-v1';
 var urlsToCache = [
     '/',
     '/css/app.css',
@@ -26,7 +26,7 @@ self.addEventListener('install', function (event) {
     );
 });
 
-// activate 
+// activate
 self.addEventListener('activate', event => {
     //console.log('service worker activated');
     event.waitUntil(
@@ -80,4 +80,3 @@ function reCacheHomePage() {
         })
     });
 }
-

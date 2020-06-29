@@ -36,6 +36,7 @@ class HomeController extends Controller
         if (User::where('username', $request->username)->exists()) {
             return response('false');
         }
+
         return response('true');
     }
 }

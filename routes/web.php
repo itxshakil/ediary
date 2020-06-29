@@ -13,13 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::view('/', 'welcome');
 
 Auth::routes(['verify' => true]);
 
-Route::get('/password/change', 'Auth\ChangePasswordController@showForm');
-Route::post('/password/change', 'Auth\ChangePasswordController@change')->name('password.change');
+Route::get('/password/change', 'Auth\ChangePasswordController@showForm')->middleware('auth');
+Route::post('/password/change', 'Auth\ChangePasswordController@change')->name('password.change')->middleware('auth');
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 Route::post('/contact', 'PageController@send')->name('contact.send');
