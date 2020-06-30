@@ -14,23 +14,51 @@
           @loaded="onLoad"
         ></image-upload>
       </div>
-      <div class="info">
+      <div class="info" v-if="editing">
+        <input
+          type="text"
+          name="name"
+          v-model="name"
+          class="px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none"
+        />
+        <p
+          v-if="errors.name"
+          class="text-xs italic text-red-500"
+          role="alert"
+          v-text="errors.name[0]"
+        ></p>
+        <div class="flex mr-2">
+          <strong v-text="follower_count"></strong> Followers
+          <strong v-text="following_count"></strong> Following
+        </div>
+        <textarea
+          name="bio"
+          id="bio"
+          cols="20"
+          rows="10"
+          v-model="bio"
+          class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none"
+        ></textarea>
+        <p
+          v-if="errors.bio"
+          class="text-xs italic text-red-500"
+          role="alert"
+          v-text="errors.bio[0]"
+        ></p>
+        <div class="flex">
+          <button
+            class="mt-4 bg-blue-100 active:bg-blue-200 text-blue-800 px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
+            @click="save"
+          >Save</button>
+          <button
+            class="mt-4 bg-gray-600 text-gray-100 px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
+            @click="cancel"
+          >Cancel</button>
+        </div>
+      </div>
+      <div class="info" v-else>
         <div class="flex items-center">
-          <div v-if="editing == false" class="text-xl mr-2" v-text="name"></div>
-          <div v-else>
-            <input
-              type="text"
-              name="name"
-              v-model="name"
-              class="px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none"
-            />
-            <p
-              v-if="errors.name"
-              class="text-xs italic text-red-500"
-              role="alert"
-              v-text="errors.name[0]"
-            ></p>
-          </div>
+          <div class="text-xl mr-2" v-text="name"></div>
           <follow-button
             v-if="editable == false"
             :isFollowing="status"
@@ -38,49 +66,19 @@
             @followed="follower_count ++ "
             @unfollowed="follower_count -- "
           ></follow-button>
-          <a
-            v-if="editable == true && editing == false"
-            class="bg-gray-700 text-gray-100 font-normal px-2 py-1 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
-            href="#"
-            @click="edit"
-          >Edit</a>
         </div>
-        <div class="flex">
-          <span class="mr-2">
-            <strong v-text="follower_count"></strong> Followers
-          </span>
-          <span>
-            <strong v-text="following_count"></strong> Following
-          </span>
+        <a
+          v-if="editable == true"
+          class="text-blue-600 outline-none mb-1 ml-1 hover:shadow-md text-xs"
+          href="#"
+          @click="edit"
+        >Edit Profile</a>
+        <div class="flex mr-2">
+          <strong v-text="follower_count"></strong> Followers
+          <strong v-text="following_count"></strong> Following
         </div>
-        <div v-if="editing == false" class="pt-2" v-text="bio" @dblclick="edit"></div>
-        <div v-else>
-          <textarea
-            name="bio"
-            id="bio"
-            cols="20"
-            rows="10"
-            v-model="bio"
-            class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none"
-          ></textarea>
-          <p
-            v-if="errors.bio"
-            class="text-xs italic text-red-500"
-            role="alert"
-            v-text="errors.bio[0]"
-          ></p>
-        </div>
+        <div class="pt-2" v-text="bio" @dblclick="edit"></div>
       </div>
-    </div>
-    <div class="flex" v-if="editing == true">
-      <button
-        class="mt-4 bg-blue-100 active:bg-blue-200 text-blue-800 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
-        @click="save"
-      >Save</button>
-      <button
-        class="mt-4 bg-gray-600 text-gray-100 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
-        @click="cancel"
-      >Cancel</button>
     </div>
   </div>
 </template>
@@ -114,8 +112,8 @@ export default {
       follower_count: this.data.follower_count,
       following_count: this.data.user.following_count,
       status: this.isFollowing,
-      errors: {},
-      uploading: false
+      uploading: false,
+      errors: {}
     };
   },
   methods: {
