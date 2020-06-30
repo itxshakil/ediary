@@ -57,9 +57,9 @@
                 </div>
                 <div class="mb-4 text-center">
                     <button
-                        class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none"
+                        class="w-full bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-full outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
                         type="submit">
-                        Register
+                        Register Now
                     </button>
                 </div>
                 @csrf

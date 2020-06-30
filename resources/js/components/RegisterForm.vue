@@ -70,9 +70,11 @@
       </div>
       <div class="mb-4 text-center">
         <button
-          class="w-full bg-blue-200 active:bg-blue-300 text-blue-800 font-normal px-3 sm:px-4 py-2 rounded-full outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
+          class="w-full bg-blue-200 active:bg-blue-300 text-blue-800 px-3 sm:px-4 py-2 rounded-full outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
           type="submit"
-        >Register now for free</button>
+          :disabled="disabled"
+          v-text="btnText"
+        ></button>
       </div>
     </form>
   </div>
@@ -81,6 +83,7 @@
 export default {
   data() {
     return {
+      disabled: false,
       email: "",
       password: "",
       password_confirmation: "",
@@ -89,12 +92,18 @@ export default {
       }
     };
   },
+  computed: {
+    btnText() {
+      return this.disabled ? "Please wait" : "Get Started Now...";
+    }
+  },
   methods: {
     username() {
       return this.$refs.usernameInput;
     },
     register() {
       if (this.validate()) {
+        this.disabled = true;
         axios
           .post("/register", {
             username: this.username().username,
@@ -106,9 +115,11 @@ export default {
             if (response.status == 201) {
               window.location.href = "/home";
             }
+            this.disabled = false;
           })
           .catch(err => {
             this.errors = err.response.data.errors;
+            this.disabled = false;
           });
       }
     },
