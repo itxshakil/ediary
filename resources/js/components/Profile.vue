@@ -2,7 +2,12 @@
   <div class="w-full h-auto bg-gray-400 lg:block lg:w-1/2 bg-cover rounded-lg py-4 p-2 md:p-8">
     <div class="flex">
       <div class="flex flex-col justify-center">
-        <img :src="image" :alt="'Profile picture of '+user.username" class="overflow-hidden rounded-full h-24 w-24 border mr-2" />
+        <img
+          :src="image"
+          :alt="'Profile picture of '+user.username"
+          class="overflow-hidden rounded-full h-24 w-24 border mr-2"
+        />
+        <p class="text-xs" v-if="uploading">Updating Please wait...</p>
         <image-upload
           v-if="editable == true"
           class="m-2 ml-0 px-3 py-2 text-sm leading-tight text-gray-700 appearance-none focus:outline-none w-24"
@@ -109,7 +114,8 @@ export default {
       follower_count: this.data.follower_count,
       following_count: this.data.user.following_count,
       status: this.isFollowing,
-      errors: {}
+      errors: {},
+      uploading: false
     };
   },
   methods: {
@@ -141,11 +147,19 @@ export default {
       this.persist(image.file);
     },
     persist(image) {
+      this.uploading = true;
       let data = new FormData();
       data.append("image", image);
-      axios.post(`/api/users/${this.user.username}/avatar`, data).then(() => {
-        flash("Image Updated Successfully");
-      });
+      axios
+        .post(`/api/users/${this.user.username}/avatar`, data)
+        .then(() => {
+          flash("Image Updated Successfully");
+          this.uploading = false;
+        })
+        .catch(err => {
+          flash("Image Upload failed", "danger");
+          this.uploading = false;
+        });
     }
   }
 };
