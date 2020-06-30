@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Login')
+@section('title','FAQ')
 @section('content')
 <div class="container mx-auto px-3 md:px-6 my-12">
     <h2 class="text-xl md:text-2xl">Frequently Asked Questions and Answer.</h2>
