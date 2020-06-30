@@ -54,9 +54,11 @@
     </div>
     <div class="mb-4 text-center">
       <button
-        class="w-full bg-blue-500 active:bg-blue-800 text-white font-normal px-3 sm:px-4 py-2 rounded-full outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
+        class="w-full bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-full outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
         type="submit"
-      >Sign In</button>
+        :disabled="disabled"
+        v-text="btnText"
+      ></button>
     </div>
   </form>
 </template>
@@ -67,13 +69,20 @@ export default {
       username: "",
       password: "",
       remember: "",
+      disabled: false,
       errors: {
         username: ""
       }
     };
   },
+  computed: {
+    btnText(){
+      return this.disabled ? 'Please wait'  : 'Login';
+    }
+  },
   methods: {
     login() {
+      this.disabled = true;
       axios
         .post("/login", {
           username: this.username,
@@ -84,9 +93,11 @@ export default {
           if (response.status == 204) {
             window.location.href = "/home";
           }
+          this.disabled = false;
         })
         .catch(err => {
           this.errors = err.response.data.errors;
+          this.disabled = false;
         });
     }
   }
