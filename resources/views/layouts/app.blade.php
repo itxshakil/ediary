@@ -19,13 +19,13 @@
     <link href="/css/app.css" rel="stylesheet">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162113606-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LZJVVY21NY"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-        gtag('config', 'UA-162113606-1');
+      gtag('config', 'G-LZJVVY21NY');
     </script>
 
     @stack('scripts')
