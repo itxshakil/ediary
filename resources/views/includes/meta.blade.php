@@ -13,6 +13,7 @@
 <meta name="og:url" content="https://appediary.herokuapp.com/" />
 <meta name="og:image" content="/icons/apple-icon-96x96.png" />
 <meta name="og:site_name" content="appEdiary" />
+<meta name="google-site-verification" content="oRXIYL6yenkxhE2G4UhEjBQarn6Sb3Z3jRtBdBCoAWA" />
 <meta name="og:description"
     content="E-diary is privacy friendly e-diary Website that securely save your diary. TRY NOW FOR FREE!!!" />
 <meta name="og:email" content="appediary@gamil.com" />
