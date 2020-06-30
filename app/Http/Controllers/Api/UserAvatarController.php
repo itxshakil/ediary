@@ -16,7 +16,7 @@ class UserAvatarController extends Controller
         $this->authorize('update', $profile);
 
         $request->validate(['image' => ['required','image']]);
-        
+
         $path = $request->file('image')->store('images', 's3');
 
         Storage::disk('s3')->setVisibility($path, 'public');
@@ -25,7 +25,7 @@ class UserAvatarController extends Controller
             'image' =>  $path
         ]);
 
-        event(ProfilePicChanged::class, $profile->image);
+        event(new ProfilePicChanged($profile->image));
 
         return $path;
     }

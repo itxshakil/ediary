@@ -2,7 +2,7 @@
 
 namespace App\Listeners;
 
-use App\Events\PasswordChanged;
+use App\Events\ProfilePicChanged;
 use Illuminate\Support\Facades\Storage;
 
 class DeleteOldPic
@@ -19,10 +19,10 @@ class DeleteOldPic
     /**
      * Handle the event.
      *
-     * @param  PasswordChanged $event
+     * @param  ProfilePicChanged $event
      * @return void
      */
-    public function handle(PasswordChanged $event)
+    public function handle(ProfilePicChanged $event)
     {
         Storage::disk('s3')->delete($event->path);
     }
