@@ -45,3 +45,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/diaries/create', 'DiaryController@create')->name('diary.create');
     Route::post('/diaries', 'DiaryController@store')->name('diary.store');
 });
+
+  /* Sitemap Route*/
+  Route::get('/sitemap.xml', 'SitemapController@index')->name('sitemap.xml');
+  Route::get('/sitemap.xml/users', 'SitemapController@users');
