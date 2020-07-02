@@ -89,7 +89,7 @@ export default {
     },
     handleCatch(error) {
       if (!error.response) {
-        console.log("Offline");
+        console.log("You are Offline");
         this.handleOffline(error);
       } else {
         this.saving = false;
@@ -138,7 +138,6 @@ export default {
       }
     },
     getEntries() {
-      console.log("Entered into getEntries");
       if (localStorage.getItem("entries")) {
         return JSON.parse(localStorage.getItem("entries"));
       }
