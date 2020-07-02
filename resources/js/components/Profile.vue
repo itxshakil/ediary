@@ -27,9 +27,9 @@
           role="alert"
           v-text="errors.name[0]"
         ></p>
-        <div class="flex mr-2">
+        <div class="flex">
           <strong v-text="follower_count"></strong> Followers
-          <strong v-text="following_count"></strong> Following
+          <strong class="ml-2" v-text="following_count"></strong> Following
         </div>
         <textarea
           name="bio"
@@ -73,9 +73,9 @@
           href="#"
           @click="edit"
         >Edit Profile</a>
-        <div class="flex mr-2">
+        <div class="flex">
           <strong v-text="follower_count"></strong> Followers
-          <strong v-text="following_count"></strong> Following
+          <strong class="ml-2" v-text="following_count"></strong> Following
         </div>
         <div class="pt-2" v-text="bio" @dblclick="edit"></div>
       </div>
