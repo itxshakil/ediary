@@ -5,7 +5,7 @@
         <a href="/contact" class="hover:text-blue-700 cursor-pointer px-2">Contact Us</a>
     </div>
     <div class="flex">
-        <p>Designed with <span class="text-red-500">♥</span> by <a href="https://shakil.netlify.com">Shakil Alam</a>🌻
+        <p>Designed with <span class="text-red-500">♥</span> by <a href="https://shakil.netlify.app">Shakil Alam</a>🌻
         </p>
     </div>
 </footer>
