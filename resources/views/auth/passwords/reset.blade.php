@@ -3,8 +3,22 @@
 @section('content')
 <div class="container mx-auto flex justify-center px-3 md:px-6 my-12">
     <div class="w-full xl:w-3/4 lg:w-11/12 flex">
-        <div class="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg"
-            style="background-image: url('https://source.unsplash.com/K4mSJ7kc0As/600x800')">
+        <div class="w-full h-auto hidden lg:block lg:w-1/2 bg-cover rounded-l-lg bg-blue-700">
+            <div class="flex h-full flex-col text-gray-200 justify-center items-center">
+                <div class="feature p-4 mb-1">
+                    <h3 class="mb-2 text-xl flex flex-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" class="mr-1" stroke-linecap="round"
+                            stroke-linejoin="round" class="feather feather-home">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>Installable
+                    </h3>
+                    <p class="w-96">You can add Ediary to your Home Screen. So you can access your diary easily. You can
+                        use
+                        it as native apps.</p>
+                </div>|
+            </div>
         </div>
         <div class="w-full lg:w-1/2 bg-gray-100 p-2 md:p-5 rounded-lg lg:rounded-l-none">
             <h3 class="pt-4 text-2xl text-center pb-2 md:pb-4">{{ __('Reset Password') }}</h3>

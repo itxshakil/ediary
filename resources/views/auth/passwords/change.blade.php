@@ -3,7 +3,7 @@
 @section('content')
 <div class="container mx-auto flex justify-center px-3 md:px-6 my-12">
     <div class="w-full xl:w-3/4 lg:w-11/12 flex">
-        <div class="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg_cover rationounded-l-lg"
+        <div class="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg"
             style="background-image: url('https://source.unsplash.com/K4mSJ7kc0As/600x800')">
         </div>
         <div class="w-full lg:w-1/2 bg-gray-100 p-2 md:p-5 rounded-lg lg:rounded-l-none">
