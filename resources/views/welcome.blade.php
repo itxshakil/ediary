@@ -22,7 +22,7 @@
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                     </svg>Privacy
                 </h3>
-                <p class="w-96">We respect your privacy. That's why we don't ask for any personal details such as Your
+                <p class="w-64 sm:w-96">We respect your privacy. That's why we don't ask for any personal details such as Your
                     name, Date of birth, etc. We ask
                     for your Email-address for verification purposes only.</p>
             </div>
@@ -35,7 +35,7 @@
                         <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                     </svg>Secure
                 </h3>
-                <p class="w-96">Your all entries in the diary are private by default. We save your entry in encrypted
+                <p class="sm:w-96">Your all entries in the diary are private by default. We save your entry in encrypted
                     form in the Database. So no one
                     can read it except you.</p>
             </div>
@@ -53,7 +53,7 @@
                         <line x1="12" y1="20" x2="12.01" y2="20"></line>
                     </svg>Availability
                 </h3>
-                <p class="w-96">Sometime you may not have an internet connection to save your entries then we will
+                <p class="sm:w-96">Sometime you may not have an internet connection to save your entries then we will
                     save your entries in your device and
                     when you connected to the Internet we save it to your diary. So you can add entries when you're
                     offline.</p>
@@ -67,7 +67,7 @@
                         <polyline points="9 22 9 12 15 12 15 22"></polyline>
                     </svg>Installable
                 </h3>
-                <p class="w-96">You can add Ediary to your Home Screen. So you can access your diary easily. You can use
+                <p class="sm:w-96">You can add Ediary to your Home Screen. So you can access your diary easily. You can use
                     it as native apps.</p>
             </div>
         </div>
