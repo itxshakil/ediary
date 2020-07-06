@@ -1,5 +1,5 @@
 @component('mail::message')
-# Contact Us Form
+# Contact Us Form By {{$name}}
 
 
 @component('mail::panel')

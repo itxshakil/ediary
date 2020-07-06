@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('title','Register new account')
 @section('content')
-<div class="container mx-auto flex justify-center px-3 md:px-6 my-12">
-    <div class="w-full xl:w-3/4 lg:w-11/12 flex">
+<div class="container mx-auto flex justify-center px-3 md:px-6">
+    <div class="w-full xl:w-3/4 lg:w-11/12 flex my-6">
         <div class="w-full h-auto hidden lg:block lg:w-1/2 bg-cover rounded-l-lg bg-blue-700">
             <div class="flex flex-col text-gray-200 justify-center items-center">
                 <div class="feature p-4 mb-1">
@@ -66,7 +66,7 @@
                 </div>
             </div>
         </div>
-        <div class="w-full lg:w-1/2 bg-gray-100 p-2 md:p-5 rounded-lg lg:rounded-l-none">
+        <div class="w-full lg:w-1/2 bg-gray-200 p-2 md:p-5 rounded-lg lg:rounded-l-none">
             <h3 class="pt-4 text-2xl text-center pb-2 md:pb-4">Register new account!</h3>
             <form class="px-4 md:px-8  pt-6 pb-2 mb-4 bg-white rounded" method="POST" action="/register">
                 <div class="mb-4">

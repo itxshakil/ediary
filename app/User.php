@@ -76,7 +76,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function profile()
     {
-        return $this->hasOne(Profile::class)->withCount('follower');
+        return $this->hasOne(Profile::class)->withCount('follower')->withDefault();
     }
 
     public function following()

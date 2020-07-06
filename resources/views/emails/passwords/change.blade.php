@@ -3,7 +3,7 @@
 
 ## The password for your appediary account {{$user->username}} was changed.
 
-If you didn't changed password, you should [Reset your password]({{url('/password/reset')}} "Reset password").
+If you didn't change password, you should [Reset your password]({{url('/password/reset')}} "Reset password") now to secure your account.
 
 
 Thanks,<br>

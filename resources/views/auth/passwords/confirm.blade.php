@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('title','Confirm Password')
 @section('content')
-<div class="container mx-auto flex justify-center px-3 md:px-6 my-12">
-    <div class="w-full xl:w-3/4 lg:w-11/12 flex">
+<div class="container mx-auto flex justify-center px-3 md:px-6">
+    <div class="w-full xl:w-3/4 lg:w-11/12 flex my-6">
         <div class="w-full h-auto hidden lg:block lg:w-1/2 bg-cover rounded-l-lg bg-blue-700">
             <div class="flex h-full flex-col text-gray-200 justify-center items-center">
                 <div class="feature p-4 mb-1">
@@ -17,10 +17,10 @@
                     <p class="w-96">You can add Ediary to your Home Screen. So you can access your diary easily. You can
                         use
                         it as native apps.</p>
-                </div>|
+                </div>
             </div>
         </div>
-        <div class="w-full lg:w-1/2 bg-gray-100 p-2 md:p-5 rounded-lg lg:rounded-l-none">
+        <div class="w-full lg:w-1/2 bg-gray-200 p-2 md:p-5 rounded-lg lg:rounded-l-none">
             <h3 class="pt-4 text-2xl text-center pb-2 md:pb-4">{{ __('Confirm Password') }}</h3>
             <div class="px-4 md:px-8  pt-6 pb-2 mb-4 bg-white rounded">
                 <p>{{ __('Please confirm your password before continuing.') }}</p>
@@ -50,7 +50,7 @@
 
                     <div class="mb-4 text-center">
                         <button
-                            class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none"
+                            class="w-full bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-full outline-none focus:outline-none uppercase shadow hover:shadow-md font-bold text-xs"
                             type="submit">
                             {{ __('Confirm Password') }}
                         </button>

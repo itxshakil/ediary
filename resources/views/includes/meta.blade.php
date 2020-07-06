@@ -8,7 +8,7 @@
 <meta name="url" content="https://appediary.herokuapp.com/" />
 <meta name="identifier-URL" content="https://appediary.herokuapp.com/" />
 <meta name="owner" content="Shakil Alam" />
-<meta name="author" content="Shakil Alam , appediary@gmail.com" />
+<meta name="author" content="Shakil Alam , itxshakil@gmail.com" />
 <meta name="og:title" content="Ediary | Securely write and save your private Diary" />
 <meta name="og:url" content="https://appediary.herokuapp.com/" />
 <meta name="og:image" content="/icons/apple-icon-96x96.png" />

@@ -1,12 +1,10 @@
 @extends('layouts.app')
 @section('title','Ediary')
 @section('content')
-<div class="flex flex-col px-3 md:px-6 bg-blue-700">
-    <div class="flex flex-col justify-center items-center min:h-screen">
-        <h2 class="text-gray-200 text-2xl hidden md:block md:text-4xl text-center">Your own secure and private E-diary</h2>
-        <p class="text-gray-200 text-xl md:text-2xl mb-4 text-center">Your diary is the only friend, with whom you can
-            share
-            all your secrets and thoughts without hesitation.</p>
+<div class="flex flex-col px-3 md:px-6 bg-blue-700 text-gray-200">
+    <div class="flex flex-col justify-center items-center min-h-screen">
+        <h2 class="text-2xl hidden md:block md:text-4xl text-center">Your own secure and private E-diary</h2>
+        <p class="text-xl md:text-2xl mb-4 text-center">Your diary is the only friend, with whom you can share all your secrets and thoughts without hesitation.</p>
         @guest
         <register-form></register-form>
         @endguest
@@ -22,12 +20,12 @@
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                     </svg>Privacy
                 </h3>
-                <p class="w-64 sm:w-96">We respect your privacy. That's why we don't ask for any personal details such as Your
+                <p class="sm:w-96">We respect your privacy. That's why we don't ask for any personal details such as Your
                     name, Date of birth, etc. We ask
                     for your Email-address for verification purposes only.</p>
             </div>
-            <div class="feature p-4 mb-2">
-                <h3 class="mb-2 text-xl flex flex-center">
+            <div class="feature p-4">
+                <h3 class="mb-2 text-xl flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" class="mr-1" stroke-linecap="round"
                         stroke-linejoin="round" class="feather feather-lock">
@@ -39,8 +37,8 @@
                     form in the Database. So no one
                     can read it except you.</p>
             </div>
-            <div class="feature p-4 mb-2">
-                <h3 class="mb-2 text-xl flex flex-center">
+            <div class="feature p-4">
+                <h3 class="mb-2 text-xl flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" class="mr-1" stroke-linecap="round"
                         stroke-linejoin="round" class="feather feather-wifi-off">
@@ -58,8 +56,8 @@
                     when you connected to the Internet we save it to your diary. So you can add entries when you're
                     offline.</p>
             </div>
-            <div class="feature p-4 mb-2">
-                <h3 class="mb-2 text-xl flex flex-center">
+            <div class="feature p-4">
+                <h3 class="mb-2 text-xl flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" class="mr-1" stroke-linecap="round"
                         stroke-linejoin="round" class="feather feather-home">

@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('title','Add new Entry')
 @section('content')
-<div class="container mx-auto flex justify-center px-3 md:px-6 my-12">
-    <div class="w-full xl:w-3/4 lg:w-11/12 flex">
+<div class="container mx-auto flex justify-center px-3 md:px-6">
+    <div class="w-full xl:w-3/4 lg:w-11/12 flex my-6">
         {{-- <div class="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg"
             style="background-image: url('https://source.unsplash.com/K4mSJ7kc0As/600x800')">
         </div> --}}
