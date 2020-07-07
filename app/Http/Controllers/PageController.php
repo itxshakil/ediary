@@ -11,7 +11,7 @@ class PageController extends Controller
     public function send(Request $request)
     {
         $request->validate([
-            'name' => ['required'],
+            'name' => ['required', 'alpha' , 'max:200'],
             'email' => ['required', 'email'],
             'message' => ['required', 'string']
         ]);
