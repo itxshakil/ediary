@@ -15,8 +15,10 @@
     </resizable-textarea>
     <button
       class="mt-4 bg-blue-100 active:bg-blue-200 text-blue-800 px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
+      :disabled="disabled"
+      v-text="btnText"
       @click="save"
-    >Save</button>
+    ></button>
     <button
       class="mt-4 bg-gray-600 text-gray-100 px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
       @click="addnew=false"
@@ -48,16 +50,21 @@ export default {
       dataSet: false,
       addnew: false,
       entry: "",
-      saving: false
+      disabled: false
     };
   },
   created() {
-    flash("We are fetching your diary. Please wait...");
     this.saveFromStorage();
     this.fetch();
   },
+  computed: {
+    btnText() {
+      return this.disabled ? "Saving..." : "Save";
+    }
+  },
   methods: {
     fetch(page) {
+      flash("We are fetching your diary. Please wait...");
       axios.get(this.url(page)).then(this.refresh);
     },
     url(page) {
@@ -74,28 +81,36 @@ export default {
     },
     save() {
       if (this.entry.trim().length) {
-        if (!this.saving) {
-          this.saving = true;
-          axios
-            .post("/diaries", { entry: this.entry })
-            .then(this.saved)
-            .catch(this.handleCatch);
-        }
+        this.disabled = true;
+        axios
+          .post("/diaries", { entry: this.entry })
+          .then(this.saved)
+          .catch(this.handleCatch)
+          .finally(() => {
+            this.disabled = false;
+          });
       } else {
         flash("You can not save empty diary . please write.", "danger");
       }
     },
+    saved() {
+      flash("Diary saved successfully");
+      this.resetForm();
+      let query = location.search.match(/page=(\d+)/);
+      let page = query ? query[1] : 1;
+      if (page == 1) {
+        this.fetch();
+      }
+    },
     handleCatch(error) {
       if (!error.response) {
-        console.log("You are Offline");
-        this.handleOffline(error);
+        this.handleOffline();
       } else {
-        this.saving = false;
         flash(error.response.data.message, "danger");
       }
     },
-    handleOffline(error) {
-      let data = this.getEntries();
+    handleOffline() {
+      let data = this.getStoredEntries();
 
       data.toSave.push({
         entry: this.entry,
@@ -110,20 +125,10 @@ export default {
     },
     resetForm() {
       this.addnew = false;
-      this.saving = false;
       this.entry = "";
     },
-    saved() {
-      flash("Diary saved successfully");
-      this.resetForm();
-      let query = location.search.match(/page=(\d+)/);
-      let page = query ? query[1] : 1;
-      if (page == 1) {
-        this.fetch();
-      }
-    },
     saveFromStorage() {
-      let entries = this.getEntries();
+      let entries = this.getStoredEntries();
 
       if (entries.toSave.length) {
         let items = entries.toSave;
@@ -133,15 +138,21 @@ export default {
             .then(this.removeFromStorage(index))
             .catch(this.handleCatch);
         });
+
+        this.saved();
       }
     },
-    getEntries() {
-      if (localStorage.getItem("entries")) {
-        return JSON.parse(localStorage.getItem("entries"));
+    getStoredEntries() {
+      let entries = localStorage.getItem("entries");
+
+      if (entries) {
+        return JSON.parse(entries);
       }
-      let emptyEntries = { toSave: [] };
-      localStorage.setItem("entries", JSON.stringify(emptyEntries));
-      return this.getEntries();
+
+      entries = { toSave: [] };
+      this.setEntries(entries);
+
+      return this.getStoredEntries();
     },
     setEntries(item) {
       try {
@@ -151,10 +162,9 @@ export default {
       }
     },
     removeFromStorage(index) {
-      let entries = this.getEntries();
+      let entries = this.getStoredEntries();
       entries.toSave.splice(index, 1);
       this.setEntries(entries);
-      this.saved();
     }
   }
 };
