@@ -115,10 +115,11 @@ export default {
             if (response.status == 201) {
               window.location.href = "/home";
             }
-            this.disabled = false;
           })
           .catch(err => {
             this.errors = err.response.data.errors;
+          })
+          .finally(() => {
             this.disabled = false;
           });
       }
