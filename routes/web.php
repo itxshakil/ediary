@@ -20,9 +20,9 @@ Auth::routes(['verify' => true]);
 Route::get('/password/change', 'Auth\ChangePasswordController@showForm')->middleware('auth');
 Route::post('/password/change', 'Auth\ChangePasswordController@change')->name('password.change')->middleware('auth');
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+Route::view('/home', 'home')->name('home')->middleware('auth');
 Route::post('/contact', 'PageController@send')->name('contact.send');
-Route::post('/checkusername', 'HomeController@checkusername')->name('checkusername');
+Route::post('/checkusername', 'UsernameController@checkUsernameAvailibility')->name('checkusername');
 
 Route::get('/search', 'SearchController@show');
 
