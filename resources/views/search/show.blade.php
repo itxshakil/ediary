@@ -6,9 +6,9 @@
     <p class="mb-2">{{$users->total()}} results for {{request()->input('q')}}</p>
 
     @forelse ($users as $user)
-    <div class="my-1 rounded border flex items-center">
+    <div class="my-1 p-2 rounded border flex items-center">
         <img src="{{$user->profile->image}}" alt="Profile picture of {{$user->username}}"
-            class="rounded-full h-24 w-24 border m-2">
+            class="rounded-full h-24 w-24 border mr-2">
         <div class="ml-3 flex flex-col">
             <h4 class="text-xl">{{$user->profile->name}}</h4>
             <p>{{$user->profile->follower_count}} Followers</p>
