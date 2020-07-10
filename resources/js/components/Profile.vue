@@ -152,10 +152,11 @@ export default {
         .post(`/api/users/${this.user.username}/avatar`, data)
         .then(() => {
           flash("Image Updated Successfully");
-          this.uploading = false;
         })
         .catch(err => {
           flash("Image Upload failed", "danger");
+        })
+        .finally(() => {
           this.uploading = false;
         });
     }
