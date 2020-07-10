@@ -76,8 +76,8 @@ export default {
     };
   },
   computed: {
-    btnText(){
-      return this.disabled ? 'Please wait'  : 'Login';
+    btnText() {
+      return this.disabled ? "Please wait" : "Login";
     }
   },
   methods: {
