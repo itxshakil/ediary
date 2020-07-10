@@ -28,7 +28,7 @@
                     </label>
                     <input
                         class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded shadow appearance-none focus:outline-none @error('password') border-red-500 @enderror"
-                        id="password" type="password" name="password" value="{{old('password')}}"
+                        id="password" type="password" name="password" value="{{old('password')}}" autocomplete="new-password"
                         placeholder="******************" />
                     @error('password')
                     <p class="text-xs italic text-red-500" role="alert">{{ $message }}</p>
@@ -40,7 +40,7 @@
                     </label>
                     <input
                         class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded shadow appearance-none focus:outline-none @error('password_confirmation') border-red-500 @enderror"
-                        id="password_confirmation" type="password" name="password_confirmation"
+                        id="password_confirmation" type="password" name="password_confirmation" autocomplete="new-password"
                         placeholder="******************" />
                     @error('password_confirmation')
                     <p class="text-xs italic text-red-500" role="alert">{{ $message }}</p>

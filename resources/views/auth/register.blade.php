@@ -69,7 +69,7 @@
         <div class="w-full lg:w-1/2 bg-gray-200 p-2 md:p-5 rounded-lg lg:rounded-l-none">
             <h3 class="pt-4 text-2xl text-center pb-2 md:pb-4">Register new account!</h3>
             <form class="px-4 md:px-8  pt-6 pb-2 mb-4 bg-white rounded" method="POST" action="/register">
-                <div class="mb-4">
+                <section class="mb-4">
                     <label class="block mb-2 text-sm font-bold text-gray-700" for="username">
                         Username
                     </label>
@@ -78,8 +78,8 @@
                     @error('username')
                     <p class="text-xs italic text-red-500" role="alert">{{ $message }}</p>
                     @enderror
-                </div>
-                <div class="mb-4">
+                </section>
+                <section class="mb-4">
                     <label class="block mb-2 text-sm font-bold text-gray-700" for="email">
                         Email-Address
                     </label>
@@ -90,8 +90,8 @@
                     @error('email')
                     <p class="text-xs italic text-red-500" role="alert">{{ $message }}</p>
                     @enderror
-                </div>
-                <div class="mb-4">
+                </section>
+                <section class="mb-4">
                     <label class="block mb-2 text-sm font-bold text-gray-700" for="password">
                         Password
                     </label>
@@ -102,8 +102,8 @@
                     @error('password')
                     <p class="text-xs italic text-red-500" role="alert">{{ $message }}</p>
                     @enderror
-                </div>
-                <div class="mb-4">
+                </section>
+                <section class="mb-4">
                     <label class="block mb-2 text-sm font-bold text-gray-700" for="password_confirmation">
                         Confirm Password
                     </label>
@@ -114,14 +114,14 @@
                     @error('password_confirmation')
                     <p class="text-xs italic text-red-500" role="alert">{{ $message }}</p>
                     @enderror
-                </div>
-                <div class="mb-4 text-center">
+                </section>
+                <section class="mb-4 text-center">
                     <button
                         class="w-full bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-full outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
                         type="submit">
                         Register Now
                     </button>
-                </div>
+                </section>
                 @csrf
             </form>
             <hr class="mb-6 mx-8 border-t" />
