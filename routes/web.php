@@ -41,11 +41,14 @@ Route::view('/request-data', 'pages.request-data')->middleware('password.confirm
 Route::post('/request-data', 'UserDataController@send')->middleware('password.confirm')->name('request.data');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/diaries', 'DiaryController@index');
-    Route::get('/diaries/create', 'DiaryController@create')->name('diary.create');
-    Route::post('/diaries', 'DiaryController@store')->name('diary.store');
+  Route::get('/diaries', 'DiaryController@index');
+  Route::get('/diaries/create', 'DiaryController@create')->name('diary.create');
+  Route::post('/diaries', 'DiaryController@store')->name('diary.store');
 });
 
-  /* Sitemap Route*/
-  Route::get('/sitemap.xml', 'SitemapController@index')->name('sitemap.xml');
-  Route::get('/sitemap.xml/users', 'SitemapController@users');
+/* Sitemap Route*/
+Route::get('/sitemap.xml', 'SitemapController@index')->name('sitemap.xml');
+Route::get('/sitemap.xml/users', 'SitemapController@users');
+
+Route::get('/settings', 'SettingController@index')->middleware('auth');
+Route::put('/username', 'UsernameController@update')->middleware('auth');

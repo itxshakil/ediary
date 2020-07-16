@@ -4,9 +4,11 @@ namespace App\Providers;
 
 use App\Events\PasswordChanged;
 use App\Events\ProfilePicChanged;
+use App\Events\UsernameChanged;
 use App\Listeners\CreateProfileForUser;
 use App\Listeners\DeleteOldPic;
 use App\Listeners\SendPasswordChangedNotification;
+use App\Listeners\SendUsernameChangedNotification;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -24,12 +26,15 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
             CreateProfileForUser::class,
         ],
-        PasswordChanged::class=> [
+        PasswordChanged::class => [
             SendPasswordChangedNotification::class,
         ],
-        ProfilePicChanged::class=> [
+        ProfilePicChanged::class => [
             DeleteOldPic::class,
         ],
+        UsernameChanged::class => [
+            SendUsernameChangedNotification::class,
+        ]
     ];
 
     /**

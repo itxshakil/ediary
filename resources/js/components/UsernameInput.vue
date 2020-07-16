@@ -7,7 +7,6 @@
       type="text"
       placeholder="john.doe"
       name="username"
-      autocomplete="username"
       required
       autofocus
       v-model="username"
