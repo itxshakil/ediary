@@ -13,10 +13,8 @@
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                         </svg>Privacy
                     </h3>
-                    <p class="w-96">We respect your privacy. That's why we don't ask for any personal details such as
-                        Your
-                        name, Date of birth, etc. We ask
-                        for your Email-address for verification purposes only.</p>
+                    <p class="w-96">We respect your privacy. We don't ask for any personal details such as Your name,
+                        Date of birth, etc. We ask for your Email-address for verification purposes only.</p>
                 </div>
                 <div class="feature p-4 mb-1">
                     <h3 class="mb-2 text-xl flex flex-center">
@@ -46,10 +44,8 @@
                             <line x1="12" y1="20" x2="12.01" y2="20"></line>
                         </svg>Availability
                     </h3>
-                    <p class="w-96">Sometime you may not have an internet connection to save your entries then we will
-                        save your entries in your device and
-                        when you connected to the Internet we save it to your diary. So you can add entries when you're
-                        offline.</p>
+                    <p class="w-96">When You aren't connected to the Internet(Offline). Then we save your entry in your
+                        device and sync back to the database when the connection back to the Internet.</p>
                 </div>
                 <div class="feature p-4 mb-1">
                     <h3 class="mb-2 text-xl flex flex-center">
@@ -60,9 +56,8 @@
                             <polyline points="9 22 9 12 15 12 15 22"></polyline>
                         </svg>Installable
                     </h3>
-                    <p class="w-96">You can add Ediary to your Home Screen. So you can access your diary easily. You can
-                        use
-                        it as native apps.</p>
+                    <p class="w-96">For easy access, you can add Ediary to your Home Screen. So you can use it as native
+                        apps.</p>
                 </div>
             </div>
         </div>

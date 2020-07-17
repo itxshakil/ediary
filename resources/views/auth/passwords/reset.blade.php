@@ -14,9 +14,8 @@
                             <polyline points="9 22 9 12 15 12 15 22"></polyline>
                         </svg>Installable
                     </h3>
-                    <p class="w-96">You can add Ediary to your Home Screen. So you can access your diary easily. You can
-                        use
-                        it as native apps.</p>
+                    <p class="w-96">For easy access, you can add Ediary to your Home Screen. So you can use it as native
+                        apps.</p>
                 </div>|
             </div>
         </div>
