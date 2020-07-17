@@ -50,5 +50,5 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/sitemap.xml', 'SitemapController@index')->name('sitemap.xml');
 Route::get('/sitemap.xml/users', 'SitemapController@users');
 
-Route::get('/settings', 'SettingController@index')->middleware('auth');
-Route::put('/username', 'UsernameController@update')->middleware('auth');
+Route::get('/settings', 'SettingController@index')->middleware('verified');
+Route::put('/username', 'UsernameController@update')->middleware('verified');
