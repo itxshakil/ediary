@@ -102,5 +102,40 @@
             "sizes": "1240x600",
             "type": "image/png"
         }
+    ],
+    "shortcuts": [
+        {
+            "name": "Dashboard",
+            "short_name": "Home",
+            "url": "/home?utmsource=homescreen"
+        },
+        {
+            "name": "Search",
+            "url": "/search?utmsource=homescreen"
+        },
+        {
+            "name": "Change Password",
+            "url": "/password/change?utmsource=homescreen"
+        },
+        {
+            "name": "Settings",
+            "url": "/settings?utmsource=homescreen"
+        },
+        {
+            "name": "FAQ",
+            "url": "/faq?utmsource=homescreen"
+        },
+        {
+            "name": "Contact Us",
+            "url": "/contact?utmsource=homescreen"
+        },
+        {
+            "name": "About Us",
+            "url": "/about?utmsource=homescreen"
+        },
+        {
+            "name": "Download My Data",
+            "url": "/request-data?utmsource=homescreen"
+        }
     ]
 }
