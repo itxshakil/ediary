@@ -74,8 +74,8 @@
           @click="edit"
         >Edit Profile</a>
         <div class="flex">
-          <strong v-text="follower_count"></strong> Followers
-          <strong class="ml-2" v-text="following_count"></strong> Following
+          <strong v-text="follower_count" class="mx-2"></strong> Followers
+          <strong class="mx-2" v-text="following_count"></strong> Following
         </div>
         <div class="pt-2" v-text="bio" @dblclick="edit"></div>
       </div>

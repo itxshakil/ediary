@@ -10,7 +10,7 @@
       required
       autofocus
       v-model="username"
-      @keyup="check"
+      @input="check"
     />
     <p class="text-xs italic mt-2" role="alert" v-text="message"></p>
   </div>
@@ -51,10 +51,12 @@ export default {
   },
   methods: {
     check() {
+      console.log('Checking', this.username);
       if (this.username.length > 4) {
         axios
           .post("/checkusername", { username: this.username })
           .then(response => {
+            console.log(response);
             if (response.data) {
               this.error = false;
               this.isAvailable = true;
