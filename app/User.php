@@ -68,6 +68,17 @@ class User extends Authenticatable implements MustVerifyEmail
             'profiles' => ['users.id', 'profiles.user_id'],
         ],
     ];
+/**
+     * The "booted" method of the model.
+     *
+     * @return void
+     */
+    protected static function booted()
+    {
+        static::created(function ($user) {
+            $user->profile()->create(['name'=>$user->username]);
+        });
+    }
 
     public function diaries()
     {
