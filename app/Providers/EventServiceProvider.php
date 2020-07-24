@@ -5,7 +5,6 @@ namespace App\Providers;
 use App\Events\PasswordChanged;
 use App\Events\ProfilePicChanged;
 use App\Events\UsernameChanged;
-use App\Listeners\CreateProfileForUser;
 use App\Listeners\DeleteOldPic;
 use App\Listeners\SendPasswordChangedNotification;
 use App\Listeners\SendUsernameChangedNotification;
@@ -24,7 +23,6 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
-            CreateProfileForUser::class,
         ],
         PasswordChanged::class => [
             SendPasswordChangedNotification::class,
