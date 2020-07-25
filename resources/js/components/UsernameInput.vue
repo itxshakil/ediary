@@ -15,7 +15,7 @@
     />
     <p
       class="text-xs italic mt-2"
-      :class="error? 'text-red-600' :'text-green-600'"
+      :class="error? 'text-red-800' :'text-green-800'"
       role="alert"
       v-text="message"
     ></p>
