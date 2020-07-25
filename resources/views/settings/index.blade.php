@@ -43,8 +43,7 @@
                     <label class="block mb-2 text-sm font-bold text-gray-700" for="username">
                         Username
                     </label>
-                    <username-input @error('email') :iserror="true" @enderror value="{{auth()->user()->username}}"
-                        autocomplete="off">
+                    <username-input @error('email') :iserror="true" @enderror value="{{auth()->user()->username}}">
                     </username-input>
                     @error('username')
                     <p class="text-xs italic text-red-500" role="alert">{{ $message }}</p>

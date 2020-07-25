@@ -10,9 +10,15 @@
       required
       autofocus
       v-model="username"
+      autocomplete="off"
       @input="check"
     />
-    <p class="text-xs italic mt-2" role="alert" v-text="message"></p>
+    <p
+      class="text-xs italic mt-2"
+      :class="error? 'text-red-600' :'text-green-600'"
+      role="alert"
+      v-text="message"
+    ></p>
   </div>
 </template>
 <script>
@@ -20,18 +26,18 @@ export default {
   props: {
     iserror: {
       type: Boolean,
-      default: false
+      default: false,
     },
     value: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   data() {
     return {
       username: this.value,
       isAvailable: false,
-      error: this.iserror
+      error: this.iserror,
     };
   },
   mounted() {
@@ -39,24 +45,24 @@ export default {
   },
   computed: {
     message() {
+      let message = "The username must be at least 5 characters.";
       if (this.username.length > 4) {
         if (this.isAvailable) {
-          return this.username + " is available.";
+          message = this.username + " is available.";
         } else {
-          return this.username + " is already taken.";
+          message = this.username + " is already taken.";
         }
       }
-      return "";
-    }
+
+      return message;
+    },
   },
   methods: {
     check() {
-      console.log('Checking', this.username);
       if (this.username.length > 4) {
         axios
           .post("/checkusername", { username: this.username })
-          .then(response => {
-            console.log(response);
+          .then((response) => {
             if (response.data) {
               this.error = false;
               this.isAvailable = true;
@@ -65,12 +71,12 @@ export default {
               this.isAvailable = false;
             }
           })
-          .catch(error => {
+          .catch((error) => {
             this.error = true;
             this.isAvailable = false;
           });
       }
-    }
-  }
+    },
+  },
 };
 </script>

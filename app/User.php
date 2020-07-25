@@ -68,7 +68,7 @@ class User extends Authenticatable implements MustVerifyEmail
             'profiles' => ['users.id', 'profiles.user_id'],
         ],
     ];
-/**
+    /**
      * The "booted" method of the model.
      *
      * @return void
@@ -76,7 +76,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected static function booted()
     {
         static::created(function ($user) {
-            $user->profile()->create(['name'=>$user->username]);
+            $user->profile()->create(['name' => $user->username]);
         });
     }
 
@@ -87,7 +87,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function profile()
     {
-        return $this->hasOne(Profile::class)->withCount('follower');
+        return $this->hasOne(Profile::class)->withCount('follower')->withDefault();
     }
 
     public function following()
