@@ -13,7 +13,7 @@ class DiaryController extends Controller
      */
     public function index()
     {
-        $diaries = auth()->user()->diaries()->orderBy('created_at', 'desc')->paginate(12);
+        $diaries = auth()->user()->diaries()->latest()->paginate(12);
 
         return $diaries;
 
