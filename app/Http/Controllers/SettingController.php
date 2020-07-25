@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-class SettingController extends Controller
+class SettingController
 {
-    public function index()
+    public function __invoke()
     {
         return view('settings.index');
     }
