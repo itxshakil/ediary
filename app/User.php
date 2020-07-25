@@ -94,4 +94,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->belongsToMany(Profile::class);
     }
+
+    public static function isUsernameTaken($username)
+    {
+        return static::where('username', $username)->exists();
+    }
 }

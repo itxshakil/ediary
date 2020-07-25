@@ -10,11 +10,7 @@ class UsernameController extends Controller
 {
     public function checkUsernameAvailibility(Request $request)
     {
-        if (strlen($request->username) < 5) {
-            return response('false');
-        }
-
-        if (User::where('username', $request->username)->exists()) {
+        if (strlen($request->username) < 5 || User::isUsernameTaken($request->username)) {
             return response('false');
         }
 
