@@ -5,14 +5,13 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 
-class SearchController extends Controller
+class SearchController
 {
     public function show(Request $request)
     {
-        $query = $request->query('q');
-        $users = User::search($query)
-                    ->with('profile')
-                ->paginate(12);
+        $users = User::search($request->query('q'))
+            ->with('profile')
+            ->paginate(12);
 
         return view('search.show', compact('users'));
     }
