@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 
-class FollowController extends Controller
+class FollowController
 {
     public function store(User $user)
     {
