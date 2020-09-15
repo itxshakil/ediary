@@ -14,7 +14,7 @@
     @endforelse
 
     @if ($users->count() > 0)
-    {{$users->appends(request()->input())->links('pagination.tailwind')}}
+    {{$users->appends(request()->input())->links()}}
     @endif
 </section>
 @endsection
