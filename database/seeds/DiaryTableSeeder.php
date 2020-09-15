@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use App\Diary;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +14,6 @@ class DiaryTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Diary::class,300);
+        Diary::factory()->count(100)->create();
     }
 }

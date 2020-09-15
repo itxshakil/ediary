@@ -2,11 +2,14 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Crypt;
 
 class Diary extends Model
 {
+    use HasFactory;
+
     protected $fillable = ['entry'];
 
     public function owner()
