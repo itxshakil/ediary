@@ -10,14 +10,14 @@ use Tests\TestCase;
 
 class DiaryTest extends TestCase
 {
-    use RefreshDatabase,WithFaker;
+    use RefreshDatabase, WithFaker;
 
     /**
-    * @test
-    */
+     * @test
+     */
     public function authenticated_user_can_add_entry_to_diary()
     {
-        $this->actingAs(factory(User::class)->create());
+        $this->actingAs(User::factory()->create());
 
         $this->post('/diaries', ['entry' => $this->faker->text(300)])->assertCreated();
 
@@ -25,8 +25,8 @@ class DiaryTest extends TestCase
     }
 
     /**
-    * @test
-    */
+     * @test
+     */
     public function unauthenticated_user_can_not_add_entry_to_diary()
     {
         $this->json('POST', '/diaries', ['entry' => $this->faker->text(300)])->assertStatus(401);
@@ -36,11 +36,11 @@ class DiaryTest extends TestCase
     }
 
     /**
-    * @test
-    */
+     * @test
+     */
     public function diary_requires_entry()
     {
-        $this->actingAs(factory(User::class)->create());
+        $this->actingAs(User::factory()->create());
 
         $this->post('/diaries', ['entry' => ' '])->assertSessionHasErrors('entry');
 
