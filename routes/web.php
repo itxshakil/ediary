@@ -52,3 +52,8 @@ Route::get('/sitemap.xml/users', 'SitemapController@users');
 
 Route::get('/settings', 'SettingController')->middleware('verified');
 Route::put('/username', 'UsernameController@update')->middleware('verified');
+
+Route::view('/blog','blogs.index');
+Route::view('/blogs/how-to-write-diary','blogs.howtowrite');
+Route::view('/blogs/these-8-good-things-will-happen-when-you-start-writing-diary','blogs.these8goodthings');
+Route::view('/blogs/how-to-start-writing-a-diary','blogs.howtostartwritingadiary');

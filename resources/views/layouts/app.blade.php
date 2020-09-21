@@ -10,7 +10,7 @@
 
     @include('includes.meta')
 
-    <title>@yield('title',config('app.name'))</title>
+    <title>Ediary | @yield('title',config('app.name'))</title>
 
     <!-- Scripts -->
     <script src="/js/app.js" defer></script>
