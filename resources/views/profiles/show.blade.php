@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+{{$profile->name}}
+@endsection
 @section('content')
 <div class="container mx-auto px-3 md:px-6">
     <div class="flex justify-center items-center">
