@@ -1,7 +1,7 @@
 {
     "name": "Ediary App",
     "short_name": "Ediary",
-    "start_url": "/",
+    "start_url": "/?utmsource=homescreen",
     "display": "standalone",
     "background_color": "#2d3748",
     "theme-color": "2d3748",

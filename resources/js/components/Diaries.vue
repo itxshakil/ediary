@@ -50,7 +50,7 @@ export default {
       dataSet: false,
       addnew: false,
       entry: "",
-      disabled: false
+      disabled: false,
     };
   },
   created() {
@@ -60,7 +60,7 @@ export default {
   computed: {
     btnText() {
       return this.disabled ? "Saving..." : "Save";
-    }
+    },
   },
   methods: {
     fetch(page) {
@@ -114,7 +114,7 @@ export default {
 
       data.toSave.push({
         entry: this.entry,
-        created_at: new Date().toISOString()
+        created_at: new Date().toISOString(),
       });
 
       this.setEntries(data);
@@ -165,7 +165,7 @@ export default {
       let entries = this.getStoredEntries();
       entries.toSave.splice(index, 1);
       this.setEntries(entries);
-    }
-  }
+    },
+  },
 };
 </script>

@@ -1,4 +1,4 @@
-var CACHE_NAME = 'my-site-cache-v6';
+var CACHE_NAME = 'my-site-cache-v7';
 var urlsToCache = [
     '/',
     '/css/app.css',
@@ -14,6 +14,7 @@ var urlsToCache = [
     '/icons/old/icons-144.png',
     '/icons/old/icons-120.png',
     '/icons/old/icons-512.png',
+    '/blog',
 ];
 
 self.addEventListener('install', function (event) {
