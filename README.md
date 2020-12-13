@@ -6,11 +6,11 @@ It works without internet as well, Thanks to serviceworker.
 
 ## Table of contents
 * [Features](#features)
-* [General info](#technologies-used)
-* [Screenshots](#contributing)
-* [Technologies](#code-of-conduct)
-* [Setup](#security-vulnerabilities)
-* [Contact](#license)
+* [Technologies used](#technologies-used)
+* [Contributing](#contributing)
+* [Code of Conduct](#code-of-conduct)
+* [Security Vulnerabilities](#security-vulnerabilities)
+* [License](#license)
 
 ## Features
 - Save your diary entry in encrypted form
