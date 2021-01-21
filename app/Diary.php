@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Crypt;
 
 class Diary extends Model
@@ -12,7 +13,7 @@ class Diary extends Model
 
     protected $fillable = ['entry'];
 
-    public function owner()
+    public function owner(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
     }
@@ -22,7 +23,7 @@ class Diary extends Model
         $this->attributes['entry'] = Crypt::encryptString($value);
     }
 
-    public function getEntryAttribute($value)
+    public function getEntryAttribute($value): string
     {
         return Crypt::decryptString($value);
     }

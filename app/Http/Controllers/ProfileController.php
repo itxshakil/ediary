@@ -3,17 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class ProfileController extends Controller
 {
     /**
      * Display the specified resource.
      *
-     * @param  \App\User                 $user
-     * @return \Illuminate\Http\Response
+     * @param User $user
+     * @return Application|Factory|View
      */
-    public function show(User $user)
+    public function show(User $user): Application|Factory|View
     {
         $profile = $user->profile->load('user');
 
@@ -25,10 +29,10 @@ class ProfileController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\User                 $user
-     * @return \Illuminate\Http\Response
+     * @param User $user
+     * @return Application|Factory|View
      */
-    public function edit(User $user)
+    public function edit(User $user): Factory|View|Application
     {
         $profile = $user->profile;
 
@@ -38,11 +42,11 @@ class ProfileController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User                 $user
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param User $user
+     * @return int
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $user): int
     {
         $this->authorize('update', $user->profile);
 

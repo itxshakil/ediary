@@ -4,11 +4,20 @@ namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Notifications\Notifiable;
 use Nicolaslopezj\Searchable\SearchableTrait;
 
+/**
+ * @method static where(string $string, $username)
+ * @method static select(string $string, string $string1)
+ * @method static search(array|string|null $query)
+ * @property mixed profile
+ */
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory, Notifiable, VerifiesEmails, SearchableTrait;
@@ -69,6 +78,7 @@ class User extends Authenticatable implements MustVerifyEmail
             'profiles' => ['users.id', 'profiles.user_id'],
         ],
     ];
+
     /**
      * The "booted" method of the model.
      *
@@ -81,17 +91,17 @@ class User extends Authenticatable implements MustVerifyEmail
         });
     }
 
-    public function diaries()
+    public function diaries(): HasMany
     {
         return $this->hasMany(Diary::class);
     }
 
-    public function profile()
+    public function profile(): HasOne
     {
         return $this->hasOne(Profile::class)->withCount('follower')->withDefault();
     }
 
-    public function following()
+    public function following(): BelongsToMany
     {
         return $this->belongsToMany(Profile::class);
     }

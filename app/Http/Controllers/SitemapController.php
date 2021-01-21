@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 
 class SitemapController extends Controller
 {
-    public function index()
+    public function index(): Response
     {
         $routeCollection = Route::getRoutes();
         $routes = $routeCollection->get('GET');
@@ -15,7 +16,7 @@ class SitemapController extends Controller
         return response()->view('sitemap.index', compact('routes'))->header('Content-Type', 'text/xml');
     }
 
-    public function users()
+    public function users(): Response
     {
         $users = User::select('username', 'updated_at')->get();
 

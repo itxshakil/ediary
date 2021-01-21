@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Events\UsernameChanged;
 use App\User;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
 
 class UsernameController extends Controller
 {
-    public function checkUsernameAvailibility(Request $request)
+    public function checkUsernameAvailibility(Request $request): Response|Application|\Illuminate\Contracts\Routing\ResponseFactory
     {
         if (strlen($request->username) < 5 || User::isUsernameTaken($request->username)) {
             return response('false');
@@ -17,7 +21,7 @@ class UsernameController extends Controller
         return response('true');
     }
 
-    public function update(Request $request)
+    public function update(Request $request): Redirector|Application|RedirectResponse
     {
         $data =  $request->validate(['username' => ['required', 'string', 'alpha_dash', 'between:5,25', 'unique:users']]);
 
