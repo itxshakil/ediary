@@ -11,7 +11,7 @@ class HomeController
      *
      * @return Renderable
      */
-    public function __invoke()
+    public function __invoke(): Renderable
     {
         return view('home');
     }

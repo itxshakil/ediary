@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -10,13 +13,11 @@ class DiaryController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return Application|Factory|View
      */
-    public function index()
+    public function index(): Factory|View|Application
     {
-        $diaries = auth()->user()->diaries()->orderBy('created_at', 'desc')->paginate(12);
-
-        return $diaries;
+        return auth()->user()->diaries()->orderBy('created_at', 'desc')->paginate(12);
 
         return view('diary.index', compact('diaries'));
     }
@@ -24,9 +25,9 @@ class DiaryController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return Application|Factory|View
      */
-    public function create()
+    public function create(): Factory|View|Application
     {
         return view('diary.create');
     }
@@ -37,7 +38,7 @@ class DiaryController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(Request $request): Response
     {
         $validatedData = $request->validate(['entry' => ['required', 'string']]);
 

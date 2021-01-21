@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Symfony\Component\HttpFoundation\StreamedResponse;
+
 class UserDataController extends Controller
 {
-    public function send()
+    public function send(): StreamedResponse
     {
         $user = auth()->user()->load('profile')->load('diaries');
 
