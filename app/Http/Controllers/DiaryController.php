@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Diary;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -15,7 +16,7 @@ class DiaryController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function index(): Factory|View|Application
+    public function index()
     {
         return auth()->user()->diaries()->orderBy('created_at', 'desc')->paginate(12);
 
@@ -38,7 +39,7 @@ class DiaryController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request): Response
+    public function store(Request $request):Diary
     {
         $validatedData = $request->validate(['entry' => ['required', 'string']]);
 
