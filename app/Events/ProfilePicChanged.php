@@ -10,14 +10,14 @@ class ProfilePicChanged
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $path;
+    public mixed $path;
 
     /**
      * Create a new event instance.
      *
-     * @return void
+     * @param mixed $path
      */
-    public function __construct($path)
+    public function __construct(mixed $path)
     {
         $this->path = $path;
     }
