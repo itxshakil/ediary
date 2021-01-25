@@ -43,7 +43,7 @@ class LoginController extends Controller
     *
     * @return string
     */
-    public function username()
+    public function username(): string
     {
         return 'username';
     }

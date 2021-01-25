@@ -11,7 +11,7 @@
       autofocus
       v-model="username"
       autocomplete="off"
-      @input="check"
+      @change="check"
     />
     <p
       class="text-xs italic mt-2"
@@ -49,9 +49,9 @@ export default {
       if (this.username.length > 4) {
         if (this.isAvailable) {
           message = this.username + " is available.";
-        } else {
-          message = this.username + " is already taken.";
         }
+          message = this.username + " is already taken.";
+
       }
 
       return message;
@@ -60,16 +60,16 @@ export default {
   methods: {
     check() {
       if (this.username.length > 4) {
-        axios
-          .post("/checkusername", { username: this.username })
+          axios
+              .post("/api/check-username", {username: this.username})
           .then((response) => {
-            if (response.data) {
-              this.error = false;
-              this.isAvailable = true;
-            } else {
-              this.error = true;
-              this.isAvailable = false;
-            }
+              if(response.status  ===  200){
+                  this.error = false;
+                  this.isAvailable = true;
+              }else{
+                  this.error = true;
+                  this.isAvailable = false;
+              }
           })
           .catch((error) => {
             this.error = true;

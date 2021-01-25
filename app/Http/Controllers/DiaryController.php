@@ -7,7 +7,6 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 class DiaryController extends Controller
 {
@@ -16,7 +15,7 @@ class DiaryController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function index()
+    public function index(): Factory|View|Application
     {
         return auth()->user()->diaries()->orderBy('created_at', 'desc')->paginate(12);
 
@@ -37,7 +36,7 @@ class DiaryController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return Response
+     * @return Diary
      */
     public function store(Request $request):Diary
     {
@@ -45,11 +44,20 @@ class DiaryController extends Controller
 
         $diary = auth()->user()->diaries()->create($validatedData);
 
+        $this->updateCreatedAtIfAvailable($request, $diary);
+
+        return $diary;
+    }
+
+    /**
+     * @param Request $request
+     * @param $diary
+     */
+    protected function updateCreatedAtIfAvailable(Request $request, $diary): void
+    {
         if ($request->filled('created_at')) {
             $diary->created_at = $request->created_at;
             $diary->save();
         }
-
-        return $diary;
     }
 }

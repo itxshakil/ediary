@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Diary;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use JetBrains\PhpStorm\ArrayShape;
 
 class DiaryFactory extends Factory
 {
@@ -19,10 +20,11 @@ class DiaryFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    #[ArrayShape(['entry' => "string"])]
+    public function definition(): array
     {
         return [
-            'entry' => $this->faker->text(300),
+            'entry' => $this->faker->realText(),
         ];
     }
 }

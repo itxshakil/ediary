@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 class ProfileController extends Controller
 {
@@ -45,16 +45,17 @@ class ProfileController extends Controller
      * @param Request $request
      * @param User $user
      * @return int
+     * @throws AuthorizationException
      */
     public function update(Request $request, User $user): int
     {
         $this->authorize('update', $user->profile);
 
-        $data = $request->validate([
+        $validatedRequest = $request->validate([
             'name' => ['required', 'string', 'min:5'],
             'bio' => ['required', 'string', 'min:12'],
         ]);
 
-        return $user->profile()->update($data);
+        return $user->profile()->update($validatedRequest);
     }
 }

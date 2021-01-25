@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Contact Us')
+@section('title','Contact Message Success')
 @section('content')
 <div class="container mx-auto flex justify-center px-3 md:px-6">
     <div class="w-full lg:w-1/2 bg-gray-200 p-2 md:p-5 rounded-lg lg:rounded-l-none py-6">

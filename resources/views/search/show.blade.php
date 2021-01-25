@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Search')
+@section('title','Search Users on E-diary')
 @section('content')
 <section class="container max-w-screen-md mx-auto text-gray-900 p-4">
     <h1 class="font-semibold text-2xl">Search Result for {{request()->input('q')}}</h1>

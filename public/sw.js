@@ -1,4 +1,4 @@
-var CACHE_NAME = 'my-site-cache-v8';
+var CACHE_NAME = 'my-site-cache-v9';
 var urlsToCache = [
     '/',
     '/css/app.css',
@@ -6,7 +6,7 @@ var urlsToCache = [
     '/manifest.json',
     '/sw.js',
     '/icons/svg/share.svg',
-    '/icons/old/icons-192.png',
+    '/icons/old/icotns-192.png',
     '/icons/old/icons-24.png',
     '/icons/old/icons-36.png',
     '/icons/old/icons-48.png',
