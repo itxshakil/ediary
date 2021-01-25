@@ -93,9 +93,14 @@ export default {
     };
   },
   computed: {
-    btnText() {
-      return this.disabled ? "Please wait" : "Get Started Now...";
-    }
+      btnText() {
+          return this.disabled ? "Please wait" : "Get Started Now...";
+      },
+      extractUsernameFromEmail() {
+          let email = this.email;
+          let nameParts = email.split("@");
+          return (nameParts.length === 2) ? nameParts[0] : null;
+      }
   },
   methods: {
     username() {
