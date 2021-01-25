@@ -15,7 +15,7 @@
         it into a memory to keep around forever. </p>
 
     <h3 class="font-semibold mt-4">How can I create a diary?</h3>
-    <p class="ml-2 mb-2">You need to register with unique username and password (<a href="/register"
+    <p class="ml-2 mb-2">You need to register with a unique username and password (<a href="/register"
             class="text-blue-700">Sign up</a>)</p>
 
     <h3 class="font-semibold mt-4">How can I print my entries?</h3>
@@ -30,19 +30,17 @@
         anyone without <a href="/login" class="text-blue-70">login</a> for the same diary.</p>
 
     <h3 class="font-semibold mt-4">How does privacy work?</h3>
-    <p class="ml-2 mb-2">Privacy with us is very simple. Nobody can read your notes, except yourself. Nothing is
-        "public" by default on E-diary. Also, your all entries are saved in the Database in encrypted form. So no one can
-        read except you.</p>
+    <p class="ml-2 mb-2">Privacy with us is very simple. Nobody can read your notes, except yourself. Nothing is "public" by default on E-diary. Also, your all entries are saved in the database in encrypted form. So no one can read except you..</p>
 
     <h3 class="font-semibold mt-4">How did the idea come about?</h3>
     <p class="ml-2 mb-2">We like to be melancholy, writing daily notes, and reading them over. We always assumed taking
         interesting notes required big bulky paper books. But as mobile phones got better and better, smaller and
         smaller, we decided to challenge that assumption. We created E-diary to solve three simple problems:
         <ol class="list-decimal list-inside">
-            <li class="pl-2">Traditional paper diaries not in your pocket at all times.An online and mobile diary makes
+            <li class="pl-2">Traditional paper diaries not in your pocket at all times. An online and mobile diary makes
                 it almost
                 always accessible.</li>
-            <li class="pl-2">Making copies and backup of your paper diary is a pain - write a note once, then access it
+            <li class="pl-2">Making copies and backup your paper diary is a pain - write a note once, then access it
                 (instantly)
                 on multiple services.</li>
             <li class="pl-2">Most diary experiences are clumsy and take forever - we've optimized the experience to be
