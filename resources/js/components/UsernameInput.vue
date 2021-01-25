@@ -11,7 +11,7 @@
       autofocus
       v-model="username"
       autocomplete="off"
-      @input="check"
+      @change="check"
     />
     <p
       class="text-xs italic mt-2"

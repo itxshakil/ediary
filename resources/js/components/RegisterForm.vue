@@ -7,32 +7,32 @@
       @submit.prevent="register"
     >
       <div class="flex flex-col sm:flex-row mb-4">
-        <div class="sm:mr-2 w-full">
-          <label class="block mb-2 text-sm font-bold text-gray-700" for="username">Username</label>
-          <username-input ref="usernameInput"></username-input>
-        </div>
-        <div class="sm:ml-2 w-full">
-          <label class="block mb-2 text-sm font-bold text-gray-700" for="email">Email-Address</label>
-          <input
-              class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none"
-              :class="errors.email ? 'border-red-500' :null"
-              id="email"
-              type="email"
-              placeholder="john@example.com"
-              name="email"
-              v-model="email"
-              required
-              autocomplete="email"
-              autofocus
-              @change="updateUsername"
-          />
-          <p
-            v-if="errors.email"
-            class="text-xs italic text-red-500"
-            role="alert"
-            v-text="errors.email[0]"
-          ></p>
-        </div>
+          <div class="sm:mr-2 w-full">
+              <label class="block mb-2 text-sm font-bold text-gray-700" for="email">Email-Address</label>
+              <input
+                  id="email"
+                  v-model="email"
+                  :class="errors.email ? 'border-red-500' :null"
+                  autocomplete="email"
+                  autofocus
+                  class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none"
+                  name="email"
+                  placeholder="john@example.com"
+                  required
+                  type="email"
+                  @change="updateUsername"
+              />
+              <p
+                  v-if="errors.email"
+                  class="text-xs italic text-red-500"
+                  role="alert"
+                  v-text="errors.email[0]"
+              ></p>
+          </div>
+          <div class="sm:ml-2 w-full">
+              <label class="block mb-2 text-sm font-bold text-gray-700" for="username">Username</label>
+              <username-input ref="usernameInput"></username-input>
+          </div>
       </div>
       <div class="flex flex-col sm:flex-row mb-4">
         <div class="sm:mr-2 w-full">
@@ -95,7 +95,7 @@ export default {
   },
   computed: {
       btnText() {
-          return this.disabled ? "Please wait" : "Get Started Now...";
+          return this.disabled ? "Creating your account,Please wait" : "Get Started Now...";
       },
       extractUsernameFromEmail() {
           let email = this.email;
