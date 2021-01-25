@@ -3,8 +3,9 @@
 @section('content')
 <div class="flex flex-col px-3 md:px-6 bg-blue-700 text-gray-200">
     <div class="flex flex-col justify-center items-center min-h-screen">
-        <h2 class="text-2xl hidden md:block md:text-4xl text-center">keep track of your past and think about your future</h2>
-        <p class="text-xl md:text-2xl mb-4 text-center">Your diary is the only friend, with whom you can share all your secrets and thoughts without hesitation.</p>
+        <h2 class="text-4xl sm:block md:text-5xl text-center">Easiest way to document your life</h2>
+        <p class="text-xl md:text-2xl mb-4 text-center">Free service to keep track of your past and think about your
+            future.</p>
         @guest
         <register-form></register-form>
         @endguest
