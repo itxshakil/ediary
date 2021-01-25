@@ -2,14 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb2658bb-ab03-40f2-830e-5fb76a461fa3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DiaryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DiaryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/UsernameInput.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/UsernameInput.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -145,6 +149,11 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\ediary" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
@@ -164,11 +173,86 @@
       <updated>1611156111969</updated>
       <workItem from="1611156138863" duration="1654000" />
       <workItem from="1611158556291" duration="78000" />
+      <workItem from="1611565645105" duration="7532000" />
     </task>
+    <task id="LOCAL-00001" summary="Fix Response Type">
+      <created>1611224270099</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1611224270099</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add foreign Key constrained">
+      <created>1611566379048</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1611566379048</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Updated factory">
+      <created>1611566716042</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1611566716043</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add computed property extractUsernameFromEmail">
+      <created>1611569834344</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1611569834344</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Update Username from Email">
+      <created>1611569933194</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1611569933195</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Update check username event to change fron input for better result.">
+      <created>1611570461736</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1611570461736</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Update check username event to change fron input for better result.">
+      <created>1611570917862</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1611570917862</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added">
+      <created>1611572882175</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1611572882175</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added controller for Username Check">
+      <created>1611572903770</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1611572903770</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Update username check route">
+      <created>1611573418554</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1611573418586</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UpdateCopyrightCheckinHandler">
+    <option name="UPDATE_COPYRIGHT" value="true" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -180,6 +264,40 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <MESSAGE value="Fix Response Type" />
+    <MESSAGE value="Add foreign Key constrained" />
+    <MESSAGE value="Updated factory" />
+    <MESSAGE value="Add computed property extractUsernameFromEmail" />
+    <MESSAGE value="Update Username from Email" />
+    <MESSAGE value="form submitting text changed to Creating your account,Please wait" />
+    <MESSAGE value="Replaced username and email input" />
+    <MESSAGE value="Update check username event to change fron input for better result." />
+    <MESSAGE value="Add API route for username check" />
+    <MESSAGE value="Added controller for Username Check" />
+    <MESSAGE value="Update username check route" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update username check route" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php</url>
+          <line>138</line>
+          <properties>
+            <option name="className" value="\Illuminate\Database\Eloquent\Factories\Factory" />
+            <option name="methodName" value="definition" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
