@@ -16,6 +16,7 @@ use Nicolaslopezj\Searchable\SearchableTrait;
  * @method static where(string $string, $username)
  * @method static select(string $string, string $string1)
  * @method static search(array|string|null $query)
+ * @method static create(array $array)
  * @property mixed profile
  * @property mixed email
  */

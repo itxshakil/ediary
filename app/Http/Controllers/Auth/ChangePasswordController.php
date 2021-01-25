@@ -4,9 +4,15 @@ namespace App\Http\Controllers\Auth;
 
 use App\Events\PasswordChanged;
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use JetBrains\PhpStorm\ArrayShape;
 
 class ChangePasswordController extends Controller
 {
@@ -20,13 +26,15 @@ class ChangePasswordController extends Controller
         $this->middleware('auth');
     }
 
-    public function showForm(){
+    public function showForm(): Factory|View|Application
+    {
         return view('auth.passwords.change');
     }
 
-    public function change(Request $request){
+    public function change(Request $request): Redirector|Application|RedirectResponse
+    {
         $request->validate($this->rules());
-        
+
         $this->changeUserPassword($user=Auth::user(), $request->password);
 
         event(new PasswordChanged($user));
@@ -39,7 +47,8 @@ class ChangePasswordController extends Controller
      *
      * @return array
      */
-    protected function rules()
+    #[ArrayShape(['current-password' => "string[]", 'password' => "string[]"])]
+    protected function rules(): array
     {
         return [
             'current-password' => ['required','password'],
