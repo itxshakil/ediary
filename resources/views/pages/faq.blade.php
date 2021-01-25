@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','FAQ')
+@section('title','Frequently Asked Questions')
 @section('content')
 <div class="container mx-auto px-3 md:px-6">
     <h2 class="text-xl md:text-2xl mt-4">Frequently Asked Questions and Answers:</h2>
