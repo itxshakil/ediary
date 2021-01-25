@@ -14,12 +14,12 @@ class UsernameController extends Controller
 {
     public function update(Request $request): Redirector|Application|RedirectResponse
     {
-        $data =  $request->validate(['username' => ['required', 'string', 'alpha_dash', 'between:5,25', 'unique:users']]);
+        $validatedRequest =  $request->validate(['username' => ['required', 'string', 'alpha_dash', 'between:5,25', 'unique:users']]);
 
-        auth()->user()->update(['username' => $data['username']]);
+        auth()->user()->update($validatedRequest);
 
         event(new UsernameChanged(auth()->user()));
 
-        return redirect('/home')->with('flash', 'Username Updated Successfully');
+        return redirect('/home')->with('flash', 'Username Changed Successfully.');
     }
 }
