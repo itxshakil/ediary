@@ -14,16 +14,17 @@
         <div class="sm:ml-2 w-full">
           <label class="block mb-2 text-sm font-bold text-gray-700" for="email">Email-Address</label>
           <input
-            class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none"
-            :class="errors.email ? 'border-red-500' :null"
-            id="email"
-            type="email"
-            placeholder="john@example.com"
-            name="email"
-            v-model="email"
-            required
-            autocomplete="email"
-            autofocus
+              class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none"
+              :class="errors.email ? 'border-red-500' :null"
+              id="email"
+              type="email"
+              placeholder="john@example.com"
+              name="email"
+              v-model="email"
+              required
+              autocomplete="email"
+              autofocus
+              @change="updateUsername"
           />
           <p
             v-if="errors.email"
@@ -103,19 +104,25 @@ export default {
       }
   },
   methods: {
-    username() {
-      return this.$refs.usernameInput;
-    },
-    register() {
-      if (this.validate()) {
-        this.disabled = true;
-        axios
-          .post("/register", {
-            username: this.username().username,
-            email: this.email,
-            password: this.password,
-            password_confirmation: this.password_confirmation
-          })
+      username() {
+          return this.$refs.usernameInput;
+      },
+      updateUsername() {
+          if (this.username().username) {
+              return;
+          }
+          this.username().username = this.extractUsernameFromEmail;
+      },
+      register() {
+          if (this.validate()) {
+              this.disabled = true;
+              axios
+                  .post("/register", {
+                      username: this.username().username,
+                      email: this.email,
+                      password: this.password,
+                      password_confirmation: this.password_confirmation
+                  })
           .then(response => {
             if (response.status == 201) {
               window.location.href = "/home";
