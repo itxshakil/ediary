@@ -46,11 +46,11 @@ class ProfilePolicy
      *
      * @param User $user
      * @param Profile $profile
-     * @return mixed
+     * @return bool
      */
-    public function update(User $user, Profile $profile)
+    public function update(User $user, Profile $profile): bool
     {
-        return $user->id == $profile->user_id;
+        return $user->id === $profile->user_id;
     }
 
     /**
