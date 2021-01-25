@@ -9,8 +9,7 @@
     <h3 class="font-semibold mt-4">What is E-diary?</h3>
     <p class="ml-2 mb-2">E-diary is a <strong>free</strong> service to keep track of your past and think about your
         future. You can make predictions about what will happen and see if they come true, and you can see how you
-        changed over time, and
-        read over memories, having a few laughs. It's the funniest, quickest, and easiest way to document your life
+        changed over time, and read over memories, having a few laughs. It's the funniest, quickest, and easiest way to document your life
         through a series of notes. Tap down a note or a thought on your notebook, mobile phone, or tablet and transform
         it into a memory to keep around forever. </p>
 

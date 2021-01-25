@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Home | Your own secure and private E-diary')
+@section('title','Home | Document your life with privacy friendly Web App')
 @section('content')
 <div class="flex flex-col px-3 md:px-6 bg-blue-700 text-gray-200">
     <div class="flex flex-col justify-center items-center min-h-screen">

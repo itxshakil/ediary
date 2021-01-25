@@ -1,5 +1,5 @@
 <meta name="description"
-    content="E-diary is privacy friendly e-diary Website that securely save your diary. TRY NOW FOR FREE!!!" />
+    content="E-diary is a free service to keep track of your past and think about your future. You can make predictions about what will happen and see if they come true. TRY NOW FOR FREE!!!" />
 <meta name="keywords"
     content="ediary,ediary app, private diary, secure diary,privacy friendly , diary App , save diary , free ediary offline , pwa, shakil alam" />
 <meta name="subject" content="Ediary | Securely write and save your private Diary" />
@@ -16,7 +16,7 @@
 <meta name="google-site-verification" content="oRXIYL6yenkxhE2G4UhEjBQarn6Sb3Z3jRtBdBCoAWA" />
 <meta name="og:description"
     content="E-diary is privacy friendly e-diary Website that securely save your diary. TRY NOW FOR FREE!!!" />
-<meta name="og:email" content="appediary@gamil.com" />
+<meta name="og:email" content="appediary@gmail.com" />
 <meta name="og:country-name" content="India" />
 
 <!-- PWA Meta tag -->
