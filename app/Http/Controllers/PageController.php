@@ -18,8 +18,8 @@ class PageController extends Controller
             'email' => ['required', 'email'],
             'message' => ['required', 'string']
         ]);
-        $receiver = 'itxshakil@gmail.com';
 
+        $receiver = 'itxshakil@gmail.com';
         Mail::to($receiver)->send(new ContactUs($request->name, $request->email, $request->message));
 
         return redirect('/success');
