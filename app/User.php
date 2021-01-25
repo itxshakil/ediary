@@ -17,6 +17,7 @@ use Nicolaslopezj\Searchable\SearchableTrait;
  * @method static select(string $string, string $string1)
  * @method static search(array|string|null $query)
  * @property mixed profile
+ * @property mixed email
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
