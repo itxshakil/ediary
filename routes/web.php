@@ -53,6 +53,6 @@ Route::get('/settings', 'SettingController')->middleware('verified');
 Route::put('/username', 'UsernameController@update')->middleware('verified');
 
 Route::view('/blog','blogs.index');
-Route::view('/blogs/how-to-write-diary','blogs.how-to-write');
-Route::view('/blogs/these-8-good-things-will-happen-when-you-start-writing-diary','blogs.these-8-good-things');
-Route::view('/blogs/how-to-start-writing-a-diary','blogs.how-to-start-writing-a-diary');
+Route::view('/blogs/how-to-write-diary','blogs.how-to-write')->name('blogs.how-to-write');
+Route::view('/blogs/these-8-good-things-will-happen-when-you-start-writing-diary','blogs.these-8-good-things')->name('blogs.these-8-good-things');
+Route::view('/blogs/how-to-start-writing-a-diary','blogs.how-to-start-writing-a-diary')->name('blogs.how-to-start-writing-a-diary');
