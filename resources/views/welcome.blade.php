@@ -14,9 +14,9 @@
         <div class="flex text-gray-200 justify-center flex-wrap items-stretch">
             <div class="feature p-4 mb-2">
                 <h3 class="mb-2 text-xl flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="mr-1"
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="mr-1 feather feather-shield"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="feather feather-shield">
+                        stroke-linejoin="round">
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                     </svg>Privacy
                 </h3>
@@ -27,8 +27,8 @@
             <div class="feature p-4">
                 <h3 class="mb-2 text-xl flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" class="mr-1" stroke-linecap="round"
-                        stroke-linejoin="round" class="feather feather-lock">
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="feather feather-lock mr-1">
                         <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                         <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                     </svg>Secure
@@ -40,8 +40,8 @@
             <div class="feature p-4">
                 <h3 class="mb-2 text-xl flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" class="mr-1" stroke-linecap="round"
-                        stroke-linejoin="round" class="feather feather-wifi-off">
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="mr-1 feather feather-wifi-off">
                         <line x1="1" y1="1" x2="23" y2="23"></line>
                         <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"></path>
                         <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"></path>
@@ -59,8 +59,8 @@
             <div class="feature p-4">
                 <h3 class="mb-2 text-xl flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" class="mr-1" stroke-linecap="round"
-                        stroke-linejoin="round" class="feather feather-home">
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="mr-1 feather feather-home">
                         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                         <polyline points="9 22 9 12 15 12 15 22"></polyline>
                     </svg>Installable
