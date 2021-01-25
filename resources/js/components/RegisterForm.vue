@@ -1,6 +1,6 @@
 <template>
   <div class="w-full bg-gray-100 p-2 md:p-5 rounded-lg">
-    <h1 class="pt-4 text-2xl font-semibold text-gray-800 text-center pb-2 sm:pb-4">Register now!</h1>
+    <h2 class="pt-4 text-2xl font-semibold text-gray-800 text-center pb-2 sm:pb-4">Register now!</h2>
     <form
       method="POST"
       class="px-4 md:px-8 pt-6 pb-2 mb-4 bg-red-100 rounded"

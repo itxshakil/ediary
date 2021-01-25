@@ -3,9 +3,9 @@
 @section('content')
 <div class="flex flex-col px-3 md:px-6 bg-blue-700 text-gray-200">
     <div class="flex flex-col justify-center items-center min-h-screen">
-        <h2 class="text-4xl sm:block md:text-5xl text-center">Easiest way to document your life</h2>
-        <p class="text-xl md:text-2xl mb-4 text-center">Free service to keep track of your past and think about your
-            future.</p>
+        <h1 class="text-4xl sm:block md:text-5xl text-center">Easiest way to document your life</h1>
+        <h2 class="text-xl md:text-2xl mb-4 text-center">Free service to keep track of your past and think about your
+            future.</h2>
         @guest
         <register-form></register-form>
         @endguest
@@ -66,7 +66,7 @@
             </div>
         </div>
     </div>
-    <h1 class="text-2xl underline p-4 font-bold">Latest Articles</h1>
+    <h2 class="text-2xl underline p-4 font-bold">Latest Articles</h2>
     <div class="flex flex-col md:flex-row gap-4 p-4">
         <div class="w-full h-auto bg-gray-400 text-gray-900 lg:block lg:w-1/2 bg-cover rounded-lg p-4 m-1">
             <h2 class="font-bold text-lg"><a href="{{route('blogs.how-to-write')}}">How to write a Diary</a></h2>
