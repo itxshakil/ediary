@@ -5,7 +5,7 @@
 @section('content')
 <div class="container mx-auto px-3 md:px-6">
     <article class="bg-gray-200 rounded-lg p-4 m-2">
-        <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-center pb-4">
+        in class="text-3xl md:text-5xl lg:text-6xl font-bold text-center pb-4">
             How to Start Writing a Diary
         </h1>
         <p class="text-xl mb-1">

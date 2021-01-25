@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb2658bb-ab03-40f2-830e-5fb76a461fa3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/blogs/how-to-start-writing-a-diary.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blogs/how-to-start-writing-a-diary.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +170,7 @@
       <updated>1611156111969</updated>
       <workItem from="1611156138863" duration="1654000" />
       <workItem from="1611158556291" duration="78000" />
-      <workItem from="1611565645105" duration="14708000" />
+      <workItem from="1611565645105" duration="15577000" />
     </task>
     <task id="LOCAL-00001" summary="Fix Response Type">
       <created>1611224270099</created>
