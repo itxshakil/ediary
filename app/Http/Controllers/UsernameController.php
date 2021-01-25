@@ -12,15 +12,6 @@ use Illuminate\Routing\Redirector;
 
 class UsernameController extends Controller
 {
-    public function checkUsernameAvailibility(Request $request): Response|Application|\Illuminate\Contracts\Routing\ResponseFactory
-    {
-        if (strlen($request->username) < 5 || User::isUsernameTaken($request->username)) {
-            return response('false');
-        }
-
-        return response('true');
-    }
-
     public function update(Request $request): Redirector|Application|RedirectResponse
     {
         $data =  $request->validate(['username' => ['required', 'string', 'alpha_dash', 'between:5,25', 'unique:users']]);
