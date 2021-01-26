@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Contact Us')
+@section('title','Contact Us through form')
 @section('content')
 <div class="container mx-auto flex justify-center px-3 md:px-6">
     <div class="w-full xl:w-3/4 lg:w-11/12 flex my-6">

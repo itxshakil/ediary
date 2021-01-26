@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 class UserAvatarController extends Controller
 {
-    public function store(User $user, Request $request)
+    public function store(User $user, Request $request): bool|string
     {
         $profile =  $user->profile;
         $this->authorize('update', $profile);

@@ -1,10 +1,9 @@
-var CACHE_NAME = 'my-site-cache-v8';
+var CACHE_NAME = 'ediary-cache-v-1';
 var urlsToCache = [
     '/',
     '/css/app.css',
     '/js/app.js',
     '/manifest.json',
-    '/sw.js',
     '/icons/svg/share.svg',
     '/icons/old/icons-192.png',
     '/icons/old/icons-24.png',
@@ -15,6 +14,7 @@ var urlsToCache = [
     '/icons/old/icons-120.png',
     '/icons/old/icons-512.png',
     '/blog',
+    '/faq',
 ];
 
 self.addEventListener('install', function (event) {

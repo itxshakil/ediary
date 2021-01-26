@@ -12,23 +12,14 @@ use Illuminate\Routing\Redirector;
 
 class UsernameController extends Controller
 {
-    public function checkUsernameAvailibility(Request $request): Response|Application|\Illuminate\Contracts\Routing\ResponseFactory
-    {
-        if (strlen($request->username) < 5 || User::isUsernameTaken($request->username)) {
-            return response('false');
-        }
-
-        return response('true');
-    }
-
     public function update(Request $request): Redirector|Application|RedirectResponse
     {
-        $data =  $request->validate(['username' => ['required', 'string', 'alpha_dash', 'between:5,25', 'unique:users']]);
+        $validatedRequest =  $request->validate(['username' => ['required', 'string', 'alpha_dash', 'between:5,25', 'unique:users']]);
 
-        auth()->user()->update(['username' => $data['username']]);
+        auth()->user()->update($validatedRequest);
 
         event(new UsernameChanged(auth()->user()));
 
-        return redirect('/home')->with('flash', 'Username Updated Successfully');
+        return redirect('/home')->with('flash', 'Username Changed Successfully.');
     }
 }

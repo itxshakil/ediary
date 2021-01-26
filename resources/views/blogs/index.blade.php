@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-Blog
+Blog | Latest Article
 @endsection
 @section('content')
 <div class="container mx-auto px-3 md:px-6">
