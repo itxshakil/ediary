@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\API\UsernameController;
+use App\Http\Controllers\Api\UsernameController;
 use Illuminate\Support\Facades\Route;
 
 /*
