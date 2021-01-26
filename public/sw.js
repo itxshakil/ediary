@@ -1,4 +1,4 @@
-var CACHE_NAME = 'my-site-cache-v9';
+var CACHE_NAME = 'ediary-cache-v-1';
 var urlsToCache = [
     '/',
     '/css/app.css',
