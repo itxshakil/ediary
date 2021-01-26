@@ -14,6 +14,7 @@ var urlsToCache = [
     '/icons/old/icons-120.png',
     '/icons/old/icons-512.png',
     '/blog',
+    '/faq',
 ];
 
 self.addEventListener('install', function (event) {
