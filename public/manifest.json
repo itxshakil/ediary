@@ -4,7 +4,7 @@
     "start_url": "/?utmsource=homescreen",
     "display": "standalone",
     "background_color": "#2d3748",
-    "theme-color": "2d3748",
+    "theme-color": "#2d3748",
     "description": "Securely write and save your private Diary",
     "icons": [
         {
