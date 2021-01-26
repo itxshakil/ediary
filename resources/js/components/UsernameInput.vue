@@ -49,9 +49,9 @@ export default {
       if (this.username.length > 4) {
         if (this.isAvailable) {
           message = this.username + " is available.";
-        }
+        }else{
           message = this.username + " is already taken.";
-
+        }
       }
 
       return message;
