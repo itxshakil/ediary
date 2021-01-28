@@ -69,7 +69,17 @@ self.addEventListener('fetch', function (event) {
                     return fetchRes;
                 });
             }
-            return fetch(event.request);
+            try{
+                return fetch(event.request);
+            } catch (err) {
+                // If this was a navigation, show the offline page:
+                if (request.mode === 'navigate') {
+                    return caches.match('/');
+                }
+
+                // Otherwise throw
+                throw err;
+            }
         })
     );
 });
