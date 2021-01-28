@@ -1,6 +1,7 @@
 var CACHE_NAME = 'ediary-cache-v-1';
 var urlsToCache = [
     '/',
+    '/?utmsource=homescreen',
     '/css/app.css',
     '/js/app.js',
     '/manifest.json',
