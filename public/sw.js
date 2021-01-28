@@ -1,9 +1,10 @@
 var CACHE_NAME = 'ediary-cache-v-1';
 var urlsToCache = [
     '/',
+    '/?utmsource=homescreen',
     '/css/app.css',
     '/js/app.js',
-    '/manifest.json',
+    '/manifest.webmanifest',
     '/icons/svg/share.svg',
     '/icons/old/icons-192.png',
     '/icons/old/icons-24.png',
@@ -68,7 +69,17 @@ self.addEventListener('fetch', function (event) {
                     return fetchRes;
                 });
             }
-            return fetch(event.request);
+            try{
+                return fetch(event.request);
+            } catch (err) {
+                // If this was a navigation, show the offline page:
+                if (request.mode === 'navigate') {
+                    return caches.match('/');
+                }
+
+                // Otherwise throw
+                throw err;
+            }
         })
     );
 });
