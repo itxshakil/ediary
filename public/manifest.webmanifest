@@ -1,0 +1,157 @@
+{
+    "name": "Ediary App",
+    "short_name": "Ediary",
+    "start_url": "/?utmsource=homescreen",
+    "display": "standalone",
+    "background_color": "#2d3748",
+    "theme-color": "#2d3748",
+    "description": "Securely write and save your private Diary",
+    "icons": [
+        {
+            "src": "/icons/old/icons-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/old/icons-24.png",
+            "sizes": "24x24",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/old/icons-36.png",
+            "sizes": "36x36",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/old/icons-36.png",
+            "sizes": "36x36",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/old/icons-50.png",
+            "sizes": "50x50",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/old/icons-72.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/old/icons-88.png",
+            "sizes": "88x88",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/old/icons-96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/old/icons-120.png",
+            "sizes": "120x120",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/old/icons-144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/old/icons-152.png",
+            "sizes": "152x152",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/old/icons-167.png",
+            "sizes": "167x167",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/old/icons-180.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/old/icons-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/old/icons-300.png",
+            "sizes": "300x300",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/old/icons-1024.png",
+            "sizes": "1024x1024",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/old/icons-620_300.png",
+            "sizes": "620x300",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/old/icons-1024.png",
+            "sizes": "1024x1024",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/old/icons-1240_600.png",
+            "sizes": "1240x600",
+            "type": "image/png"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Dashboard",
+            "short_name": "Home",
+            "description": "Read and write diary.",
+            "url": "/home?utmsource=homescreen",
+            "icons": [{ "src": "/icons/old/icons-96.png", "sizes": "96x96" }]
+        },
+        {
+            "name": "Search",
+            "description": "Search the users on Ediary.",
+            "url": "/search?utmsource=homescreen",
+            "icons": [{ "src": "/icons/old/icons-96.png", "sizes": "96x96" }]
+        },
+        {
+            "name": "Change Password",
+            "description": "Change your password.",
+            "url": "/password/change?utmsource=homescreen",
+            "icons": [{ "src": "/icons/old/icons-96.png", "sizes": "96x96" }]
+        },
+        {
+            "name": "Settings",
+            "description": "Update your username.",
+            "url": "/settings?utmsource=homescreen",
+            "icons": [{ "src": "/icons/old/icons-96.png", "sizes": "96x96" }]
+        },
+        {
+            "name": "FAQ",
+            "description": "Read Frequently Asked Questions.",
+            "url": "/faq?utmsource=homescreen",
+            "icons": [{ "src": "/icons/old/icons-96.png", "sizes": "96x96" }]
+        },
+        {
+            "name": "Contact Us",
+            "description": "Contact us by form.",
+            "url": "/contact?utmsource=homescreen",
+            "icons": [{ "src": "/icons/old/icons-96.png", "sizes": "96x96" }]
+        },
+        {
+            "name": "About Us",
+            "description": "Read about us.",
+            "url": "/about?utmsource=homescreen",
+            "icons": [{ "src": "/icons/old/icons-96.png", "sizes": "96x96" }]
+        },
+        {
+            "name": "Download My Data",
+            "description": "Download your data.",
+            "url": "/request-data?utmsource=homescreen",
+            "icons": [{ "src": "/icons/old/icons-96.png", "sizes": "96x96" }]
+        }
+    ]
+}
