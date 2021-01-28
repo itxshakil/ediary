@@ -1,4 +1,4 @@
-var CACHE_NAME = 'ediary-cache-v-1';
+var CACHE_NAME = 'ediary-cache-v1';
 var urlsToCache = [
     '/',
     '/?utmsource=homescreen',
