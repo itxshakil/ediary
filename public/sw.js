@@ -4,7 +4,7 @@ var urlsToCache = [
     '/?utmsource=homescreen',
     '/css/app.css',
     '/js/app.js',
-    '/manifest.json',
+    '/manifest.webmanifest',
     '/icons/svg/share.svg',
     '/icons/old/icons-192.png',
     '/icons/old/icons-24.png',
