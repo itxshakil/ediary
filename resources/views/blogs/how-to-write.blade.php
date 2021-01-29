@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-How to Write Diary
+How to Write a Diary
 @endsection
 @section('content')
 <div class="container mx-auto px-3 md:px-6">
