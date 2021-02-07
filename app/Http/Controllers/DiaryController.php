@@ -13,9 +13,9 @@ class DiaryController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Application|Factory|View
+     * @return LengthAwarePaginator     
      */
-    public function index(): Factory|View|Application
+    public function index()
     {
         return auth()->user()->diaries()->orderBy('created_at', 'desc')->paginate(12);
 
