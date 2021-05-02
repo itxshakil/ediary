@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb2658bb-ab03-40f2-830e-5fb76a461fa3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Diaries.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Diaries.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Diary.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Diary.vue" afterDir="false" />
-    </list>
+    <list default="true" id="bb2658bb-ab03-40f2-830e-5fb76a461fa3" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -185,7 +181,7 @@
       <workItem from="1611565645105" duration="19385000" />
       <workItem from="1611723459624" duration="95000" />
       <workItem from="1611759981972" duration="95000" />
-      <workItem from="1619945841735" duration="467000" />
+      <workItem from="1619945841735" duration="1008000" />
     </task>
     <task id="LOCAL-00001" summary="Fix Response Type">
       <created>1611224270099</created>
