@@ -4,7 +4,7 @@
     :class="full?'w-full':null"
   >
     <div class="text-right text-xs text-gray-700" v-text="date"></div>
-    <p v-text="text" class="notebook"></p>
+    <p v-text="text" class="notebook whitespace-pre-wrap"></p>
     <button class="text-blue-700" @click="toggleFull" v-if="full">show less</button>
     <button class="text-blue-700" @click="toggleFull" v-else>show more</button>
   </div>
