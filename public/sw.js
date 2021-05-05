@@ -43,10 +43,8 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', function (event) {
     event.respondWith(
-        caches.match(event.request).then(function (response) {
-            if (response) {
-                return response;
-            }
+        caches.match(event.request)
+        .then(function (response) {
             let url = new URL(event.request.url);
             if (url.pathname == '/home') {
                 return fetch(event.request)
