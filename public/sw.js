@@ -27,7 +27,6 @@ self.addEventListener('install', function (event) {
     );
 });
 
-// activate
 self.addEventListener('activate', event => {
     //console.log('service worker activated');
     event.waitUntil(
@@ -41,7 +40,6 @@ self.addEventListener('activate', event => {
     );
 });
 
-// fetch
 self.addEventListener('fetch', function (event) {
     event.respondWith(
         caches.match(event.request).then(function (response) {
@@ -50,26 +48,29 @@ self.addEventListener('fetch', function (event) {
             }
             let url = new URL(event.request.url);
             if (url.pathname == '/home') {
-                return fetch(event.request).then(fetchRes => {
-                    return caches.open(CACHE_NAME).then(cache => {
-                        cache.put(event.request.url, fetchRes.clone());
-                        reCacheHomePage();
-                        return fetchRes;
-                    })
-                });
+                return fetch(event.request)
+                    .then(fetchRes => {
+                        return caches.open(CACHE_NAME)
+                            .then(cache => {
+                                cache.put(event.request.url, fetchRes.clone());
+                                reCacheHomePage();
+                                return fetchRes;
+                            })
+                    });
             }
             if (url.pathname == '/logout') {
                 return fetch(event.request).then(fetchRes => {
                     if (fetchRes.status === 204) {
-                        return caches.open(CACHE_NAME).then(cache => {
-                            cache.delete('/home', fetchRes.clone());
-                            return fetchRes;
-                        })
+                        return caches.open(CACHE_NAME)
+                            .then(cache => {
+                                cache.delete('/home', fetchRes.clone());
+                                return fetchRes;
+                            })
                     }
                     return fetchRes;
                 });
             }
-            try{
+            try {
                 return fetch(event.request);
             } catch (err) {
                 // If this was a navigation, show the offline page:
@@ -85,9 +86,12 @@ self.addEventListener('fetch', function (event) {
 });
 
 function reCacheHomePage() {
-    fetch('/').then(newRes => {
-        caches.open(CACHE_NAME).then(cache => {
-            cache.put('/', newRes.clone());
-        })
-    });
+    let homePage = ['/', '/?utmsource=homescreen'];
+    homepage.forEach(page => {
+        fetch(page).then(newRes => {
+            caches.open(CACHE_NAME).then(cache => {
+                cache.put(page, newRes.clone());
+            })
+        });
+    })
 }
