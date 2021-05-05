@@ -14,3 +14,29 @@ window.events = new Vue();
 window.flash = function (message, level = 'success') {
     window.events.$emit('flash', { message, level })
 }
+
+window.showSnackBar = function(){
+    let snackBar = document.getElementById('install-snackbar');
+    setTimeout(()=>{
+        snackBar.style.display = 'block';
+        setTimeout(()=>{
+            snackBar.remove();
+        }, 10000)
+    }, 5000)
+}
+
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+
+    if(location.pathname === '/home'){
+        showSnackBar()
+    }
+});
+
+window.showInstallPromotion = function(){
+    deferredPrompt.prompt();
+    deferredPrompt =null;
+}
