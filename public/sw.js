@@ -1,4 +1,4 @@
-var CACHE_NAME = 'ediary-cache-v1';
+var CACHE_NAME = 'ediary-cache-v2';
 var urlsToCache = [
     '/',
     '/?utmsource=homescreen',
@@ -16,6 +16,7 @@ var urlsToCache = [
     '/icons/old/icons-512.png',
     '/blog',
     '/faq',
+    '/search?utmsource=homescreen',
 ];
 
 self.addEventListener('install', function (event) {

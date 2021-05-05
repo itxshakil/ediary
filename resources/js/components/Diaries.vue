@@ -129,12 +129,18 @@ export default {
     },
     saveFromStorage() {
       let entries = this.getStoredEntries();
+      let token = document.querySelector('meta[name="csrf-token"]').content
 
       if (entries.toSave.length) {
         let items = entries.toSave;
         items.forEach((item, index) => {
+            let data = {
+                entry: item.entry,
+                created_at: item.created_at,
+                _token : token
+            }
           axios
-            .post("/diaries", item)
+            .post("/diaries", data)
             .then(this.removeFromStorage(index))
             .catch(this.handleCatch);
         });
@@ -164,7 +170,7 @@ export default {
     removeFromStorage(index) {
       let entries = this.getStoredEntries();
       entries.toSave.splice(index, 1);
-      this.setEntries(entries);
+      return this.setEntries(entries);
     },
   },
 };
