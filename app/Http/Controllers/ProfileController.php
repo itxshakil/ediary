@@ -11,12 +11,6 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    /**
-     * Display the specified resource.
-     *
-     * @param User $user
-     * @return Application|Factory|View
-     */
     public function show(User $user): Application|Factory|View
     {
         $profile = $user->profile->load('user');
@@ -26,12 +20,6 @@ class ProfileController extends Controller
         return view('profiles.show', compact('profile', 'isFollowing'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param User $user
-     * @return Application|Factory|View
-     */
     public function edit(User $user): Factory|View|Application
     {
         $profile = $user->profile;
@@ -40,11 +28,6 @@ class ProfileController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param Request $request
-     * @param User $user
-     * @return int
      * @throws AuthorizationException
      */
     public function update(Request $request, User $user): int

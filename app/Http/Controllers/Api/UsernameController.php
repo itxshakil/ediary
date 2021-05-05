@@ -17,6 +17,6 @@ class UsernameController extends Controller
             return response('', 422);
         }
 
-        return response('', 200);
+        return response('');
     }
 }

@@ -2,16 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 
 class HomeController
 {
-    /**
-     * Show the application dashboard.
-     *
-     * @return Renderable
-     */
-    public function __invoke(): Renderable
+    public function __invoke(): Factory|View|Application
     {
         return view('home');
     }
