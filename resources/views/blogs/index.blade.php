@@ -4,7 +4,7 @@ Latest Blog Article
 @endsection
 @section('content')
 <div class="container mx-auto px-3 md:px-6">
-    <div class="rounded-lg bg-gray-400 p-4 text-center">
+    <div class="rounded-lg bg-gray-400 p-4 text-center mt-2">
         @auth
         <a class="bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-lg outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
             href="/home">Start writing Now</a>
@@ -14,7 +14,7 @@ Latest Blog Article
         @endauth
     </div>
     <h1 class="text-2xl underline p-4 font-bold">Latest Articles</h1>
-    <div class="flex flex-col md:flex-row gap-4 p-4">
+    <div class="flex flex-col md:flex-row gap-4 p-4 text-gray-900">
         <div class="w-full h-auto bg-gray-400 lg:block lg:w-1/2 bg-cover rounded-lg p-4 m-1">
             <h2 class="font-bold text-lg"><a href="/blogs/how-to-write-diary">How to write a Diary</a></h2>
             <cite class="uppercase text-xs font-bold">Written By</cite> <a class="uppercase text-xs font-bold"
@@ -62,7 +62,7 @@ Latest Blog Article
                     more...</a></p>
         </div>
     </div>
-    <div class="rounded-lg bg-gray-400 p-4 text-center">
+    <div class="rounded-lg bg-gray-400 p-4 text-center mb-2">
         @auth
         <a class="bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-lg outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
             href="/home">Start writing Now</a>

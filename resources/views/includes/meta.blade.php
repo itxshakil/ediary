@@ -7,6 +7,7 @@
 <meta name="rating" content="General" />
 <meta name="url" content="https://appediary.herokuapp.com/" />
 <meta name="identifier-URL" content="https://appediary.herokuapp.com/" />
+<meta name="color-scheme" content="dark light">
 <meta name="owner" content="Shakil Alam" />
 <meta name="author" content="Shakil Alam , itxshakil@gmail.com" />
 <meta name="twitter:card" content="summary" />
