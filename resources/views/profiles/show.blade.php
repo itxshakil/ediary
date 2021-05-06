@@ -12,5 +12,14 @@
         </profile>
         @endcan
     </div>
+    <div class="flex justify-center items-center mt-4 h-full">
+        <div class="w-full h-auto bg-gray-400 lg:block lg:w-1/2 bg-cover rounded-lg py-4 p-2 md:p-8">
+            <div class="flex justify-between flex-wrap">
+                <p class="font-semibold">Public posts</p>
+                <a href="/contact" class="text-xs uppercase text-blue-700">Send suggestions</a>
+            </div>
+            <p class="text-center text-4xl my-12">Coming soon</p>
+        </div>
+    </div>
 </div>
 @endsection
