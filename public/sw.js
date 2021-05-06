@@ -45,6 +45,9 @@ self.addEventListener('fetch', function (event) {
     event.respondWith(
         caches.match(event.request)
         .then(function (response) {
+            if (response) {
+                return response;
+            }
             let url = new URL(event.request.url);
             if (url.pathname == '/home') {
                 return fetch(event.request)
@@ -85,8 +88,8 @@ self.addEventListener('fetch', function (event) {
 });
 
 function reCacheHomePage() {
-    let homePage = ['/', '/?utmsource=homescreen'];
-    homepage.forEach(page => {
+    let homePages = ['/', '/?utmsource=homescreen'];
+    homePages.forEach(page => {
         fetch(page).then(newRes => {
             caches.open(CACHE_NAME).then(cache => {
                 cache.put(page, newRes.clone());
