@@ -4,7 +4,7 @@ These 8 Good Things Will Happen When You Start Writing Diaries
 @endsection
 @section('content')
 <div class="container mx-auto px-3 md:px-6">
-    <article class="bg-gray-200 rounded-lg p-4 m-2">
+    <article class="bg-gray-200 rounded-lg p-4 m-2 text-gray-900">
         <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-center pb-4">
             These 8 Good Things Will Happen When You Start Writing Diaries
         </h1>
@@ -131,7 +131,7 @@ These 8 Good Things Will Happen When You Start Writing Diaries
         @endauth
     </div>
     <h3 class="text-xl underline p-4 font-bold">Related Articles</h3>
-    <div class="flex flex-col md:flex-row gap-4 p-4">
+    <div class="flex flex-col md:flex-row gap-4 p-4 text-gray-900">
         <div class="w-full h-auto bg-gray-400 lg:block lg:w-1/2 bg-cover rounded-lg p-4 m-1">
             <h2 class="font-bold text-lg"><a href="/blogs/how-to-write-diary">How to write a Diary</a></h2>
             <p>Diaries are wonderful objects that allow you to discuss your emotions, record dreams or ideas, and

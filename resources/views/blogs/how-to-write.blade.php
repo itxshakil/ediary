@@ -4,7 +4,7 @@ How to Write a Diary
 @endsection
 @section('content')
 <div class="container mx-auto px-3 md:px-6">
-    <article class="bg-gray-200 rounded-lg p-4 m-2">
+    <article class="bg-gray-200 rounded-lg p-4 m-2 text-gray-900">
         <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-center pb-4">
             How to write Diary
         </h1>
@@ -280,7 +280,7 @@ How to Write a Diary
         @endauth
     </div>
     <h3 class="text-xl underline p-4 font-bold">Related Articles</h3>
-    <div class="flex flex-col md:flex-row gap-4 p-4">
+    <div class="flex flex-col md:flex-row gap-4 p-4 text-gray-900">
         <div class="w-full h-auto bg-gray-400 lg:block lg:w-1/2 bg-cover rounded-lg p-4 m-1">
             <h2 class="font-bold text-lg"><a
                     href="/blogs/these-8-good-things-will-happen-when-you-start-writing-diary">These 8

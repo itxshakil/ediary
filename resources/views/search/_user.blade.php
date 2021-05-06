@@ -1,4 +1,4 @@
-<div class="my-1 p-2 rounded border flex items-center">
+<div class="my-2 p-2 rounded border flex items-center search-result">
     <img src="{{$user->profile->image}}" alt="Profile picture of {{$user->username}}"
         class="rounded-full h-24 w-24 border mr-2">
     <div class="ml-3 flex flex-col">
