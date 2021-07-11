@@ -22,40 +22,23 @@ use Nicolaslopezj\Searchable\SearchableTrait;
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasFactory, Notifiable, VerifiesEmails, SearchableTrait;
+    use HasFactory;
+    use Notifiable;
+    use VerifiesEmails;
+    use SearchableTrait;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'username', 'email', 'password',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
 
-    /**
-     * The relations to eager load on every query.
-     *
-     * @var array
-     */
     protected $with = ['profile'];
 
     /**
@@ -81,11 +64,6 @@ class User extends Authenticatable implements MustVerifyEmail
         ],
     ];
 
-    /**
-     * The "booted" method of the model.
-     *
-     * @return void
-     */
     protected static function booted()
     {
         static::created(function ($user) {
