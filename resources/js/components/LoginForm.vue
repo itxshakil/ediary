@@ -50,7 +50,7 @@
         true-value="yes"
         false-value
       />
-      <label class="text-sm" for="remember">Remember Me</label>
+      <label class="text-sm font-semibold text-gray-700" for="remember">Remember Me</label>
     </div>
     <div class="mb-4 text-center">
       <button
