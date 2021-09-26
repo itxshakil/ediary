@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb2658bb-ab03-40f2-830e-5fb76a461fa3" name="Default Changelist" comment="Remove old web checkusername route">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
-    <option name="SHOW_DIALOG" value="false" />
-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-    <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
@@ -103,7 +97,6 @@
       <path value="$PROJECT_DIR$/vendor/ramsey/collection" />
       <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
       <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
-      <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
       <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
@@ -154,6 +147,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="sqlite" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -190,7 +184,13 @@
       <workItem from="1611723459624" duration="95000" />
       <workItem from="1611759981972" duration="95000" />
       <workItem from="1619945841735" duration="1008000" />
+<<<<<<< HEAD
       <workItem from="1632644147747" duration="2257000" />
+=======
+      <workItem from="1632644147747" duration="985000" />
+      <workItem from="1619945841735" duration="2229000" />
+      <workItem from="1620191845439" duration="10486000" />
+>>>>>>> 021aaf4767fac820b0a36757f380953b871c6f70
     </task>
     <task id="LOCAL-00001" summary="Fix Response Type">
       <created>1611224270099</created>
@@ -335,7 +335,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php</url>
-          <line>138</line>
+          <line>141</line>
           <properties>
             <option name="className" value="\Illuminate\Database\Eloquent\Factories\Factory" />
             <option name="methodName" value="definition" />
