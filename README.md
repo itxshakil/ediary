@@ -1,27 +1,29 @@
-# [Ediary](https://appediary.herokuapp.com)
+# [Ediary](https://ediary.shakiltech.com)
 
 This is an Ediary app, powered by Laravel and VueJS. Its main functionality is saving your diary in encrypted form. We respect your privacy thats why dont ask and save your unneeded information.
 
 It works without internet as well, Thanks to serviceworker.
 
 ## Table of contents
-* [Features](#features)
-* [Technologies used](#technologies-used)
-* [Contributing](#contributing)
-* [Code of Conduct](#code-of-conduct)
-* [Security Vulnerabilities](#security-vulnerabilities)
-* [License](#license)
+
+-   [Features](#features)
+-   [Technologies used](#technologies-used)
+-   [Contributing](#contributing)
+-   [Code of Conduct](#code-of-conduct)
+-   [Security Vulnerabilities](#security-vulnerabilities)
+-   [License](#license)
 
 ## Features
-- Save your diary entry in encrypted form
-- Work offline, thanks to service worker
-- Privacy friendly
-- Minimal design
+
+-   Save your diary entry in encrypted form
+-   Work offline, thanks to service worker
+-   Privacy friendly
+-   Minimal design
 
 ## Technologies Used
 
-- Laravel 8.x
-- Vue 2.x
+-   Laravel 8.x
+-   Vue 2.x
 
 ## Contributing
 

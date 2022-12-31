@@ -5,8 +5,8 @@
 <meta name="subject" content="Ediary | Securely write and save your private Diary" />
 <meta name="language" content="en" />
 <meta name="rating" content="General" />
-<meta name="url" content="https://appediary.herokuapp.com/" />
-<meta name="identifier-URL" content="https://appediary.herokuapp.com/" />
+<meta name="url" content="https://ediary.shakiltech.com/" />
+<meta name="identifier-URL" content="https://ediary.shakiltech.com/" />
 <meta name="color-scheme" content="dark light">
 <meta name="owner" content="Shakil Alam" />
 <meta name="author" content="Shakil Alam , itxshakil@gmail.com" />
@@ -14,7 +14,7 @@
 <meta name="twitter:site" content="@itxshakil" />
 <meta name="twitter:creator" content="@itxshakil" />
 <meta name="og:title" content="Ediary | Securely write and save your private Diary" />
-<meta name="og:url" content="https://appediary.herokuapp.com/" />
+<meta name="og:url" content="https://ediary.shakiltech.com/" />
 <meta name="og:image" content="/icons/apple-icon-96x96.png" />
 <meta name="og:site_name" content="Ediary App" />
 <meta name="google-site-verification" content="oRXIYL6yenkxhE2G4UhEjBQarn6Sb3Z3jRtBdBCoAWA" />

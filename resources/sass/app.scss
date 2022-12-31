@@ -22,12 +22,15 @@
     background-image: linear-gradient(transparent 95%, rgba(0, 0, 0, 0.2) 5%);
     border: none;
 }
-@media (prefers-color-scheme: dark){
+@media (prefers-color-scheme: dark) {
+    :root {
+        background: #333f54;
+        color: #e2e8f0;
+    }
 
-:root{
-    background:#333f54;
-}
-textarea.notebook, .search-result-title, .search-result{
-    background-color:white;
-}
+    textarea.notebook,
+    .search-result-title,
+    .search-result {
+        background-color: white;
+    }
 }

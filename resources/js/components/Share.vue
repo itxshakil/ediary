@@ -19,7 +19,7 @@ export default {
             title: "AppEdiary",
             text:
               "Check out this awesome online diary site. Where you can save your daily  journals. Its works offline also.",
-            url: "https://appediary.herokuapp.com"
+            url: "https://ediary.shakiltech.com"
           })
           .then(() => console.log("Successful share"))
           .catch(error => console.log("Error sharing", error));
