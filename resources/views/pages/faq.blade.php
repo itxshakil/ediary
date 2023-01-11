@@ -2,7 +2,7 @@
 @section('title','Frequently Asked Questions')
 @section('content')
 <div class="container mx-auto px-3 md:px-6">
-    <h2 class="text-xl md:text-2xl mt-4">Frequently Asked Questions and Answers:</h2>
+    <h1 class="text-xl md:text-2xl mt-4">Frequently Asked Questions and Answers:</h1>
     <p class="hidden md:block">This is a shortlist of our most frequently asked questions. For more information about
         E-diary, or if you need support, please visit our support center. </p>
 

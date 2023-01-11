@@ -7,7 +7,7 @@
             style="background-image: url('https://source.unsplash.com/K4mSJ7kc0As/600x800')">
         </div>
         <div class="w-full lg:w-1/2 bg-gray-200 p-2 md:p-5 rounded-lg lg:rounded-l-none">
-            <h3 class="pt-4 text-2xl text-center pb-2 md:pb-4 text-gray-900">{{ __('Change Password') }}</h3>
+            <h1 class="pt-4 text-2xl text-center pb-2 md:pb-4 text-gray-900">{{ __('Change Password') }}</h1>
             <form class="px-4 md:px-8  pt-6 pb-2 mb-4 bg-white rounded" method="POST"
                 action="{{ route('password.change') }}">
                 <div class="mb-4">
