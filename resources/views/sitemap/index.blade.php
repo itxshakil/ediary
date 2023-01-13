@@ -5,7 +5,7 @@
 	<url>
 		<loc>https://ediary.shakiltech.com/</loc>
 
-		<lastmod>2020-07-01</lastmod>
+		<lastmod>2023-01-07</lastmod>
 
 		<changefreq>daily</changefreq>
 
@@ -16,12 +16,11 @@
 	<url>
 		<loc>{{ url($route->uri) }}</loc>
 
-		<lastmod>{{ date('Y-m-d H:i:s') }}</lastmod>
+		<lastmod>{{ date('Y-m-d') }}</lastmod>
 
 		<changefreq>weekly</changefreq>
 
 		<priority>0.9</priority>
 	</url>
 	@endforeach
-
 </urlset>
