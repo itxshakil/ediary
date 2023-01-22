@@ -13,6 +13,9 @@
 
 	</url>
 	@foreach ($routes as $route)
+	@if (strpos($route->uri, '{') !== false)
+		@continue
+	@endif
 	<url>
 		<loc>{{ url($route->uri) }}</loc>
 
