@@ -50,8 +50,7 @@ Latest Blog Article
             <h2 class="font-bold text-lg"><a href="/blogs/how-to-start-writing-a-diary">How to Start Writing a Diary</a>
             </h2>
             <cite class="uppercase text-xs font-bold">Written By</cite> <a class="uppercase text-xs font-bold"
-                href="#">INTERNET
-                BLOGGER</a>
+                href="#">Shakil Alam</a>
             <p>To start a diary, all you need is a willingness to write. Start by figuring out what you want
                 to write in your journal.
                 If you aren’t sure, simply start writing and see where that leads. It can also be useful to set a time

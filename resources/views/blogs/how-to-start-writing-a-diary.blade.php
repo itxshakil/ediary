@@ -32,8 +32,7 @@ How to Start Writing a Diary
         <h2 class="text-3xl py-2 font-semibold">5. Date your entries:</h2>
         <p class="text-xl mb-1">Dating each entry is crucial for tracking your progress over time. It allows you to reflect on your past experiences and observe your personal growth. If you're using an online diary platform like E-diary, the entries will be automatically dated.</p>
 
-        <a href="/blogs/how-to-write-diary" class="text-blue-500 my-2 text-center text-lg block bg-gray-800 rounded p-2">Tips on How to Start Writing
-            Diary</a>
+        <a href="/blogs/how-to-write-diary" class="text-blue-500 my-2 text-center text-lg block bg-gray-800 rounded p-2">Tips on How to Start Writing Diary</a>
 
         <p class="text-xl mb-1"><strong>Example:</strong> Imagine leafing through your diary and marveling at how far you've come since that first entry, celebrating your accomplishments and cherishing the memories.</p>
         <h2 class="text-3xl py-2 font-semibold">6. Craft an introductory entry:</h2>
