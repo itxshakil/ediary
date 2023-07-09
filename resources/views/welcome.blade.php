@@ -19,11 +19,9 @@
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                    </svg>Privacy
+                    </svg>Enjoy Complete Privacy
                 </h3>
-                <p class="sm:w-96">We respect your privacy. That's why we don't ask for any personal details such as your
-                    name, Date of birth, etc. We ask
-                    for your Email-address for verification purposes only.</p>
+                <p class="sm:w-96">At Ediary, your privacy is our top priority. We prioritize your privacy by refraining from asking for unnecessary details like your name or date of birth. Rest assured, we only require your email address for verification purposes.</p>
             </div>
             <div class="feature p-4">
                 <h3 class="mb-2 text-xl flex items-center">
@@ -32,9 +30,9 @@
                         stroke-linejoin="round" class="feather feather-lock mr-1">
                         <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                         <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                    </svg>Secure
+                    </svg>Keep Your Thoughts Secure
                 </h3>
-                <p class="sm:w-96">All entries in the diary are private by default. We save your entry in encrypted form in the Database. So no one can read it except you.</p>
+                <p class="sm:w-96">Your diary entries are treated with utmost confidentiality. Each entry is encrypted and securely stored in our database, ensuring that only you can access and read them. Relax and express yourself freely, knowing your words are protected.</p>
             </div>
             <div class="feature p-4">
                 <h3 class="mb-2 text-xl flex items-center">
@@ -48,9 +46,9 @@
                         <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"></path>
                         <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
                         <line x1="12" y1="20" x2="12.01" y2="20"></line>
-                    </svg>Availability
+                    </svg>Never Miss a Moment
                 </h3>
-                <p class="sm:w-96">Sometimes you may not have an internet connection to save your entries then we will save your entries on your device and when you connected to the Internet we save it to your diary. So you can add entries when you're offline.</p>
+                <p class="sm:w-96">With Ediary, you have the freedom to capture your thoughts anytime, even when you're offline. If you find yourself without an internet connection, your entries are automatically saved on your device. As soon as you reconnect to the internet, they seamlessly sync with your diary. Stay connected to your diary, no matter where you are.</p>
             </div>
             <div class="feature p-4">
                 <h3 class="mb-2 text-xl flex items-center">
@@ -59,10 +57,9 @@
                         stroke-linejoin="round" class="mr-1 feather feather-home">
                         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                         <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                    </svg>Installable
+                    </svg>Effortless Access, Anytime
                 </h3>
-                <p class="sm:w-96">You can add Ediary to your Home Screen. So you can access your diary easily. You can use
-                    it as native apps.</p>
+                <p class="sm:w-96">Enhance your diary experience by adding Ediary to your Home Screen. By doing so, you can effortlessly access your diary with a single tap, just like using a native app. Enjoy the convenience of instant entry and seamless navigation.</p>
             </div>
         </div>
     </div>
