@@ -10,7 +10,6 @@ class ContactUs extends Mailable
 {
     use Queueable, SerializesModels;
 
-
     /**
      * Create a new message instance.
      *
@@ -29,6 +28,10 @@ class ContactUs extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.contact', compact('name', 'email', 'message'));
+        return $this->markdown('emails.contact', [
+            'name' => $this->name,
+            'email' => $this->email,
+            'message' => $this->message
+        ]);
     }
 }
