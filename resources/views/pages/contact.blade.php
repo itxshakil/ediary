@@ -7,7 +7,7 @@
             style="background-image: url('https://source.unsplash.com/K4mSJ7kc0As/600x800')">
         </div>
         <div class="w-full lg:w-1/2 bg-gray-200 p-2 md:p-5 rounded-lg lg:rounded-l-none">
-            <h1 class="pt-4 text-2xl text-center pb-6 md:pb-4">Contact us!</h1>
+            <h1 class="pt-4 text-2xl text-center pb-6 md:pb-4 dark:text-black">Contact us!</h1>
             <form class="px-3 md:px-8 pb-2 mb-4 bg-white rounded" method="POST"
                 action="{{ route('contact.send') }}">
                 <div class="mb-4">
