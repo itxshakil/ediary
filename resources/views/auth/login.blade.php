@@ -4,7 +4,7 @@
 <div class="container mx-auto flex justify-center px-3 md:px-6">
     <div class="w-full xl:w-3/4 lg:w-11/12 flex my-6">
         <div class="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg"
-            style="background-image: url('https://source.unsplash.com/K4mSJ7kc0As/600x800')">
+            style="background-image: url('https://source.unsplash.com/K4mSJ7kc0As/600x800'); background-position: center;">
         </div>
         <div class="w-full lg:w-1/2 bg-gray-200 p-2 md:p-5 rounded-lg lg:rounded-l-none">
             <h3 class="pt-4 text-2xl text-center pb-2 md:pb-4 text-gray-900">Welcome Back!</h3>
