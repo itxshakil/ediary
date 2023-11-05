@@ -1,4 +1,4 @@
 Sitemap: https://ediary.shakiltech.com/sitemap.xml
 Sitemap: https://ediary.shakiltech.com/sitemap.xml/users/
 User-agent: *
-Disallow:
+Disallow: /public/user/
