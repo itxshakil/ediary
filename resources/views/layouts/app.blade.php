@@ -31,7 +31,7 @@
     @stack('scripts')
 </head>
 
-<body>
+<body class="font-sans antialiased accent-blue-500 dark:bg-gray-900 dark:text-white">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5KBQKGS" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>

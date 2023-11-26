@@ -1,21 +1,21 @@
 <template>
-  <div class="w-full bg-gray-100 p-2 md:p-5 rounded-lg">
-    <h2 class="pt-4 text-2xl font-semibold text-gray-800 text-center pb-2 sm:pb-4">Register now!</h2>
+  <div class="w-full bg-gray-100 p-2 md:p-5 rounded-lg dark:bg-gray-800 dark:text-white">
+    <h2 class="pt-4 text-2xl font-semibold text-gray-800 dark:text-white text-center pb-2 sm:pb-4">Register now!</h2>
     <form
       method="POST"
-      class="px-4 md:px-8 pt-6 pb-2 mb-4 bg-red-100 rounded"
+      class="px-4 md:px-8 pt-6 pb-2 mb-4 bg-gray-100 dark:bg-gray-900 rounded"
       @submit.prevent="register"
     >
-      <div class="flex flex-col sm:flex-row mb-4">
-          <div class="sm:mr-2 w-full">
-              <label class="block mb-2 text-sm font-bold text-gray-700" for="email">Email-Address</label>
+      <div class="flex flex-col sm:flex-row">
+          <div class="sm:mr-2 w-full mb-4">
+              <label class="block mb-2 text-sm font-bold text-gray-700 dark:text-gray-200" for="email">Email Address</label>
               <input
                   id="email"
                   v-model="email"
                   :class="errors.email ? 'border-red-500' :null"
                   autocomplete="email"
                   autofocus
-                  class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none"
+                  class="w-full px-3 py-2 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded shadow appearance-none focus:outline-none"
                   name="email"
                   placeholder="john@example.com"
                   required
@@ -24,21 +24,21 @@
               />
               <p
                   v-if="errors.email"
-                  class="text-xs italic text-red-500"
+                  class="text-xs italic text-red-500 dark:text-red-400"
                   role="alert"
                   v-text="errors.email[0]"
               ></p>
           </div>
-          <div class="sm:ml-2 w-full">
-              <label class="block mb-2 text-sm font-bold text-gray-700" for="username">Username</label>
+          <div class="sm:ml-2 w-full mb-4">
+              <label class="block mb-2 text-sm font-bold text-gray-700 dark:text-gray-200" for="username">Username</label>
               <username-input ref="usernameInput"></username-input>
           </div>
       </div>
-      <div class="flex flex-col sm:flex-row mb-4">
-        <div class="sm:mr-2 w-full">
-          <label class="block mb-2 text-sm font-bold text-gray-700" for="password">Password</label>
+      <div class="flex flex-col sm:flex-row">
+        <div class="sm:mr-2 w-full mb-4">
+          <label class="block mb-2 text-sm font-bold text-gray-700 dark:text-gray-200" for="password">Password</label>
           <input
-            class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none"
+            class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded shadow appearance-none focus:outline-none"
             :class="errors.password ? 'border-red-500' :null"
             id="password"
             type="password"
@@ -49,18 +49,18 @@
           />
           <p
             v-if="errors.password"
-            class="text-xs italic text-red-500"
+            class="text-xs italic text-red-500 dark:text-red-400"
             role="alert"
             v-text="errors.password[0]"
           ></p>
         </div>
-        <div class="sm:ml-2 w-full">
+        <div class="sm:ml-2 w-full mb-4">
           <label
-            class="block mb-2 text-sm font-bold text-gray-700"
+            class="block mb-2 text-sm font-bold text-gray-700 dark:text-gray-200"
             for="password_confirmation"
           >Confirm Password</label>
           <input
-            class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none"
+            class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded shadow appearance-none focus:outline-none"
             id="password_confirmation"
             type="password"
             name="password_confirmation"
@@ -95,11 +95,11 @@ export default {
   },
   computed: {
       btnText() {
-          return this.disabled ? "Creating your account,Please wait" : "Get Started Now...";
+          return this.disabled ? "Creating your account, Please wait..." : "Get Started Now";
       },
       extractUsernameFromEmail() {
-          let email = this.email;
-          let nameParts = email.split("@");
+          const email = this.email;
+          const nameParts = email.split("@");
           return (nameParts.length === 2) ? nameParts[0] : null;
       }
   },
@@ -147,7 +147,7 @@ export default {
       return false;
     },
     validateUsername() {
-      let input = this.username();
+      const input = this.username();
 
       return input.isAvailable;
     }

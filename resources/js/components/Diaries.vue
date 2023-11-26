@@ -2,7 +2,7 @@
   <div v-if="addnew">
     <resizable-textarea>
       <textarea
-        class="whitespace-pre-wrap notebook w-full px-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none"
+        class="whitespace-pre-wrap notebook w-full px-3 text-sm leading-tight dark:bg-gray-800 dark:text-white border rounded shadow appearance-none focus:outline-none"
         name="entry"
         id="entry"
         cols="30"

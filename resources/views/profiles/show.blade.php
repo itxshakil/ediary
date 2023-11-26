@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 <div class="container mx-auto px-3 md:px-6">
-    <div class="text-gray-900 flex justify-center items-center">
+    <div class="text-gray-900 flex justify-center items-center mt-4">
         @can('update', $profile)
         <profile :data="{{$profile->toJson()}}" :can-edit="true"></profile>
         @else
@@ -13,7 +13,7 @@
         @endcan
     </div>
     <div class="text-gray-900 flex justify-center items-center mt-4 h-full">
-        <div class="w-full h-auto bg-gray-400 lg:block lg:w-1/2 bg-cover rounded-lg py-4 p-2 md:p-8">
+        <div class="w-full h-auto bg-gray-200 dark:bg-gray-800 dark:text-white lg:block lg:w-1/2 bg-cover rounded-lg py-4 p-2 md:p-8">
             <div class="flex justify-between flex-wrap">
                 <p class="font-semibold">Public posts</p>
                 <a href="/contact" class="text-xs uppercase text-blue-700">Send suggestions</a>

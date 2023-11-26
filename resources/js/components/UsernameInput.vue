@@ -1,7 +1,7 @@
 <template>
   <div>
     <input
-      class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none"
+      class="w-full px-3 py-2 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded shadow appearance-none focus:outline-none"
       :class="error? 'border-red-500' :null"
       id="username"
       type="text"
@@ -38,6 +38,7 @@ export default {
       username: this.value,
       isAvailable: false,
       error: this.iserror,
+      processing: false,
     };
   },
   mounted() {
@@ -46,7 +47,7 @@ export default {
   computed: {
     message() {
       let message = "The username must be at least 5 characters.";
-      if (this.username.length > 4) {
+      if (this.username.length > 4 && this.processing === false) {
         if (this.isAvailable) {
           message = this.username + " is available.";
         }else{
@@ -60,6 +61,7 @@ export default {
   methods: {
     check() {
       if (this.username.length > 4) {
+          this.processing = true;
           axios
               .post("/api/check-username", {username: this.username})
           .then((response) => {
@@ -74,6 +76,8 @@ export default {
           .catch((error) => {
             this.error = true;
             this.isAvailable = false;
+          }).finally(()=>{
+            this.processing = false;
           });
       }
     },

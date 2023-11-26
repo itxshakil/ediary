@@ -1,9 +1,9 @@
 <template>
-  <form method="POST" @submit.prevent="login">
+  <form method="POST" @submit.prevent="login" class="bg-gray-100 dark:bg-gray-900">
     <div class="mb-4">
-      <label class="block mb-2 text-sm font-bold text-gray-700" for="username">Username</label>
+      <label class="block mb-2 text-sm font-bold text-gray-700 dark:text-gray-200" for="username">Username</label>
       <input
-        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none"
+        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded shadow appearance-none focus:outline-none"
         :class="errors.username ? 'border-red-500' :null"
         type="text"
         id="username"
@@ -16,14 +16,14 @@
       />
       <p
         v-if="errors.username"
-        class="text-xs italic text-red-500"
+        class="text-xs italic text-red-500 dark:text-red-400"
         role="alert"
         v-text="errors.username[0]"
       ></p>
     </div>
     <div class="mb-4">
       <div class="flex justify-between">
-        <label class="block mb-2 text-sm font-bold text-gray-700" for="password">Password</label>
+        <label class="block mb-2 text-sm font-bold text-gray-700 dark:text-gray-200" for="password">Password</label>
         <a
           class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
           href="/password/reset"
@@ -31,7 +31,7 @@
         >Forgot Password?</a>
       </div>
       <input
-        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none"
+        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded shadow appearance-none focus:outline-none"
         :class="errors.password ? 'border-red-500' :null"
         id="password"
         type="password"
@@ -50,7 +50,7 @@
         true-value="yes"
         false-value
       />
-      <label class="text-sm font-semibold text-gray-700" for="remember">Remember Me</label>
+      <label class="text-sm font-semibold text-gray-700 dark:text-gray-200" for="remember">Remember Me</label>
     </div>
     <div class="mb-4 text-center">
       <button

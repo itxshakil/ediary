@@ -3,7 +3,7 @@
 Dashboard | Read and write your diary
 @endsection
 @section('content')
-<div class="container mx-auto px-3 md:px-6">
+<div class="container mx-auto px-3 md:px-6 my-4">
     <diaries></diaries>
     <div class="bg-blue-700 text-white p-4 rounded max-w-72 fixed bottom-0 mb-4 mr-4 max-w-lg hidden transition-all duration-200 ease-in" id="install-snackbar">
         <h3 class="pb-2 font-semibold text-lg tracking-wide">Install</h3>

@@ -16,7 +16,7 @@ export default {
       if (navigator.share) {
         navigator
           .share({
-            title: "AppEdiary",
+            title: "Ediary",
             text:
               "Check out this awesome online diary site. Where you can save your daily  journals. Its works offline also.",
             url: "https://ediary.shakiltech.com"
@@ -25,7 +25,7 @@ export default {
           .catch(error => console.log("Error sharing", error));
       } else {
         window.location.href =
-          "https://www.facebook.com/sharer/sharer.php?u=https%3A//appediary.herokuapp.com";
+          "https://www.facebook.com/sharer/sharer.php?u=https%3A//ediary.shakiltech.com";
       }
     }
   }

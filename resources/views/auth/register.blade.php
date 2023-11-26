@@ -7,9 +7,7 @@
             <div class="flex flex-col text-gray-200 justify-center items-center">
                 <div class="feature p-4 mb-1">
                     <h3 class="mb-2 text-xl flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="mr-1"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" class="feather feather-shield">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="mr-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                         </svg>Privacy
                     </h3>
@@ -18,9 +16,7 @@
                 </div>
                 <div class="feature p-4 mb-1">
                     <h3 class="mb-2 text-xl flex flex-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" class="mr-1" stroke-linecap="round"
-                            stroke-linejoin="round" class="feather feather-lock">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock">
                             <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                             <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                         </svg>Secure
@@ -32,9 +28,7 @@
                 </div>
                 <div class="feature p-4 mb-1">
                     <h3 class="mb-2 text-xl flex flex-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" class="mr-1" stroke-linecap="round"
-                            stroke-linejoin="round" class="feather feather-wifi-off">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-wifi-off">
                             <line x1="1" y1="1" x2="23" y2="23"></line>
                             <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"></path>
                             <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"></path>
@@ -49,9 +43,7 @@
                 </div>
                 <div class="feature p-4 mb-1">
                     <h3 class="mb-2 text-xl flex flex-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" class="mr-1" stroke-linecap="round"
-                            stroke-linejoin="round" class="feather feather-home">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                             <polyline points="9 22 9 12 15 12 15 22"></polyline>
                         </svg>Installable
@@ -61,11 +53,11 @@
                 </div>
             </div>
         </div>
-        <div class="w-full lg:w-1/2 bg-gray-200 p-2 md:p-5 rounded-lg lg:rounded-l-none">
-            <h3 class="pt-4 text-2xl text-center pb-2 md:pb-4 text-gray-900">Register new account!</h3>
-            <form class="px-4 md:px-8  pt-6 pb-2 mb-4 bg-white rounded" method="POST" action="/register">
+        <div class="w-full lg:w-1/2 bg-gray-200 dark:bg-gray-800 p-2 md:p-5 rounded-lg lg:rounded-l-none">
+            <h3 class="pt-4 text-2xl text-center pb-2 md:pb-4 text-gray-900 dark:text-white">Register new account!</h3>
+            <form class="px-4 md:px-8  pt-6 pb-2 mb-4 bg-white dark:text-white dark:bg-gray-900 rounded" method="POST" action="/register">
                 <section class="mb-4">
-                    <label class="block mb-2 text-sm font-bold text-gray-700" for="username">
+                    <label class="text-sm font-semibold text-gray-700 dark:text-gray-200" for="username">
                         Username
                     </label>
                     <username-input @error('email') :iserror="true" @enderror value="{{old('username')}}">
@@ -75,45 +67,34 @@
                     @enderror
                 </section>
                 <section class="mb-4">
-                    <label class="block mb-2 text-sm font-bold text-gray-700" for="email">
+                    <label class="text-sm font-semibold text-gray-700 dark:text-gray-200" for="email">
                         Email-Address
                     </label>
-                    <input
-                        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none @error('email') border-red-500 @enderror"
-                        id="email" type="email" placeholder="john@example.com" name="email" value="{{ old('email') }}"
-                        required autocomplete="email" autofocus />
+                    <input class="w-full px-3 py-2 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded shadow appearance-none focus:outline-none @error('email') border-red-500 @enderror" id="email" type="email" placeholder="john@example.com" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
                     @error('email')
                     <p class="text-xs italic text-red-500" role="alert">{{ $message }}</p>
                     @enderror
                 </section>
                 <section class="mb-4">
-                    <label class="block mb-2 text-sm font-bold text-gray-700" for="password">
+                    <label class="text-sm font-semibold text-gray-700 dark:text-gray-200" for="password">
                         Password
                     </label>
-                    <input
-                        class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded shadow appearance-none focus:outline-none @error('password') border-red-500 @enderror"
-                        id="password" type="password" name="password" placeholder="******************"
-                        autocomplete="new-password" />
+                    <input class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded shadow appearance-none focus:outline-none @error('password') border-red-500 @enderror" id="password" type="password" name="password" placeholder="******************" autocomplete="new-password" />
                     @error('password')
                     <p class="text-xs italic text-red-500" role="alert">{{ $message }}</p>
                     @enderror
                 </section>
                 <section class="mb-4">
-                    <label class="block mb-2 text-sm font-bold text-gray-700" for="password_confirmation">
+                    <label class="text-sm font-semibold text-gray-700 dark:text-gray-200" for="password_confirmation">
                         Confirm Password
                     </label>
-                    <input
-                        class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded shadow appearance-none focus:outline-none @error('password_confirmation') border-red-500 @enderror"
-                        id="password_confirmation" type="password" name="password_confirmation"
-                        placeholder="******************" />
+                    <input class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded shadow appearance-none focus:outline-none @error('password_confirmation') border-red-500 @enderror" id="password_confirmation" type="password" name="password_confirmation" placeholder="******************" />
                     @error('password_confirmation')
                     <p class="text-xs italic text-red-500" role="alert">{{ $message }}</p>
                     @enderror
                 </section>
                 <section class="mb-4 text-center">
-                    <button
-                        class="w-full bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-full outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
-                        type="submit">
+                    <button class="w-full bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-full outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs" type="submit">
                         Register Now
                     </button>
                 </section>
@@ -121,15 +102,13 @@
             </form>
             <hr class="mb-6 mx-8 border-t" />
             <div class="text-center">
-                <a class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                    href="{{ route('login')}}">
+                <a class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="{{ route('login')}}">
                     Already have an account Login!
                 </a>
             </div>
             @if (Route::has('password.request'))
             <div class="text-center">
-                <a class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                    href="{{ route('password.request') }}">
+                <a class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="{{ route('password.request') }}">
                     Forgot Password?
                 </a>
             </div>

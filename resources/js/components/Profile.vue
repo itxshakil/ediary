@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-auto bg-gray-400 lg:block lg:w-1/2 bg-cover rounded-lg py-4 p-2 md:p-8">
+  <div class="w-full h-auto bg-gray-200 dark:bg-gray-800 dark:text-white lg:block lg:w-1/2 bg-cover rounded-lg py-4 p-2 md:p-8">
     <div class="flex">
       <div class="flex flex-col justify-center">
         <img
@@ -10,7 +10,7 @@
         <p class="text-xs" v-if="uploading">Updating Please wait...</p>
         <image-upload
           v-if="editable == true"
-          class="m-2 ml-0 px-3 py-2 text-sm leading-tight text-gray-700 appearance-none focus:outline-none w-24"
+          class="m-2 ml-0 px-3 py-2 text-sm leading-tight text-gray-700 dark:text-gray-200 appearance-none focus:outline-none w-24"
           @loaded="onLoad"
         ></image-upload>
       </div>
@@ -19,7 +19,7 @@
           type="text"
           name="name"
           v-model="name"
-          class="px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none"
+          class="px-3 py-2 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded shadow appearance-none focus:outline-none"
         />
         <p
           v-if="errors.name"
@@ -37,7 +37,7 @@
           cols="20"
           rows="10"
           v-model="bio"
-          class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none"
+          class="w-full px-3 py-2 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded shadow appearance-none focus:outline-none"
         ></textarea>
         <p
           v-if="errors.bio"

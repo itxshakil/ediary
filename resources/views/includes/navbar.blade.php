@@ -10,7 +10,7 @@
         @auth
         <form action="/search" method="get" class="w-full text-right">
             <input
-                class="sm:w-48 w-32 sm:m-1 mr-1 px-2 py-1  sm:px-3 sm:py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none @error('q') border-red-500 @enderror"
+                class="sm:w-48 w-32 sm:m-1 mr-1 px-2 py-1  sm:px-3 sm:py-2 text-sm leading-tight border rounded shadow appearance-none focus:outline-none @error('q') border-red-500 @enderror"
                 id="q" type="search" name="q" placeholder="Search user..." autocomplete="off" required />
             @error('q')
             <p class="text-xs italic text-red-500" role="alert">{{ $message }}</p>
