@@ -1,8 +1,11 @@
 {
+    "id": "com.shakiltech.ediary",
     "name": "Ediary App",
     "short_name": "Ediary",
     "start_url": "/?utmsource=homescreen",
+    "scope": "/",
     "display": "standalone",
+    "orientation": "portrait-primary",
     "background_color": "#2d3748",
     "theme-color": "#2d3748",
     "description": "Securely write and save your private Diary",
@@ -153,5 +156,30 @@
             "url": "/request-data?utmsource=homescreen",
             "icons": [{ "src": "/icons/old/icons-96.png", "sizes": "96x96" }]
         }
-    ]
+    ],
+    "screenshots": [
+        {
+            "src": "/images/screenshots/ediary-features.png",
+            "sizes": "375x760",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/screenshots/ediary-profile.png",
+            "sizes": "375x760",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/screenshots/ediary-welcome.png",
+            "sizes": "375x760",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/screenshots/ediary-blogs.png",
+            "sizes": "375x760",
+            "type": "image/png"
+        }
+    ],
+    "dir": "ltr",
+    "handle_links": "preferred",
+    "categories": ["productivity", "utilities", "personalization"]
 }

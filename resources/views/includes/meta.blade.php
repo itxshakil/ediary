@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@itxshakil" />
 <meta name="twitter:creator" content="@itxshakil" />
-<meta name="og:title" content="Ediary | Securely write and save your private Diary" />
+<meta name="og:title" content="Securely write and save your private Diary" />
 <meta name="og:url" content="https://ediary.shakiltech.com/" />
 <meta name="og:image" content="/icons/apple-icon-96x96.png" />
 <meta name="og:site_name" content="Ediary App" />

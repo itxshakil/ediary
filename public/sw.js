@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ediary-cache-v2';
+const CACHE_NAME = 'ediary-cache-v3';
 const urlsToCache = [
     '/',
     '/?utmsource=homescreen',
@@ -17,6 +17,10 @@ const urlsToCache = [
     '/blog',
     '/faq',
     '/search?utmsource=homescreen',
+    '/images/screenshots/ediary-features.png',
+    '/images/screenshots/ediary-profile.png',
+    '/images/screenshots/ediary-welcome.png',
+    '/images/screenshots/ediary-blogs.png',
 ];
 
 self.addEventListener('install', function (event) {
