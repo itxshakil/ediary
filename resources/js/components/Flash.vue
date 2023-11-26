@@ -1,7 +1,7 @@
 <template>
   <div
     class="flash-alert border px-4 py-3 my-2 rounded w-64"
-    :class="'bg-'+classes+'-100 text-'+classes+'-700 border-'+classes+'-400'"
+    :class="classes"
     role="alert"
     v-show="show"
     v-text="body"
@@ -27,13 +27,13 @@ export default {
   computed: {
     classes() {
       if (this.level == "success") {
-        return "green";
+        return "bg-green-100 text-green-700 border-green-400";
       }
       if (this.level == "danger") {
-        return "red";
+        return "bg-red-100 text-red-700 border-red-400";
       }
       if (this.level == "warning") {
-        return "yellow";
+        return "bg-yellow-100 text-yellow-700 border-yellow-400";
       }
     }
   },

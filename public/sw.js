@@ -1,5 +1,5 @@
-var CACHE_NAME = 'ediary-cache-v2';
-var urlsToCache = [
+const CACHE_NAME = 'ediary-cache-v2';
+const urlsToCache = [
     '/',
     '/?utmsource=homescreen',
     '/css/app.css',
@@ -48,7 +48,7 @@ self.addEventListener('fetch', function (event) {
             if (response) {
                 return response;
             }
-            let url = new URL(event.request.url);
+            const url = new URL(event.request.url);
             if (url.pathname == '/home') {
                 return fetch(event.request)
                     .then(fetchRes => {
@@ -88,7 +88,7 @@ self.addEventListener('fetch', function (event) {
 });
 
 function reCacheHomePage() {
-    let homePages = ['/', '/?utmsource=homescreen'];
+    const homePages = ['/', '/?utmsource=homescreen'];
     homePages.forEach(page => {
         fetch(page).then(newRes => {
             caches.open(CACHE_NAME).then(cache => {
