@@ -2,7 +2,7 @@
     content="E-diary is a free service to keep track of your past and think about your future. You can make predictions about what will happen and see if they come true. TRY NOW FOR FREE!!!" />
 <meta name="keywords"
     content="ediary,ediary app, private diary, secure diary,privacy friendly , diary App , save diary , free ediary offline , pwa, shakil alam" />
-<meta name="subject" content="Ediary | Securely write and save your private Diary" />
+<meta name="subject" content="Securely write and save your private Diary | Ediary" />
 <meta name="language" content="en" />
 <meta name="rating" content="General" />
 <meta name="url" content="https://ediary.shakiltech.com/" />
