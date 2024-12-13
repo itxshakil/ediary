@@ -13,7 +13,9 @@ class SitemapController extends Controller
         $routeCollection = Route::getRoutes();
         $routes = $routeCollection->get('GET');
 
-        return response()->view('sitemap.index', compact('routes'))->header('Content-Type', 'text/xml');
+        $users = User::select('username', 'updated_at')->get();
+
+        return response()->view('sitemap.index', compact('routes','users'))->header('Content-Type', 'text/xml');
     }
 
     public function users(): Response
