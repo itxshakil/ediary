@@ -12,6 +12,7 @@
 <meta name="author" content="Shakil Alam , itxshakil@gmail.com" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@itxshakil" />
+<meta name="twitter:title" content="Securely write and save your private Diary" />
 <meta name="twitter:creator" content="@itxshakil" />
 <meta name="og:title" content="Securely write and save your private Diary" />
 <meta name="og:url" content="https://ediary.shakiltech.com/" />
