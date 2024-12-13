@@ -27,7 +27,7 @@
         })(window,document,'script','dataLayer','GTM-5KBQKGS');
     </script>
     <!-- End Google Tag Manager -->
-
+    @stack('head')
     @stack('scripts')
 </head>
 
