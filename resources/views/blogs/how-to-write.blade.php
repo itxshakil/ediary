@@ -2,6 +2,59 @@
 @section('title')
 How to Write a Diary
 @endsection
+
+@push('meta')
+    <meta name="description" content="Unlock the power of diary writing with expert tips. Learn how to express your thoughts, improve your mental health, and boost creativity with easy-to-follow journaling techniques." />
+    <meta name="keywords" content="how to write a diary, journaling tips, creative writing, mental health, goal setting, self-expression, personal growth, writing prompts, diary inspiration" />
+    <meta name="subject" content="How to Start Writing a Diary - A Guide to Self-Expression and Creativity" />
+    <meta name="language" content="en" />
+    <meta name="rating" content="General" />
+    <meta name="url" content="https://ediary.shakiltech.com/blogs/how-to-write-diary" />
+    <meta name="identifier-URL" content="https://ediary.shakiltech.com/blogs/how-to-write-diary" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@itxshakil" />
+    <meta name="twitter:title" content="How to Write a Diary - Start Your Creative Journaling Journey Today!" />
+    <meta name="twitter:description" content="Ready to start journaling? Discover easy tips to write your own diary, boost creativity, and express your true feelings. Perfect for beginners and experienced writers." />
+    <meta name="twitter:image" content="https://ediary.shakiltech.com/icons/apple-icon-96x96.png" />
+    <meta name="og:title" content="How to Write a Diary - Start Journaling for Personal Growth" />
+    <meta name="og:url" content="https://ediary.shakiltech.com/blogs/how-to-write-diary" />
+    <meta name="og:image" content="https://ediary.shakiltech.com/icons/apple-icon-96x96.png" />
+    <meta name="og:description" content="Learn to write a meaningful diary with expert advice on self-expression, mental health, and creativity. Start your journey toward personal growth through journaling!" />
+@endpush
+@push('head')
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "name": "How to Write a Diary",
+        "headline": "How to Write a Diary - Tips, Ideas, and Inspiration for Personal Growth",
+        "description": "Discover how to start writing a diary with these expert tips for self-expression, creativity, and mental wellness. Learn how to express your emotions and set meaningful goals.",
+        "url": "https://ediary.shakiltech.com/blogs/how-to-write-diary",
+        "author": {
+            "@type": "Person",
+            "name": "Shakil Alam",
+            "url": "https://ediary.shakiltech.com"
+        },
+        "datePublished": "2024-12-21",
+        "publisher": {
+            "@type": "Organization",
+            "name": "E-Diary",
+            "url": "https://ediary.shakiltech.com",
+            "logo": {
+            "@type": "ImageObject",
+            "url": "https://ediary.shakiltech.com/icons/apple-icon-96x96.png"
+            }
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.7",
+            "reviewCount": "215",
+            "bestRating": "5",
+            "worstRating": "1"
+        }
+        }
+    </script>
+@endpush
 @section('content')
 <div class="container mx-auto px-3 md:px-6">
     <article class="bg-gray-200 rounded-lg p-4 m-2 text-gray-900">

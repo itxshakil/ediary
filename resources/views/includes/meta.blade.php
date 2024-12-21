@@ -7,9 +7,6 @@
 <meta name="rating" content="General" />
 <meta name="url" content="https://ediary.shakiltech.com/" />
 <meta name="identifier-URL" content="https://ediary.shakiltech.com/" />
-<meta name="color-scheme" content="dark light">
-<meta name="owner" content="Shakil Alam" />
-<meta name="author" content="Shakil Alam , itxshakil@gmail.com" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@itxshakil" />
 <meta name="twitter:title" content="Securely write and save your private Diary" />
@@ -17,36 +14,5 @@
 <meta name="og:title" content="Securely write and save your private Diary" />
 <meta name="og:url" content="https://ediary.shakiltech.com/" />
 <meta name="og:image" content="/icons/apple-icon-96x96.png" />
-<meta name="og:site_name" content="Ediary App" />
-<meta property="og:type" content="Website" />
-<meta property="og:logo" content="/icons/apple-icon-96x96.png" />
-<meta name="google-site-verification" content="oRXIYL6yenkxhE2G4UhEjBQarn6Sb3Z3jRtBdBCoAWA" />
 <meta name="og:description"
     content="E-diary is privacy friendly e-diary Website that securely save your diary. TRY NOW FOR FREE!!!" />
-<meta name="og:email" content="appediary@gmail.com" />
-<meta name="og:country-name" content="India" />
-
-<!-- PWA Meta tag -->
-
-<link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/icons/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
-<link rel="manifest" href="/manifest.webmanifest">
-<meta name="msapplication-TileColor" content="#2d3748">
-<meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="#2d3748" />
-<meta name="apple-mobile-web-app-title" content="Shakil Alam | Portfolio" />
-<meta name="msapplication-TitleImage" content="/icons/old/icons-192.png" />
-<meta name="msapplication-TitleColor" content="#2d3748" />
-<meta name="theme-color" content="#2d3748">

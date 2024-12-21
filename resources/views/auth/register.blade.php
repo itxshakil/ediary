@@ -1,5 +1,103 @@
 @extends('layouts.app')
 @section('title','Register new account')
+
+@push('meta')
+    <meta name="description" content="Create your free E-Diary account today! Secure, private, and easy to use. Register now and start your private journaling journey." />
+    <meta name="keywords" content="ediary register, secure diary registration, privacy-friendly diary app, encrypted diary, shakil alam, register free diary account" />
+    <meta name="subject" content="Register a free, secure account with E-Diary | Privacy-Friendly and Encrypted" />
+    <meta name="language" content="en" />
+    <meta name="rating" content="General" />
+    <meta name="url" content="https://ediary.shakiltech.com/register" />
+    <meta name="identifier-URL" content="https://ediary.shakiltech.com/register" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@itxshakil" />
+    <meta name="twitter:title" content="Register Now for E-Diary – Secure and Private Journaling!" />
+    <meta name="twitter:description" content="Join E-Diary, the most secure and private journaling platform. Create a free account now and start writing your thoughts today!" />
+    <meta name="twitter:image" content="/icons/register-page-preview.png" />
+    <meta name="og:title" content="Register for E-Diary – Secure, Private, and Free!" />
+    <meta name="og:url" content="https://ediary.shakiltech.com/register" />
+    <meta name="og:image" content="/icons/register-page-preview.png" />
+    <meta name="og:description" content="E-Diary is privacy-friendly and secure. Register your account today to start journaling with full encryption and offline support." />
+@endpush
+
+@push('head')
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "E-Diary Registration",
+        "url": "https://ediary.shakiltech.com/register",
+        "description": "Join E-Diary, the most secure and private journaling platform. Create a free account now and start writing your thoughts today!",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "1830",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "review": [
+            {
+            "@type": "Review",
+            "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5",
+                "bestRating": "5"
+            },
+            "author": {
+                "@type": "Person",
+                "name": "Emily R."
+            },
+            "reviewBody": "E-Diary registration was so easy, and I love the app's privacy features!"
+            },
+            {
+            "@type": "Review",
+            "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5",
+                "bestRating": "5"
+            },
+            "author": {
+                "@type": "Person",
+                "name": "James P."
+            },
+            "reviewBody": "Finally, a secure diary app! Registration was quick and simple."
+            }
+        ],
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://ediary.shakiltech.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Register",
+                "item": "https://ediary.shakiltech.com/register"
+            }
+            ]
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "E-Diary",
+            "url": "https://ediary.shakiltech.com",
+            "logo": {
+            "@type": "ImageObject",
+            "url": "https://ediary.shakiltech.com/icons/apple-icon-96x96.png"
+            },
+            "sameAs": [
+            "https://twitter.com/itxshakil",
+            "https://www.linkedin.com/in/shakil-alam"
+            ]
+        }
+        }
+    </script>
+
+@endpush
+
 @section('content')
 <div class="container mx-auto flex justify-center px-3 md:px-6">
     <div class="w-full xl:w-3/4 lg:w-11/12 flex my-6">

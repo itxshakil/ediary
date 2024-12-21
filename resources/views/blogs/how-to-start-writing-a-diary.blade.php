@@ -2,6 +2,63 @@
 @section('title')
 How to Start Writing a Diary
 @endsection
+
+@push('meta')
+    <meta name="description" content="Start your journaling journey with ease! This guide will show you how to begin writing a diary with tips on topics, schedules, and crafting meaningful entries." />
+    <meta name="keywords" content="how to write a diary, start a diary, journaling tips, diary writing for beginners, diary prompts, diary ideas, writing habits, self-reflection" />
+    <meta name="subject" content="How to Start Writing a Diary" />
+    <meta name="language" content="en" />
+    <meta name="rating" content="General" />
+    <meta name="url" content="https://ediary.shakiltech.com/blogs/how-to-start-writing-a-diary" />
+    <meta name="identifier-URL" content="https://ediary.shakiltech.com/blogs/how-to-start-writing-a-diary" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@itxshakil" />
+    <meta name="twitter:title" content="How to Start Writing a Diary | Tips for Beginners" />
+    <meta name="twitter:description" content="Discover simple, effective tips for starting your diary. Learn how to set a schedule, choose your topics, and enjoy the process of journaling." />
+    <meta name="twitter:image" content="https://ediary.shakiltech.com/icons/apple-icon-96x96.png" />
+    <meta name="og:title" content="How to Start Writing a Diary: Tips & Tricks for Beginners" />
+    <meta name="og:url" content="https://ediary.shakiltech.com/blogs/how-to-start-writing-a-diary" />
+    <meta name="og:image" content="https://ediary.shakiltech.com/icons/apple-icon-96x96.png" />
+    <meta name="og:description" content="Learn how to start writing a diary with easy tips on setting goals, creating a schedule, and making your writing enjoyable. Start journaling today!" />
+@endpush
+
+@push('head')
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "name": "How to Start Writing a Diary",
+    "headline": "Start Writing a Diary: A Beginner’s Guide to Journaling",
+    "description": "A beginner-friendly guide to writing your first diary. Learn how to set a writing schedule, select your focus, and make your journaling experience meaningful and enjoyable.",
+    "url": "https://ediary.shakiltech.com/blogs/how-to-start-writing-a-diary",
+    "author": {
+        "@type": "Person",
+        "name": "Shakil Alam",
+        "url": "https://ediary.shakiltech.com"
+    },
+    "datePublished": "2024-12-21",
+    "image": "https://ediary.shakiltech.com/icons/apple-icon-96x96.png",
+    "publisher": {
+        "@type": "Organization",
+        "name": "E-Diary",
+        "url": "https://ediary.shakiltech.com",
+        "logo": {
+        "@type": "ImageObject",
+        "url": "https://ediary.shakiltech.com/icons/apple-icon-96x96.png"
+        }
+    },
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.7",
+        "reviewCount": "250",
+        "bestRating": "5",
+        "worstRating": "1"
+    }
+    }
+    </script>
+
+@endpush
+
 @section('content')
 <div class="container mx-auto px-3 md:px-6">
     <article class="bg-gray-200 rounded-lg p-4 m-2 text-gray-900">

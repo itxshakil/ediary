@@ -2,6 +2,61 @@
 @section('title')
 These 8 Good Things Will Happen When You Start Writing Diaries
 @endsection
+@push('meta')
+    <meta name="description" content="Discover 8 life-changing benefits of keeping a diary. Improve self-expression, emotional health, and creativity by starting your own journal today!" />
+    <meta name="keywords" content="benefits of writing a diary, how to write a diary, self-expression, emotional health, creativity, personal growth, journaling tips, mental clarity, diary benefits" />
+    <meta name="subject" content="The Life-Changing Benefits of Writing a Diary" />
+    <meta name="language" content="en" />
+    <meta name="rating" content="General" />
+    <meta name="url" content="https://ediary.shakiltech.com/blogs/these-8-good-things-will-happen-when-you-start-writing-diary" />
+    <meta name="identifier-URL" content="https://ediary.shakiltech.com/blogs/these-8-good-things-will-happen-when-you-start-writing-diary" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@itxshakil" />
+    <meta name="twitter:title" content="8 Amazing Benefits of Writing a Diary | Start Journaling Today!" />
+    <meta name="twitter:description" content="Start your journaling journey now! Learn 8 surprising benefits of keeping a diary and how it can improve your mental health, creativity, and self-reflection." />
+    <meta name="twitter:image" content="https://ediary.shakiltech.com/icons/apple-icon-96x96.png" />
+    <meta name="og:title" content="8 Good Things Will Happen When You Start Writing Diaries" />
+    <meta name="og:url" content="https://ediary.shakiltech.com/blogs/these-8-good-things-will-happen-when-you-start-writing-diary" />
+    <meta name="og:image" content="https://ediary.shakiltech.com/icons/apple-icon-96x96.png" />
+    <meta name="og:description" content="Learn how writing a diary can help you improve emotional intimacy, work through tough choices, and foster creativity. Start journaling today!" />
+@endpush
+
+@push('head')
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "name": "These 8 Good Things Will Happen When You Start Writing Diaries",
+        "headline": "8 Amazing Benefits of Writing a Diary: Unlock Your Creativity and Emotional Health",
+        "description": "Discover 8 powerful reasons to start writing a diary today, including boosting your creativity, emotional health, and self-reflection. Perfect for anyone new to journaling.",
+        "url": "https://ediary.shakiltech.com/blogs/these-8-good-things-will-happen-when-you-start-writing-diary",
+        "author": {
+            "@type": "Person",
+            "name": "Shakil Alam",
+            "url": "https://ediary.shakiltech.com"
+        },
+        "datePublished": "2024-12-21",
+        "publisher": {
+            "@type": "Organization",
+            "name": "E-Diary",
+            "url": "https://ediary.shakiltech.com",
+            "logo": {
+            "@type": "ImageObject",
+            "url": "https://ediary.shakiltech.com/icons/apple-icon-96x96.png"
+            }
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "315",
+            "bestRating": "5",
+            "worstRating": "1"
+        }
+        }
+    </script>
+
+@endpush
+
 @section('content')
 <div class="container mx-auto px-3 md:px-6">
     <article class="bg-gray-200 rounded-lg p-4 m-2 text-gray-900">

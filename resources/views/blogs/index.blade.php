@@ -2,6 +2,88 @@
 @section('title')
 Latest Blog Article
 @endsection
+
+@push('meta')
+    <meta name="description" content="Discover how to start writing a diary and unlock creativity, self-expression, and inspiration. Read articles from top bloggers and experts on diary writing!" />
+    <meta name="keywords" content="diary writing, how to write a diary, benefits of diary writing, journaling tips, personal diary, creative writing, self-expression, diary app" />
+    <meta name="subject" content="Learn to Write a Diary and Explore Benefits of Journaling | E-Diary" />
+    <meta name="language" content="en" />
+    <meta name="rating" content="General" />
+    <meta name="url" content="https://ediary.shakiltech.com/blog" />
+    <meta name="identifier-URL" content="https://ediary.shakiltech.com/blog" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@itxshakil" />
+    <meta name="twitter:title" content="Discover Diary Writing Tips and Benefits – E-Diary Articles" />
+    <meta name="twitter:description" content="Explore insightful articles on how to start a diary, the benefits of journaling, and expert tips to make the most of your writing." />
+    <meta name="twitter:image" content="/icons/apple-icon-96x96.png" />
+    <meta name="og:title" content="Diary Writing Tips and Benefits – Explore Expert Articles on E-Diary" />
+    <meta name="og:url" content="https://ediary.shakiltech.com/blog" />
+    <meta name="og:image" content="/icons/apple-icon-96x96.png" />
+    <meta name="og:description" content="Learn how to write a diary, explore the benefits of journaling, and read articles from top bloggers and experts. Start your journaling journey today!" />
+@endpush
+
+@push('head')
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "E-Diary Articles",
+        "description": "Discover how to start writing a diary, unlock creativity, self-expression, and inspiration through insightful articles from expert writers.",
+        "url": "https://ediary.shakiltech.com/blog",
+        "author": {
+            "@type": "Organization",
+            "name": "E-Diary",
+            "url": "https://ediary.shakiltech.com"
+        },
+        "article": [
+            {
+            "@type": "Article",
+            "headline": "How to Write a Diary",
+            "author": {
+                "@type": "Organization",
+                "name": "WikiHow"
+            },
+            "datePublished": "2023-01-01",
+            "description": "Learn tips and tricks to get the most out of writing a diary. Explore ways to discuss emotions, record ideas, and reflect on life.",
+            "url": "https://ediary.shakiltech.com/blogs/how-to-write-diary"
+            ]
+            },
+            {
+            "@type": "Article",
+            "headline": "These 8 Good Things Will Happen When You Start Writing Diaries",
+            "author": {
+                "@type": "Person",
+                "name": "Internet Blogger"
+            },
+            "datePublished": "2023-02-15",
+            "description": "Discover the amazing benefits of diary writing, including self-expression, creativity, and manifesting dreams.",
+            "url": "https://ediary.shakiltech.com/blogs/these-8-good-things-will-happen-when-you-start-writing-diary"
+            },
+            {
+            "@type": "Article",
+            "headline": "How to Start Writing a Diary",
+            "author": {
+                "@type": "Person",
+                "name": "Shakil Alam"
+            },
+            "datePublished": "2023-03-01",
+            "description": "Learn how to begin your journaling journey. Find tips for starting your diary and making writing a daily habit.",
+            "url": "https://ediary.shakiltech.com/blogs/how-to-start-writing-a-diary"
+            }
+        ],
+        "publisher": {
+            "@type": "Organization",
+            "name": "E-Diary",
+            "url": "https://ediary.shakiltech.com",
+            "logo": {
+            "@type": "ImageObject",
+            "url": "https://ediary.shakiltech.com/icons/apple-icon-96x96.png"
+            }
+        }
+        }
+    </script>
+
+@endpush
 @section('content')
 <div class="container mx-auto px-3 md:px-6">
     <div class="rounded-lg bg-gray-400 p-4 text-center mt-2">

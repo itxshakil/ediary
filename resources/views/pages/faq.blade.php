@@ -1,5 +1,95 @@
 @extends('layouts.app')
 @section('title','Frequently Asked Questions')
+
+@push('meta')
+    <meta name="description" content="Find answers to the most common questions about E-diary. Learn how to create a diary, print entries, manage privacy, and more. Start journaling today!" />
+    <meta name="keywords" content="E-diary FAQ, create a diary, print diary entries, privacy on E-diary, diary questions, online diary, E-diary help, diary support" />
+    <meta name="subject" content="Frequently Asked Questions about E-diary" />
+    <meta name="language" content="en" />
+    <meta name="rating" content="General" />
+    <meta name="url" content="https://ediary.shakiltech.com/faq" />
+    <meta name="identifier-URL" content="https://ediary.shakiltech.com/faq" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@itxshakil" />
+    <meta name="twitter:title" content="Frequently Asked Questions | E-diary" />
+    <meta name="twitter:description" content="Get answers to common questions about E-diary, including how to create a diary, manage privacy, and print your entries. Visit our support center for more info." />
+    <meta name="twitter:image" content="/icons/apple-icon-96x96.png" />
+    <meta name="og:title" content="Frequently Asked Questions | E-diary" />
+    <meta name="og:url" content="https://ediary.shakiltech.com/faq" />
+    <meta name="og:image" content="/icons/apple-icon-96x96.png" />
+    <meta name="og:description" content="Find answers to common E-diary questions, from creating a diary to managing privacy and printing entries. Get started today!" />
+@endpush
+
+@push('head')
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "name": "Frequently Asked Questions | E-diary",
+        "headline": "Frequently Asked Questions about E-diary",
+        "description": "Find answers to frequently asked questions about E-diary, including how to create a diary, print entries, manage privacy, and more.",
+        "url": "https://ediary.shakiltech.com/faq",
+        "mainEntity": [
+            {
+            "@type": "Question",
+            "name": "What is E-diary?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "E-diary is a free service that helps you track your past, make predictions for the future, and see how you change over time. It allows you to document your life and relive memories with ease."
+            }
+            },
+            {
+            "@type": "Question",
+            "name": "How can I create a diary?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "To create a diary, you simply need to register with a unique username and password. Once registered, you can start documenting your thoughts."
+            }
+            },
+            {
+            "@type": "Question",
+            "name": "How can I print my entries?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can request your diary entries by visiting the designated page, and we'll send them to your email. You can then unzip and print them as you wish."
+            }
+            },
+            {
+            "@type": "Question",
+            "name": "Who can see my entries?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Your entries are private by default. Only you can access and view your diary entries after logging into your account."
+            }
+            },
+            {
+            "@type": "Question",
+            "name": "How does privacy work?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "E-diary ensures your privacy by encrypting all your entries. No one, including E-diary staff, can access your content without your login credentials."
+            }
+            },
+            {
+            "@type": "Question",
+            "name": "Why do I need to give my email address?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We ask for your email address to help you reset your password if necessary. It’s also used to send you your diary data upon request."
+            }
+            }
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "150",
+            "bestRating": "5",
+            "worstRating": "1"
+        }
+        }
+    </script>
+@endpush
+
 @section('content')
 <div class="container mx-auto px-3 md:px-6">
     <h1 class="text-xl md:text-2xl mt-4">Frequently Asked Questions and Answers:</h1>

@@ -1,5 +1,56 @@
 @extends('layouts.app')
 @section('title','Contact Us through form')
+
+@push('meta')
+    <meta name="description" content="Get in touch with the E-diary support team for bug reports, feature requests, or general inquiries. Use our contact form to reach us quickly and easily." />
+    <meta name="keywords" content="contact E-diary, support, customer service, feature requests, bug reports, contact form, inquiries" />
+    <meta name="subject" content="Contact Us - E-diary" />
+    <meta name="language" content="en" />
+    <meta name="rating" content="General" />
+    <meta name="url" content="https://ediary.shakiltech.com/contact" />
+    <meta name="identifier-URL" content="https://ediary.shakiltech.com/contact" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@itxshakil" />
+    <meta name="twitter:title" content="Contact Us - E-diary" />
+    <meta name="twitter:description" content="Reach out to the E-diary support team for assistance, bug reports, feature requests, or any other inquiries. We're here to help!" />
+    <meta name="twitter:image" content="https://ediary.shakiltech.com/icons/apple-icon-96x96.png" />
+    <meta name="og:title" content="Contact Us - E-diary" />
+    <meta name="og:url" content="https://ediary.shakiltech.com/contact" />
+    <meta name="og:image" content="https://ediary.shakiltech.com/icons/apple-icon-96x96.png" />
+    <meta name="og:description" content="Need assistance or have a suggestion? Contact the E-diary support team via our easy-to-use contact form. We're happy to help!" />
+@endpush
+
+@push('head')
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Contact Us - E-diary",
+    "url": "https://ediary.shakiltech.com/contact",
+    "description": "Contact the E-diary support team for bug reports, feature requests, suggestions, or inquiries. Use the contact form for quick support.",
+    "mainEntity": {
+        "@type": "ContactPage",
+        "contactOption": "support",
+        "email": "mailto:support@ediary.shakiltech.com",
+        "contactType": "Customer Support",
+        "areaServed": "Worldwide",
+        "availableLanguage": "English"
+    },
+    "potentialAction": {
+        "@type": "CommunicateAction",
+        "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://ediary.shakiltech.com/contact",
+        "actionApplication": {
+            "@type": "WebApplication",
+            "name": "E-diary Contact Form"
+        }
+        },
+        "name": "Submit Contact Form"
+    }
+    }
+    </script>
+@endpush
 @section('content')
 <div class="container mx-auto flex justify-center px-3 md:px-6 dark:bg-gray-900 dark:text-white">
     <div class="w-full xl:w-3/4 lg:w-11/12 flex my-6">

@@ -19,6 +19,24 @@
 </script>
 @endpush
 
+@push('meta')
+    <meta name="description" content="{{ $profile->name }}'s profile - {{ $profile->bio }}" />
+    <meta name="keywords" content="user, profile, diary, Ediary" />
+    <meta name="subject" content="{{ $profile->name }}'s Profile" />
+    <meta name="language" content="en" />
+    <meta name="rating" content="General" />
+    <meta name="url" content="{{ request()->fullUrl() }}" />
+    <meta name="identifier-URL" content="{{ request()->fullUrl() }}" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@itxshakil" />
+    <meta name="twitter:title" content="{{ $profile->name }}'s Profile" />
+    <meta name="twitter:creator" content="@itxshakil" />
+    <meta name="og:title" content="{{ $profile->name }}'s Profile" />
+    <meta name="og:url" content="{{ request()->fullUrl() }}" />
+    <meta name="og:image" content="{{ $profile->image }}" />
+    <meta name="og:description" content="{{ $profile->name }}'s Profile - {{ $profile->bio }}" />
+@endpush
+
 @section('content')
 <div class="container mx-auto px-3 md:px-6">
     <h1 class="text-xl">{{ $profile->name }}'s Profile</h1>
