@@ -18,6 +18,8 @@
 <meta name="og:url" content="https://ediary.shakiltech.com/" />
 <meta name="og:image" content="/icons/apple-icon-96x96.png" />
 <meta name="og:site_name" content="Ediary App" />
+<meta property="og:type" content="Website" />
+<meta property="og:logo" content="/icons/apple-icon-96x96.png" />
 <meta name="google-site-verification" content="oRXIYL6yenkxhE2G4UhEjBQarn6Sb3Z3jRtBdBCoAWA" />
 <meta name="og:description"
     content="E-diary is privacy friendly e-diary Website that securely save your diary. TRY NOW FOR FREE!!!" />
