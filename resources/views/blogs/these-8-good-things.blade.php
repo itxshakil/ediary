@@ -65,7 +65,7 @@ These 8 Good Things Will Happen When You Start Writing Diaries
             group of pioneers who were trapped in the Sierra Nevada mountains in the winter of 1846-1847, some of whom
             resorted to cannibalism
         </p>
-        <a href="http://blog.paperblanks.com/2013/05/famous-diary-entries-donner-party/">here is the link</a>
+        <a href="https://en.wikipedia.org/wiki/Donner_Party_timeline">here is the link</a>
         <h2 class="text-3xl py-2  font-semibold">
             4. You'll Develop Emotional Intimacy
         </h2>
