@@ -2,14 +2,14 @@
 @section('title','Search Users on E-diary')
 
 @push('meta')
-    <link rel="canonical" href="https://ediary.shakiltech.com/search?q={{ request()->input('q', 'Users') }}" />
-    <meta name="description" content="Search results for '{{ request()->input('q', 'Users') }}' on E-diary. Find profiles of users, view their follower counts, and explore their journals. Start connecting with others today!" />
-    <meta name="keywords" content="E-diary search, user search, find users, connect with users, E-diary profiles, followers, online diary users, {{ request()->input('q', 'Users') }}" />
-    <meta name="subject" content="Search Results for '{{ request()->input('q', 'Users') }}' on E-diary" />
+    <link rel="canonical" href="https://ediary.shakiltech.com/search?q={{ request()->input('q') }}" />
+    <meta name="description" content="Search results for '{{ request()->input('q') }}' on E-diary. Find profiles of users, view their follower counts, and explore their journals. Start connecting with others today!" />
+    <meta name="keywords" content="E-diary search, user search, find users, connect with users, E-diary profiles, followers, online diary users, {{ request()->input('q') }}" />
+    <meta name="subject" content="Search Results for '{{ request()->input('q') }}' on E-diary" />
     <meta name="language" content="en" />
     <meta name="rating" content="General" />
-    <meta name="url" content="https://ediary.shakiltech.com/search?q={{ request()->input('q', 'Users') }}" />
-    <meta name="identifier-URL" content="https://ediary.shakiltech.com/search?q={{ request()->input('q', 'Users') }}" />
+    <meta name="url" content="https://ediary.shakiltech.com/search?q={{ request()->input('q') }}" />
+    <meta name="identifier-URL" content="https://ediary.shakiltech.com/search?q={{ request()->input('q') }}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@itxshakil" />
     <meta name="twitter:title" content="Search Results | E-diary" />
@@ -35,7 +35,7 @@
             },
             "query": {
                 "@type": "Text",
-                "value": "{{ request()->input('q', 'Users') }}"
+                "value": "{{ request()->input('q') }}"
             }
         },
         "searchResult": [
