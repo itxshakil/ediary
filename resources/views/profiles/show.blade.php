@@ -45,7 +45,8 @@
 @endpush
 
 @push('meta')
-    <meta name="description" content="{{ $profile->name }}'s profile - {{ $profile->bio }}" />
+    <link rel="canonical" href="{{ request()->fullUrl() }}" />
+    <meta name="description" content="{{ $profile->name }}'s profile - {{ $profile->bio }} Join me as I share my thoughts, ideas, and more through this digital journal!" />
     <meta name="keywords" content="user, profile, diary, Ediary" />
     <meta name="subject" content="{{ $profile->name }}'s Profile" />
     <meta name="language" content="en" />
@@ -59,7 +60,7 @@
     <meta name="og:title" content="{{ $profile->name }}'s Profile" />
     <meta name="og:url" content="{{ request()->fullUrl() }}" />
     <meta name="og:image" content="{{ $profile->image }}" />
-    <meta name="og:description" content="{{ $profile->name }}'s Profile - {{ $profile->bio }}" />
+    <meta name="og:description" content="{{ $profile->name }}'s Profile - {{ $profile->bio }}. Join me as I share my thoughts, ideas, and more through this digital journal!" />
 @endpush
 
 @section('content')
