@@ -22,7 +22,7 @@ class Profile extends Model
             return Storage::disk('s3')->url($value);
         }
 
-        return 'https://source.unsplash.com/96x96/daily';
+        return "https://ui-avatars.com/api/?name=$this->name&background=0D8ABC&color=fff";
     }
 
     public function follower(): BelongsToMany
