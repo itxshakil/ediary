@@ -95,7 +95,7 @@
             "isAccessibleForFree": true,
             "offers": {
                 "@type": "Offer",
-                "url": "https://example.com/anvil",
+                "url": "https://ediary.shakiltech.com/login",
                 "priceCurrency": "USD",
                 "price": 0.00,
                 "availability": "https://schema.org/InStock"
