@@ -4,6 +4,7 @@ Latest Blog Article
 @endsection
 
 @push('meta')
+    <link rel="canonical" href="{{ url('blog') }}" />
     <meta name="description" content="Discover how to start writing a diary and unlock creativity, self-expression, and inspiration. Read articles from top bloggers and experts on diary writing!" />
     <meta name="keywords" content="diary writing, how to write a diary, benefits of diary writing, journaling tips, personal diary, creative writing, self-expression, diary app" />
     <meta name="subject" content="Learn to Write a Diary and Explore Benefits of Journaling | E-Diary" />
@@ -15,72 +16,101 @@ Latest Blog Article
     <meta name="twitter:site" content="@itxshakil" />
     <meta name="twitter:title" content="Discover Diary Writing Tips and Benefits – E-Diary Articles" />
     <meta name="twitter:description" content="Explore insightful articles on how to start a diary, the benefits of journaling, and expert tips to make the most of your writing." />
-    <meta name="twitter:image" content="/icons/apple-icon-96x96.png" />
+    <meta name="twitter:image" content="{{ url('/icons/apple-icon-96x96.png') }}" />
     <meta name="og:title" content="Diary Writing Tips and Benefits – Explore Expert Articles on E-Diary" />
     <meta name="og:url" content="https://ediary.shakiltech.com/blog" />
-    <meta name="og:image" content="/icons/apple-icon-96x96.png" />
+    <meta name="og:image" content="{{ url('/icons/apple-icon-96x96.png') }}" />
     <meta name="og:description" content="Learn how to write a diary, explore the benefits of journaling, and read articles from top bloggers and experts. Start your journaling journey today!" />
 @endpush
 
 @push('head')
     <script type="application/ld+json">
         {
-        "@context": "https://schema.org",
-        "@type": "Blog",
-        "name": "E-Diary Articles",
-        "description": "Discover how to start writing a diary, unlock creativity, self-expression, and inspiration through insightful articles from expert writers.",
-        "url": "https://ediary.shakiltech.com/blog",
-        "author": {
-            "@type": "Organization",
-            "name": "E-Diary",
-            "url": "https://ediary.shakiltech.com"
-        },
-        "article": [
-            {
-            "@type": "Article",
+    "@context": "https://schema.org/",
+    "@type": "Blog",
+    "@id": "https://ediary.shakiltech.com/blog",
+    "mainEntityOfPage": "https://ediary.shakiltech.com/blog",
+    "name": "E-Diary Articles",
+    "description": "Discover how to start writing a diary, unlock creativity, self-expression, and inspiration through insightful articles from expert writers.",
+    "publisher": {
+        "@type": "Organization",
+        "@id": "https://ediary.shakiltech.com",
+        "name": "E-Diary",
+        "logo": {
+            "@type": "ImageObject",
+            "@id": "https://ediary.shakiltech.com/icons/apple-icon-96x96.png",
+            "url": "https://ediary.shakiltech.com/icons/apple-icon-96x96.png",
+            "width": "96",
+            "height": "96"
+        }
+    },
+    "blogPost": [
+        {
+            "@type": "BlogPosting",
+            "@id": "https://ediary.shakiltech.com/blogs/how-to-write-diary/#BlogPosting",
+            "mainEntityOfPage": "https://ediary.shakiltech.com/blogs/how-to-write-diary",
             "headline": "How to Write a Diary",
+            "name": "How to Write a Diary",
+            "description": "Learn tips and tricks to get the most out of writing a diary. Explore ways to discuss emotions, record ideas, and reflect on life.",
+            "datePublished": "2023-01-01",
+            "dateModified": "2023-01-01",
             "author": {
                 "@type": "Organization",
+                "@id": "https://ediary.shakiltech.com",
                 "name": "WikiHow"
             },
-            "datePublished": "2023-01-01",
-            "description": "Learn tips and tricks to get the most out of writing a diary. Explore ways to discuss emotions, record ideas, and reflect on life.",
-            "url": "https://ediary.shakiltech.com/blogs/how-to-write-diary"
+            "url": "https://ediary.shakiltech.com/blogs/how-to-write-diary",
+            "keywords": [
+                "Diary Writing",
+                "Journaling Tips",
+                "Self-Expression"
             ]
-            },
-            {
-            "@type": "Article",
+        },
+        {
+            "@type": "BlogPosting",
+            "@id": "https://ediary.shakiltech.com/blogs/these-8-good-things-will-happen-when-you-start-writing-diary/#BlogPosting",
+            "mainEntityOfPage": "https://ediary.shakiltech.com/blogs/these-8-good-things-will-happen-when-you-start-writing-diary",
             "headline": "These 8 Good Things Will Happen When You Start Writing Diaries",
+            "name": "These 8 Good Things Will Happen When You Start Writing Diaries",
+            "description": "Discover the amazing benefits of diary writing, including self-expression, creativity, and manifesting dreams.",
+            "datePublished": "2023-02-15",
+            "dateModified": "2023-02-15",
             "author": {
                 "@type": "Person",
+                "@id": "https://ediary.shakiltech.com/author/internet-blogger/#Person",
                 "name": "Internet Blogger"
             },
-            "datePublished": "2023-02-15",
-            "description": "Discover the amazing benefits of diary writing, including self-expression, creativity, and manifesting dreams.",
-            "url": "https://ediary.shakiltech.com/blogs/these-8-good-things-will-happen-when-you-start-writing-diary"
-            },
-            {
-            "@type": "Article",
+            "url": "https://ediary.shakiltech.com/blogs/these-8-good-things-will-happen-when-you-start-writing-diary",
+            "keywords": [
+                "Diary Benefits",
+                "Creativity",
+                "Self-Expression"
+            ]
+        },
+        {
+            "@type": "BlogPosting",
+            "@id": "https://ediary.shakiltech.com/blogs/how-to-start-writing-a-diary/#BlogPosting",
+            "mainEntityOfPage": "https://ediary.shakiltech.com/blogs/how-to-start-writing-a-diary",
             "headline": "How to Start Writing a Diary",
+            "name": "How to Start Writing a Diary",
+            "description": "Learn how to begin your journaling journey. Find tips for starting your diary and making writing a daily habit.",
+            "datePublished": "2023-03-01",
+            "dateModified": "2023-03-01",
             "author": {
                 "@type": "Person",
+                "@id": "https://ediary.shakiltech.com/author/shakil-alam/#Person",
                 "name": "Shakil Alam"
             },
-            "datePublished": "2023-03-01",
-            "description": "Learn how to begin your journaling journey. Find tips for starting your diary and making writing a daily habit.",
-            "url": "https://ediary.shakiltech.com/blogs/how-to-start-writing-a-diary"
-            }
-        ],
-        "publisher": {
-            "@type": "Organization",
-            "name": "E-Diary",
-            "url": "https://ediary.shakiltech.com",
-            "logo": {
-            "@type": "ImageObject",
-            "url": "https://ediary.shakiltech.com/icons/apple-icon-96x96.png"
-            }
+            "url": "https://ediary.shakiltech.com/blogs/how-to-start-writing-a-diary",
+            "keywords": [
+                "Starting a Diary",
+                "Journaling Tips",
+                "Writing Habit"
+            ]
         }
-        }
+    ]
+}
+
     </script>
 
 @endpush

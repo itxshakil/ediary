@@ -7,15 +7,40 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "{{ $profile->name }}",
-  "description": "{{ $profile->bio }}",
-  "url": "{{ url()->current() }}",
-  "image": "{{ $profile->image }}",
-  "sameAs": [
-    "{{ url()->current() }}"
-  ]
+  "@type": "ProfilePage",
+  "dateCreated": "2024-12-23T12:34:00-05:00",
+  "dateModified": "2024-12-26T14:53:00-05:00",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "{{ $profile->name }}",
+    "alternateName": "{{ $profile->username }}",
+    "identifier": "{{ $profile->id }}",
+    "interactionStatistic": [
+      {
+        "@type": "InteractionCounter",
+        "interactionType": "https://schema.org/FollowAction",
+        "userInteractionCount": "{{ $profile->follower_count }}"
+      },
+      {
+        "@type": "InteractionCounter",
+        "interactionType": "https://schema.org/LikeAction",
+        "userInteractionCount": "{{ $profile->like_count }}"
+      }
+    ],
+    "agentInteractionStatistic": {
+      "@type": "InteractionCounter",
+      "interactionType": "https://schema.org/WriteAction",
+      "userInteractionCount": "{{ $profile->post_count }}"
+    },
+    "description": "{{ $profile->bio }}",
+    "image": "{{ $profile->image }}",
+    "sameAs": [
+      "{{ url()->current() }}",
+      "https://www.example.com/{{ $profile->username }}"
+    ]
+  }
 }
+
 </script>
 @endpush
 

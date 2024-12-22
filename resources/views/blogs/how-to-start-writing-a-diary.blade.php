@@ -4,6 +4,7 @@ How to Start Writing a Diary
 @endsection
 
 @push('meta')
+    <link rel="canonical" href="https://ediary.shakiltech.com/blogs/how-to-start-writing-a-diary" />
     <meta name="description" content="Start your journaling journey with ease! This guide will show you how to begin writing a diary with tips on topics, schedules, and crafting meaningful entries." />
     <meta name="keywords" content="how to write a diary, start a diary, journaling tips, diary writing for beginners, diary prompts, diary ideas, writing habits, self-reflection" />
     <meta name="subject" content="How to Start Writing a Diary" />

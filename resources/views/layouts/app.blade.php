@@ -16,7 +16,7 @@
 
     <meta name="og:site_name" content="Ediary App" />
     <meta property="og:type" content="Website" />
-    <meta property="og:logo" content="/icons/apple-icon-96x96.png" />
+    <meta property="og:logo" content="{{ url('/icons/apple-icon-96x96.png') }}" />
 
     <meta name="og:email" content="appediary@gmail.com" />
     <meta name="og:country-name" content="India" />
@@ -76,10 +76,6 @@
             "description": "E-diary is the easiest and safest way to document your thoughts, memories, and experiences. With complete privacy and offline accessibility, it's the most convenient way to track your life journey.",
             "operatingSystem": "iOS, Android, Web",
             "applicationCategory": "Productivity",
-            "ratingValue": "4.8",
-            "bestRating": "5",
-            "worstRating": "1",
-            "ratingCount": "138",
             "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "4.8",
@@ -92,41 +88,25 @@
                 "name": "Shakil Alam"
             },
             "image": "https://ediary.shakiltech.com/icons/apple-icon-96x96.png",
-            "logo": "https://ediary.shakiltech.com/icons/apple-icon-96x96.png",
             "screenshot": [
                 "https://ediary.shakiltech.com/images/screenshots/ediary-features.png",
                 "https://ediary.shakiltech.com/screenshots/ediary-welcome.png   "
             ],
-            "features": [
-                "Offline access to your diary",
-                "Seamless sync when reconnected to the internet",
-                "Complete data encryption and privacy",
-                "Add to home screen for one-tap access"
-            ],
             "isAccessibleForFree": true,
-            "priceCurrency": "USD",
-            "price": "0.00",
             "offers": {
                 "@type": "Offer",
                 "url": "https://example.com/anvil",
                 "priceCurrency": "USD",
                 "price": 0.00,
                 "availability": "https://schema.org/InStock"
-            }
-            "pwa": {
-                "isPwa": true,
-                "pwaInstallPrompt": true,
-                "pwaOffline": true
             },
-            "availability": "InStock",
             "releaseNotes": "E-diary now supports offline entry saving and automatic syncing once you're online again.",
             "potentialAction": {
                 "@type": "SearchAction",
                 "target": "https://ediary.shakiltech.com/search?q={search_term_string}",
                 "query-input": "required name=search_term_string"
             }
-            }
-
+        }
     </script>
 
     @stack('scripts')

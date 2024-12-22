@@ -2,6 +2,7 @@
 @section('title','Frequently Asked Questions')
 
 @push('meta')
+    <link rel="canonical" href="{{ url('faq') }}" />
     <meta name="description" content="Find answers to the most common questions about E-diary. Learn how to create a diary, print entries, manage privacy, and more. Start journaling today!" />
     <meta name="keywords" content="E-diary FAQ, create a diary, print diary entries, privacy on E-diary, diary questions, online diary, E-diary help, diary support" />
     <meta name="subject" content="Frequently Asked Questions about E-diary" />
@@ -13,10 +14,10 @@
     <meta name="twitter:site" content="@itxshakil" />
     <meta name="twitter:title" content="Frequently Asked Questions | E-diary" />
     <meta name="twitter:description" content="Get answers to common questions about E-diary, including how to create a diary, manage privacy, and print your entries. Visit our support center for more info." />
-    <meta name="twitter:image" content="/icons/apple-icon-96x96.png" />
+    <meta name="twitter:image" content="{{ url('/icons/apple-icon-96x96.png') }}" />
     <meta name="og:title" content="Frequently Asked Questions | E-diary" />
     <meta name="og:url" content="https://ediary.shakiltech.com/faq" />
-    <meta name="og:image" content="/icons/apple-icon-96x96.png" />
+    <meta name="og:image" content="{{ url('/icons/apple-icon-96x96.png') }}" />
     <meta name="og:description" content="Find answers to common E-diary questions, from creating a diary to managing privacy and printing entries. Get started today!" />
 @endpush
 

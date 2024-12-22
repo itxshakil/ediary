@@ -13,6 +13,6 @@
 <meta name="twitter:creator" content="@itxshakil" />
 <meta name="og:title" content="Securely write and save your private Diary" />
 <meta name="og:url" content="https://ediary.shakiltech.com/" />
-<meta name="og:image" content="/icons/apple-icon-96x96.png" />
+<meta name="og:image" content="{{ url('/icons/apple-icon-96x96.png') }}" />
 <meta name="og:description"
     content="E-diary is privacy friendly e-diary Website that securely save your diary. TRY NOW FOR FREE!!!" />

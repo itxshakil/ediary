@@ -4,6 +4,7 @@ How to Write a Diary
 @endsection
 
 @push('meta')
+    <link rel="canonical" href="https://ediary.shakiltech.com/blogs/how-to-write-diary" />
     <meta name="description" content="Unlock the power of diary writing with expert tips. Learn how to express your thoughts, improve your mental health, and boost creativity with easy-to-follow journaling techniques." />
     <meta name="keywords" content="how to write a diary, journaling tips, creative writing, mental health, goal setting, self-expression, personal growth, writing prompts, diary inspiration" />
     <meta name="subject" content="How to Start Writing a Diary - A Guide to Self-Expression and Creativity" />

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title','Login to your Ediary account')
 @push('meta')
+    <link rel="canonical" href="{{ url('login') }}" />
     <meta name="description" content="Log in to E-Diary now! Rated 4.8/5 by 1,524 users. Join for free and start writing your private thoughts today." />
     <meta name="keywords" content="secure diary login, E-Diary secure login, privacy-friendly login, highly-rated app, diary app login, shakil alam" />
     <meta name="subject" content="Log in to access your private diary | Rated 4.8/5 by users!" />
@@ -12,10 +13,10 @@
     <meta name="twitter:site" content="@itxshakil" />
     <meta name="twitter:title" content="Log in to E-Diary – Your Secure Space for Thoughts | Rated 4.8/5!" />
     <meta name="twitter:description" content="Join thousands of satisfied users! Log in to E-Diary – the most secure and private way to track your thoughts and goals. Rated 4.8/5 by 1,524 happy users!" />
-    <meta name="twitter:image" content="/icons/apple-icon-96x96.png" />
+    <meta name="twitter:image" content="{{ url('/icons/apple-icon-96x96.png') }}" />
     <meta name="og:title" content="Log in to E-Diary – Your Secure Space for Thoughts | Rated 4.8/5!" />
     <meta name="og:url" content="https://ediary.shakiltech.com/login" />
-    <meta name="og:image" content="/icons/apple-icon-96x96.png" />
+    <meta name="og:image" content="{{ url('/icons/apple-icon-96x96.png') }}" />
     <meta name="og:description" content="E-Diary is privacy-friendly and secure. Rated 4.8/5 by 1,524 users. Log in now to start your journey!" />
 @endpush
 
@@ -101,7 +102,7 @@
         <div class="w-full h-auto bg-gray-400 dark:bg-gray-600 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg" style="background-image: url('https://source.unsplash.com/K4mSJ7kc0As/600x800'); background-position: center center;; background-position: center;">
         </div>
         <div class="w-full lg:w-1/2 bg-gray-200 dark:bg-gray-800 dark:text-white p-2 md:p-5 rounded-lg lg:rounded-l-none">
-            <h3 class="pt-4 text-2xl text-center pb-2 md:pb-4 text-gray-900 dark:text-white dark:text-white">Welcome Back!</h3>
+            <h1 class="pt-4 text-2xl text-center pb-2 md:pb-4 text-gray-900 dark:text-white dark:text-white">Welcome Back!</h1>
             <login-form class="px-4 md:px-8 pt-6 pb-2 mb-4 bg-white dark:text-white rounded"></login-form>
             <hr class="mb-6 mx-8 border-t" />
             <div class="text-center">

@@ -2,6 +2,7 @@
 @section('title','Register new account')
 
 @push('meta')
+    <link rel="canonical" href="{{ url('register') }}" />
     <meta name="description" content="Create your free E-Diary account today! Secure, private, and easy to use. Register now and start your private journaling journey." />
     <meta name="keywords" content="ediary register, secure diary registration, privacy-friendly diary app, encrypted diary, shakil alam, register free diary account" />
     <meta name="subject" content="Register a free, secure account with E-Diary | Privacy-Friendly and Encrypted" />

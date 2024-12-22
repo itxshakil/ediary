@@ -3,6 +3,7 @@
 These 8 Good Things Will Happen When You Start Writing Diaries
 @endsection
 @push('meta')
+    <link rel="canonical" href="https://ediary.shakiltech.com/blogs/these-8-good-things-will-happen-when-you-start-writing-diary" />
     <meta name="description" content="Discover 8 life-changing benefits of keeping a diary. Improve self-expression, emotional health, and creativity by starting your own journal today!" />
     <meta name="keywords" content="benefits of writing a diary, how to write a diary, self-expression, emotional health, creativity, personal growth, journaling tips, mental clarity, diary benefits" />
     <meta name="subject" content="The Life-Changing Benefits of Writing a Diary" />
