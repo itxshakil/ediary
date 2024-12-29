@@ -128,7 +128,7 @@ Latest Blog Article
     <h1 class="text-2xl underline p-4 font-bold">Latest Articles</h1>
     <div class="flex flex-col md:flex-row gap-4 p-4 text-gray-900">
         <div class="w-full h-auto bg-gray-400 lg:block lg:w-1/2 bg-cover rounded-lg p-4 m-1">
-            <h2 class="font-bold text-lg"><a href="/blogs/goal-setting-for-success">How to write a Diary</a></h2>
+            <h2 class="font-bold text-lg"><a href="/blogs/goal-setting-for-success">5 Steps to Design the Life You’ve Always Dreamed Of</a></h2>
             <cite class="uppercase text-xs font-bold">Written By</cite> <a class="uppercase text-xs font-bold"
                 href="https://shakiltech.com">Shakil Alam</a>
             <p>Ready to turn your goals into achievements? Learn the best strategies for setting clear, actionable goals that lead to real success. Start planning your future today. <a

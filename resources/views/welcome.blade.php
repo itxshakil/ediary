@@ -61,16 +61,9 @@
     <h2 class="text-2xl underline p-4 font-bold">Latest Articles</h2>
     <div class="flex flex-col md:flex-row gap-4 p-4">
         <div class="w-full h-auto bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white lg:block lg:w-1/2 bg-cover rounded-lg p-4 m-1">
-            <h2 class="font-bold text-lg"><a href="{{route('blogs.how-to-write')}}">How to write a Diary</a></h2>
-            <cite class="uppercase text-xs font-bold text-gray-700 dark:text-gray-300">Written By</cite> <a class="uppercase text-xs font-bold text-gray-700 dark:text-gray-300" href="https://www.wikihow.com/Write-a-Diary">WikiHow</a>
-            <p>Diaries are wonderful objects that allow you to discuss your emotions, record dreams or ideas, and
-                reflect
-                on
-                daily life in a safe, private space. While there's no single, definitive way to write a diary, there are
-                some
-                basic tricks you can use to get the most out of your writing. If you aren't sure what to write about,
-                using
-                prompts like inspirational quotes can help get started on new entries. <a href="{{route('blogs.how-to-write')}}" class="text-blue-600">read more...</a></p>
+            <h2 class="font-bold text-lg"><a href="{{route('blogs.goal-setting-for-success')}}">5 Steps to Design the Life You’ve Always Dreamed Of</a></h2>
+            <cite class="uppercase text-xs font-bold text-gray-700 dark:text-gray-300">Written By</cite> <a class="uppercase text-xs font-bold text-gray-700 dark:text-gray-300" href="https://shakiltech.com">Shakil Alam</a>
+            <p>Ready to turn your goals into achievements? Learn the best strategies for setting clear, actionable goals that lead to real success. Start planning your future today. <a href="{{route('blogs.goal-setting-for-success')}}" class="text-blue-600">read more...</a></p>
         </div>
         <div class="w-full h-auto bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white lg:block lg:w-1/2 bg-cover rounded-lg p-4 m-1">
             <h2 class="font-bold text-lg"><a href="{{route('blogs.these-8-good-things')}}">These 8
