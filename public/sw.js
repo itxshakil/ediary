@@ -1,7 +1,7 @@
-const CACHE_NAME = 'ediary-cache-v3';
+const CACHE_NAME = 'ediary-cache-v4';
 const urlsToCache = [
     '/',
-    '/?utmsource=homescreen',
+    '/?utm_source=homescreen',
     '/css/app.css',
     '/js/app.js',
     '/manifest.webmanifest',
@@ -16,7 +16,7 @@ const urlsToCache = [
     '/icons/old/icons-512.png',
     '/blog',
     '/faq',
-    '/search?utmsource=homescreen',
+    '/search?utm_source=homescreen',
     '/images/screenshots/ediary-features.png',
     '/images/screenshots/ediary-profile.png',
     '/images/screenshots/ediary-welcome.png',
@@ -53,7 +53,7 @@ self.addEventListener('fetch', function (event) {
                 return response;
             }
             const url = new URL(event.request.url);
-            if (url.pathname == '/home') {
+            if (url.pathname === '/home') {
                 return fetch(event.request)
                     .then(fetchRes => {
                         return caches.open(CACHE_NAME)
@@ -64,12 +64,12 @@ self.addEventListener('fetch', function (event) {
                             })
                     });
             }
-            if (url.pathname == '/logout') {
+            if (url.pathname === '/logout') {
                 return fetch(event.request).then(fetchRes => {
                     if (fetchRes.status === 204) {
                         return caches.open(CACHE_NAME)
                             .then(cache => {
-                                cache.delete('/home', fetchRes.clone());
+                                cache.delete('/home');
                                 return fetchRes;
                             })
                     }
@@ -92,7 +92,7 @@ self.addEventListener('fetch', function (event) {
 });
 
 function reCacheHomePage() {
-    const homePages = ['/', '/?utmsource=homescreen'];
+    const homePages = ['/', '/?utm_source=homescreen'];
     homePages.forEach(page => {
         fetch(page).then(newRes => {
             caches.open(CACHE_NAME).then(cache => {

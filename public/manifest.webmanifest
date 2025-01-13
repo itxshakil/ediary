@@ -2,7 +2,7 @@
     "id": "com.shakiltech.ediary",
     "name": "Ediary App",
     "short_name": "Ediary",
-    "start_url": "/?utmsource=homescreen",
+    "start_url": "/?utm_source=homescreen",
     "scope": "/",
     "display": "standalone",
     "orientation": "portrait-primary",
@@ -111,49 +111,49 @@
             "name": "Dashboard",
             "short_name": "Home",
             "description": "Read and write diary.",
-            "url": "/home?utmsource=homescreen",
+            "url": "/home?utm_source=homescreen",
             "icons": [{ "src": "/icons/old/icons-96.png", "sizes": "96x96" }]
         },
         {
             "name": "Search",
             "description": "Search the users on Ediary.",
-            "url": "/search?utmsource=homescreen",
+            "url": "/search?utm_source=homescreen",
             "icons": [{ "src": "/icons/old/icons-96.png", "sizes": "96x96" }]
         },
         {
             "name": "Change Password",
             "description": "Change your password.",
-            "url": "/password/change?utmsource=homescreen",
+            "url": "/password/change?utm_source=homescreen",
             "icons": [{ "src": "/icons/old/icons-96.png", "sizes": "96x96" }]
         },
         {
             "name": "Settings",
             "description": "Update your username.",
-            "url": "/settings?utmsource=homescreen",
+            "url": "/settings?utm_source=homescreen",
             "icons": [{ "src": "/icons/old/icons-96.png", "sizes": "96x96" }]
         },
         {
             "name": "FAQ",
             "description": "Read Frequently Asked Questions.",
-            "url": "/faq?utmsource=homescreen",
+            "url": "/faq?utm_source=homescreen",
             "icons": [{ "src": "/icons/old/icons-96.png", "sizes": "96x96" }]
         },
         {
             "name": "Contact Us",
             "description": "Contact us by form.",
-            "url": "/contact?utmsource=homescreen",
+            "url": "/contact?utm_source=homescreen",
             "icons": [{ "src": "/icons/old/icons-96.png", "sizes": "96x96" }]
         },
         {
             "name": "About Us",
             "description": "Read about us.",
-            "url": "/about?utmsource=homescreen",
+            "url": "/about?utm_source=homescreen",
             "icons": [{ "src": "/icons/old/icons-96.png", "sizes": "96x96" }]
         },
         {
             "name": "Download My Data",
             "description": "Download your data.",
-            "url": "/request-data?utmsource=homescreen",
+            "url": "/request-data?utm_source=homescreen",
             "icons": [{ "src": "/icons/old/icons-96.png", "sizes": "96x96" }]
         }
     ],
