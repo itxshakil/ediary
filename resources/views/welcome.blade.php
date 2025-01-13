@@ -5,7 +5,7 @@
 @endpush
 @section('content')
 <div class="flex flex-col px-3 md:px-6 bg-blue-700 text-gray-200">
-    <div class="flex flex-col justify-center items-center min-h-screen">
+    <div class="flex flex-col justify-center items-center min-h-screen max-w-5xl mx-auto">
         <h1 class="text-4xl sm:block md:text-5xl text-center">Capture Your Life’s Journey: Secure, Private, and Effortless</h1>
         <h2 class="text-xl md:text-2xl mb-4 text-center">
             Struggling to keep track of your thoughts and memories? Start documenting your life with Ediary—a safe haven for your innermost reflections, accessible anytime, anywhere.
