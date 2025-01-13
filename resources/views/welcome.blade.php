@@ -6,9 +6,13 @@
 @section('content')
 <div class="flex flex-col px-3 md:px-6 bg-blue-700 text-gray-200">
     <div class="flex flex-col justify-center items-center min-h-screen">
-        <h1 class="text-4xl sm:block md:text-5xl text-center">Easiest way to document your life</h1>
-        <h2 class="text-xl md:text-2xl mb-4 text-center">Free service to keep track of your past and think about your
-            future.</h2>
+        <h1 class="text-4xl sm:block md:text-5xl text-center">Capture Your Life’s Journey: Secure, Private, and Effortless</h1>
+        <h2 class="text-xl md:text-2xl mb-4 text-center">
+            Struggling to keep track of your thoughts and memories? Start documenting your life with Ediary—a safe haven for your innermost reflections, accessible anytime, anywhere.
+        </h2>
+        <p class="text-md md:text-lg mb-4 text-center">
+            Start Your Free Diary Today—Because Your Story Deserves to Be Told!
+        </p>
         @guest
         <register-form></register-form>
         @endguest
