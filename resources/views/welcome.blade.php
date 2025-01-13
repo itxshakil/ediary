@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Home | Document your life with privacy friendly Web App')
+@section('title','Ediary - Securely Document Your Life, Free & Effortless')
 @push('meta')
     @include('includes.meta')
 @endpush
