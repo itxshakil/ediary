@@ -1,6 +1,9 @@
 <template>
   <div class="w-full bg-gray-100 p-2 md:p-5 rounded-lg dark:bg-gray-800 dark:text-white">
     <h2 class="pt-4 text-2xl font-semibold text-gray-800 dark:text-white text-center pb-2 sm:pb-4">Register now!</h2>
+    <p class="text-md md:text-lg mb-4 text-center">
+      Start Your Free Diary Today—Because Your Story Deserves to Be Told!
+    </p>
     <form
       method="POST"
       class="px-4 md:px-8 pt-6 pb-2 mb-4 bg-gray-100 dark:bg-gray-900 rounded"
