@@ -15,6 +15,13 @@ window.flash = function (message, level = 'success') {
     window.events.$emit('flash', { message, level })
 }
 
+function isAppInstalled() {
+    return (
+        ('standalone' in navigator && navigator.standalone) ||
+        window.matchMedia('(display-mode: standalone)').matches
+    );
+}
+
 window.showSnackBar = function(){
     let snackBar = document.getElementById('install-snackbar');
     setTimeout(()=>{
@@ -27,13 +34,15 @@ window.showSnackBar = function(){
 
 window.showNotificationSnackBar = function(){
     if ('Notification' in window && Notification.permission !== 'granted') {
+        const timeoutDelay = isAppInstalled() ? 3_000 : 13_000;
+
         let snackBar = document.getElementById('notification-snackbar');
         setTimeout(() => {
             snackBar.style.display = 'block';
             setTimeout(() => {
                 snackBar.remove();
             }, 10_000)
-        }, 14_000)
+        }, timeoutDelay)
     }
 }
 
