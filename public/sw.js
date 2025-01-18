@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ediary-cache-v4';
+const CACHE_NAME = 'ediary-cache-v5';
 const urlsToCache = [
     '/',
     '/?utm_source=homescreen',
@@ -33,10 +33,8 @@ self.addEventListener('install', function (event) {
 });
 
 self.addEventListener('activate', event => {
-    //console.log('service worker activated');
     event.waitUntil(
         caches.keys().then(keys => {
-            //console.log(keys);
             return Promise.all(keys
                 .filter(key => key !== CACHE_NAME)
                 .map(key => caches.delete(key))
@@ -101,3 +99,64 @@ function reCacheHomePage() {
         });
     })
 }
+
+async function sendDailyReminder() {
+    if (Notification.permission === 'granted') {
+        const now = new Date();
+        let message = '';
+
+        // Customize message based on the time of day
+        if (now.getHours() < 12) {
+            message = "Good morning! 🌅 It's a perfect time to jot down your thoughts in your diary.";
+        } else if (now.getHours() < 18) {
+            message = "Hello! 🌞 How’s your day been so far? Take a moment to reflect in your diary.";
+        } else {
+            message = "Good evening! 🌙 End your day by writing down your thoughts in your diary.";
+        }
+
+        // Send notification with the personalized message
+        await self.registration.showNotification("Your Daily Diary Reminder", {
+            body: message,
+            icon: '/icons/old/icons-192.png',
+            badge: '/icons/old/icons-24.png',
+            tag: 'diary-reminder',
+            requireInteraction: true,
+            vibrate: [200, 100, 200],
+            data: {
+                url: '/home'  // Redirect URL when user clicks the notification
+            }
+        });
+    } else {
+        await Notification.requestPermission();
+    }
+}
+
+self.addEventListener('notificationclick', function(event) {
+    const notification = event.notification;
+    const url = notification.data.url;
+
+    // Open the app's diary page when the notification is clicked
+    event.waitUntil(
+        clients.openWindow(url)  // Opens the diary page (or any relevant page)
+            .then(() => notification.close())  // Close the notification after click
+    );
+});
+
+self.addEventListener('sync', function(event) {
+    if (event.tag === 'daily-reminder') {
+        event.waitUntil(sendDailyReminder());
+    }
+});
+
+// Request Background Sync for the reminder
+function registerBackgroundSync() {
+    if ('SyncManager' in self) {
+        self.registration.sync.register('daily-reminder')
+            .catch(err => console.error('Background sync registration failed:', err));
+    }
+}
+
+// Register background sync when the service worker is ready
+self.addEventListener('activate', (event) => {
+    event.waitUntil(registerBackgroundSync());
+});

@@ -25,6 +25,36 @@ window.showSnackBar = function(){
     }, 5000)
 }
 
+window.showNotificationSnackBar = function(){
+    if ('Notification' in window && 'Notification' in window.Notification && Notification.permission !== 'granted') {
+        let snackBar = document.getElementById('notification-snackbar');
+        setTimeout(() => {
+            snackBar.style.display = 'block';
+            setTimeout(() => {
+                snackBar.remove();
+            }, 10000)
+        }, 15000)
+    }
+}
+
+window.requestNotificationPermission = function (){
+    if ('Notification' in window) {
+        Notification.requestPermission().then(permission => {
+            if (permission === 'granted') {
+                console.log('Notification permission granted!');
+            } else {
+                console.log('Notification permission denied!');
+            }
+
+            // Hide the snackbar after the permission request
+            let snackBar = document.getElementById('notification-snackbar');
+            snackBar.style.display = 'none';
+        });
+    } else {
+        console.log('Notifications are not supported in this browser.');
+    }
+}
+
 let deferredPrompt;
 
 window.addEventListener('beforeinstallprompt', (e) => {
