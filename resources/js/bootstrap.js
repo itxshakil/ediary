@@ -36,13 +36,15 @@ window.showNotificationSnackBar = function(){
     if ('Notification' in window && Notification.permission !== 'granted') {
         const timeoutDelay = isAppInstalled() ? 3_000 : 13_000;
 
-        let snackBar = document.getElementById('notification-snackbar');
         setTimeout(() => {
+            let snackBar = document.getElementById('notification-snackbar');
             snackBar.style.display = 'block';
             setTimeout(() => {
                 snackBar.remove();
             }, 10_000)
         }, timeoutDelay)
+    } else{
+        console.log('Notification was not supported');
     }
 }
 
