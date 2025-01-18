@@ -21,19 +21,19 @@ window.showSnackBar = function(){
         snackBar.style.display = 'block';
         setTimeout(()=>{
             snackBar.remove();
-        }, 10000)
-    }, 5000)
+        }, 10_000)
+    }, 3_000)
 }
 
 window.showNotificationSnackBar = function(){
-    if ('Notification' in window && 'Notification' in window.Notification && Notification.permission !== 'granted') {
+    if ('Notification' in window && Notification.permission !== 'granted') {
         let snackBar = document.getElementById('notification-snackbar');
         setTimeout(() => {
             snackBar.style.display = 'block';
             setTimeout(() => {
                 snackBar.remove();
-            }, 10000)
-        }, 15000)
+            }, 10_000)
+        }, 14_000)
     }
 }
 
@@ -70,3 +70,5 @@ window.showInstallPromotion = function(){
     deferredPrompt.prompt();
     deferredPrompt =null;
 }
+
+showNotificationSnackBar();
