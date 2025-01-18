@@ -126,8 +126,6 @@ async function sendDailyReminder() {
                 url: '/home'  // Redirect URL when user clicks the notification
             }
         });
-    } else {
-        await Notification.requestPermission();
     }
 }
 
