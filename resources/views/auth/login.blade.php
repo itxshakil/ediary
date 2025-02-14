@@ -13,10 +13,10 @@
     <meta name="twitter:site" content="@itxshakil" />
     <meta name="twitter:title" content="Log in to E-Diary – Your Secure Space for Thoughts | Rated 4.8/5!" />
     <meta name="twitter:description" content="Join thousands of satisfied users! Log in to E-Diary – the most secure and private way to track your thoughts and goals. Rated 4.8/5 by 1,524 happy users!" />
-    <meta name="twitter:image" content="{{ url('/icons/apple-icon-96x96.png') }}" />
+    <meta name="twitter:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
     <meta name="og:title" content="Log in to E-Diary – Your Secure Space for Thoughts | Rated 4.8/5!" />
     <meta name="og:url" content="https://ediary.shakiltech.com/login" />
-    <meta name="og:image" content="{{ url('/icons/apple-icon-96x96.png') }}" />
+    <meta name="og:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
     <meta name="og:description" content="E-Diary is privacy-friendly and secure. Rated 4.8/5 by 1,524 users. Log in now to start your journey!" />
 @endpush
 
@@ -86,7 +86,7 @@
         "url": "https://ediary.shakiltech.com",
         "logo": {
         "@type": "ImageObject",
-        "url": "https://ediary.shakiltech.com/icons/apple-icon-96x96.png"
+        "url": "https://ediary.shakiltech.com/icons/android-icon-192x192.png"
         },
         "sameAs": [
         "https://twitter.com/itxshakil",

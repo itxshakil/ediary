@@ -87,7 +87,7 @@
             "url": "https://ediary.shakiltech.com",
             "logo": {
             "@type": "ImageObject",
-            "url": "https://ediary.shakiltech.com/icons/apple-icon-96x96.png"
+            "url": "https://ediary.shakiltech.com/icons/android-icon-192x192.png"
             },
             "sameAs": [
             "https://twitter.com/itxshakil",

@@ -13,10 +13,10 @@
     <meta name="twitter:site" content="@itxshakil" />
     <meta name="twitter:title" content="Contact Us - E-diary" />
     <meta name="twitter:description" content="Reach out to the E-diary support team for assistance, bug reports, feature requests, or any other inquiries. We're here to help!" />
-    <meta name="twitter:image" content="https://ediary.shakiltech.com/icons/apple-icon-96x96.png" />
+    <meta name="twitter:image" content="https://ediary.shakiltech.com/icons/android-icon-192x192.png" />
     <meta name="og:title" content="Contact Us - E-diary" />
     <meta name="og:url" content="https://ediary.shakiltech.com/contact" />
-    <meta name="og:image" content="https://ediary.shakiltech.com/icons/apple-icon-96x96.png" />
+    <meta name="og:image" content="https://ediary.shakiltech.com/icons/android-icon-192x192.png" />
     <meta name="og:description" content="Need assistance or have a suggestion? Contact the E-diary support team via our easy-to-use contact form. We're happy to help!" />
 @endpush
 

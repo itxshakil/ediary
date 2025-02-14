@@ -16,10 +16,10 @@ How to Start Writing a Diary
     <meta name="twitter:site" content="@itxshakil" />
     <meta name="twitter:title" content="How to Start Writing a Diary | Tips for Beginners" />
     <meta name="twitter:description" content="Discover simple, effective tips for starting your diary. Learn how to set a schedule, choose your topics, and enjoy the process of journaling." />
-    <meta name="twitter:image" content="https://ediary.shakiltech.com/icons/apple-icon-96x96.png" />
+    <meta name="twitter:image" content="https://ediary.shakiltech.com/icons/android-icon-192x192.png" />
     <meta name="og:title" content="How to Start Writing a Diary: Tips & Tricks for Beginners" />
     <meta name="og:url" content="https://ediary.shakiltech.com/blogs/how-to-start-writing-a-diary" />
-    <meta name="og:image" content="https://ediary.shakiltech.com/icons/apple-icon-96x96.png" />
+    <meta name="og:image" content="https://ediary.shakiltech.com/icons/android-icon-192x192.png" />
     <meta name="og:description" content="Learn how to start writing a diary with easy tips on setting goals, creating a schedule, and making your writing enjoyable. Start journaling today!" />
 @endpush
 
@@ -38,14 +38,14 @@ How to Start Writing a Diary
         "url": "https://ediary.shakiltech.com"
     },
     "datePublished": "2024-12-21",
-    "image": "https://ediary.shakiltech.com/icons/apple-icon-96x96.png",
+    "image": "https://ediary.shakiltech.com/icons/android-icon-192x192.png",
     "publisher": {
         "@type": "Organization",
         "name": "E-Diary",
         "url": "https://ediary.shakiltech.com",
         "logo": {
         "@type": "ImageObject",
-        "url": "https://ediary.shakiltech.com/icons/apple-icon-96x96.png"
+        "url": "https://ediary.shakiltech.com/icons/android-icon-192x192.png"
         }
     },
     "aggregateRating": {

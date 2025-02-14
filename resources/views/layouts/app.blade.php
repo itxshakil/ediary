@@ -16,7 +16,7 @@
 
     <meta name="og:site_name" content="Ediary App" />
     <meta property="og:type" content="Website" />
-    <meta property="og:logo" content="{{ url('/icons/apple-icon-96x96.png') }}" />
+    <meta property="og:logo" content="{{ url('/icons/android-icon-192x192.png') }}" />
 
     <meta name="og:email" content="appediary@gmail.com" />
     <meta name="og:country-name" content="India" />
@@ -87,7 +87,7 @@
                 "@type": "Organization",
                 "name": "Shakil Alam"
             },
-            "image": "https://ediary.shakiltech.com/icons/apple-icon-96x96.png",
+            "image": "https://ediary.shakiltech.com/icons/android-icon-192x192.png",
             "screenshot": [
                 "https://ediary.shakiltech.com/images/screenshots/ediary-features.png",
                 "https://ediary.shakiltech.com/screenshots/ediary-welcome.png   "

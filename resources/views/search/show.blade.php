@@ -14,10 +14,10 @@
     <meta name="twitter:site" content="@itxshakil" />
     <meta name="twitter:title" content="Search Results | E-diary" />
     <meta name="twitter:description" content="Explore user profiles based on your search term. View followers, connect with people, and more on E-diary." />
-    <meta name="twitter:image" content="https://ediary.shakiltech.com/icons/apple-icon-96x96.png" />
+    <meta name="twitter:image" content="https://ediary.shakiltech.com/icons/android-icon-192x192.png" />
     <meta name="og:title" content="Search Results | E-diary" />
     <meta name="og:url" content="https://ediary.shakiltech.com/search?q={{ request()->input('q', 'Users') }}" />
-    <meta name="og:image" content="https://ediary.shakiltech.com/icons/apple-icon-96x96.png" />
+    <meta name="og:image" content="https://ediary.shakiltech.com/icons/android-icon-192x192.png" />
     <meta name="og:description" content="Discover users on E-diary based on the search term '{{ request()->input('q', 'Users') }}'. Connect and explore profiles, follower counts, and more." />
 
 @endpush

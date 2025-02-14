@@ -16,10 +16,10 @@ Latest Blog Article
     <meta name="twitter:site" content="@itxshakil" />
     <meta name="twitter:title" content="Discover Diary Writing Tips and Benefits – E-Diary Articles" />
     <meta name="twitter:description" content="Explore insightful articles on how to start a diary, the benefits of journaling, and expert tips to make the most of your writing." />
-    <meta name="twitter:image" content="{{ url('/icons/apple-icon-96x96.png') }}" />
+    <meta name="twitter:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
     <meta name="og:title" content="Diary Writing Tips and Benefits – Explore Expert Articles on E-Diary" />
     <meta name="og:url" content="https://ediary.shakiltech.com/blog" />
-    <meta name="og:image" content="{{ url('/icons/apple-icon-96x96.png') }}" />
+    <meta name="og:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
     <meta name="og:description" content="Learn how to write a diary, explore the benefits of journaling, and read articles from top bloggers and experts. Start your journaling journey today!" />
 @endpush
 
@@ -38,8 +38,8 @@ Latest Blog Article
         "name": "E-Diary",
         "logo": {
             "@type": "ImageObject",
-            "@id": "https://ediary.shakiltech.com/icons/apple-icon-96x96.png",
-            "url": "https://ediary.shakiltech.com/icons/apple-icon-96x96.png",
+            "@id": "https://ediary.shakiltech.com/icons/android-icon-192x192.png",
+            "url": "https://ediary.shakiltech.com/icons/android-icon-192x192.png",
             "width": "96",
             "height": "96"
         }
