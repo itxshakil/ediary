@@ -22,33 +22,45 @@
 
 @push('head')
     <script type="application/ld+json">
-    {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Contact Us - E-diary",
-    "url": "https://ediary.shakiltech.com/contact",
-    "description": "Contact the E-diary support team for bug reports, feature requests, suggestions, or inquiries. Use the contact form for quick support.",
-    "mainEntity": {
-        "@type": "ContactPage",
-        "contactOption": "support",
-        "email": "mailto:support@ediary.shakiltech.com",
-        "contactType": "Customer Support",
-        "areaServed": "Worldwide",
-        "availableLanguage": "English"
-    },
-    "potentialAction": {
-        "@type": "CommunicateAction",
-        "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://ediary.shakiltech.com/contact",
-        "actionApplication": {
-            "@type": "WebApplication",
-            "name": "E-diary Contact Form"
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Contact Us - E-diary",
+          "url": "https://ediary.shakiltech.com/contact",
+          "description": "Contact the E-diary support team for bug reports, feature requests, suggestions, or inquiries. Use the contact form for quick support.",
+          "mainEntity": {
+            "@type": "ContactPage",
+            "contactOption": "support",
+            "email": "mailto:support@ediary.shakiltech.com",
+            "contactType": "Customer Support",
+            "areaServed": "Worldwide",
+            "availableLanguage": "English"
+          },
+          "potentialAction": {
+            "@type": "CommunicateAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://ediary.shakiltech.com/contact",
+              "actionApplication": {
+                "@type": "WebApplication",
+                "name": "E-diary Contact Form",
+                "operatingSystem": "All",
+                "applicationCategory": "BusinessApplication",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "0",
+                  "priceCurrency": "USD"
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4.8",
+                  "reviewCount": "125"
+                }
+              }
+            },
+            "name": "Submit Contact Form"
+          }
         }
-        },
-        "name": "Submit Contact Form"
-    }
-    }
     </script>
 @endpush
 @section('content')
