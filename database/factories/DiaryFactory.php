@@ -7,6 +7,9 @@ namespace Database\Factories;
 use App\Diary;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * @extends Factory<Diary>
+ */
 final class DiaryFactory extends Factory
 {
     /**

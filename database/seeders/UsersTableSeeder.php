@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Diary;
 use App\User;
 use Illuminate\Database\Seeder;
 
@@ -13,7 +12,7 @@ class UsersTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         User::factory()->hasDiaries(25)->count(20)->create();
     }

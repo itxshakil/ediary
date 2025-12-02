@@ -19,11 +19,14 @@ use Illuminate\Notifications\Notifiable;
  * @method static select(string $string, string $string1)
  * @method static create(array $array)
  *
- * @property mixed profile
- * @property mixed email
+ * @property Profile|null $profile
+ * @property string       $email
  */
 final class User extends Authenticatable implements MustVerifyEmail
 {
+    /**
+     * @use HasFactory<User>
+     */
     use HasFactory;
     use Notifiable;
     use VerifiesEmails;

@@ -11,6 +11,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Support\Facades\Storage;
 
+/**
+ * @property string $image
+ */
 final class Profile extends Model
 {
     protected $fillable = ['name', 'bio', 'image'];
@@ -33,7 +36,7 @@ final class Profile extends Model
 
     protected function image(): Attribute
     {
-        return Attribute::make(get: function ($value) {
+        return Attribute::get(get: function ($value) {
             if ($value) {
                 return Storage::disk('s3')->url($value);
             }

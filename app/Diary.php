@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Crypt;
 
 final class Diary extends Model
 {
+    /** @use HasFactory<Diary> */
     use HasFactory;
 
     protected $fillable = ['entry'];
