@@ -40,8 +40,8 @@
   </div>
 </template>
 <script>
-import diary from "./Diary";
-import share from "./Share";
+import diary from "./Diary.vue";
+import share from "./Share.vue";
 export default {
   components: { diary, share },
   data() {

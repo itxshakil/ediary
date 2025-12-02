@@ -1,42 +1,26 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+import './bootstrap'
+import { createApp } from 'vue'
 
-require('./bootstrap');
+// Auto-register Vue components (Vue 3 + Vite)
+const components = import.meta.glob('./components/**/*.vue', { eager: true })
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+const app = createApp({
+    data() {
+        return {
+            user: window.User,
+        }
+    },
+})
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+// Register all components automatically
+for (const path in components) {
+    const name = path
+        .split('/')
+        .pop()
+        .replace('.vue', '')
+        .toLowerCase()
 
-Vue.component('flash', require('./components/Flash.vue').default);
-Vue.component('paginator', require('./components/Paginator.vue').default);
-Vue.component('diaries', require('./components/Diaries.vue').default);
-Vue.component('resizable-textarea', require('./components/ResizableTextarea.vue').default);
-Vue.component('dropdown', require('./components/Dropdown.vue').default);
-Vue.component('username-input', require('./components/UsernameInput.vue').default);
-Vue.component('register-form', require('./components/RegisterForm.vue').default);
-Vue.component('login-form', require('./components/LoginForm.vue').default);
-Vue.component('auth-links', require('./components/AuthLinks.vue').default);
-Vue.component('profile', require('./components/Profile.vue').default);
+    app.component(name, components[path].default)
+}
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-const app = new Vue({
-    el: '#app',
-    data: {
-        'user': window.User
-    }
-});
+app.mount('#app')

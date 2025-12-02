@@ -50,11 +50,7 @@
 
     <title>@yield('title',config('app.name')) | Ediary</title>
 
-    <!-- Scripts -->
-    <script src="/js/app.js" defer></script>
-
-    <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Google Tag Manager -->
     <script>

@@ -47,7 +47,7 @@
   </dropdown>
 </template>
 <script>
-import logoutButton from "./LogoutButton";
+import logoutButton from "./LogoutButton.vue";
 export default {
   components: { logoutButton },
   data() {
