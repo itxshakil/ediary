@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
-class LoginController extends Controller
+final class LoginController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -39,10 +41,8 @@ class LoginController extends Controller
     }
 
     /**
-    * Get the login username to be used by the controller.
-    *
-    * @return string
-    */
+     * Get the login username to be used by the controller.
+     */
     public function username(): string
     {
         return 'username';

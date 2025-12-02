@@ -1,23 +1,22 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class PasswordChanged extends Mailable
+final class PasswordChanged extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
 
     /**
      * Create a new message instance.
-     *
-     * @param $user
      */
-    public function __construct(public $user)
-    {
-    }
+    public function __construct(public $user) {}
 
     /**
      * Build the message.

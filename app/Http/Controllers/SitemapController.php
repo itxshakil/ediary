@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 
-class SitemapController extends Controller
+final class SitemapController extends Controller
 {
     public function index(): Response
     {
@@ -15,13 +17,13 @@ class SitemapController extends Controller
 
         $users = User::select('username', 'updated_at')->get();
 
-        return response()->view('sitemap.index', compact('routes','users'))->header('Content-Type', 'text/xml');
+        return response()->view('sitemap.index', ['routes' => $routes, 'users' => $users])->header('Content-Type', 'text/xml');
     }
 
     public function users(): Response
     {
         $users = User::select('username', 'updated_at')->get();
 
-        return response()->view('sitemap.users', compact('users'))->header('Content-Type', 'text/xml');
+        return response()->view('sitemap.users', ['users' => $users])->header('Content-Type', 'text/xml');
     }
 }

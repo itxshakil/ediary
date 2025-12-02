@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\User;
@@ -8,7 +10,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
-class SearchController
+final class SearchController
 {
     public function show(Request $request): Factory|View|Application
     {
@@ -16,6 +18,6 @@ class SearchController
             ->with('profile')
             ->paginate(12);
 
-        return view('search.show', compact('users'));
+        return view('search.show', ['users' => $users]);
     }
 }

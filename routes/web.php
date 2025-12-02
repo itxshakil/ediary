@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Http\Controllers\Api\UserAvatarController;
 use App\Http\Controllers\Auth\ChangePasswordController;
 use App\Http\Controllers\DiaryController;
@@ -11,6 +13,7 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\UserDataController;
 use App\Http\Controllers\UsernameController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,21 +53,21 @@ Route::view('/success', 'pages.success');
 Route::view('/request-data', 'pages.request-data')->middleware('password.confirm');
 Route::post('/request-data', [UserDataController::class, 'send'])->middleware('password.confirm')->name('request.data');
 
-Route::middleware(['auth'])->group(function () {
-  Route::get('/diaries', [DiaryController::class, 'index']);
-  Route::get('/diaries/create', [DiaryController::class, 'create'])->name('diary.create');
-  Route::post('/diaries', [DiaryController::class, 'store'])->name('diary.store');
+Route::middleware(['auth'])->group(function (): void {
+    Route::get('/diaries', [DiaryController::class, 'index']);
+    Route::get('/diaries/create', [DiaryController::class, 'create'])->name('diary.create');
+    Route::post('/diaries', [DiaryController::class, 'store'])->name('diary.store');
 });
 
-/* Sitemap Route*/
+/* Sitemap Route */
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap.xml');
 Route::get('/sitemap.xml/users', [SitemapController::class, 'users']);
 
 Route::get('/settings', SettingController::class)->middleware('verified');
 Route::put('/username', [UsernameController::class, 'update'])->middleware('verified');
 
-Route::view('/blog','blogs.index');
-Route::view('/blogs/how-to-write-diary','blogs.how-to-write')->name('blogs.how-to-write');
-Route::view('/blogs/these-8-good-things-will-happen-when-you-start-writing-diary','blogs.these-8-good-things')->name('blogs.these-8-good-things');
-Route::view('/blogs/how-to-start-writing-a-diary','blogs.how-to-start-writing-a-diary')->name('blogs.how-to-start-writing-a-diary');
-Route::view('/blogs/goal-setting-for-success','blogs.goal-setting-for-success')->name('blogs.goal-setting-for-success');
+Route::view('/blog', 'blogs.index');
+Route::view('/blogs/how-to-write-diary', 'blogs.how-to-write')->name('blogs.how-to-write');
+Route::view('/blogs/these-8-good-things-will-happen-when-you-start-writing-diary', 'blogs.these-8-good-things')->name('blogs.these-8-good-things');
+Route::view('/blogs/how-to-start-writing-a-diary', 'blogs.how-to-start-writing-a-diary')->name('blogs.how-to-start-writing-a-diary');
+Route::view('/blogs/goal-setting-for-success', 'blogs.goal-setting-for-success')->name('blogs.goal-setting-for-success');

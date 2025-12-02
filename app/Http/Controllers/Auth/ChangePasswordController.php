@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Auth;
 
 use App\Events\PasswordChanged;
@@ -14,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use JetBrains\PhpStorm\ArrayShape;
 
-class ChangePasswordController extends Controller
+final class ChangePasswordController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -35,28 +37,29 @@ class ChangePasswordController extends Controller
     {
         $request->validate($this->rules());
 
-        $this->changeUserPassword($user=Auth::user(), $request->password);
+        $this->changeUserPassword($user = Auth::user(), $request->password);
 
         event(new PasswordChanged($user));
 
-        return redirect('/home')->with('flash','Password Changed Successfully');
+        return redirect('/home')->with('flash', 'Password Changed Successfully');
     }
 
     /**
      * Get the password confirmation validation rules.
      *
-     * @return array
+     * @return array<string, string[]>
      */
-    #[ArrayShape(['current-password' => "string[]", 'password' => "string[]"])]
+    #[ArrayShape(['current-password' => 'string[]', 'password' => 'string[]'])]
     protected function rules(): array
     {
         return [
-            'current-password' => ['required','password'],
+            'current-password' => ['required', 'password'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ];
     }
 
-    protected function changeUserPassword($user, $password){
+    protected function changeUserPassword($user, $password)
+    {
         $user->password = Hash::make($password);
         $user->save();
     }

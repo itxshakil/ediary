@@ -1,25 +1,22 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ContactUs extends Mailable
+final class ContactUs extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
 
     /**
      * Create a new message instance.
-     *
-     * @param $name
-     * @param $email
-     * @param $message
      */
-    public function __construct(public string $name, public string $email, public string $message)
-    {
-    }
+    public function __construct(public string $name, public string $email, public string $message) {}
 
     /**
      * Build the message.
@@ -31,7 +28,7 @@ class ContactUs extends Mailable
         return $this->markdown('emails.contact', [
             'name' => $this->name,
             'email' => $this->email,
-            'message' => $this->message
+            'message' => $this->message,
         ]);
     }
 }

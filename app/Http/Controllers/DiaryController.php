@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Diary;
@@ -8,13 +10,11 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
-class DiaryController extends Controller
+final class DiaryController extends Controller
 {
     public function index()
     {
         return auth()->user()->diaries()->orderBy('created_at', 'desc')->paginate(12);
-
-        return view('diary.index', compact('diaries'));
     }
 
     public function create(): Factory|View|Application
@@ -22,7 +22,7 @@ class DiaryController extends Controller
         return view('diary.create');
     }
 
-    public function store(Request $request):Diary
+    public function store(Request $request): Diary
     {
         $validatedData = $request->validate(['entry' => ['required', 'string']]);
 

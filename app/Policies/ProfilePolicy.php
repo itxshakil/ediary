@@ -1,52 +1,40 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Policies;
 
 use App\Profile;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class ProfilePolicy
+final class ProfilePolicy
 {
     use HandlesAuthorization;
 
     /**
      * Determine whether the user can view any profiles.
      *
-     * @param User $user
      * @return mixed
      */
-    public function viewAny(User $user)
-    {
-    }
+    public function viewAny(User $user) {}
 
     /**
      * Determine whether the user can view the profile.
      *
-     * @param User $user
-     * @param Profile $profile
      * @return mixed
      */
-    public function view(User $user, Profile $profile)
-    {
-    }
+    public function view(User $user, Profile $profile) {}
 
     /**
      * Determine whether the user can create profiles.
      *
-     * @param User $user
      * @return mixed
      */
-    public function create(User $user)
-    {
-    }
+    public function create(User $user) {}
 
     /**
      * Determine whether the user can update the profile.
-     *
-     * @param User $user
-     * @param Profile $profile
-     * @return bool
      */
     public function update(User $user, Profile $profile): bool
     {
@@ -56,33 +44,21 @@ class ProfilePolicy
     /**
      * Determine whether the user can delete the profile.
      *
-     * @param User $user
-     * @param Profile $profile
      * @return mixed
      */
-    public function delete(User $user, Profile $profile)
-    {
-    }
+    public function delete(User $user, Profile $profile) {}
 
     /**
      * Determine whether the user can restore the profile.
      *
-     * @param User $user
-     * @param Profile $profile
      * @return mixed
      */
-    public function restore(User $user, Profile $profile)
-    {
-    }
+    public function restore(User $user, Profile $profile) {}
 
     /**
      * Determine whether the user can permanently delete the profile.
      *
-     * @param User $user
-     * @param Profile $profile
      * @return mixed
      */
-    public function forceDelete(User $user, Profile $profile)
-    {
-    }
+    public function forceDelete(User $user, Profile $profile) {}
 }

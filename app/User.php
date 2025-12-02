@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -7,20 +9,21 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Notifications\Notifiable;
-use Nicolaslopezj\Searchable\SearchableTrait;
 
 /**
  * @method static where(string $string, $username)
  * @method static select(string $string, string $string1)
  * @method static search(array|string|null $query)
  * @method static create(array $array)
+ *
  * @property mixed profile
  * @property mixed email
  */
-class User extends Authenticatable implements MustVerifyEmail
+final class User extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory;
     use Notifiable;
@@ -34,36 +37,51 @@ class User extends Authenticatable implements MustVerifyEmail
         'password', 'remember_token',
     ];
 
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-
     protected $with = ['profile'];
 
-    protected static function booted()
+    public static function isUsernameTaken($username)
     {
-        static::created(function ($user) {
-            $user->profile()->create(['name' => $user->username]);
-        });
+        return self::where('username', $username)->exists();
     }
 
+    /**
+     * @return HasMany<Diary, $this>
+     */
     public function diaries(): HasMany
     {
         return $this->hasMany(Diary::class);
     }
 
+    /**
+     * @return HasOne<Profile, $this>
+     */
     public function profile(): HasOne
     {
         return $this->hasOne(Profile::class)->withCount('follower')->withDefault();
     }
 
+    /**
+     * @return BelongsToMany<Profile, $this, Pivot>
+     */
     public function following(): BelongsToMany
     {
         return $this->belongsToMany(Profile::class);
     }
 
-    public static function isUsernameTaken($username)
+    protected static function booted()
     {
-        return static::where('username', $username)->exists();
+        self::created(function ($user): void {
+            $user->profile()->create(['name' => $user->username]);
+        });
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+        ];
     }
 }

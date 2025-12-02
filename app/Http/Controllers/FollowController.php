@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\User;
 
-class FollowController
+final class FollowController
 {
     public function store(User $user)
     {

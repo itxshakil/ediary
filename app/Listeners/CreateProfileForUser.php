@@ -1,25 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Listeners;
 
-class CreateProfileForUser
+final class CreateProfileForUser
 {
     /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-    }
-
-    /**
      * Handle the event.
-     *
-     * @param object $event
-     * @return void
      */
-    public function handle(object $event)
+    public function handle(object $event): void
     {
         $event->user->profile()->create([
             'name' => $event->user->username,

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\User;
@@ -9,7 +11,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
-class ProfileController extends Controller
+final class ProfileController extends Controller
 {
     public function show(User $user): Application|Factory|View
     {
@@ -17,14 +19,14 @@ class ProfileController extends Controller
 
         $isFollowing = (auth()->user()) ? $profile->follower->contains(auth()->id()) : false;
 
-        return view('profiles.show', compact('profile', 'isFollowing'));
+        return view('profiles.show', ['profile' => $profile, 'isFollowing' => $isFollowing]);
     }
 
     public function edit(User $user): Factory|View|Application
     {
         $profile = $user->profile;
 
-        return view('profiles.edit', compact('profile'));
+        return view('profiles.edit', ['profile' => $profile]);
     }
 
     /**

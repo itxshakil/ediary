@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature;
 
 use App\Diary;
@@ -8,14 +10,15 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class DiaryTest extends TestCase
+final class DiaryTest extends TestCase
 {
-    use RefreshDatabase, WithFaker;
+    use RefreshDatabase;
+    use WithFaker;
 
     /**
      * @test
      */
-    public function authenticated_user_can_add_entry_to_diary()
+    public function authenticated_user_can_add_entry_to_diary(): void
     {
         $this->actingAs(User::factory()->create());
 
@@ -27,7 +30,7 @@ class DiaryTest extends TestCase
     /**
      * @test
      */
-    public function unauthenticated_user_can_not_add_entry_to_diary()
+    public function unauthenticated_user_can_not_add_entry_to_diary(): void
     {
         $this->json('POST', '/diaries', ['entry' => $this->faker->text(300)])->assertStatus(401);
         $this->post('/diaries', ['entry' => $this->faker->text(300)])->assertRedirect('/login');
@@ -38,7 +41,7 @@ class DiaryTest extends TestCase
     /**
      * @test
      */
-    public function diary_requires_entry()
+    public function diary_requires_entry(): void
     {
         $this->actingAs(User::factory()->create());
 
