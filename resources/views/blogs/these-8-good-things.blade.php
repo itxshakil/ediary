@@ -25,7 +25,7 @@ These 8 Good Things Will Happen When You Start Writing Diaries
 @push('head')
     <script type="application/ld+json">
         {
-        "@context": "https://schema.org",
+        "@@context": "https://schema.org",
         "@type": "Article",
         "name": "These 8 Good Things Will Happen When You Start Writing Diaries",
         "headline": "8 Amazing Benefits of Writing a Diary: Unlock Your Creativity and Emotional Health",

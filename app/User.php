@@ -25,7 +25,6 @@ class User extends Authenticatable implements MustVerifyEmail
     use HasFactory;
     use Notifiable;
     use VerifiesEmails;
-    use SearchableTrait;
 
     protected $fillable = [
         'username', 'email', 'password',
@@ -40,29 +39,6 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     protected $with = ['profile'];
-
-    /**
-     * Searchable rules.
-     *
-     * @var array
-     */
-    protected $searchable = [
-        /**
-         * Columns and their priority in search results.
-         * Columns with higher values are more important.
-         * Columns with equal values have equal importance.
-         *
-         * @var array
-         */
-        'columns' => [
-            'users.username' => 10,
-            'profiles.name' => 10,
-            'profiles.bio' => 4,
-        ],
-        'joins' => [
-            'profiles' => ['users.id', 'profiles.user_id'],
-        ],
-    ];
 
     protected static function booted()
     {

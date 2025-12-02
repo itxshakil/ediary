@@ -24,7 +24,7 @@
 @push('head')
     <script type="application/ld+json">
         {
-        "@context": "https://schema.org",
+        "@@context": "https://schema.org",
         "@type": "FAQPage",
         "name": "Frequently Asked Questions | E-diary",
         "headline": "Frequently Asked Questions about E-diary",

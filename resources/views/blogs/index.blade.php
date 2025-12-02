@@ -26,7 +26,7 @@ Latest Blog Article
 @push('head')
     <script type="application/ld+json">
         {
-    "@context": "https://schema.org/",
+    "@@context": "https://schema.org/",
     "@type": "Blog",
     "@id": "https://ediary.shakiltech.com/blog",
     "mainEntityOfPage": "https://ediary.shakiltech.com/blog",

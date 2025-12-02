@@ -23,7 +23,7 @@
 @push('head')
     <script type="application/ld+json">
         {
-          "@context": "https://schema.org",
+          "@@context": "https://schema.org",
           "@type": "WebPage",
           "name": "Contact Us - E-diary",
           "url": "https://ediary.shakiltech.com/contact",

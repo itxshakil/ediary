@@ -25,7 +25,7 @@ How to Write a Diary
 @push('head')
     <script type="application/ld+json">
         {
-        "@context": "https://schema.org",
+        "@@context": "https://schema.org",
         "@type": "Article",
         "name": "How to Write a Diary",
         "headline": "How to Write a Diary - Tips, Ideas, and Inspiration for Personal Growth",

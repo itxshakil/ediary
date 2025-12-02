@@ -26,7 +26,7 @@ How to Start Writing a Diary
 @push('head')
     <script type="application/ld+json">
     {
-    "@context": "https://schema.org",
+    "@@context": "https://schema.org",
     "@type": "Article",
     "name": "How to Start Writing a Diary",
     "headline": "Start Writing a Diary: A Beginner’s Guide to Journaling",

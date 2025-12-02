@@ -69,7 +69,7 @@
 
     <script type="application/ld+json">
         {
-            "@context": "https://schema.org",
+            "@@context": "https://schema.org",
             "@type": "MobileApplication",
             "name": "E-diary",
             "url": "https://ediary.shakiltech.com",

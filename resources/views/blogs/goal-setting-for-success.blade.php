@@ -26,7 +26,7 @@ How to Write a Diary
 @push('head')
     <script type="application/ld+json">
         {
-        "@context": "https://schema.org",
+        "@@context": "https://schema.org",
         "@type": "Article",
         "name": "Goal Setting for Success",
         "headline": "Goal Setting for Success - Turn Your Dreams Into Achievements",
