@@ -26,7 +26,7 @@ final class ConfirmPasswordController extends Controller
     /**
      * Where to redirect users when the intended url fails.
      */
-    private string $redirectTo = RouteServiceProvider::HOME;
+    private string $redirectTo = '/home';
 
     /**
      * Create a new controller instance.

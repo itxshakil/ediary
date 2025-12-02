@@ -29,7 +29,7 @@ final class RegisterController extends Controller
     /**
      * Where to redirect users after registration.
      */
-    private string $redirectTo = RouteServiceProvider::HOME;
+    private string $redirectTo = '/home';
 
     /**
      * Create a new controller instance.

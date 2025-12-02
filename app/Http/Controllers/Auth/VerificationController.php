@@ -26,7 +26,7 @@ final class VerificationController extends Controller
     /**
      * Where to redirect users after verification.
      */
-    private string $redirectTo = RouteServiceProvider::HOME;
+    private string $redirectTo = '/home';
 
     /**
      * Create a new controller instance.

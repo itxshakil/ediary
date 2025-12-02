@@ -25,7 +25,7 @@ use Illuminate\Notifications\Notifiable;
 final class User extends Authenticatable implements MustVerifyEmail
 {
     /**
-     * @use HasFactory<User>
+     * @uses HasFactory<User>
      */
     use HasFactory;
     use Notifiable;
