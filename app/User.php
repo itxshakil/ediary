@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -13,6 +14,7 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Notifications\Notifiable;
+use Override;
 
 /**
  * @method static where(string $string, $username)
@@ -70,6 +72,7 @@ final class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsToMany(Profile::class);
     }
 
+    #[Override]
     protected static function booted(): void
     {
         self::created(function ($user): void {
@@ -87,7 +90,8 @@ final class User extends Authenticatable implements MustVerifyEmail
         ];
     }
 
-    protected function scopeSearch($query, string $term)
+    #[Scope]
+    protected function search($query, string $term)
     {
         return $query->where('username', 'like', sprintf('%%%s%%', $term))
             ->orWhere('email', 'like', sprintf('%%%s%%', $term));

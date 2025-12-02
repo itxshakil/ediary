@@ -22,13 +22,6 @@ final class ProfileController extends Controller
         return view('profiles.show', ['profile' => $profile, 'isFollowing' => $isFollowing]);
     }
 
-    public function edit(User $user): Factory|View|Application
-    {
-        $profile = $user->profile;
-
-        return view('profiles.edit', ['profile' => $profile]);
-    }
-
     /**
      * @throws AuthorizationException
      */

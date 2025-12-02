@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Seeders;
 
 use App\Diary;
 use Illuminate\Database\Seeder;
 
-class DiaryTableSeeder extends Seeder
+final class DiaryTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

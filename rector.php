@@ -27,12 +27,12 @@ return RectorConfig::configure()
 
     ->withComposerBased(laravel: true)
 
-    ->withPhpSets(false, true)
+    ->withPhpSets(php84: true)
 
-    ->withPhpVersion(PhpVersion::PHP_82)
+    ->withPhpVersion(PhpVersion::PHP_84)
 
     ->withSets([
-        LaravelLevelSetList::UP_TO_LARAVEL_110,
+        LaravelLevelSetList::UP_TO_LARAVEL_120,
 
         LaravelSetList::LARAVEL_CODE_QUALITY,
         LaravelSetList::LARAVEL_FACADE_ALIASES_TO_FULL_NAMES,
