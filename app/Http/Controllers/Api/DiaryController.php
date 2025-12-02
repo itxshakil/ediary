@@ -25,7 +25,7 @@ final class DiaryController
         return $diary;
     }
 
-    private function addCreatedAtIfAvailable(Request $request, $diary)
+    private function addCreatedAtIfAvailable(Request $request, $diary): void
     {
         if ($request->filled('created_at')) {
             $diary->created_at = $request->created_at;

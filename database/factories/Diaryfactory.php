@@ -1,12 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Factories;
 
 use App\Diary;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use JetBrains\PhpStorm\ArrayShape;
 
-class DiaryFactory extends Factory
+final class DiaryFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
@@ -17,10 +18,7 @@ class DiaryFactory extends Factory
 
     /**
      * Define the model's default state.
-     *
-     * @return array
      */
-    #[ArrayShape(['entry' => "string"])]
     public function definition(): array
     {
         return [

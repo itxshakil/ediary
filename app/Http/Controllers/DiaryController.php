@@ -33,7 +33,7 @@ final class DiaryController extends Controller
         return $diary;
     }
 
-    protected function updateCreatedAtIfAvailable(Request $request, $diary): void
+    private function updateCreatedAtIfAvailable(Request $request, $diary): void
     {
         if ($request->filled('created_at')) {
             $diary->created_at = $request->created_at;

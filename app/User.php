@@ -17,7 +17,6 @@ use Illuminate\Notifications\Notifiable;
 /**
  * @method static where(string $string, $username)
  * @method static select(string $string, string $string1)
- * @method static search(array|string|null $query)
  * @method static create(array $array)
  *
  * @property mixed profile
@@ -68,7 +67,7 @@ final class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsToMany(Profile::class);
     }
 
-    protected static function booted()
+    protected static function booted(): void
     {
         self::created(function ($user): void {
             $user->profile()->create(['name' => $user->username]);
@@ -83,5 +82,11 @@ final class User extends Authenticatable implements MustVerifyEmail
         return [
             'email_verified_at' => 'datetime',
         ];
+    }
+
+    protected function scopeSearch($query, string $term)
+    {
+        return $query->where('username', 'like', sprintf('%%%s%%', $term))
+            ->orWhere('email', 'like', sprintf('%%%s%%', $term));
     }
 }

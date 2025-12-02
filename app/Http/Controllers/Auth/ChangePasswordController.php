@@ -14,7 +14,6 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use JetBrains\PhpStorm\ArrayShape;
 
 final class ChangePasswordController extends Controller
 {
@@ -49,8 +48,7 @@ final class ChangePasswordController extends Controller
      *
      * @return array<string, string[]>
      */
-    #[ArrayShape(['current-password' => 'string[]', 'password' => 'string[]'])]
-    protected function rules(): array
+    private function rules(): array
     {
         return [
             'current-password' => ['required', 'password'],
@@ -58,7 +56,7 @@ final class ChangePasswordController extends Controller
         ];
     }
 
-    protected function changeUserPassword($user, $password)
+    private function changeUserPassword($user, $password): void
     {
         $user->password = Hash::make($password);
         $user->save();
