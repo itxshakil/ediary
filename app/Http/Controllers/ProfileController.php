@@ -17,7 +17,7 @@ final class ProfileController extends Controller
     {
         $profile = $user->profile->load('user');
 
-        $isFollowing = (auth()->user()) ? $profile->follower->contains(auth()->id()) : false;
+        $isFollowing = (request()->user()) ? $profile->follower->contains(auth()->id()) : false;
 
         return view('profiles.show', ['profile' => $profile, 'isFollowing' => $isFollowing]);
     }

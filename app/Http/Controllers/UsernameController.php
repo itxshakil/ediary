@@ -16,9 +16,9 @@ final class UsernameController extends Controller
     {
         $validatedRequest = $request->validate(['username' => ['required', 'string', 'alpha_dash', 'between:5,25', 'unique:users']]);
 
-        auth()->user()->update($validatedRequest);
+        $request->user()->update($validatedRequest);
 
-        event(new UsernameChanged(auth()->user()));
+        event(new UsernameChanged($request->user()));
 
         return redirect('/home')->with('flash', 'Username Changed Successfully.');
     }

@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Events\PasswordChanged;
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -56,7 +57,7 @@ final class ChangePasswordController extends Controller
         ];
     }
 
-    private function changeUserPassword($user, $password): void
+    private function changeUserPassword(User $user, string $password): void
     {
         $user->password = Hash::make($password);
         $user->save();

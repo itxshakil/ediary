@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\User;
 use Illuminate\Support\Facades\Broadcast;
 
 /*
@@ -15,4 +16,4 @@ use Illuminate\Support\Facades\Broadcast;
 |
 */
 
-Broadcast::channel('App.User.{id}', fn ($user, $id): bool => (int) $user->id === (int) $id);
+Broadcast::channel('App.User.{id}', static fn (User $user, string $id): bool => (int) $user->id === (int) $id);

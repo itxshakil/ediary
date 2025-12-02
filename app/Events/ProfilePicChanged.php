@@ -17,5 +17,5 @@ final class ProfilePicChanged
     /**
      * Create a new event instance.
      */
-    public function __construct(public mixed $path) {}
+    public function __construct(public string $path) {}
 }

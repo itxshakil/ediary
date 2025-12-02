@@ -43,6 +43,7 @@ final class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
+     * @param  string[]                                   $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     private function validator(array $data)

@@ -14,7 +14,7 @@ parameters:
         - routes
 
 
-    level: 3
+    level: 10
 
     tmpDir: /tmp/phpstan
     editorUrl: 'phpstorm://open?file=%%file%%&line=%%line%%'

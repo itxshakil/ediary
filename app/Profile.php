@@ -34,10 +34,13 @@ final class Profile extends Model
         return $this->belongsToMany(User::class);
     }
 
+    /**
+     * @return Attribute<string, never>
+     */
     protected function image(): Attribute
     {
         return Attribute::get(get: function ($value) {
-            if ($value) {
+            if ($value && is_string($value) && mb_trim($value) !== '') {
                 return Storage::disk('s3')->url($value);
             }
 

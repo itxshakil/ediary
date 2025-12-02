@@ -10,7 +10,7 @@ final class UserDataController extends Controller
 {
     public function send(): StreamedResponse
     {
-        $user = auth()->user()->load('profile')->load('diaries');
+        $user = request()->user()->load('profile')->load('diaries');
 
         return response()->streamDownload(function () use ($user): void {
             echo $user;

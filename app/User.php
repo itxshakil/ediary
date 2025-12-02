@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App;
 
+use Database\Factories\UserFactory;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Attributes\Scope;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -17,18 +19,14 @@ use Illuminate\Notifications\Notifiable;
 use Override;
 
 /**
- * @method static where(string $string, $username)
- * @method static select(string $string, string $string1)
- * @method static create(array $array)
- *
  * @property Profile|null $profile
  * @property string       $email
+ * @property string       $password
+ * @property string       $username
  */
 final class User extends Authenticatable implements MustVerifyEmail
 {
-    /**
-     * @uses HasFactory<User>
-     */
+    /** @use HasFactory<UserFactory> */
     use HasFactory;
     use Notifiable;
     use VerifiesEmails;
@@ -43,7 +41,7 @@ final class User extends Authenticatable implements MustVerifyEmail
 
     protected $with = ['profile'];
 
-    public static function isUsernameTaken($username)
+    public static function isUsernameTaken(string $username): bool
     {
         return self::where('username', $username)->exists();
     }
@@ -75,7 +73,7 @@ final class User extends Authenticatable implements MustVerifyEmail
     #[Override]
     protected static function booted(): void
     {
-        self::created(function ($user): void {
+        self::created(static function (self $user): void {
             $user->profile()->create(['name' => $user->username]);
         });
     }
@@ -90,10 +88,13 @@ final class User extends Authenticatable implements MustVerifyEmail
         ];
     }
 
+    /**
+     * @param Builder<User> $query
+     */
     #[Scope]
-    protected function search($query, string $term)
+    protected function search(Builder $query, string $term): void
     {
-        return $query->where('username', 'like', sprintf('%%%s%%', $term))
+        $query->where('username', 'like', sprintf('%%%s%%', $term))
             ->orWhere('email', 'like', sprintf('%%%s%%', $term));
     }
 }

@@ -9,12 +9,16 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 final class DiaryController extends Controller
 {
-    public function index()
+    /**
+     * @returns LengthAwarePaginator<int, Diary>
+     */
+    public function index(): LengthAwarePaginator
     {
-        return auth()->user()->diaries()->orderBy('created_at', 'desc')->paginate(12);
+        return request()->user()->diaries()->orderBy('created_at', 'desc')->paginate(12);
     }
 
     public function create(): Factory|View|Application
@@ -26,14 +30,17 @@ final class DiaryController extends Controller
     {
         $validatedData = $request->validate(['entry' => ['required', 'string']]);
 
-        $diary = auth()->user()->diaries()->create($validatedData);
+        /**
+         * @var Diary $diary
+         */
+        $diary = request()->user()->diaries()->create($validatedData);
 
         $this->updateCreatedAtIfAvailable($request, $diary);
 
         return $diary;
     }
 
-    private function updateCreatedAtIfAvailable(Request $request, $diary): void
+    private function updateCreatedAtIfAvailable(Request $request, Diary $diary): void
     {
         if ($request->filled('created_at')) {
             $diary->created_at = $request->created_at;

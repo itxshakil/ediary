@@ -6,18 +6,26 @@ namespace App\Http\Controllers\Api;
 
 use App\Diary;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 final class DiaryController
 {
-    public function index()
+    /**
+     * @return LengthAwarePaginator<int, Diary>
+     */
+    public function index(): LengthAwarePaginator
     {
-        return auth()->user()->diaries()->latest()->paginate(12);
+
+        return request()->user()->diaries()->latest()->paginate(12);
     }
 
     public function store(Request $request): Diary
     {
         $validatedData = $request->validate(['entry' => ['required', 'string']]);
 
+        /**
+         * @var Diary $diary
+         */
         $diary = auth()->user()->diaries()->create($validatedData);
 
         $this->addCreatedAtIfAvailable($request, $diary);

@@ -8,7 +8,7 @@ use App\User;
 
 final class FollowController
 {
-    public function store(User $user)
+    public function store(User $user): array
     {
         return $user->profile->follower()->toggle(auth()->id());
     }
