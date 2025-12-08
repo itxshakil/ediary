@@ -1,15 +1,7 @@
 import axios from 'axios'
-import mitt from 'mitt'
 
 window.axios = axios
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
-
-// Global event bus (Vue 3 no longer supports this)
-window.events = mitt()
-
-window.flash = function (message, level = 'success') {
-    window.events.emit('flash', { message, level })
-}
 
 // Progressive Web App Helpers
 function isAppInstalled() {
@@ -73,3 +65,18 @@ window.showInstallPromotion = function () {
 }
 
 window.showNotificationSnackBar()
+
+document.addEventListener("DOMContentLoaded", () => {
+    const avatarBtn = document.getElementById("navbarUserMenu");
+    const dropdown = document.getElementById("dropdownMenu");
+
+    avatarBtn.addEventListener("click", () => {
+        dropdown.classList.toggle("hidden");
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!avatarBtn.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.classList.add("hidden");
+        }
+    });
+});

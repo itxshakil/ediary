@@ -1,22 +1,46 @@
 @extends('layouts.app')
+
 @section('title','Request/Download your data')
+
 @section('content')
-<div class="container mx-auto flex justify-center items-center h-64 px-3 md:px-6 my-12">
-    <div class="w-full lg:w-1/2 bg-gray-200 p-2 md:p-5 rounded-lg">
-        <h3 class="pt-4 text-2xl text-center pb-2 md:pb-4 text-gray-900 dark:text-white">{{ __('Request Data') }}</h3>
-        <div class="px-4 md:px-8  pt-6 pb-2 mb-4 bg-white rounded">
-            <div class="border px-4 py-3 my-2 rounded w-full bg-yellow-100 text-yellow-700 border-yellow-400" role="alert">
-                Click the below button to download your Data, which includes Your Profile Data and Your Diary.
-            </div>
-            <form method="POST" action="{{ route('request.data') }}">
-                @csrf
-                <div class="mb-4 text-center">
-                    <button class="w-full bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-full outline-none focus:outline-none  uppercase shadow hover:shadow-md font-bold text-xs" type="submit">
+    <div class="min-h-screen flex items-center justify-center px-4 py-12
+            bg-gray-100 dark:bg-gray-900 w-full max-w-xl mx-auto">
+
+        <div class="bg-white dark:bg-gray-800
+                rounded-3xl shadow-xl
+                p-6 sm:p-10">
+
+            <h3 class="text-2xl font-semibold text-center mb-6
+                   text-gray-900 dark:text-white">
+                {{ __('Request Data') }}
+            </h3>
+
+            <div class="bg-gray-50 dark:bg-gray-900
+                    border border-gray-200 dark:border-gray-700
+                    rounded-2xl p-6 space-y-4">
+
+                <div class="rounded-xl px-4 py-3 text-sm
+                        bg-yellow-50 text-yellow-800 border border-yellow-200
+                        dark:bg-yellow-900/20 dark:text-yellow-300 dark:border-yellow-700/40"
+                     role="alert">
+                    Click the button below to download your data, including your
+                    profile information and diary entries.
+                </div>
+
+                <form method="POST" action="{{ route('request.data') }}">
+                    @csrf
+
+                    <button type="submit"
+                            class="w-full h-11 rounded-full
+                               bg-blue-600 hover:bg-blue-700
+                               text-white text-sm font-medium
+                               transition active:scale-[0.98]
+                               focus:outline-none focus:ring-4 focus:ring-blue-500/30">
                         {{ __('Download My Data') }}
                     </button>
-                </div>
-            </form>
+                </form>
+
+            </div>
         </div>
     </div>
-</div>
 @endsection

@@ -61,9 +61,9 @@ How to Start Writing a Diary
 @endpush
 
 @section('content')
-<div class="container mx-auto px-3 md:px-6">
-    <article class="bg-gray-200 rounded-lg p-4 m-2 text-gray-900">
-        <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-center pb-4">
+<div class="container mx-auto px-3 md:px-6 w-7xl">
+    <article class="bg-white rounded-xl shadow-lg p-6 md:p-8 mb-6 text-gray-900 dark:bg-gray-800 dark:text-gray-100 mt-4">
+        <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-center pb-4 text-balance">
             How to Start Writing a Diary
         </h1>
         <p class="text-xl mb-1">Embarking on the journey of writing a diary is a wonderful way to document your personal growth and capture precious moments of your life. If you're unsure of how to begin or what to write, don't worry! This article will guide you through the process and provide you with valuable tips to make your diary writing experience enjoyable, meaningful, and easy to maintain.</p>
@@ -90,7 +90,7 @@ How to Start Writing a Diary
         <h2 class="text-3xl py-2 font-semibold">5. Date your entries:</h2>
         <p class="text-xl mb-1">Dating each entry is crucial for tracking your progress over time. It allows you to reflect on your past experiences and observe your personal growth. If you're using an online diary platform like E-diary, the entries will be automatically dated.</p>
 
-        <a href="/blogs/how-to-write-diary" class="text-blue-500 my-2 text-center text-lg block bg-gray-800 rounded p-2">Tips on How to Start Writing Diary</a>
+        <a href="/blogs/how-to-write-diary" class="text-blue-500 my-2 text-center text-lg block bg-gray-800 rounded-sm p-2">Tips on How to Start Writing Diary</a>
 
         <p class="text-xl mb-1"><strong>Example:</strong> Imagine leafing through your diary and marveling at how far you've come since that first entry, celebrating your accomplishments and cherishing the memories.</p>
         <h2 class="text-3xl py-2 font-semibold">6. Craft an introductory entry:</h2>
@@ -151,9 +151,9 @@ How to Start Writing a Diary
     </article>
     <div class="rounded-lg bg-gray-400 p-4 text-center">
         @auth
-        <a class="bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-lg outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs" href="/home">Start writing Now</a>
+        <a class="bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-lg outline-hidden focus:outline-hidden mr-2 mb-1 uppercase shadow-sm hover:shadow-md font-bold text-xs" href="/home">Start writing Now</a>
         @else
-        <a class="bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-lg outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs" href="/login">Start Writing now</a>
+        <a class="bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-lg outline-hidden focus:outline-hidden mr-2 mb-1 uppercase shadow-sm hover:shadow-md font-bold text-xs" href="/login">Start Writing now</a>
         @endauth
     </div>
     <h3 class="text-xl underline p-4 font-bold">Related Articles</h3>

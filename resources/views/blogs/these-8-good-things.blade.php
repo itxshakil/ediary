@@ -59,9 +59,9 @@ These 8 Good Things Will Happen When You Start Writing Diaries
 @endpush
 
 @section('content')
-<div class="container mx-auto px-3 md:px-6">
-    <article class="bg-gray-200 rounded-lg p-4 m-2 text-gray-900">
-        <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-center pb-4">
+<div class="container mx-auto px-3 md:px-6 w-7xl">
+    <article class="bg-white rounded-xl shadow-lg p-6 md:p-8 mb-6 text-gray-900 dark:bg-gray-800 dark:text-gray-100 mt-4">
+        <h1 class="text-2xl md:text-3xl lg:text-5xl font-bold text-center pb-4 text-balance">
             These 8 Good Things Will Happen When You Start Writing Diaries
         </h1>
         <p class="text-xl mb-1">
@@ -179,10 +179,10 @@ These 8 Good Things Will Happen When You Start Writing Diaries
     </article>
     <div class="rounded-lg bg-gray-400 p-4 text-center">
         @auth
-        <a class="bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-lg outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
+        <a class="bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-lg outline-hidden focus:outline-hidden mr-2 mb-1 uppercase shadow-sm hover:shadow-md font-bold text-xs"
             href="/home">Start writing Now</a>
         @else
-        <a class="bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-lg outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
+        <a class="bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-lg outline-hidden focus:outline-hidden mr-2 mb-1 uppercase shadow-sm hover:shadow-md font-bold text-xs"
             href="/login">Start Writing now</a>
         @endauth
     </div>

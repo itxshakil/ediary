@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Contact Us through form')
+@section('title','Contact Us – E-Diary')
 
 @push('meta')
     <meta name="description" content="Get in touch with the E-diary support team for bug reports, feature requests, or general inquiries. Use our contact form to reach us quickly and easily." />
@@ -64,51 +64,56 @@
     </script>
 @endpush
 @section('content')
-<div class="container mx-auto flex justify-center px-3 md:px-6 dark:bg-gray-900 dark:text-white">
-    <div class="w-full xl:w-3/4 lg:w-11/12 flex my-6">
-        <div class="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg" style="background-image: url('https://source.unsplash.com/K4mSJ7kc0As/600x800'); background-position: center center;">
-        </div>
-        <div class="w-full lg:w-1/2 bg-gray-200 dark:bg-gray-800 p-2 md:p-5 rounded-lg lg:rounded-l-none">
-            <h1 class="pt-4 text-2xl text-center pb-6 md:pb-4 dark:text-white">Contact us!</h1>
-            <form class="px-3 md:px-8 pb-2 mb-4 bg-white dark:bg-gray-900 rounded pt-2" method="POST" action="{{ route('contact.send') }}">
-                <div class="mb-4">
-                    <label class="text-sm font-semibold text-gray-700 dark:text-gray-200" for="name">
-                        Name
-                    </label>
-                    <input class="w-full px-3 py-2 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded shadow appearance-none focus:outline-none @error('name') border-red-500 @enderror" id="name" type="text" placeholder="John Doe" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus />
-                    @error('name')
-                    <p class="text-xs italic text-red-500" role="alert">{{ $message }}</p>
-                    @enderror
-                </div>
-                <div class="mb-4">
-                    <label class="text-sm font-semibold text-gray-700 dark:text-gray-200" for="email">
-                        Email address
-                    </label>
-                    <input class="w-full px-3 py-2 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded shadow appearance-none focus:outline-none @error('email') border-red-500 @enderror" id="email" type="email" placeholder="john@example.com" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
-                    @error('email')
-                    <p class="text-xs italic text-red-500" role="alert">{{ $message }}</p>
-                    @enderror
-                </div>
-                <div class="mb-4">
-                    <label class="text-sm font-semibold text-gray-700 dark:text-gray-200" for="message">
-                        Message
-                    </label>
-                    <resizable-textarea>
-                        <textarea class="w-full px-3 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded shadow appearance-none focus:outline-none @error('message') border-red-500 @enderror" name="message" id="message" cols="30" rows="10" placeholder="Bug report/ Feature request/Suggestion and more..." required autofocus value="{{old('message')}}"></textarea>
-                    </resizable-textarea>
-                    @error('message')
-                    <p class="text-xs italic text-red-500" role="alert">{{ $message }}</p>
-                    @enderror
-                </div>
+    <div class="min-h-screen bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 flex items-center justify-center px-4 py-12">
+        <div class="w-full max-w-6xl">
+            <div class="flex flex-col lg:flex-row shadow-2xl rounded-3xl overflow-hidden">
+                @include('auth.partials.left-branding')
 
-                <div class="mb-4 text-center">
-                    <button class="w-full bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-full outline-none focus:outline-none uppercase shadow hover:shadow-md font-bold text-xs" type="submit">
-                        Send
-                    </button>
+                <!-- Right Side Contact Form -->
+                <div class="w-full lg:w-1/2 bg-white dark:bg-gray-800 p-8 md:p-12">
+                    <!-- Mobile Logo -->
+                    <div class="lg:hidden mb-8 text-center">
+                        <div class="w-16 h-16 mx-auto bg-blue-100 dark:bg-blue-900 rounded-2xl flex items-center justify-center mb-4">
+                            <svg class="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Form Header -->
+                    <div class="mb-8 text-center">
+                        <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">Contact Us</h1>
+                        <p class="text-gray-600 dark:text-gray-400 text-balance">Reach out to our support team for assistance, suggestions, or feedback.</p>
+                    </div>
+
+                    <form method="POST" action="{{ route('contact.send') }}" class="space-y-6">
+                        @csrf
+
+                        <div>
+                            <x-form.label for="name">Name</x-form.label>
+                            <x-form.input name="name" id="name" value="{{ old('name') }}" placeholder="John Doe" required autofocus />
+                            @error('name')<p class="mt-1 text-sm text-red-600">{{ $message }}</p>@enderror
+                        </div>
+
+                        <div>
+                            <x-form.label for="email">Email Address</x-form.label>
+                            <x-form.input name="email" id="email" value="{{ old('email') }}" placeholder="john@example.com" required />
+                            @error('email')<p class="mt-1 text-sm text-red-600">{{ $message }}</p>@enderror
+                        </div>
+
+                        <div>
+                            <x-form.label for="message">Message</x-form.label>
+                            <textarea name="message" id="message" rows="6" required placeholder="Enter your message here..."
+                                      class="w-full px-4 py-2 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-blue-500/15 focus:border-blue-500 transition duration-150 ease-in-out">{{ old('message') }}</textarea>
+                            @error('message')<p class="mt-1 text-sm text-red-600">{{ $message }}</p>@enderror
+                        </div>
+
+                        <div>
+                            <x-button.primary class="w-full h-10">Send Message</x-button.primary>
+                        </div>
+                    </form>
                 </div>
-                @csrf
-            </form>
+            </div>
         </div>
     </div>
-</div>
 @endsection

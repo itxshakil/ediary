@@ -21,6 +21,10 @@
     <meta name="og:email" content="appediary@gmail.com" />
     <meta name="og:country-name" content="India" />
 
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#667eea">
+    <link rel="apple-touch-icon" href="/icon-192.png">
+
     <!-- PWA Meta tag -->
 
     <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
@@ -118,25 +122,36 @@
 
         <main>
             @yield('content')
-            <flash message="{{session('flash')}}"></flash>
+            <div data-vue-root>
+                <flash message="{{session('flash')}}"></flash>
+            </div>
         </main>
         @include('includes.footer')
     </div>
-    <script>
-        if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-            navigator.serviceWorker.register('/sw.js')
-            .then(function(registration) {
-                // console.log('ServiceWorker registration successful with scope: ', registration.scope);
-            }, function(err) {
-            console.log('ServiceWorker registration failed: ', err);
-            });
-        });
-        }
-    </script>
     @if(Auth::user())
     <script>
         window.User = {!! json_encode(Auth::user()) !!}
     </script>
     @endif
+    <div id="connection-status" class="hidden"></div>
+
+    <script src="{{ asset('/js/offline-manager.js') }}"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('SW registered:', registration);
+
+                        setInterval(() => {
+                            registration.update();
+                        }, 60000);
+                    })
+                    .catch(err => console.log('SW registration failed:', err));
+            });
+        }
+    </script>
+
+    @stack('scripts')
 </body>

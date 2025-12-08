@@ -5,7 +5,7 @@
         <h4 class="text-xl">{{$user->profile->name}}</h4>
         <p>{{$user->profile->follower_count}} Followers</p>
         <a href="/user/{{$user->username}}"
-            class="inline-block text-center bg-blue-600 text-gray-100 py-1 px-3 rounded outline-none focus:outline-none mt-2 uppercase shadow hover:shadow-md font-bold text-xs">View
+            class="inline-block text-center bg-blue-600 text-gray-100 py-1 px-3 rounded-sm outline-hidden focus:outline-hidden mt-2 uppercase shadow-sm hover:shadow-md font-bold text-xs">View
             Profile</a>
     </div>
 </div>
