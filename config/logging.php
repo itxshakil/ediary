@@ -39,18 +39,47 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['single'],
+            'channels' => ['error', 'daily'],
         ],
+        'error' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/error.log'),
+            'level' => 'warning',
+            'days' => 14,
+        ],
+
+        'deprecations' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/php-deprecation-warnings.log'),
+        ],
+
         'single' => [
-            'driver' => 'errorlog',
-            'level' => 'debug',
+            'driver' => 'single',
+            'path' => storage_path('logs/ediary.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+            'replace_placeholders' => true,
         ],
 
         'daily' => [
             'driver' => 'daily',
-            'path' => storage_path('logs/laravel.log'),
+            'path' => storage_path('logs/ediary.log'),
             'level' => 'debug',
             'days' => 14,
+        ],
+
+        'request' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/request.log'),
+            'level' => 'debug',
+            'days' => 14,
+        ],
+
+        'heartbeat' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/heartbeat.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+            'days' => env('LOG_DAILY_DAYS', 14),
+            'replace_placeholders' => true,
         ],
 
         'slack' => [
