@@ -17,12 +17,12 @@ enum Mood: string
     case Neutral = 'neutral';
 
     /**
-     * @return array<string, mixed>
+     * @return mixed[][]
      */
     public static function options(): array
     {
         return array_map(
-            static fn (self $mood) => [
+            static fn (self $mood): array => [
                 'value' => $mood->value,
                 'label' => $mood->label(),
                 'emoji' => $mood->emoji(),
@@ -41,7 +41,7 @@ enum Mood: string
     public static function averageScore(iterable $moods): float
     {
         $scores = array_map(
-            static fn (self $mood) => $mood->score(),
+            static fn (self $mood): int => $mood->score(),
             is_array($moods) ? $moods : iterator_to_array($moods),
         );
 

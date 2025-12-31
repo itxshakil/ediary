@@ -40,9 +40,9 @@ final class SyncController extends Controller
 
             return redirect()->route('home')->with('success', 'Entry saved successfully!');
 
-        } catch (Exception $e) {
+        } catch (Exception $exception) {
             Log::error('Failed to save diary entry', [
-                'error' => $e->getMessage(),
+                'error' => $exception->getMessage(),
                 'user_id' => $request->user()->id,
             ]);
 

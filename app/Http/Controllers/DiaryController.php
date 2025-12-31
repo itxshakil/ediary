@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Diary;
-use App\Enums\Mood;
 use App\Enums\Privacy;
 use App\Http\Requests\StoreDiaryRequest;
 use Carbon\Carbon;
+use Carbon\Month;
+use Carbon\WeekDay;
+use DateTimeInterface;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -48,7 +50,7 @@ final class DiaryController extends Controller
             ]);
 
             if (! empty($validatedData['tags'])) {
-                $tags = array_filter(array_map('trim', explode(',', $validatedData['tags'])));
+                $tags = array_filter(array_map(trim(...), explode(',', (string) $validatedData['tags'])));
                 $diary->syncTags($tags);
             }
 
@@ -67,9 +69,9 @@ final class DiaryController extends Controller
 
             return redirect()->route('home')->with('success', 'Entry saved successfully!');
 
-        } catch (Exception $e) {
+        } catch (Exception $exception) {
             Log::error('Failed to save diary entry', [
-                'error' => $e->getMessage(),
+                'error' => $exception->getMessage(),
                 'user_id' => $request->user()->id,
             ]);
 
@@ -84,16 +86,16 @@ final class DiaryController extends Controller
         }
     }
 
-    public function search(Request $request)
+    public function search(Request $request): Factory|View
     {
         $user = $request->user();
         $query = $user->diaries();
 
         if ($request->filled('q')) {
             $searchTerm = $request->q;
-            $query->where(function ($q) use ($searchTerm) {
-                $q->where('entry', 'like', "%{$searchTerm}%")
-                    ->orWhere('title', 'like', "%{$searchTerm}%");
+            $query->where(function ($q) use ($searchTerm): void {
+                $q->where('entry', 'like', sprintf('%%%s%%', $searchTerm))
+                    ->orWhere('title', 'like', sprintf('%%%s%%', $searchTerm));
             });
         }
 
@@ -127,9 +129,11 @@ final class DiaryController extends Controller
                     if ($request->filled('date_from')) {
                         $query->whereDate('created_at', '>=', $request->date_from);
                     }
+
                     if ($request->filled('date_to')) {
                         $query->whereDate('created_at', '<=', $request->date_to);
                     }
+
                     break;
             }
         }
@@ -145,19 +149,12 @@ final class DiaryController extends Controller
         }
 
         // Sort
-        switch ($request->get('sort', 'newest')) {
-            case 'oldest':
-                $query->orderBy('created_at', 'asc');
-                break;
-            case 'longest':
-                $query->orderByRaw('LENGTH(entry) DESC');
-                break;
-            case 'shortest':
-                $query->orderByRaw('LENGTH(entry) ASC');
-                break;
-            default:
-                $query->orderBy('created_at', 'desc');
-        }
+        match ($request->get('sort', 'newest')) {
+            'oldest' => $query->orderBy('created_at', 'asc'),
+            'longest' => $query->orderByRaw('LENGTH(entry) DESC'),
+            'shortest' => $query->orderByRaw('LENGTH(entry) ASC'),
+            default => $query->orderBy('created_at', 'desc'),
+        };
 
         return view('diary.search', [
             'entries' => $query->paginate(20)->appends($request->except('page')),
@@ -165,7 +162,7 @@ final class DiaryController extends Controller
         ]);
     }
 
-    public function byTag(Request $request, string $tag)
+    public function byTag(Request $request, string $tag): Factory|View
     {
         $entries = $request->user()
             ->diaries()
@@ -179,7 +176,7 @@ final class DiaryController extends Controller
         ]);
     }
 
-    public function byMood(Request $request, string $mood)
+    public function byMood(Request $request, string $mood): Factory|View
     {
         $entries = $request->user()
             ->diaries()
@@ -193,7 +190,7 @@ final class DiaryController extends Controller
         ]);
     }
 
-    public function stats(Request $request)
+    public function stats(Request $request): Factory|View
     {
         $user = $request->user();
         $entries = $user->diaries;
@@ -202,15 +199,15 @@ final class DiaryController extends Controller
         $stats = [
             'total_entries' => $entries->count(),
             'entries_this_month' => $entries->where('created_at', '>=', now()->startOfMonth())->count(),
-            'total_words' => $entries->sum(fn ($entry) => str_word_count($entry->entry)),
+            'total_words' => $entries->sum(fn ($entry): int => str_word_count((string) $entry->entry)),
             'avg_words_per_entry' => $entries->count() > 0
-                ? round($entries->sum(fn ($entry) => str_word_count($entry->entry)) / $entries->count())
+                ? round($entries->sum(fn ($entry): int => str_word_count((string) $entry->entry)) / $entries->count())
                 : 0,
             'active_days' => $entries->pluck('created_at')->map(fn ($date) => $date->format('Y-m-d'))->unique()->count(),
             'days_since_start' => $entries->min('created_at')
                 ? now()->diffInDays($entries->min('created_at'))
                 : 0,
-            'longest_entry' => $entries->max(fn ($entry) => str_word_count($entry->entry)),
+            'longest_entry' => $entries->max(fn ($entry): int => str_word_count((string) $entry->entry)),
 
             // Mood distribution
             'mood_distribution' => $entries->whereNotNull('mood')
@@ -274,14 +271,14 @@ final class DiaryController extends Controller
         }
     }
 
-    private function calculateStreak($user)
+    private function calculateStreak($user): array
     {
         $entries = $user->diaries()
             ->select(DB::raw('DATE(created_at) as date'))
             ->distinct()
             ->orderBy('date', 'desc')
             ->pluck('date')
-            ->map(fn ($date) => Carbon::parse($date));
+            ->map(fn (DateTimeInterface|WeekDay|Month|string|int|float|null $date): Carbon => Carbon::parse($date));
 
         $currentStreak = 0;
         $longestStreak = 0;
@@ -307,14 +304,14 @@ final class DiaryController extends Controller
 
         // Calculate longest streak
         $checkDate = $entries->first();
-        foreach ($entries as $entryDate) {
-            if ($entryDate->isSameDay($checkDate) || $entryDate->isSameDay($checkDate->subDay())) {
+        foreach ($entries as $entry) {
+            if ($entry->isSameDay($checkDate) || $entry->isSameDay($checkDate->subDay())) {
                 $tempStreak++;
                 $longestStreak = max($longestStreak, $tempStreak);
-                $checkDate = $entryDate->subDay();
+                $checkDate = $entry->subDay();
             } else {
                 $tempStreak = 1;
-                $checkDate = $entryDate->subDay();
+                $checkDate = $entry->subDay();
             }
         }
 
@@ -325,17 +322,23 @@ final class DiaryController extends Controller
         ];
     }
 
-    private function getTimeDistribution($entries)
+    /**
+     * @return array<string, mixed>
+     */
+    private function getTimeDistribution($entries): array
     {
         return [
-            'morning' => $entries->filter(fn ($e) => $e->created_at->hour >= 5 && $e->created_at->hour < 12)->count(),
-            'afternoon' => $entries->filter(fn ($e) => $e->created_at->hour >= 12 && $e->created_at->hour < 17)->count(),
-            'evening' => $entries->filter(fn ($e) => $e->created_at->hour >= 17 && $e->created_at->hour < 21)->count(),
-            'night' => $entries->filter(fn ($e) => $e->created_at->hour >= 21 || $e->created_at->hour < 5)->count(),
+            'morning' => $entries->filter(fn ($e): bool => $e->created_at->hour >= 5 && $e->created_at->hour < 12)->count(),
+            'afternoon' => $entries->filter(fn ($e): bool => $e->created_at->hour >= 12 && $e->created_at->hour < 17)->count(),
+            'evening' => $entries->filter(fn ($e): bool => $e->created_at->hour >= 17 && $e->created_at->hour < 21)->count(),
+            'night' => $entries->filter(fn ($e): bool => $e->created_at->hour >= 21 || $e->created_at->hour < 5)->count(),
         ];
     }
 
-    private function getHeatmapData($entries)
+    /**
+     * @return int[]
+     */
+    private function getHeatmapData($entries): array
     {
         $heatmap = [];
         foreach ($entries as $entry) {
@@ -346,7 +349,7 @@ final class DiaryController extends Controller
         return $heatmap;
     }
 
-    private function getTopTags($entries)
+    private function getTopTags($entries): array
     {
         $tagCounts = [];
         foreach ($entries as $entry) {
@@ -356,15 +359,19 @@ final class DiaryController extends Controller
                 }
             }
         }
+
         arsort($tagCounts);
 
         return array_slice($tagCounts, 0, 10, true);
     }
 
-    private function getAchievements($user, $entries)
+    /**
+     * @return array<int, array<string, bool|string>>
+     */
+    private function getAchievements($user, $entries): array
     {
         $totalEntries = $entries->count();
-        $totalWords = $entries->sum(fn ($entry) => str_word_count($entry->entry));
+        $totalWords = $entries->sum(fn ($entry): int => str_word_count((string) $entry->entry));
         $streak = $this->calculateStreak($user);
 
         return [

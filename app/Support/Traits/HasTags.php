@@ -75,6 +75,15 @@ trait HasTags
         $this->tags()->sync($tagIds);
     }
 
+    public function scopeWhereTag(Builder $query, string $tag): void
+    {
+        $tags = explode(',', $tag);
+
+        $query->whereHas('tags', function (Builder $query) use ($tags): void {
+            $query->whereIn('name', $tags);
+        });
+    }
+
     /**
      * Normalize tags into an array of tag IDs.
      *
@@ -110,14 +119,5 @@ trait HasTags
             ->unique()
             ->values()
             ->all();
-    }
-
-    public function scopeWhereTag(Builder $query, string $tag): void
-    {
-        $tags = explode(',', $tag);
-
-        $query->whereHas('tags', function (Builder $query) use ($tags) {
-            $query->whereIn('name', $tags);
-        });
     }
 }

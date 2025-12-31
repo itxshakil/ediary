@@ -75,14 +75,14 @@ trait Sluggable
         }
 
         for ($i = 1; $i < 100; $i++) {
-            $candidate = "$baseSlug{$this->slugSeparator()}$i";
+            $candidate = sprintf('%s%s%d', $baseSlug, $this->slugSeparator(), $i);
 
             if (! $this->slugExists($candidate, $excludeCurrent)) {
                 return $this->avoidRouteCollision($candidate);
             }
         }
 
-        return "$baseSlug{$this->slugSeparator()}" . Str::random(4);
+        return $baseSlug . $this->slugSeparator() . Str::random(4);
     }
 
     protected function avoidRouteCollision(string $slug): string
@@ -91,7 +91,7 @@ trait Sluggable
             return $slug;
         }
 
-        return "$slug{$this->slugSeparator()}" . Str::random(3);
+        return $slug . $this->slugSeparator() . Str::random(3);
     }
 
     protected function isSlugCollidingWithRoute(string $slug): bool

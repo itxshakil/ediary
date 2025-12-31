@@ -11,6 +11,21 @@ enum Privacy: string
     case Public = 'public';
     case Unlisted = 'unlisted';
 
+    /**
+     * @return mixed[][]
+     */
+    public static function options(): array
+    {
+        return array_map(
+            static fn (self $privacy): array => [
+                'value' => $privacy->value,
+                'label' => $privacy->label(),
+                'emoji' => $privacy->emoji(),
+            ],
+            self::cases(),
+        );
+    }
+
     public function label(): string
     {
         return match ($this) {
@@ -31,20 +46,10 @@ enum Privacy: string
         };
     }
 
-    public static function options(): array
-    {
-        return array_map(
-            static fn (self $privacy) => [
-                'value' => $privacy->value,
-                'label' => $privacy->label(),
-                'emoji'  => $privacy->emoji(),
-            ],
-            self::cases(),
-        );
-    }
-
     /**
      * Who can view this entry?
+     *
+     * @return Audience[]
      */
     public function audiences(): array
     {

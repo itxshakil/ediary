@@ -24,17 +24,23 @@ final class UserStat extends Model
         'freeze_cards',
     ];
 
-    protected $casts = [
-        'last_entry_date' => 'date',
-        'current_streak' => 'integer',
-        'longest_streak' => 'integer',
-        'total_entries' => 'integer',
-        'total_words' => 'integer',
-        'freeze_cards' => 'integer',
-    ];
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'last_entry_date' => 'date',
+            'current_streak' => 'integer',
+            'longest_streak' => 'integer',
+            'total_entries' => 'integer',
+            'total_words' => 'integer',
+            'freeze_cards' => 'integer',
+        ];
     }
 }

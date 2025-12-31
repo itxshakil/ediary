@@ -6,12 +6,17 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Carbon\Carbon;
+use Carbon\Month;
+use Carbon\WeekDay;
+use DateTimeInterface;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 final class HomeController
 {
-    public function __invoke(Request $request)
+    public function __invoke(Request $request): Factory|View
     {
         $user = $request->user();
 
@@ -32,7 +37,7 @@ final class HomeController
             ->distinct()
             ->orderBy('date', 'desc')
             ->pluck('date')
-            ->map(fn ($date) => Carbon::parse($date));
+            ->map(fn (DateTimeInterface|WeekDay|Month|string|int|float|null $date): Carbon => Carbon::parse($date));
 
         $currentStreak = 0;
         $longestStreak = 0;
@@ -57,14 +62,15 @@ final class HomeController
         }
 
         $checkDate = $entries->first();
-        foreach ($entries as $entryDate) {
-            if ($entryDate->isSameDay($checkDate) || $entryDate->isSameDay($checkDate->subDay())) {
+        foreach ($entries as $entry) {
+            if ($entry->isSameDay($checkDate) || $entry->isSameDay($checkDate->subDay())) {
                 $tempStreak++;
                 $longestStreak = max($longestStreak, $tempStreak);
             } else {
                 $tempStreak = 1;
             }
-            $checkDate = $entryDate->subDay();
+
+            $checkDate = $entry->subDay();
         }
 
         return [

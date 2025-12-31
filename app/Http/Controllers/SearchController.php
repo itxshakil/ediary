@@ -15,10 +15,10 @@ final class SearchController
 {
     public function show(Request $request): Factory|View|Application
     {
-        $users = User::query()->when($request->filled('q'), function (Builder $query) use ($request) {
+        $users = User::query()->when($request->filled('q'), function (Builder $query) use ($request): void {
             /** @var Builder<User> $query */
             $query->search($request->query('q'));
-        }, function (Builder $query) {
+        }, function (Builder $query): void {
             $query->inRandomOrder()->take(10);
         })->with('profile')
             ->withCount('diaries')

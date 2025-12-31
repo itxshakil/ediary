@@ -9,6 +9,7 @@ use App\Enums\Privacy;
 use App\Support\Traits\HasTags;
 use Carbon\Carbon;
 use Database\Factories\DiaryFactory;
+use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -72,24 +73,21 @@ final class Diary extends Model
 
     /**
      * @param Builder<Diary> $query
-     * @param string|null $search
-     *
-     * @return void
-     *
      */
-    public function scopeSearch(Builder $query, ?string $search = null):void
+    #[Scope]
+    protected function search(Builder $query, ?string $search = null): void
     {
-        if($search === null || trim($search) === ''){
+        if ($search === null || mb_trim($search) === '') {
             return;
         }
 
-        $query->where(function(Builder $query) use ($search){
+        $query->where(function (Builder $query) use ($search): void {
             $keywords = explode(' ', $search);
-            foreach($keywords as $keyword){
-                $query->where('title', 'like', "%$keyword%")
-                ->orWhere(function(Builder $query) use ($keyword){
-                   $query->whereTag($keyword);
-                });
+            foreach ($keywords as $keyword) {
+                $query->where('title', 'like', sprintf('%%%s%%', $keyword))
+                    ->orWhere(function (Builder $query) use ($keyword): void {
+                        $query->whereTag($keyword);
+                    });
             }
         });
 
