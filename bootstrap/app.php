@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
+use App\Http\Middleware\RequestLogger;
 use App\Services\Core\ErrorReporter;
-use Illuminate\Auth\Middleware\RequestLogger;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
