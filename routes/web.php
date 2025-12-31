@@ -12,6 +12,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\SyncController;
 use App\Http\Controllers\UserDataController;
 use App\Http\Controllers\UsernameController;
 use Illuminate\Http\Request;
@@ -80,6 +81,10 @@ Route::view('/blogs/goal-setting-for-success', 'blogs.goal-setting-for-success')
 //use Illuminate\Support\Facades\Route;
 // Diary CRUD
 Route::post('/diary/store', [DiaryController::class, 'store'])
+    ->name('diary.store')
+    ->middleware('auth');
+
+Route::post('/diary/sync', [SyncController::class, 'store'])
     ->name('diary.store')
     ->middleware('auth');
 

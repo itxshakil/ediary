@@ -109,7 +109,7 @@ class OfflineManager {
 
             for (const entry of pendingEntries) {
                 try {
-                    const response = await fetch('/diary/store', {
+                    const response = await fetch('/diary/sync', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
