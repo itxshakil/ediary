@@ -1,7 +1,7 @@
 <template>
   <div class="ml-3 relative" v-cloak>
     <button
-      class="flex border-transparent focus:outline-none focus:border-white transition duration-150 ease-in-out"
+      class="flex border-transparent focus:outline-hidden focus:border-white transition duration-150 ease-in-out"
       @click="active = !active"
     >
       <slot name="toggler"></slot>

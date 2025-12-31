@@ -1,85 +1,82 @@
-/**
- * We'll load the axios HTTP library which allows us to easily issue requests
- * to our Laravel back-end. This library automatically handles sending the
- * CSRF token as a header based on the value of the "XSRF" token cookie.
- */
-import Vue from 'vue'
-window.axios = require('axios');
+import axios from 'axios'
 
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios = axios
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 
-window.Vue = require('vue').default;
-
-window.events = new Vue();
-window.flash = function (message, level = 'success') {
-    window.events.$emit('flash', { message, level })
-}
-
+// Progressive Web App Helpers
 function isAppInstalled() {
     return (
         ('standalone' in navigator && navigator.standalone) ||
         window.matchMedia('(display-mode: standalone)').matches
-    );
+    )
 }
 
-window.showSnackBar = function(){
-    let snackBar = document.getElementById('install-snackbar');
-    setTimeout(()=>{
-        snackBar.style.display = 'block';
-        setTimeout(()=>{
-            snackBar.remove();
+window.showSnackBar = function () {
+    let snackBar = document.getElementById('install-snackbar')
+
+    setTimeout(() => {
+        snackBar.style.display = 'block'
+        setTimeout(() => {
+            snackBar.remove()
         }, 10_000)
     }, 3_000)
 }
 
-window.showNotificationSnackBar = function(){
+window.showNotificationSnackBar = function () {
     if ('Notification' in window && Notification.permission !== 'granted') {
-        const timeoutDelay = isAppInstalled() ? 3_000 : 13_000;
+        const timeoutDelay = isAppInstalled() ? 3_000 : 13_000
 
         setTimeout(() => {
-            let snackBar = document.getElementById('notification-snackbar');
-            snackBar.style.display = 'block';
+            let snackBar = document.getElementById('notification-snackbar')
+            snackBar.style.display = 'block'
             setTimeout(() => {
-                snackBar.remove();
+                snackBar.remove()
             }, 10_000)
         }, timeoutDelay)
-    } else{
-        console.log('Notification was not supported');
     }
 }
 
-window.requestNotificationPermission = function (){
+window.requestNotificationPermission = function () {
     if ('Notification' in window) {
         Notification.requestPermission().then(permission => {
-            if (permission === 'granted') {
-                console.log('Notification permission granted!');
-            } else {
-                console.log('Notification permission denied!');
-            }
-
-            // Hide the snackbar after the permission request
-            let snackBar = document.getElementById('notification-snackbar');
-            snackBar.style.display = 'none';
-        });
-    } else {
-        console.log('Notifications are not supported in this browser.');
+            console.log('Notification permission:', permission)
+            let snackBar = document.getElementById('notification-snackbar')
+            snackBar.style.display = 'none'
+        })
     }
 }
 
-let deferredPrompt;
+let deferredPrompt = null
 
-window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
+window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault()
+    deferredPrompt = e
 
-    if(location.pathname === '/home'){
+    if (location.pathname === '/home') {
         showSnackBar()
     }
-});
+})
 
-window.showInstallPromotion = function(){
-    deferredPrompt.prompt();
-    deferredPrompt =null;
+window.showInstallPromotion = function () {
+    if (deferredPrompt) {
+        deferredPrompt.prompt()
+        deferredPrompt = null
+    }
 }
 
-showNotificationSnackBar();
+window.showNotificationSnackBar()
+
+document.addEventListener("DOMContentLoaded", () => {
+    const avatarBtn = document.getElementById("navbarUserMenu");
+    const dropdown = document.getElementById("dropdownMenu");
+
+    avatarBtn.addEventListener("click", () => {
+        dropdown.classList.toggle("hidden");
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!avatarBtn.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.classList.add("hidden");
+        }
+    });
+});

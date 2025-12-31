@@ -59,9 +59,9 @@ How to Write a Diary
 @endpush
 
 @section('content')
-<div class="container mx-auto px-4 md:px-8 lg:px-16">
-    <article class="bg-white rounded-lg shadow-lg p-6 md:p-8 mb-6 text-gray-900">
-        <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-center mb-6 text-indigo-700">
+<div class="container mx-auto px-3 md:px-6 w-7xl">
+    <article class="bg-white rounded-xl shadow-lg p-6 md:p-8 mb-6 text-gray-900 dark:bg-gray-800 dark:text-gray-100 mt-4">
+        <h1 class="bg-white rounded-xl shadow-lg p-6 md:p-8 mb-6 text-gray-900 dark:bg-gray-800 dark:text-gray-100 mt-4text-3xl md:text-5xl lg:text-6xl font-bold text-center pb-4 text-balance">
             5 Steps to Design the Life You’ve Always Dreamed Of
         </h1>
         <p class="text-lg md:text-xl mb-4 leading-relaxed">
@@ -73,11 +73,11 @@ How to Write a Diary
         <p class="text-lg md:text-xl mb-4 leading-relaxed">
             Sounds amazing, right? But let me guess—you’ve tried this before and somewhere along the way, life happened. The plan fell apart, and you told yourself, “Maybe next year.”
         </p>
-        <p class="text-lg md:text-xl mb-6 leading-relaxed">
+        <p class="text-lg md:text-xl mb-2">
             Not this time. This time, you’re going to stick to it. And it’s not because you’ll suddenly develop superhuman discipline—it’s because you’ll use these five simple, actionable steps to design a life you’ll love. Let’s dive in.
         </p>
 
-        <h2 class="text-2xl md:text-3xl font-semibold text-indigo-600 mt-8 mb-4">
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">
             Step 1: Dream Big—Define Your Vision
         </h2>
         <p class="text-lg mb-4 leading-relaxed">
@@ -95,11 +95,11 @@ How to Write a Diary
             <strong>Why This Matters:</strong> When you have a clear vision, it’s easier to say “yes” to the things that align with it and “no” to distractions.
         </p>
 
-        <p class="text-lg md:text-xl mb-6 leading-relaxed">
-            <strong>💡 Need a little nudge?</strong> Check out <a href="https://ediary.shakiltech.com/blogs/how-to-start-writing-a-diary" class="text-indigo-600 underline">How to Start Writing a Diary</a> for an easy guide to getting started.
+        <p class="text-lg md:text-xl mb-2">
+            <strong>💡 Need a little nudge?</strong> Check out <a href="https://ediary.shakiltech.com/blogs/how-to-start-writing-a-diary" class="text-gray-900 dark:text-white underline">How to Start Writing a Diary</a> for an easy guide to getting started.
         </p>
 
-        <h2 class="text-2xl md:text-3xl font-semibold text-indigo-600 mt-8 mb-4">
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">
             Step 2: Break It Down—Turn Big Dreams Into Small Wins
         </h2>
         <p class="text-lg mb-4 leading-relaxed">
@@ -117,11 +117,11 @@ How to Write a Diary
             <strong>Why This Matters:</strong> When you focus on small, actionable steps, progress doesn’t feel overwhelming. It’s like assembling IKEA furniture—one piece at a time (minus the frustration, hopefully).
         </p>
 
-        <p class="text-lg md:text-xl mb-6 leading-relaxed">
-            <strong>💡 Bonus Read:</strong> <a href="https://ediary.shakiltech.com/blogs/these-8-good-things-will-happen-when-you-start-writing-diary" class="text-indigo-600 underline">These 8 Good Things Will Happen When You Start Writing Diaries</a> will show you how journaling fuels these small victories.
+        <p class="text-lg md:text-xl mb-2">
+            <strong>💡 Bonus Read:</strong> <a href="https://ediary.shakiltech.com/blogs/these-8-good-things-will-happen-when-you-start-writing-diary" class="text-gray-900 dark:text-white underline">These 8 Good Things Will Happen When You Start Writing Diaries</a> will show you how journaling fuels these small victories.
         </p>
 
-        <h2 class="text-2xl md:text-3xl font-semibold text-indigo-600 mt-8 mb-4">
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">
             Step 3: Prioritize Wellness—Your Energy Fuels Everything
         </h2>
         <p class="text-lg mb-4 leading-relaxed">
@@ -139,7 +139,7 @@ How to Write a Diary
             <strong>Why This Matters:</strong> When you feel good physically and mentally, you’re unstoppable. Think of wellness as your secret weapon for smashing those goals.
         </p>
 
-        <h2 class="text-2xl md:text-3xl font-semibold text-indigo-600 mt-8 mb-4">
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">
             Step 4: Define Your Legacy—What’s Your Why?
         </h2>
         <p class="text-lg mb-4 leading-relaxed">
@@ -152,11 +152,11 @@ How to Write a Diary
             <li><strong>What legacy do I want to leave behind?</strong> Do you want to be remembered as the family’s glue, the friend who always showed up, or the person who taught everyone how to make perfect pancakes? (Honestly, that’s a legacy worth aiming for.)</li>
         </ul>
 
-        <p class="text-lg md:text-xl mb-6 leading-relaxed">
+        <p class="text-lg md:text-xl mb-2">
             <strong>Imagine This:</strong> By next December, you’re flipping through your journal and seeing a story of purpose, impact, and intentional living. That’s the power of knowing your “why.”
         </p>
 
-        <h2 class="text-2xl md:text-3xl font-semibold text-indigo-600 mt-8 mb-4">
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">
             Step 5: Make Journaling a Habit—Your Daily Reset
         </h2>
         <p class="text-lg mb-4 leading-relaxed">
@@ -173,11 +173,11 @@ How to Write a Diary
             <li><strong>Celebrate the process.</strong> Journaling isn’t about perfection—it’s about progress.</li>
         </ul>
 
-        <p class="text-lg md:text-xl mb-6 leading-relaxed">
+        <p class="text-lg md:text-xl mb-2">
             <strong>Imagine This:</strong> By next December 31st, you’re reading through your entries and seeing how far you’ve come. Every high, every low, and everything in between—it’s all part of your story.
         </p>
 
-        <h2 class="text-2xl md:text-3xl font-semibold text-indigo-600 mt-8 mb-4">
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">
             Your Partner in Growth: Ediary
         </h2>
         <p class="text-lg mb-4 leading-relaxed">
@@ -188,11 +188,11 @@ How to Write a Diary
             <li><strong>Always Accessible: </strong> Offline or online, your diary is with you.</li>
             <li><strong>Seamless Access:</strong> Online or offline, your entries sync automatically.</li>
         </ul>
-        <p class="text-lg md:text-xl mb-6 leading-relaxed">
-            <strong>✨ Ready to take the first step?</strong> <a href="https://ediary.shakiltech.com/register" class="text-indigo-600 underline">Register now</a> and start designing the life you’ve always dreamed of.
+        <p class="text-lg md:text-xl mb-2">
+            <strong>✨ Ready to take the first step?</strong> <a href="https://ediary.shakiltech.com/register" class="text-gray-900 dark:text-white underline">Register now</a> and start designing the life you’ve always dreamed of.
         </p>
 
-        <p class="text-lg md:text-xl mb-6 leading-relaxed text-center">
+        <p class="text-lg md:text-xl mb-2 text-center">
             Because designing the life you want doesn’t happen by chance—it happens by choice.
         </p>
     </article>

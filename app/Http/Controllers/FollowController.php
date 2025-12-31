@@ -5,11 +5,14 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Http\Response;
 
 final class FollowController
 {
-    public function store(User $user): array
+    public function store(User $user): Response
     {
-        return $user->profile->follower()->toggle(auth()->id());
+        $user->profile->follower()->toggle(auth()->id());
+
+        return response()->noContent();
     }
 }

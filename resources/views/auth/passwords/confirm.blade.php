@@ -20,7 +20,7 @@
         <div class="w-full lg:w-1/2 bg-gray-200 dark:bg-gray-800 p-2 md:p-5 rounded-lg lg:rounded-l-none">
             <h1 class="pt-4 text-2xl text-center pb-2 md:pb-4 text-gray-900 dark:text-white">{{ __('Confirm Password') }}
             </h1>
-            <div class="px-4 md:px-8  pt-6 pb-2 mb-4 bg-white rounded">
+            <div class="px-4 md:px-8  pt-6 pb-2 mb-4 bg-white rounded-sm">
                 <p>{{ __('Please confirm your password before continuing.') }}</p>
 
                 <form method="POST" action="{{ route('password.confirm') }}">
@@ -37,14 +37,14 @@
                             </a>
                             @endif
                         </div>
-                        <input class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded shadow appearance-none focus:outline-none @error('password') border-red-500 @enderror" id="password" type="password" name="password" placeholder="******************" />
+                        <input class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded-sm shadow-sm appearance-none focus:outline-hidden @error('password') border-red-500 @enderror" id="password" type="password" name="password" placeholder="******************" />
                         @error('password')
                         <p class="text-xs italic text-red-500" role="alert">{{ $message }}</p>
                         @enderror
                     </div>
 
                     <div class="mb-4 text-center">
-                        <button class="w-full bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-full outline-none focus:outline-none uppercase shadow hover:shadow-md font-bold text-xs" type="submit">
+                        <button class="w-full bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-full outline-hidden focus:outline-hidden uppercase shadow-sm hover:shadow-md font-bold text-xs" type="submit">
                             {{ __('Confirm Password') }}
                         </button>
                     </div>

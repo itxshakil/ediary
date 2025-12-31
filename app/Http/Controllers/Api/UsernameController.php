@@ -6,19 +6,22 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\User;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 final class UsernameController extends Controller
 {
-    public function checkUsernameAvailability(Request $request): Response|Application|ResponseFactory
+    public function checkUsernameAvailability(Request $request): \Illuminate\Http\JsonResponse
     {
         if (mb_strlen($request->username) < 5 || User::isUsernameTaken($request->username)) {
-            return response('', 422);
+            return response()->json([
+                'success' => false,
+                'message' => 'Username is not available.',
+            ]);
         }
 
-        return response('');
+        return response()->json([
+            'success' => true,
+            'message' => 'Username is available.',
+        ]);
     }
 }

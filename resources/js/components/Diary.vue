@@ -1,6 +1,6 @@
 <template>
   <div
-    class="text-gray-900 card w-64 bg-gray-100 pb-2 md:p-5 mx-auto p-2 m-4 shadow-lg rounded overflow-hidden"
+    class="text-gray-900 card w-64 bg-gray-100 pb-2 md:p-5 mx-auto p-2 m-4 shadow-lg rounded-sm overflow-hidden"
     :class="full?'w-full':null"
   >
     <div class="text-right text-xs text-gray-700" v-text="date"></div>

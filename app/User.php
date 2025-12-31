@@ -97,4 +97,14 @@ final class User extends Authenticatable implements MustVerifyEmail
         $query->where('username', 'like', sprintf('%%%s%%', $term))
             ->orWhere('email', 'like', sprintf('%%%s%%', $term));
     }
+
+    public function likes(): HasMany
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    public function bookmarks(): HasMany
+    {
+        return $this->hasMany(Bookmark::class);
+    }
 }

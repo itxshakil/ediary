@@ -34,7 +34,7 @@
         </div>
         <div class="w-full lg:w-1/2 bg-gray-200 dark:bg-gray-800 p-2 md:p-5 rounded-lg lg:rounded-l-none">
             <h3 class="pt-4 text-2xl text-center pb-2 md:pb-4 text-gray-900 dark:text-white">Change Your Username!</h3>
-            <form class="px-4 md:px-8  pt-6 pb-2 mb-4 bg-white dark:text-white dark:bg-gray-900 rounded" method="POST" action="/username">
+            <form class="px-4 md:px-8  pt-6 pb-2 mb-4 bg-white dark:text-white dark:bg-gray-900 rounded-sm" method="POST" action="/username">
                 <section class="mb-4">
                     <label class="text-sm font-semibold text-gray-700 dark:text-gray-200" for="username">
                         Username
@@ -46,7 +46,7 @@
                     @enderror
                 </section>
                 <section class="mb-4 text-center">
-                    <button class="w-full bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-full outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs" type="submit">
+                    <button class="w-full bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-full outline-hidden focus:outline-hidden mr-2 mb-1 uppercase shadow-sm hover:shadow-md font-bold text-xs" type="submit">
                         Save
                     </button>
                 </section>

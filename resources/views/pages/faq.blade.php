@@ -24,122 +24,158 @@
 @push('head')
     <script type="application/ld+json">
         {
-        "@@context": "https://schema.org",
-        "@type": "FAQPage",
-        "name": "Frequently Asked Questions | E-diary",
-        "headline": "Frequently Asked Questions about E-diary",
-        "description": "Find answers to frequently asked questions about E-diary, including how to create a diary, print entries, manage privacy, and more.",
-        "url": "https://ediary.shakiltech.com/faq",
-        "mainEntity": [
-            {
-            "@type": "Question",
-            "name": "What is E-diary?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "E-diary is a free service that helps you track your past, make predictions for the future, and see how you change over time. It allows you to document your life and relive memories with ease."
-            }
-            },
-            {
-            "@type": "Question",
-            "name": "How can I create a diary?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "To create a diary, you simply need to register with a unique username and password. Once registered, you can start documenting your thoughts."
-            }
-            },
-            {
-            "@type": "Question",
-            "name": "How can I print my entries?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "You can request your diary entries by visiting the designated page, and we'll send them to your email. You can then unzip and print them as you wish."
-            }
-            },
-            {
-            "@type": "Question",
-            "name": "Who can see my entries?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Your entries are private by default. Only you can access and view your diary entries after logging into your account."
-            }
-            },
-            {
-            "@type": "Question",
-            "name": "How does privacy work?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "E-diary ensures your privacy by encrypting all your entries. No one, including E-diary staff, can access your content without your login credentials."
-            }
-            },
-            {
-            "@type": "Question",
-            "name": "Why do I need to give my email address?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "We ask for your email address to help you reset your password if necessary. It’s also used to send you your diary data upon request."
-            }
-            }
-        ],
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "reviewCount": "150",
-            "bestRating": "5",
-            "worstRating": "1"
-        }
+            "@@context": "https://schema.org",
+            "@type": "FAQPage",
+            "name": "Frequently Asked Questions | E-diary",
+            "headline": "Frequently Asked Questions about E-diary",
+            "description": "Find answers to frequently asked questions about E-diary, including how to create a diary, print entries, manage privacy, and more.",
+            "url": "https://ediary.shakiltech.com/faq",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "What is E-diary?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "E-diary is a free platform that helps you track your past, reflect on your present, and make predictions for the future. It allows you to document your life and relive memories with ease."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How can I create a diary?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Simply register with a unique username and password. Once registered, you can immediately start writing diary entries."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How can I print my entries?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "To print your diary entries, request your data through the designated page. We will send all your entries to your email. You can unzip the file and print as needed."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Who can see my entries?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Your entries are private by default and can only be viewed by you after logging into your account."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How does privacy work?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "All entries in E-diary are encrypted. No one, including E-diary staff, can access your content without your login credentials."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Why do I need to give my email address?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Your email is used for password recovery and also to send you your diary data when requested."
+                    }
+                }
+            ]
         }
     </script>
 @endpush
 
 @section('content')
-<div class="container mx-auto px-3 md:px-6">
-    <h1 class="text-xl md:text-2xl mt-4">Frequently Asked Questions and Answers:</h1>
-    <p class="hidden md:block">This is a shortlist of our most frequently asked questions. For more information about
-        E-diary, or if you need support, please visit our support center. </p>
+    <div class="container mx-auto px-4 md:px-6 py-8 max-w-4xl">
 
-    <h3 class="font-semibold mt-4">What is E-diary?</h3>
-    <p class="ml-2 mb-2">E-diary is a <strong>free</strong> service to keep track of your past and think about your
-        future. You can make predictions about what will happen and see if they come true, and you can see how you
-        changed over time, and read over memories, having a few laughs. It's the funniest, quickest, and easiest way to document your life
-        through a series of notes. Tap down a note or a thought on your notebook, mobile phone, or tablet and transform
-        it into a memory to keep around forever. </p>
+        <h1 class="text-2xl md:text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
+            Frequently Asked Questions
+        </h1>
 
-    <h3 class="font-semibold mt-4">How can I create a diary?</h3>
-    <p class="ml-2 mb-2">You need to register with a unique username and password (<a href="/register"
-            class="text-blue-700">Sign up</a>)</p>
+        <p class="mt-3 text-sm md:text-base text-gray-700 dark:text-gray-300 hidden md:block leading-relaxed">
+            Here are answers to the most common questions about E-diary.
+            For more help, feel free to visit our support center.
+        </p>
 
-    <h3 class="font-semibold mt-4">How can I print my entries?</h3>
-    <p class="ml-2 mb-2">You have to <a href="/request-data" class="text-blue-700">request here</a> and then we will
-        send you all your data
-        to your email. You can then
-        unzip this file and print as many as you'd like. You may also print any diary entries directly from the web
-        browser.</p>
+        <!-- FAQ: Q1 -->
+        <h3 class="mt-8 text-lg font-semibold text-gray-900 dark:text-gray-200">
+            What is E-diary?
+        </h3>
+        <p class="mt-2 ml-2 text-gray-700 dark:text-gray-300 leading-relaxed">
+            E-diary is a <strong>free online diary platform</strong> that helps you document your life easily.
+            Write notes from your phone, tablet, or laptop and revisit them anytime to see how you’ve grown.
+            Whether it’s memories, predictions, or simple thoughts — E-diary keeps them safe and accessible.
+        </p>
 
-    <h3 class="font-semibold mt-4">Who can see my entries?</h3>
-    <p class="ml-2 mb-2">All entries are private by default which means they are not visible or can not be read by
-        anyone without <a href="/login" class="text-blue-70">login</a> for the same diary.</p>
+        <!-- FAQ: Q2 -->
+        <h3 class="mt-8 text-lg font-semibold text-gray-900 dark:text-gray-200">
+            How can I create a diary?
+        </h3>
+        <p class="mt-2 ml-2 text-gray-700 dark:text-gray-300 leading-relaxed">
+            Just register with a username and password.
+            <a href="/register" class="text-blue-700 dark:text-blue-400 underline underline-offset-2">
+                Sign up here
+            </a>
+            and start writing instantly.
+        </p>
 
-    <h3 class="font-semibold mt-4">How does privacy work?</h3>
-    <p class="ml-2 mb-2">Privacy with us is very simple. Nobody can read your notes, except yourself. Nothing is "public" by default on E-diary. Also, your all entries are saved in the database in encrypted form. So no one can read except you..</p>
+        <!-- FAQ: Q3 -->
+        <h3 class="mt-8 text-lg font-semibold text-gray-900 dark:text-gray-200">
+            How can I print my entries?
+        </h3>
+        <p class="mt-2 ml-2 text-gray-700 dark:text-gray-300 leading-relaxed">
+            Visit
+            <a href="/request-data" class="text-blue-700 dark:text-blue-400 underline underline-offset-2">
+                Request Data
+            </a>
+            to receive all your entries via email.
+            You can unzip the file and print any entry you like.
+            You may also print directly from your browser.
+        </p>
 
-    <h3 class="font-semibold mt-4">How did the idea come about?</h3>
-    <p class="ml-2 mb-2">We like to be melancholy, writing daily notes, and reading them over. We always assumed taking
-        interesting notes required big bulky paper books. But as mobile phones got better and better, smaller and
-        smaller, we decided to challenge that assumption. We created E-diary to solve three simple problems:
-        <ol class="list-decimal list-inside">
-            <li class="pl-2">Traditional paper diaries not in your pocket at all times. An online and mobile diary makes
-                it almost
-                always accessible.</li>
-            <li class="pl-2">Making copies and backup your paper diary is a pain - write a note once, then access it
-                (instantly)
-                on multiple services.</li>
-            <li class="pl-2">Most diary experiences are clumsy and take forever - we've optimized the experience to be
-                fast and
-                efficient.</li>
+        <!-- FAQ: Q4 -->
+        <h3 class="mt-8 text-lg font-semibold text-gray-900 dark:text-gray-200">
+            Who can see my entries?
+        </h3>
+        <p class="mt-2 ml-2 text-gray-700 dark:text-gray-300 leading-relaxed">
+            All entries are private and visible only to you after you
+            <a href="/login" class="text-blue-700 dark:text-blue-400 underline underline-offset-2">
+                log in
+            </a>.
+            No one else can access your diary.
+        </p>
+
+        <!-- FAQ: Q5 -->
+        <h3 class="mt-8 text-lg font-semibold text-gray-900 dark:text-gray-200">
+            How does privacy work?
+        </h3>
+        <p class="mt-2 ml-2 text-gray-700 dark:text-gray-300 leading-relaxed">
+            Privacy is our top priority.
+            All your entries are stored in an <strong>encrypted</strong> format.
+            Nothing is public by default, and no one (including staff) can read your content.
+        </p>
+
+        <!-- FAQ: Q6 -->
+        <h3 class="mt-8 text-lg font-semibold text-gray-900 dark:text-gray-200">
+            How did the idea come about?
+        </h3>
+        <p class="mt-2 ml-2 text-gray-700 dark:text-gray-300 leading-relaxed">
+            E-diary was built from a love of journaling and revisiting past thoughts.
+            With mobile devices always in our pockets, we wanted to create a way to:
+        </p>
+
+        <ol class="mt-3 ml-6 list-decimal space-y-1 text-gray-700 dark:text-gray-300">
+            <li>Access your diary anytime, anywhere.</li>
+            <li>Back up your diary safely without effort.</li>
+            <li>Provide a fast, simple, modern journaling experience.</li>
         </ol>
-    </p>
 
-    <h3 class="font-semibold mt-4">Why I am asked to give my email address?</h3>
-    <p class="ml-2 mb-2">You can use this email later for resetting your password.</p>
-</div>
+        <!-- FAQ: Q7 -->
+        <h3 class="mt-8 text-lg font-semibold text-gray-900 dark:text-gray-200">
+            Why am I asked to give my email address?
+        </h3>
+        <p class="mt-2 ml-2 text-gray-700 dark:text-gray-300 leading-relaxed">
+            Your email allows you to reset your password and helps us send your diary data when you request it.
+        </p>
+
+    </div>
 @endsection

@@ -1,6 +1,6 @@
 <template>
   <button
-    class="px-2 py-1 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
+    class="px-2 py-1 rounded-sm outline-hidden focus:outline-hidden mr-2 mb-1 uppercase shadow-sm hover:shadow-md font-bold text-xs"
     :class="status ? 'bg-gray-100 text-gray-900' :'bg-blue-600 text-gray-100'"
     @click="toggle"
     v-text="btnText"

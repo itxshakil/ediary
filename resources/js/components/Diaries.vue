@@ -1,8 +1,10 @@
 <template>
   <div v-if="addnew">
+      <div data-vue-root>
     <resizable-textarea>
+
       <textarea
-        class="whitespace-pre-wrap notebook w-full px-3 text-sm leading-tight dark:bg-gray-800 dark:text-white border rounded shadow appearance-none focus:outline-none"
+        class="whitespace-pre-wrap notebook w-full px-3 text-sm leading-tight dark:bg-gray-800 dark:text-white border rounded-sm shadow-sm appearance-none focus:outline-hidden"
         name="entry"
         id="entry"
         cols="30"
@@ -13,14 +15,15 @@
         v-model="entry"
       ></textarea>
     </resizable-textarea>
+      </div>
     <button
-      class="mt-4 bg-blue-100 active:bg-blue-200 text-blue-800 px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
+      class="mt-4 bg-blue-100 active:bg-blue-200 text-blue-800 px-4 py-2 rounded-sm outline-hidden focus:outline-hidden mr-2 mb-1 uppercase shadow-sm hover:shadow-md font-bold text-xs"
       :disabled="disabled"
       v-text="btnText"
       @click="save"
     ></button>
     <button
-      class="mt-4 bg-gray-600 text-gray-100 px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
+      class="mt-4 bg-gray-600 text-gray-100 px-4 py-2 rounded-sm outline-hidden focus:outline-hidden mr-2 mb-1 uppercase shadow-sm hover:shadow-md font-bold text-xs"
       @click="addnew=false"
     >Cancel</button>
   </div>
@@ -28,11 +31,13 @@
     <div class="entries flex flex-wrap items-stretch">
       <diary v-for="diary in items" :key="diary.id" :data="diary"></diary>
     </div>
-    <paginator :dataSet="dataSet" @changed="fetch" v-cloak></paginator>
+      <div data-vue-root>
+        <paginator :dataSet="dataSet" @changed="fetch" v-cloak></paginator>
+      </div>
     <div class="fixed right-0 bottom-0 mb-6 mr-6">
-      <share class="md:hidden mb-2 p-4 rounded-full w-full bg-blue-200 shadow hover:shadow-lg"></share>
+      <share class="md:hidden mb-2 p-4 rounded-full w-full bg-blue-200 shadow-sm hover:shadow-lg"></share>
       <div
-        class="p-4 md:pb-6 rounded-full text-bold text-4xl h-12 w-12 bg-blue-200 text-blue-800 shadow hover:shadow-lg flex justify-center items-center"
+        class="p-4 md:pb-6 rounded-full text-bold text-4xl h-12 w-12 bg-blue-200 text-blue-800 shadow-sm hover:shadow-lg flex justify-center items-center"
         title="Add new"
         @click="addnew=true"
       >+</div>
@@ -40,8 +45,8 @@
   </div>
 </template>
 <script>
-import diary from "./Diary";
-import share from "./Share";
+import diary from "./Diary.vue";
+import share from "./Share.vue";
 export default {
   components: { diary, share },
   data() {

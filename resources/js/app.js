@@ -1,42 +1,67 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+import './bootstrap';
 
-require('./bootstrap');
+async function registerDailyReminder() {
+    if (!('serviceWorker' in navigator)) return;
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+    const registration = await navigator.serviceWorker.ready;
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+    if ('periodicSync' in registration) {
+        try {
+            const status = await navigator.permissions.query({
+                name: 'periodic-background-sync',
+            });
 
-Vue.component('flash', require('./components/Flash.vue').default);
-Vue.component('paginator', require('./components/Paginator.vue').default);
-Vue.component('diaries', require('./components/Diaries.vue').default);
-Vue.component('resizable-textarea', require('./components/ResizableTextarea.vue').default);
-Vue.component('dropdown', require('./components/Dropdown.vue').default);
-Vue.component('username-input', require('./components/UsernameInput.vue').default);
-Vue.component('register-form', require('./components/RegisterForm.vue').default);
-Vue.component('login-form', require('./components/LoginForm.vue').default);
-Vue.component('auth-links', require('./components/AuthLinks.vue').default);
-Vue.component('profile', require('./components/Profile.vue').default);
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-const app = new Vue({
-    el: '#app',
-    data: {
-        'user': window.User
+            if (status.state === 'granted') {
+                await registration.periodicSync.register('daily-reminder', {
+                    minInterval: 24 * 60 * 60 * 1000, // 1 day
+                });
+                console.log('✅ Periodic Background Sync registered');
+                return;
+            }
+        } catch (e) {
+            console.warn('Periodic sync failed, falling back');
+        }
     }
-});
+
+    if ('SyncManager' in window) {
+        try {
+            const tags = await registration.sync.getTags();
+            if (!tags.includes('daily-reminder')) {
+                await registration.sync.register('daily-reminder');
+                console.log('⚠️ Using one-off Background Sync');
+                return;
+            }
+        } catch (e) {
+            console.warn('One-off sync failed, falling back');
+        }
+    }
+
+    fallbackInPageReminder();
+}
+
+function fallbackInPageReminder() {
+    if (Notification.permission !== 'granted') return;
+
+    const LAST_KEY = 'last-diary-reminder';
+    const last = Number(localStorage.getItem(LAST_KEY));
+    const now = Date.now();
+
+    if (!last || now - last > 24 * 60 * 60 * 1000) {
+        new Notification('Your Daily Diary Reminder', {
+            body: 'Take a moment to write your thoughts today ✍️',
+            icon: '/icons/old/icons-192.png',
+        });
+
+        localStorage.setItem(LAST_KEY, now);
+        console.log('📌 In-page reminder used');
+    }
+}
+
+document.addEventListener(
+    'click',
+    async () => {
+        await registerDailyReminder();
+    },
+    { once: true }
+);
+

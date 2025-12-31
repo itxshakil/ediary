@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flash-alert border px-4 py-3 my-2 rounded w-64"
+    class="flash-alert border px-4 py-3 my-2 rounded-sm w-64"
     :class="classes"
     role="alert"
     v-show="show"

@@ -1,0 +1,48 @@
+@import 'tailwindcss';
+
+@theme {
+  --flex-feature: 1 1 320px;
+
+  --width-96: 24rem;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+.notebook {
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    padding-bottom: 0.5rem;
+    line-height: 1.5rem;
+    background-color: transparent;
+    background-size: 100% 1.5rem;
+    background-image: linear-gradient(
+        transparent 95%,
+        rgba(0, 0, 0, 0.2) 5%
+    );
+}
+
+@media (prefers-color-scheme: dark) {
+    .notebook {
+        background-image: linear-gradient(
+            transparent 95%,
+            rgba(255, 255, 255, 0.2) 5%
+        );
+    }
+}

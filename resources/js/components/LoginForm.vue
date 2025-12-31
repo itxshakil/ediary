@@ -3,7 +3,7 @@
     <div class="mb-4">
       <label class="block mb-2 text-sm font-bold text-gray-700 dark:text-gray-200" for="username">Username</label>
       <input
-        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded shadow appearance-none focus:outline-none"
+        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded-sm shadow-sm appearance-none focus:outline-hidden"
         :class="errors.username ? 'border-red-500' :null"
         type="text"
         id="username"
@@ -31,7 +31,7 @@
         >Forgot Password?</a>
       </div>
       <input
-        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded shadow appearance-none focus:outline-none"
+        class="w-full px-3 py-2 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded-sm shadow-sm appearance-none focus:outline-hidden"
         :class="errors.password ? 'border-red-500' :null"
         id="password"
         type="password"
@@ -54,7 +54,7 @@
     </div>
     <div class="mb-4 text-center">
       <button
-        class="w-full bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-full outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
+        class="w-full bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-full outline-hidden focus:outline-hidden mr-2 mb-1 uppercase shadow-sm hover:shadow-md font-bold text-xs"
         type="submit"
         :disabled="disabled"
         v-text="btnText"

@@ -115,95 +115,202 @@ Latest Blog Article
 
 @endpush
 @section('content')
-<div class="container mx-auto px-3 md:px-6">
-    <div class="rounded-lg bg-gray-400 p-4 text-center mt-2">
-        @auth
-        <a class="bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-lg outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
-            href="/home">Start writing Now</a>
-        @else
-        <a class="bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-lg outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
-            href="/login">Start Writing now</a>
-        @endauth
+    <div class="container mx-auto px-4 md:px-6">
+
+        {{-- CTA --}}
+        <div class="rounded-2xl bg-gray-200 dark:bg-gray-800
+                p-5 text-center mt-4
+                border border-gray-300/60 dark:border-gray-700/60
+                shadow-sm">
+            @auth
+                <a
+                    class="inline-block
+                       bg-blue-600 hover:bg-blue-700 active:bg-blue-800
+                       text-white
+                       px-4 py-2
+                       rounded-xl
+                       uppercase
+                       shadow-sm hover:shadow-md
+                       font-bold text-xs
+                       transition"
+                    href="/home">
+                    Start writing Now
+                </a>
+            @else
+                <a
+                    class="inline-block
+                       bg-blue-600 hover:bg-blue-700 active:bg-blue-800
+                       text-white
+                       px-4 py-2
+                       rounded-xl
+                       uppercase
+                       shadow-sm hover:shadow-md
+                       font-bold text-xs
+                       transition"
+                    href="/login">
+                    Start Writing now
+                </a>
+            @endauth
+        </div>
+
+        {{-- Heading --}}
+        <h1 class="text-2xl font-bold underline px-4 py-6 text-gray-900 dark:text-white">
+            Latest Articles
+        </h1>
+
+        {{-- Articles --}}
+        <div class="flex flex-col md:flex-row gap-5 px-4 text-gray-900 dark:text-gray-100">
+
+            <div class="w-full lg:w-1/2
+                    bg-gray-200 dark:bg-gray-800
+                    rounded-2xl
+                    p-5
+                    shadow-sm border border-gray-300/60 dark:border-gray-700/60">
+                <h2 class="font-bold text-lg mb-1">
+                    <a href="/blogs/goal-setting-for-success"
+                       class="hover:underline">
+                        5 Steps to Design the Life You’ve Always Dreamed Of
+                    </a>
+                </h2>
+                <cite class="uppercase text-xs font-bold text-gray-600 dark:text-gray-400">
+                    Written By
+                </cite>
+                <a class="uppercase text-xs font-bold text-gray-800 dark:text-gray-200 ml-1"
+                   href="https://shakiltech.com">
+                    Shakil Alam
+                </a>
+                <p class="mt-2 text-sm leading-relaxed">
+                    Ready to turn your goals into achievements? Learn the best strategies for setting clear, actionable goals that lead to real success. Start planning your future today.
+                    <a href="/blogs/goal-setting-for-success" class="text-blue-600 hover:underline">
+                        read more...
+                    </a>
+                </p>
+            </div>
+
+            <div class="w-full lg:w-1/2
+                    bg-gray-200 dark:bg-gray-800
+                    rounded-2xl
+                    p-5
+                    shadow-sm border border-gray-300/60 dark:border-gray-700/60">
+                <h2 class="font-bold text-lg mb-1">
+                    <a href="/blogs/these-8-good-things-will-happen-when-you-start-writing-diary"
+                       class="hover:underline">
+                        These 8 Good Things Will Happen When You Start Writing Diaries
+                    </a>
+                </h2>
+                <cite class="uppercase text-xs font-bold text-gray-600 dark:text-gray-400">
+                    Written By
+                </cite>
+                <a class="uppercase text-xs font-bold text-gray-800 dark:text-gray-200 ml-1"
+                   href="#">
+                    INTERNET BLOGGER
+                </a>
+                <p class="mt-2 text-sm leading-relaxed">
+                    Writing to yourself is an important means of self-expression. Whether you call it a diary or refer to it as a journal, having a place to write down your thoughts, feelings, memories and personal impressions about life can be healing and teach you to know yourself better. It can also unlock the power of your creativity, and inspire you to manifest dreams
+                    <a href="/blogs/these-8-good-things-will-happen-when-you-start-writing-diary"
+                       class="text-blue-600 hover:underline">
+                        read more...
+                    </a>
+                </p>
+            </div>
+
+            <div class="w-full lg:w-1/2
+                    bg-gray-200 dark:bg-gray-800
+                    rounded-2xl
+                    p-5
+                    shadow-sm border border-gray-300/60 dark:border-gray-700/60">
+                <h2 class="font-bold text-lg mb-1">
+                    <a href="/blogs/how-to-start-writing-a-diary"
+                       class="hover:underline">
+                        How to Start Writing a Diary
+                    </a>
+                </h2>
+                <cite class="uppercase text-xs font-bold text-gray-600 dark:text-gray-400">
+                    Written By
+                </cite>
+                <a class="uppercase text-xs font-bold text-gray-800 dark:text-gray-200 ml-1"
+                   href="https://shakiltech.com">
+                    Shakil Alam
+                </a>
+                <p class="mt-2 text-sm leading-relaxed">
+                    To start a diary, all you need is a willingness to write. Start by figuring out what you want to write in your journal.
+                    If you aren’t sure, simply start writing and see where that leads.
+                    <a href="/blogs/how-to-start-writing-a-diary"
+                       class="text-blue-600 hover:underline">
+                        read more...
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        {{-- CTA Bottom --}}
+        <div class="rounded-2xl bg-gray-200 dark:bg-gray-800
+                p-5 text-center my-6
+                border border-gray-300/60 dark:border-gray-700/60
+                shadow-sm">
+            @auth
+                <a class="inline-block bg-blue-600 hover:bg-blue-700 active:bg-blue-800
+                       text-white px-4 py-2 rounded-xl uppercase
+                       shadow-sm hover:shadow-md font-bold text-xs transition"
+                   href="/home">
+                    Start writing Now
+                </a>
+            @else
+                <a class="inline-block bg-blue-600 hover:bg-blue-700 active:bg-blue-800
+                       text-white px-4 py-2 rounded-xl uppercase
+                       shadow-sm hover:shadow-md font-bold text-xs transition"
+                   href="/login">
+                    Start Writing now
+                </a>
+            @endauth
+        </div>
+
+        {{-- Related --}}
+        <h3 class="text-xl font-bold underline px-4 py-4 text-gray-900 dark:text-white">
+            Related Articles
+        </h3>
+
+        <div class="flex flex-col md:flex-row gap-5 px-4 text-gray-900 dark:text-gray-100">
+
+            <div class="w-full lg:w-1/2
+                    bg-gray-200 dark:bg-gray-800
+                    rounded-2xl
+                    p-5
+                    shadow-sm border border-gray-300/60 dark:border-gray-700/60">
+                <h2 class="font-bold text-lg mb-1">
+                    <a href="/blogs/these-8-good-things-will-happen-when-you-start-writing-diary"
+                       class="hover:underline">
+                        These 8 Good Things Will Happen When You Start Writing Diaries
+                    </a>
+                </h2>
+                <p class="mt-2 text-sm leading-relaxed">
+                    Writing to yourself is an important means of self-expression. Whether you call it a diary or refer to it as a journal, having a place to write down your thoughts, feelings, memories and personal impressions about life can be healing and teach you to know yourself better.
+                    <a href="/blogs/these-8-good-things-will-happen-when-you-start-writing-diary"
+                       class="text-blue-600 hover:underline">
+                        read more...
+                    </a>
+                </p>
+            </div>
+
+            <div class="w-full lg:w-1/2
+                    bg-gray-200 dark:bg-gray-800
+                    rounded-2xl
+                    p-5
+                    shadow-sm border border-gray-300/60 dark:border-gray-700/60">
+                <h2 class="font-bold text-lg mb-1">
+                    <a href="/blogs/how-to-start-writing-a-diary"
+                       class="hover:underline">
+                        How to Start Writing a Diary
+                    </a>
+                </h2>
+                <p class="mt-2 text-sm leading-relaxed">
+                    To start a diary, all you need is a willingness to write. Start by figuring out what you want to write in your journal.
+                    <a href="/blogs/how-to-start-writing-a-diary"
+                       class="text-blue-600 hover:underline">
+                        read more...
+                    </a>
+                </p>
+            </div>
+        </div>
     </div>
-    <h1 class="text-2xl underline p-4 font-bold">Latest Articles</h1>
-    <div class="flex flex-col md:flex-row gap-4 p-4 text-gray-900">
-        <div class="w-full h-auto bg-gray-400 lg:block lg:w-1/2 bg-cover rounded-lg p-4 m-1">
-            <h2 class="font-bold text-lg"><a href="/blogs/goal-setting-for-success">5 Steps to Design the Life You’ve Always Dreamed Of</a></h2>
-            <cite class="uppercase text-xs font-bold">Written By</cite> <a class="uppercase text-xs font-bold"
-                href="https://shakiltech.com">Shakil Alam</a>
-            <p>Ready to turn your goals into achievements? Learn the best strategies for setting clear, actionable goals that lead to real success. Start planning your future today. <a
-                    href="/blogs/goal-setting-for-success" class="text-blue-600">read more...</a></p>
-        </div>
-        <div class="w-full h-auto bg-gray-400 lg:block lg:w-1/2 bg-cover rounded-lg p-4 m-1">
-            <h2 class="font-bold text-lg"><a
-                    href="/blogs/these-8-good-things-will-happen-when-you-start-writing-diary">These 8
-                    Good Things Will
-                    Happen When You Start Writing Diaries</a></h2>
-            <cite class="uppercase text-xs font-bold">Written By</cite> <a class="uppercase text-xs font-bold"
-                href="#">INTERNET BLOGGER</a>
-            <p>Writing to yourself is an important means of self-expression. Whether you call it a diary or refer to it
-                as
-                a journal, having a place to write down your thoughts, feelings, memories and personal impressions about
-                life can be healing and teach you to know yourself better. It can also unlock the power of your
-                creativity,
-                and inspire you to manifest dreams <a
-                    href="/blogs/these-8-good-things-will-happen-when-you-start-writing-diary"
-                    class="text-blue-600">read
-                    more...</a></p>
-        </div>
-        <div class="w-full h-auto bg-gray-400 lg:block lg:w-1/2 bg-cover rounded-lg p-4 m-1">
-            <h2 class="font-bold text-lg"><a href="/blogs/how-to-start-writing-a-diary">How to Start Writing a Diary</a>
-            </h2>
-            <cite class="uppercase text-xs font-bold">Written By</cite> <a class="uppercase text-xs font-bold"
-                href="https://shakiltech.com">Shakil Alam</a>
-            <p>To start a diary, all you need is a willingness to write. Start by figuring out what you want
-                to write in your journal.
-                If you aren’t sure, simply start writing and see where that leads. It can also be useful to set a time
-                limit
-                in your
-                early writing sessions. Set an alarm for 10 to 20 minutes and start writing. <a
-                    href="/blogs/how-to-start-writing-a-diary" class="text-blue-600">read
-                    more...</a></p>
-        </div>
-    </div>
-    <div class="rounded-lg bg-gray-400 p-4 text-center mb-2">
-        @auth
-        <a class="bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-lg outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
-            href="/home">Start writing Now</a>
-        @else
-        <a class="bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-lg outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
-            href="/login">Start Writing now</a>
-        @endauth
-    </div>
-    <h3 class="text-xl underline p-4 font-bold">Related Articles</h3>
-    <div class="flex flex-col md:flex-row gap-4 p-4 text-gray-900">
-        <div class="w-full h-auto bg-gray-400 lg:block lg:w-1/2 bg-cover rounded-lg p-4 m-1">
-            <h2 class="font-bold text-lg"><a
-                    href="/blogs/these-8-good-things-will-happen-when-you-start-writing-diary">These 8
-                    Good Things Will
-                    Happen When You Start Writing Diaries</a></h2>
-            <p>Writing to yourself is an important means of self-expression. Whether you call it a diary or refer to it
-                as
-                a journal, having a place to write down your thoughts, feelings, memories and personal impressions about
-                life can be healing and teach you to know yourself better. It can also unlock the power of your
-                creativity,
-                and inspire you to manifest dreams. <a
-                    href="/blogs/these-8-good-things-will-happen-when-you-start-writing-diary"
-                    class="text-blue-600">read
-                    more...</a></p>
-        </div>
-        <div class="w-full h-auto bg-gray-400 lg:block lg:w-1/2 bg-cover rounded-lg p-4 m-1">
-            <h2 class="font-bold text-lg"><a href="/blogs/how-to-start-writing-a-diary">How to Start Writing a Diary</a>
-            </h2>
-            <p>To start a diary, all you need is a willingness to write. Start by figuring out what you want
-                to write in your journal.
-                If you aren’t sure, simply start writing and see where that leads. It can also be useful to set a time
-                limit
-                in your
-                early writing sessions. Set an alarm for 10 to 20 minutes and start writing.<a
-                    href="/blogs/how-to-start-writing-a-diary" class="text-blue-600">read
-                    more...</a></p>
-        </div>
-    </div>
-</div>
 @endsection

@@ -6,7 +6,7 @@
     </p>
     <form
       method="POST"
-      class="px-4 md:px-8 pt-6 pb-2 mb-4 bg-gray-100 dark:bg-gray-900 rounded"
+      class="px-4 md:px-8 pt-6 pb-2 mb-4 bg-gray-100 dark:bg-gray-900 rounded-sm"
       @submit.prevent="register"
     >
       <div class="flex flex-col sm:flex-row">
@@ -18,7 +18,7 @@
                   :class="errors.email ? 'border-red-500' :null"
                   autocomplete="email"
                   autofocus
-                  class="w-full px-3 py-2 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded shadow appearance-none focus:outline-none"
+                  class="w-full px-3 py-2 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded-sm shadow-sm appearance-none focus:outline-hidden"
                   name="email"
                   placeholder="john@example.com"
                   required
@@ -34,14 +34,16 @@
           </div>
           <div class="sm:ml-2 w-full mb-4">
               <label class="block mb-2 text-sm font-bold text-gray-700 dark:text-gray-200" for="username">Username</label>
-              <username-input ref="usernameInput"></username-input>
+              <div data-vue-root>
+                <username-input ref="usernameInput"></username-input>
+              </div>
           </div>
       </div>
       <div class="flex flex-col sm:flex-row">
         <div class="sm:mr-2 w-full mb-4">
           <label class="block mb-2 text-sm font-bold text-gray-700 dark:text-gray-200" for="password">Password</label>
           <input
-            class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded shadow appearance-none focus:outline-none"
+            class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded-sm shadow-sm appearance-none focus:outline-hidden"
             :class="errors.password ? 'border-red-500' :null"
             id="password"
             type="password"
@@ -63,7 +65,7 @@
             for="password_confirmation"
           >Confirm Password</label>
           <input
-            class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded shadow appearance-none focus:outline-none"
+            class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded-sm shadow-sm appearance-none focus:outline-hidden"
             id="password_confirmation"
             type="password"
             name="password_confirmation"
@@ -74,7 +76,7 @@
       </div>
       <div class="mb-4 text-center">
         <button
-          class="w-full bg-blue-200 active:bg-blue-300 text-blue-800 px-3 sm:px-4 py-2 rounded-full outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
+          class="w-full bg-blue-200 active:bg-blue-300 text-blue-800 px-3 sm:px-4 py-2 rounded-full outline-hidden focus:outline-hidden mr-2 mb-1 uppercase shadow-sm hover:shadow-md font-bold text-xs"
           type="submit"
           :disabled="disabled"
           v-text="btnText"

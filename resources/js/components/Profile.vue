@@ -10,7 +10,7 @@
         <p class="text-xs" v-if="uploading">Updating Please wait...</p>
         <image-upload
           v-if="editable == true"
-          class="m-2 ml-0 px-3 py-2 text-sm leading-tight text-gray-700 dark:text-gray-200 appearance-none focus:outline-none w-24"
+          class="m-2 ml-0 px-3 py-2 text-sm leading-tight text-gray-700 dark:text-gray-200 appearance-none focus:outline-hidden w-24"
           @loaded="onLoad"
         ></image-upload>
       </div>
@@ -19,7 +19,7 @@
           type="text"
           name="name"
           v-model="name"
-          class="px-3 py-2 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded shadow appearance-none focus:outline-none"
+          class="px-3 py-2 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded-sm shadow-sm appearance-none focus:outline-hidden"
         />
         <p
           v-if="errors.name"
@@ -37,7 +37,7 @@
           cols="20"
           rows="10"
           v-model="bio"
-          class="w-full px-3 py-2 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded shadow appearance-none focus:outline-none"
+          class="w-full px-3 py-2 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded-sm shadow-sm appearance-none focus:outline-hidden"
         ></textarea>
         <p
           v-if="errors.bio"
@@ -47,11 +47,11 @@
         ></p>
         <div class="flex">
           <button
-            class="mt-4 bg-blue-100 active:bg-blue-200 text-blue-800 px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
+            class="mt-4 bg-blue-100 active:bg-blue-200 text-blue-800 px-4 py-2 rounded-sm outline-hidden focus:outline-hidden mr-2 mb-1 uppercase shadow-sm hover:shadow-md font-bold text-xs"
             @click="save"
           >Save</button>
           <button
-            class="mt-4 bg-gray-600 text-gray-100 px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md font-bold text-xs"
+            class="mt-4 bg-gray-600 text-gray-100 px-4 py-2 rounded-sm outline-hidden focus:outline-hidden mr-2 mb-1 uppercase shadow-sm hover:shadow-md font-bold text-xs"
             @click="cancel"
           >Cancel</button>
         </div>
@@ -69,7 +69,7 @@
         </div>
         <a
           v-if="editable == true"
-          class="text-blue-600 outline-none mb-1 ml-1 hover:shadow-md text-xs"
+          class="text-blue-600 outline-hidden mb-1 ml-1 hover:shadow-md text-xs"
           href="#"
           @click="edit"
         >Edit Profile</a>
