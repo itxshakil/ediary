@@ -14,6 +14,6 @@ final class DeleteOldPic
      */
     public function handle(ProfilePicChanged $event): void
     {
-        Storage::disk('s3')->delete($event->path);
+        Storage::disk('public')->delete($event->path);
     }
 }
