@@ -76,10 +76,7 @@ final class MigrateProfileImagesFromS3 extends Command
                     $this->line("✔ Already local: {$path}");
                 }
 
-                $s3Size = Storage::disk('s3')->size($path);
-                $localSize = Storage::disk('public')->size($path);
-
-                if ($s3Size !== $localSize) {
+                if (Storage::disk('public')->exists($path)) {
                     $this->error("⚠ Size mismatch, skipping delete: {$path}");
 
                     continue;
