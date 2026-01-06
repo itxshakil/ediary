@@ -52,7 +52,7 @@ final class MigrateProfileImagesFromS3 extends Command
 
                 if (! Storage::disk('s3')->exists($path)) {
                     $missing++;
-                    $this->warn("❌ Missing on S3: {$path}");
+                    $this->warn('❌ Missing on S3: ' . $path);
 
                     if ($deleteMissing && ! $dryRun) {
                         $profile->update(['image' => null]);
@@ -71,23 +71,23 @@ final class MigrateProfileImagesFromS3 extends Command
                         }
                     }
 
-                    $this->info("📦 Copied: {$path}");
+                    $this->info('📦 Copied: ' . $path);
                 } else {
-                    $this->line("✔ Already local: {$path}");
+                    $this->line('✔ Already local: ' . $path);
                 }
 
                 if (Storage::disk('public')->exists($path)) {
-                    $this->error("⚠ Size mismatch, skipping delete: {$path}");
+                    $this->error('⚠ Size mismatch, skipping delete: ' . $path);
 
                     continue;
                 }
 
                 if ($deleteS3) {
                     if ($dryRun) {
-                        $this->comment("🧪 Would delete S3: {$path}");
+                        $this->comment('🧪 Would delete S3: ' . $path);
                     } else {
                         Storage::disk('s3')->delete($path);
-                        $this->warn("🗑 Deleted from S3: {$path}");
+                        $this->warn('🗑 Deleted from S3: ' . $path);
                         $deleted++;
                     }
                 }
@@ -102,9 +102,9 @@ final class MigrateProfileImagesFromS3 extends Command
                 DB::commit();
                 $this->info('✅ Migration completed successfully.');
             }
-        } catch (Throwable $e) {
+        } catch (Throwable $throwable) {
             DB::rollBack();
-            $this->error('💥 Migration failed: ' . $e->getMessage());
+            $this->error('💥 Migration failed: ' . $throwable->getMessage());
 
             return self::FAILURE;
         }
