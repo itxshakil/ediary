@@ -40,7 +40,7 @@ final class Profile extends Model
     protected function image(): Attribute
     {
         return Attribute::get(function ($value) {
-            return Storage::disk('public')->exists($value)
+            return $value && Storage::disk('public')->exists($value)
                 ? Storage::disk('public')->url($value)
                 : 'https://ui-avatars.com/api/?name=' . urlencode($this->name);
         });
