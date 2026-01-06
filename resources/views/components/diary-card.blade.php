@@ -47,10 +47,6 @@
                         </time>
                     </time>
 
-                    <span class="text-xs text-gray-400 dark:text-gray-500">
-                        {{ $entry->created_at->format('H:i') }}
-                    </span>
-
                     @if($entry->mood)
                         <span class="text-lg" title="{{ $entry->mood->label() }}">
                             {{ $entry->mood->emoji() }}
