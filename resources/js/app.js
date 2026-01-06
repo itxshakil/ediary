@@ -65,3 +65,60 @@ document.addEventListener(
     { once: true }
 );
 
+
+function formatRelative(date, locale) {
+    const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
+
+    if (seconds < 45) {
+        return locale.startsWith('en') ? 'Just now' : null;
+    }
+
+    const rtf = new Intl.RelativeTimeFormat(locale, { numeric: 'auto' });
+
+    const divisions = [
+        { amount: 60, name: 'second' },
+        { amount: 60, name: 'minute' },
+        { amount: 24, name: 'hour' },
+        { amount: 7, name: 'day' },
+        { amount: 4.34524, name: 'week' },
+        { amount: 12, name: 'month' },
+        { amount: Infinity, name: 'year' },
+    ];
+
+    let duration = seconds;
+
+    for (let i = 0; i < divisions.length; i++) {
+        if (Math.abs(duration) < divisions[i].amount) {
+            return rtf.format(-Math.round(duration), divisions[i].name);
+        }
+        duration /= divisions[i].amount;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[data-time]').forEach(el => {
+        const iso = el.dataset.time;
+        const locale = navigator.language;
+
+        const date = new Date(iso);
+        if (isNaN(date)) return;
+
+        const relative = formatRelative(date, locale);
+
+        const absolute = date.toLocaleString(locale, {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: '2-digit',
+        });
+
+        const target = el.querySelector('.js-date');
+        if (target) {
+            target.textContent = relative ?? absolute.split(',')[0];
+        }
+
+        el.title = absolute;
+        el.setAttribute('datetime', date.toISOString());
+    });
+})

@@ -1,16 +1,20 @@
+@php use App\Diary; @endphp
 @props(['entry'])
 
 @php
-    $fullId = 'full_' . $entry->id;
-    $textId = 'text_' . $entry->id;
-    $btnId = 'btn_' . $entry->id;
-    $actionsId = 'actions_' . $entry->id;
+    /**
+     * @var Diary $entry
+     */
+        $fullId = 'full_' . $entry->id;
+        $textId = 'text_' . $entry->id;
+        $btnId = 'btn_' . $entry->id;
+        $actionsId = 'actions_' . $entry->id;
 
-    $fullText = $entry->entry;
-    $shortText = mb_substr($entry->entry, 0, 250);
-    $shouldTruncate = mb_strlen($fullText) > 250;
-    $wordCount = str_word_count($fullText);
-    $readTime = max(1, ceil($wordCount / 200));
+        $fullText = $entry->entry;
+        $shortText = mb_substr($entry->entry, 0, 250);
+        $shouldTruncate = mb_strlen($fullText) > 250;
+        $wordCount = str_word_count($fullText);
+        $readTime = max(1, ceil($wordCount / 200));
 @endphp
 
 <article
@@ -38,7 +42,9 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                   d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
-                        {{ $entry->created_at->format('M d, Y') }}
+                        <time class="js-date" data-time="{{ $entry->created_at->toISOString() }}">
+                            {{ $entry->created_at->diffForHumans() }}
+                        </time>
                     </time>
 
                     <span class="text-xs text-gray-400 dark:text-gray-500">
