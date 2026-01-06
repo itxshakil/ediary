@@ -39,12 +39,10 @@ final class Profile extends Model
      */
     protected function image(): Attribute
     {
-        return Attribute::get(get: function ($value) {
-            if ($value && is_string($value) && mb_trim($value) !== '') {
-                return Storage::disk('s3')->url($value);
-            }
-
-            return sprintf('https://ui-avatars.com/api/?name=%s&background=0D8ABC&color=fff', $this->name);
+        return Attribute::get(function ($value) {
+            return Storage::disk('public')->exists($value)
+                ? Storage::disk('public')->url($value)
+                : 'https://ui-avatars.com/api/?name=' . urlencode($this->name);
         });
     }
 }

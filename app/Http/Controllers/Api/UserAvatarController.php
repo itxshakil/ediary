@@ -19,9 +19,7 @@ final class UserAvatarController extends Controller
 
         $request->validate(['image' => ['required', 'image']]);
 
-        $path = $request->file('image')->store('images', 's3');
-
-        Storage::disk('s3')->setVisibility($path, 'public');
+        $path = $request->file('image')->store('images', 'public');
 
         $profile->update([
             'image' => $path,
