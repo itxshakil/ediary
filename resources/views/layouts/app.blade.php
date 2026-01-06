@@ -135,6 +135,28 @@
     @endif
     <div id="connection-status" class="hidden"></div>
 
+    <div id="pwa-banner" class="fixed bottom-[-150px] left-4 right-4 z-50
+      bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700
+      rounded-2xl shadow-xl p-4 max-w-xl mx-auto transition-all duration-500
+      transform translate-y-0 opacity-0 hidden">
+
+        <div class="flex items-start gap-4">
+            <img id="pwa-banner-icon" src="{{ asset('icons/android-icon-192x192.png') }}" class="w-12 h-12 rounded-xl">
+            <div class="flex-1">
+                <h3 id="pwa-banner-title" class="font-semibold text-gray-900 dark:text-white">Install App</h3>
+                <p id="pwa-banner-body" class="text-sm text-gray-600 dark:text-gray-300 mt-1">
+                    Get faster access & offline support.
+                </p>
+                <div class="flex gap-3 mt-3">
+                    <button id="pwa-banner-cta" class="px-4 py-2 text-sm rounded-full
+                bg-blue-600 text-white hover:bg-blue-700 transition">Install</button>
+                    <button id="pwa-banner-dismiss" class="px-4 py-2 text-sm rounded-full
+                text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition">Not now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="{{ asset('/js/offline-manager.js') }}"></script>
 
     <script>
