@@ -45,10 +45,24 @@ function fallbackInPageReminder() {
     const LAST_KEY = 'last-diary-reminder';
     const last = Number(localStorage.getItem(LAST_KEY));
     const now = Date.now();
+    const hour = new Date().getHours();
+    let title = "";
+    let body = "";
+
+    if (hour < 12) {
+        title = "Good morning! 🌅";
+        body = "Start your day by jotting down your thoughts.";
+    } else if (hour < 18) {
+        title = "Time for a break? 🌞";
+        body = "How is your day going? Take a moment to reflect.";
+    } else {
+        title = "Good evening! 🌙";
+        body = "Unwind and record your memories of today.";
+    }
 
     if (!last || now - last > 24 * 60 * 60 * 1000) {
-        new Notification('Your Daily Diary Reminder', {
-            body: 'Take a moment to write your thoughts today ✍️',
+        new Notification(title, {
+            body: body,
             icon: '/icons/old/icons-192.png',
         });
 
@@ -153,9 +167,25 @@ async function showNotificationPrompt(){
 function fallbackNotification(){
     if(Notification.permission!=='granted') return;
     const LAST='last-diary-reminder'; const last=Number(localStorage.getItem(LAST)||0);
-    if(!last || now()-last>DAY){
-        new Notification('Your Daily Diary Reminder',{body:'Take a moment to write your thoughts today ✍️',icon:'/icons/android-icon-192x192.png'});
-        localStorage.setItem(LAST, now());
+    const nowValue = now();
+    const hour = new Date().getHours();
+    let title = "";
+    let body = "";
+
+    if (hour < 12) {
+        title = "Good morning! 🌅";
+        body = "Start your day by jotting down your thoughts.";
+    } else if (hour < 18) {
+        title = "Time for a break? 🌞";
+        body = "How is your day going? Take a moment to reflect.";
+    } else {
+        title = "Good evening! 🌙";
+        body = "Unwind and record your memories of today.";
+    }
+
+    if(!last || nowValue-last>DAY){
+        new Notification(title,{body: body,icon:'/icons/android-icon-192x192.png'});
+        localStorage.setItem(LAST, nowValue);
         trackGA('daily_reminder_fallback');
     }
 }

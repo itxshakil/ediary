@@ -106,28 +106,25 @@
                 </p>
 
                 @guest
-                    <!-- Centered Register Form (Optimized Spacing + No Inner Full-Screen) -->
                     <div class="max-w-md md:max-w-3xl mx-auto mb-10">
-                        <div class="bg-white/95 dark:bg-gray-800/95 rounded-2xl shadow-xl border border-white/20 p-8 backdrop-blur-sm">
+                        <div class="bg-white/95 dark:bg-gray-900/95 rounded-3xl shadow-2xl border border-white/20 p-6 md:p-10 backdrop-blur-md">
 
-                            <!-- Header -->
-                            <div class="text-center mb-6">
-                                <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Create Your Account</h2>
-                                <p class="text-gray-600 dark:text-gray-400">Start journaling in less than 60 seconds</p>
+                            <div class="text-center mb-8">
+                                <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white">Create Your Account</h2>
+                                <p class="text-gray-600 dark:text-gray-400 mt-2">Start your private journey in seconds</p>
                             </div>
 
-                            <!-- FORM -->
                             <form method="POST" action="{{ route('register') }}" class="space-y-5 text-left">
                                 @csrf
 
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
                                         <label class="block text-sm font-semibold mb-1 text-left">Email Address</label>
-                                        <div class="relative">
+                                        <div class="relative group">
                                             <input id="email" type="email" name="email" required autocomplete="email"
                                                    placeholder="you@example.com" value="{{ old('email') }}"
-                                                   class="w-full pl-10 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute h-5 w-5 left-3 top-3 text-gray-400">
+                                                   class="w-full pl-10 pr-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-800 transition-all">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute h-5 w-5 left-3 top-3.5 text-gray-400 group-focus-within:text-blue-500 transition-colors">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                                 <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
                                                 <path d="M3 7l9 6l9 -6" />
@@ -140,11 +137,11 @@
 
                                     <div>
                                         <label class="block text-sm font-semibold mb-1 text-left">Username</label>
-                                        <div class="relative">
+                                        <div class="relative group">
                                             <input id="username" type="text" name="username" required
                                                    placeholder="johndoe" value="{{ old('username') }}"
-                                                   class="w-full pl-10 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute h-5 w-5 left-3 top-3 text-gray-400">
+                                                   class="w-full pl-10 pr-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-800 transition-all">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute h-5 w-5 left-3 top-3.5 text-gray-400 group-focus-within:text-blue-500 transition-colors">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                                 <path d="M12 13a3 3 0 1 0 0 -6a3 3 0 0 0 0 6z" />
                                                 <path d="M6.201 18.744a4 4 0 0 1 3.799 -2.744h4a4 4 0 0 1 3.798 2.741" />
@@ -158,11 +155,11 @@
 
                                     <div>
                                         <label class="block text-sm font-semibold mb-1 text-left">Password</label>
-                                        <div class="relative">
+                                        <div class="relative group">
                                             <input id="password" type="password" name="password" required autocomplete="new-password"
                                                    placeholder="•••••••••" minlength="8"
-                                                   class="w-full pl-10 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute h-5 w-5 left-3 top-3 text-gray-400">
+                                                   class="w-full pl-10 pr-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-800 transition-all">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute h-5 w-5 left-3 top-3.5 text-gray-400 group-focus-within:text-blue-500 transition-colors">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                                 <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z" />
                                                 <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
@@ -176,11 +173,11 @@
 
                                     <div>
                                         <label class="block text-sm font-semibold mb-1 text-left">Confirm Password</label>
-                                        <div class="relative">
+                                        <div class="relative group">
                                             <input id="password_confirmation" type="password" name="password_confirmation" required
                                                    placeholder="•••••••••" autocomplete="new-password" minlength="8"
-                                                   class="w-full pl-10 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute h-5 w-5 left-3 top-3 text-gray-400">
+                                                   class="w-full pl-10 pr-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-800 transition-all">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute h-5 w-5 left-3 top-3.5 text-gray-400 group-focus-within:text-blue-500 transition-colors">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                                 <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z" />
                                                 <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
@@ -192,12 +189,12 @@
                                 </div>
 
                                 <button type="submit"
-                                        class="w-full py-3.5 px-6 rounded-xl font-semibold text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:scale-[1.02] shadow-lg transition">
+                                        class="w-full py-4 px-6 rounded-2xl font-bold text-lg text-white bg-blue-600 hover:bg-blue-700 active:scale-[0.98] shadow-lg hover:shadow-blue-500/30 transition-all duration-200 group">
                                     <span class="flex items-center justify-center">
-                                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
-                                        </svg>
                                         Get Started Free
+                                        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                        </svg>
                                     </span>
                                 </button>
                             </form>
@@ -213,7 +210,6 @@
     </div>
 
 
-    <!-- Features Section -->
     <div class="bg-gray-50 dark:bg-gray-900 py-20 md:py-32">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section Header -->

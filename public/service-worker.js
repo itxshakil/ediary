@@ -1,5 +1,5 @@
-const STATIC_CACHE = 'ediary-static-v9';
-const PAGE_CACHE   = 'ediary-pages-v9';
+const STATIC_CACHE = 'ediary-static-v10';
+const PAGE_CACHE   = 'ediary-pages-v10';
 
 const ONE_WEEK = 7 * 24 * 60 * 60 * 1000;
 
@@ -21,6 +21,7 @@ const CORE_ASSETS = [
 
     '/blog',
     '/faq',
+    '/diaries/create',
 ];
 
 self.addEventListener('install', event => {
@@ -202,14 +203,21 @@ async function sendDailyReminder() {
     if (Notification.permission !== 'granted') return;
 
     const hour = new Date().getHours();
-    const message =
-        hour < 12
-            ? "Good morning! 🌅 Time to write your thoughts."
-            : hour < 18
-                ? "Hello! 🌞 Take a moment to reflect in your diary."
-                : "Good evening! 🌙 End your day with a diary note.";
+    let message = "";
+    let title = "Your Daily Diary Reminder";
 
-    await self.registration.showNotification('Your Daily Diary Reminder', {
+    if (hour < 12) {
+        title = "Good morning! 🌅";
+        message = "Start your day by jotting down your thoughts.";
+    } else if (hour < 18) {
+        title = "Time for a break? 🌞";
+        message = "How is your day going? Take a moment to reflect.";
+    } else {
+        title = "Good evening! 🌙";
+        message = "Unwind and record your memories of today.";
+    }
+
+    await self.registration.showNotification(title, {
         body: message,
         icon: '/icons/old/icons-192.png',
         badge: '/icons/old/icons-24.png',

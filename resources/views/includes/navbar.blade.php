@@ -67,6 +67,11 @@
                             </a>
                         @endif
 
+                        <a href="{{ route('diary.create') }}"
+                           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            Write Entry
+                        </a>
+
                         <a href="/user/{{ $user->username }}"
                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                             My Profile

@@ -166,6 +166,12 @@
                     .then(registration => {
                         console.log('SW registered:', registration);
 
+                        @auth
+                            if ('Notification' in window && Notification.permission === 'granted') {
+                                registration.update();
+                            }
+                        @endauth
+
                         setInterval(() => {
                             registration.update();
                         }, 60000);

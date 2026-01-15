@@ -217,9 +217,28 @@
         } else {
             charCount.classList.remove('text-orange-500');
         }
+
+        localStorage.setItem('diary_draft_entry', e.target.value);
     });
 
-    // Mood Selection
+    titleInput?.addEventListener('input', (e) => {
+        localStorage.setItem('diary_draft_title', e.target.value);
+    });
+
+    window.addEventListener('load', () => {
+        const draftEntry = localStorage.getItem('diary_draft_entry');
+        const draftTitle = localStorage.getItem('diary_draft_title');
+
+        if (draftEntry && !textarea.value) {
+            textarea.value = draftEntry;
+            // Trigger auto-resize and char count
+            textarea.dispatchEvent(new Event('input'));
+        }
+        if (draftTitle && !titleInput.value) {
+            titleInput.value = draftTitle;
+        }
+    });
+
     const moodBtns = document.querySelectorAll('.mood-btn');
     const moodInput = document.getElementById('mood-input');
 
@@ -301,6 +320,8 @@
                 });
                 textarea.value = '';
                 titleInput.value = '';
+                localStorage.removeItem('diary_draft_entry');
+                localStorage.removeItem('diary_draft_title');
                 tags = [];
                 updateTagsDisplay();
                 moodInput.value = '';
@@ -311,6 +332,8 @@
                 alert('Failed to save entry offline. Please try again.');
             }
         } else {
+            localStorage.removeItem('diary_draft_entry');
+            localStorage.removeItem('diary_draft_title');
             form.submit();
         }
     });
