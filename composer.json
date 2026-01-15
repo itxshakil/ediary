@@ -61,10 +61,36 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ],
+        "setup": [
+            "composer install",
+            "php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "php artisan key:generate",
+            "php artisan migrate --seed",
+            "npm install",
+            "npm run build"
+        ],
+        "test": "phpunit",
+        "analyse": "phpstan analyse --memory-limit=1G",
         "lint:fix": [
-            "rector",
+            "rector process",
             "pint --dirty"
         ],
-        "test:types": "phpstan --memory-limit=2G"
+        "lint": [
+            "@analyse",
+            "pint --parallel"
+        ],
+        "qa": [
+            "@lint",
+            "@test"
+        ]
+    },
+    "scripts-descriptions": {
+        "setup": "Fresh project setup: install dependencies, copy .env, generate key, run migrations/seeders, install NPM packages and build assets.",
+        "test:types": "Run PHPStan static analysis with extended memory limit.",
+        "test": "Run the PHPUnit test suite",
+        "analyse": "Run static analysis using PHPStan",
+        "lint:fix": "Automatically fix code style issues using Rector and Laravel Pint",
+        "lint": "Run static analysis and code style checks without modifying files",
+        "qa": "Run full quality assurance checks (lint + tests)"
     }
 }
