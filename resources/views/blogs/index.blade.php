@@ -115,201 +115,121 @@ Latest Blog Article
 
 @endpush
 @section('content')
-    <div class="container mx-auto px-4 md:px-6">
-
-        {{-- CTA --}}
-        <div class="rounded-2xl bg-gray-200 dark:bg-gray-800
-                p-5 text-center mt-4
-                border border-gray-300/60 dark:border-gray-700/60
-                shadow-sm">
-            @auth
-                <a
-                    class="inline-block
-                       bg-blue-600 hover:bg-blue-700 active:bg-blue-800
-                       text-white
-                       px-4 py-2
-                       rounded-xl
-                       uppercase
-                       shadow-sm hover:shadow-md
-                       font-bold text-xs
-                       transition"
-                    href="/home">
-                    Start writing Now
-                </a>
-            @else
-                <a
-                    class="inline-block
-                       bg-blue-600 hover:bg-blue-700 active:bg-blue-800
-                       text-white
-                       px-4 py-2
-                       rounded-xl
-                       uppercase
-                       shadow-sm hover:shadow-md
-                       font-bold text-xs
-                       transition"
-                    href="/login">
-                    Start Writing now
-                </a>
-            @endauth
+    <div class="container mx-auto px-4 py-12 max-w-7xl">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white mb-4">
+                Latest Articles
+            </h1>
+            <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                Discover tips and insights on journaling, personal growth, and documenting your life journey.
+            </p>
         </div>
 
-        {{-- Heading --}}
-        <h1 class="text-2xl font-bold underline px-4 py-6 text-gray-900 dark:text-white">
-            Latest Articles
-        </h1>
-
-        {{-- Articles --}}
-        <div class="flex flex-col md:flex-row gap-5 px-4 text-gray-900 dark:text-gray-100">
-
-            <div class="w-full lg:w-1/2
-                    bg-gray-200 dark:bg-gray-800
-                    rounded-2xl
-                    p-5
-                    shadow-sm border border-gray-300/60 dark:border-gray-700/60">
-                <h2 class="font-bold text-lg mb-1">
-                    <a href="/blogs/goal-setting-for-success"
-                       class="hover:underline">
-                        5 Steps to Design the Life You’ve Always Dreamed Of
-                    </a>
-                </h2>
-                <cite class="uppercase text-xs font-bold text-gray-600 dark:text-gray-400">
-                    Written By
-                </cite>
-                <a class="uppercase text-xs font-bold text-gray-800 dark:text-gray-200 ml-1"
-                   href="https://shakiltech.com">
-                    Shakil Alam
-                </a>
-                <p class="mt-2 text-sm leading-relaxed">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {{-- Article 1 --}}
+            <div class="flex flex-col bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 group">
+                <div class="mb-6">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 mb-4">
+                        Goal Setting
+                    </span>
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        <a href="/blogs/goal-setting-for-success">
+                            5 Steps to Design the Life You’ve Always Dreamed Of
+                        </a>
+                    </h2>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-8 flex-grow">
                     Ready to turn your goals into achievements? Learn the best strategies for setting clear, actionable goals that lead to real success. Start planning your future today.
-                    <a href="/blogs/goal-setting-for-success" class="text-blue-600 hover:underline">
-                        read more...
-                    </a>
                 </p>
+                <div class="flex items-center justify-between pt-6 border-t border-gray-50 dark:border-gray-700/50">
+                    <div class="flex flex-col text-sm">
+                        <span class="text-gray-400 dark:text-gray-500 font-medium">Written By</span>
+                        <a class="font-bold text-gray-900 dark:text-gray-200 hover:text-blue-600 transition-colors" href="https://shakiltech.com">
+                            Shakil Alam
+                        </a>
+                    </div>
+                    <a href="/blogs/goal-setting-for-success" class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-50 dark:bg-gray-700 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </a>
+                </div>
             </div>
 
-            <div class="w-full lg:w-1/2
-                    bg-gray-200 dark:bg-gray-800
-                    rounded-2xl
-                    p-5
-                    shadow-sm border border-gray-300/60 dark:border-gray-700/60">
-                <h2 class="font-bold text-lg mb-1">
-                    <a href="/blogs/these-8-good-things-will-happen-when-you-start-writing-diary"
-                       class="hover:underline">
-                        These 8 Good Things Will Happen When You Start Writing Diaries
-                    </a>
-                </h2>
-                <cite class="uppercase text-xs font-bold text-gray-600 dark:text-gray-400">
-                    Written By
-                </cite>
-                <a class="uppercase text-xs font-bold text-gray-800 dark:text-gray-200 ml-1"
-                   href="#">
-                    INTERNET BLOGGER
-                </a>
-                <p class="mt-2 text-sm leading-relaxed">
-                    Writing to yourself is an important means of self-expression. Whether you call it a diary or refer to it as a journal, having a place to write down your thoughts, feelings, memories and personal impressions about life can be healing and teach you to know yourself better. It can also unlock the power of your creativity, and inspire you to manifest dreams
-                    <a href="/blogs/these-8-good-things-will-happen-when-you-start-writing-diary"
-                       class="text-blue-600 hover:underline">
-                        read more...
-                    </a>
+            {{-- Article 2 --}}
+            <div class="flex flex-col bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 group">
+                <div class="mb-6">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400 mb-4">
+                        Benefits
+                    </span>
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        <a href="/blogs/these-8-good-things-will-happen-when-you-start-writing-diary">
+                            8 Good Things That Happen When You Start Journaling
+                        </a>
+                    </h2>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-8 flex-grow">
+                    Writing to yourself is an important means of self-expression. Discover how a diary can be healing, unlock creativity, and help you know yourself better.
                 </p>
+                <div class="flex items-center justify-between pt-6 border-t border-gray-50 dark:border-gray-700/50">
+                    <div class="flex flex-col text-sm">
+                        <span class="text-gray-400 dark:text-gray-500 font-medium">Written By</span>
+                        <span class="font-bold text-gray-900 dark:text-gray-200">Internet Blogger</span>
+                    </div>
+                    <a href="/blogs/these-8-good-things-will-happen-when-you-start-writing-diary" class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-50 dark:bg-gray-700 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </a>
+                </div>
             </div>
 
-            <div class="w-full lg:w-1/2
-                    bg-gray-200 dark:bg-gray-800
-                    rounded-2xl
-                    p-5
-                    shadow-sm border border-gray-300/60 dark:border-gray-700/60">
-                <h2 class="font-bold text-lg mb-1">
-                    <a href="/blogs/how-to-start-writing-a-diary"
-                       class="hover:underline">
-                        How to Start Writing a Diary
-                    </a>
-                </h2>
-                <cite class="uppercase text-xs font-bold text-gray-600 dark:text-gray-400">
-                    Written By
-                </cite>
-                <a class="uppercase text-xs font-bold text-gray-800 dark:text-gray-200 ml-1"
-                   href="https://shakiltech.com">
-                    Shakil Alam
-                </a>
-                <p class="mt-2 text-sm leading-relaxed">
-                    To start a diary, all you need is a willingness to write. Start by figuring out what you want to write in your journal.
-                    If you aren’t sure, simply start writing and see where that leads.
-                    <a href="/blogs/how-to-start-writing-a-diary"
-                       class="text-blue-600 hover:underline">
-                        read more...
-                    </a>
+            {{-- Article 3 --}}
+            <div class="flex flex-col bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 group">
+                <div class="mb-6">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 mb-4">
+                        Getting Started
+                    </span>
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        <a href="/blogs/how-to-start-writing-a-diary">
+                            How to Start Writing a Diary
+                        </a>
+                    </h2>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-8 flex-grow">
+                    To start a diary, all you need is a willingness to write. Learn how to figure out what you want to write and how to make it a daily habit.
                 </p>
+                <div class="flex items-center justify-between pt-6 border-t border-gray-50 dark:border-gray-700/50">
+                    <div class="flex flex-col text-sm">
+                        <span class="text-gray-400 dark:text-gray-500 font-medium">Written By</span>
+                        <a class="font-bold text-gray-900 dark:text-gray-200 hover:text-blue-600 transition-colors" href="https://shakiltech.com">
+                            Shakil Alam
+                        </a>
+                    </div>
+                    <a href="/blogs/how-to-start-writing-a-diary" class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-50 dark:bg-gray-700 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </a>
+                </div>
             </div>
         </div>
 
-        {{-- CTA Bottom --}}
-        <div class="rounded-2xl bg-gray-200 dark:bg-gray-800
-                p-5 text-center my-6
-                border border-gray-300/60 dark:border-gray-700/60
-                shadow-sm">
-            @auth
-                <a class="inline-block bg-blue-600 hover:bg-blue-700 active:bg-blue-800
-                       text-white px-4 py-2 rounded-xl uppercase
-                       shadow-sm hover:shadow-md font-bold text-xs transition"
-                   href="/home">
-                    Start writing Now
-                </a>
-            @else
-                <a class="inline-block bg-blue-600 hover:bg-blue-700 active:bg-blue-800
-                       text-white px-4 py-2 rounded-xl uppercase
-                       shadow-sm hover:shadow-md font-bold text-xs transition"
-                   href="/login">
-                    Start Writing now
-                </a>
-            @endauth
-        </div>
+        @include('blogs._cta')
 
-        {{-- Related --}}
-        <h3 class="text-xl font-bold underline px-4 py-4 text-gray-900 dark:text-white">
-            Related Articles
-        </h3>
-
-        <div class="flex flex-col md:flex-row gap-5 px-4 text-gray-900 dark:text-gray-100">
-
-            <div class="w-full lg:w-1/2
-                    bg-gray-200 dark:bg-gray-800
-                    rounded-2xl
-                    p-5
-                    shadow-sm border border-gray-300/60 dark:border-gray-700/60">
-                <h2 class="font-bold text-lg mb-1">
-                    <a href="/blogs/these-8-good-things-will-happen-when-you-start-writing-diary"
-                       class="hover:underline">
-                        These 8 Good Things Will Happen When You Start Writing Diaries
-                    </a>
-                </h2>
-                <p class="mt-2 text-sm leading-relaxed">
-                    Writing to yourself is an important means of self-expression. Whether you call it a diary or refer to it as a journal, having a place to write down your thoughts, feelings, memories and personal impressions about life can be healing and teach you to know yourself better.
-                    <a href="/blogs/these-8-good-things-will-happen-when-you-start-writing-diary"
-                       class="text-blue-600 hover:underline">
-                        read more...
-                    </a>
-                </p>
-            </div>
-
-            <div class="w-full lg:w-1/2
-                    bg-gray-200 dark:bg-gray-800
-                    rounded-2xl
-                    p-5
-                    shadow-sm border border-gray-300/60 dark:border-gray-700/60">
-                <h2 class="font-bold text-lg mb-1">
-                    <a href="/blogs/how-to-start-writing-a-diary"
-                       class="hover:underline">
-                        How to Start Writing a Diary
-                    </a>
-                </h2>
-                <p class="mt-2 text-sm leading-relaxed">
-                    To start a diary, all you need is a willingness to write. Start by figuring out what you want to write in your journal.
-                    <a href="/blogs/how-to-start-writing-a-diary"
-                       class="text-blue-600 hover:underline">
-                        read more...
-                    </a>
-                </p>
+        <div class="mt-20">
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">More to Explore</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-100 dark:bg-gray-800 rounded-2xl p-6 hover:bg-gray-200 dark:hover:bg-gray-750 transition-colors">
+                    <h4 class="font-bold text-lg text-gray-900 dark:text-white mb-2">
+                        <a href="/blogs/how-to-write-diary">Essential Tips for Better Journaling</a>
+                    </h4>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">
+                        Dive deeper into the techniques that make diary writing a life-changing practice.
+                    </p>
+                </div>
+                <div class="bg-gray-100 dark:bg-gray-800 rounded-2xl p-6 hover:bg-gray-200 dark:hover:bg-gray-750 transition-colors">
+                    <h4 class="font-bold text-lg text-gray-900 dark:text-white mb-2">
+                        <a href="/about">About E-Diary</a>
+                    </h4>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">
+                        Learn about our mission to provide the safest space for your personal reflections.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
