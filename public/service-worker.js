@@ -8,8 +8,6 @@ const CORE_ASSETS = [
     '/home',
     '/offline.html',
     '/manifest.webmanifest',
-    '/css/app.css',
-    '/js/app.js',
 
     '/icons/svg/share.svg',
     '/icons/old/icons-24.png',
