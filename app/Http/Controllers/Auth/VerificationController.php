@@ -25,7 +25,7 @@ final class VerificationController extends Controller
     /**
      * Where to redirect users after verification.
      */
-    private string $redirectTo = '/home';
+    protected string $redirectTo = '/home';
 
     /**
      * Create a new controller instance.

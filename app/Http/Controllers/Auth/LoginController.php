@@ -25,7 +25,7 @@ final class LoginController extends Controller
     /**
      * Where to redirect users after login.
      */
-    private string $redirectTo = '/home';
+    protected string $redirectTo = '/home';
 
     /**
      * Create a new controller instance.

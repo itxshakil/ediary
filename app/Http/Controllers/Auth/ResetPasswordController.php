@@ -25,5 +25,5 @@ final class ResetPasswordController extends Controller
     /**
      * Where to redirect users after resetting their password.
      */
-    private string $redirectTo = '/home';
+    protected string $redirectTo = '/home';
 }
