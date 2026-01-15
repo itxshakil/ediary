@@ -128,11 +128,35 @@
         </main>
         @include('includes.footer')
     </div>
-    @if(Auth::user())
+    <div class="fixed bottom-6 right-6 flex flex-col gap-4 z-40">
+        @auth
+            @if(Route::currentRouteName() !== 'diary.create')
+                <a href="{{ route('diary.create') }}" 
+                   onclick="if(window.trackGA) trackGA('floating_add_clicked')"
+                   class="flex items-center justify-center w-14 h-14 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-all transform hover:scale-110 active:scale-95" 
+                   title="Add Entry">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                    </svg>
+                </a>
+            @endif
+        @endauth
+
+        @if(Request::is('/'))
+            <button id="floating-share-btn"
+                    class="flex items-center justify-center w-14 h-14 bg-green-600 text-white rounded-full shadow-lg hover:bg-green-700 transition-all transform hover:scale-110 active:scale-95"
+                    title="Share App">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+                </svg>
+            </button>
+        @endif
+    </div>
+    @auth
     <script>
         window.User = {!! json_encode(Auth::user()) !!}
     </script>
-    @endif
+    @endauth
     <div id="connection-status" class="hidden"></div>
 
     <div id="pwa-banner" class="fixed bottom-[-150px] left-4 right-4 z-50

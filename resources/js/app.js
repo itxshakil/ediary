@@ -278,4 +278,33 @@ document.addEventListener('DOMContentLoaded', () => {
         el.title = absolute;
         el.setAttribute('datetime', date.toISOString());
     });
+
+    const shareBtn = document.getElementById('floating-share-btn');
+    if (shareBtn) {
+        shareBtn.addEventListener('click', async () => {
+            trackGA('floating_share_clicked');
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: 'Ediary - Your Private Digital Journal',
+                        text: 'Start your private journey with Ediary! Securely document your life for free.',
+                        url: window.location.origin
+                    });
+                    trackGA('share_successful');
+                } catch (err) {
+                    console.log('Error sharing:', err);
+                }
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                const dummy = document.createElement('input');
+                document.body.appendChild(dummy);
+                dummy.value = window.location.origin;
+                dummy.select();
+                document.execCommand('copy');
+                document.body.removeChild(dummy);
+                alert('App link copied to clipboard! Share it with your friends.');
+                trackGA('share_fallback_copied');
+            }
+        });
+    }
 })

@@ -21,7 +21,6 @@ const CORE_ASSETS = [
 
     '/blog',
     '/faq',
-    '/diaries/create',
 ];
 
 self.addEventListener('install', event => {
