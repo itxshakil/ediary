@@ -114,10 +114,15 @@ trait Sluggable
             $query->whereKeyNot($this->getKey());
         }
 
-        if (method_exists($this, 'bootSoftDeletes')) {
+        if ($this->usesSoftDeletes()) {
             $query->withTrashed();
         }
 
         return $query->exists();
+    }
+
+    private function usesSoftDeletes(): bool
+    {
+        return method_exists(static::class, 'bootSoftDeletes');
     }
 }

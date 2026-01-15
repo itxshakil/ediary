@@ -13,5 +13,8 @@ parameters:
     level: 5
     treatPhpDocTypesAsCertain: false
 
+    ignoreErrors:
+        - '#Call to function method_exists\(\) with .App\\\\Tag. and .bootSoftDeletes. will always evaluate to true\.#'
+
     tmpDir: /tmp/phpstan
     editorUrl: 'phpstorm://open?file=%%file%%&line=%%line%%'

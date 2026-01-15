@@ -24,8 +24,6 @@ trait HasTags
 {
     /**
      * Polymorphic many-to-many relationship with tags.
-     *
-     * @return MorphToMany<Tag>
      */
     public function tags(): MorphToMany
     {
@@ -107,13 +105,9 @@ trait HasTags
                     return (int) $tag;
                 }
 
-                if (is_string($tag)) {
-                    return Tag::firstOrCreate([
-                        'name' => mb_trim($tag),
-                    ])->getKey();
-                }
-
-                return null;
+                return Tag::firstOrCreate([
+                    'name' => mb_trim($tag),
+                ])->getKey();
             })
             ->filter()
             ->unique()

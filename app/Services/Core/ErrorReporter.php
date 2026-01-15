@@ -63,7 +63,7 @@ final class ErrorReporter
 
     private static function rateLimitKey(Throwable $e): string
     {
-        $hash = md5($e->getMessage() . ($e->getFile() ?? ''));
+        $hash = md5($e->getMessage() . $e->getFile());
         $hash = md5($hash . microtime());
 
         return 'exception:' . $hash;
@@ -79,7 +79,7 @@ final class ErrorReporter
         return [
             'message_short' => class_basename($e),
             'message' => $e->getMessage(),
-            'file' => basename($e->getFile() ?? ''),
+            'file' => basename($e->getFile()),
             'line' => $e->getLine(),
             'trace' => $e->getTraceAsString(),
             'timestamp' => now()->toDateTimeString(),

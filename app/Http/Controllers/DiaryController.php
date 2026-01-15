@@ -170,7 +170,10 @@ final class DiaryController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(20);
 
-        return view('diary.tag', [
+        /** @var string $view */
+        $view = 'diary.tag';
+
+        return view($view, [
             'entries' => $entries,
             'tag' => $tag,
         ]);
@@ -184,7 +187,10 @@ final class DiaryController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(20);
 
-        return view('diary.mood', [
+        /** @var string $view */
+        $view = 'diary.mood';
+
+        return view($view, [
             'entries' => $entries,
             'mood' => $mood,
         ]);
@@ -229,7 +235,10 @@ final class DiaryController extends Controller
             'achievements' => $this->getAchievements($user, $entries),
         ];
 
-        return view('diary.stats', ['stats' => $stats]);
+        /** @var string $view */
+        $view = 'diary.stats';
+
+        return view($view, ['stats' => $stats]);
     }
 
     public function like(Request $request, Diary $diary)
@@ -243,11 +252,11 @@ final class DiaryController extends Controller
 
         // Toggle like
         if ($diary->likes()->where('user_id', $user->id)->exists()) {
-            $diary->likes()->detach($user->id);
+            $diary->likes()->where('user_id', $user->id)->delete();
             $diary->decrement('likes_count');
             $liked = false;
         } else {
-            $diary->likes()->attach($user->id);
+            $diary->likes()->create(['user_id' => $user->id]);
             $diary->increment('likes_count');
             $liked = true;
         }
@@ -261,14 +270,6 @@ final class DiaryController extends Controller
         }
 
         return back();
-    }
-
-    private function updateCreatedAtIfAvailable(Request $request, Diary $diary): void
-    {
-        if ($request->filled('created_at')) {
-            $diary->created_at = $request->created_at;
-            $diary->save();
-        }
     }
 
     private function calculateStreak($user): array
@@ -393,8 +394,8 @@ final class DiaryController extends Controller
         }
 
         return match ($diary->privacy) {
-            'public' => true,
-            'followers' => $diary->user->followers()->where('follower_id', $user->id)->exists(),
+            Privacy::Public => true,
+            Privacy::Followers => $diary->owner->profile->follower()->where('user_id', $user->id)->exists(),
             default => false,
         };
     }
