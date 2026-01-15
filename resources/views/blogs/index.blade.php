@@ -212,23 +212,31 @@ Latest Blog Article
         @include('blogs._cta')
 
         <div class="mt-20">
-            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">More to Explore</h3>
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">Journaling Resources</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-gray-100 dark:bg-gray-800 rounded-2xl p-6 hover:bg-gray-200 dark:hover:bg-gray-750 transition-colors">
+                <div class="bg-gray-100 dark:bg-gray-800 rounded-2xl p-6 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors group">
                     <h4 class="font-bold text-lg text-gray-900 dark:text-white mb-2">
-                        <a href="/blogs/how-to-write-diary">Essential Tips for Better Journaling</a>
+                        <a href="/faq">Common Questions (FAQ)</a>
                     </h4>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">
-                        Dive deeper into the techniques that make diary writing a life-changing practice.
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                        Everything you need to know about privacy, security, and how to use Ediary effectively.
                     </p>
+                    <a href="/faq" class="text-blue-600 dark:text-blue-400 text-sm font-semibold hover:underline flex items-center gap-1">
+                        View FAQ
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </a>
                 </div>
-                <div class="bg-gray-100 dark:bg-gray-800 rounded-2xl p-6 hover:bg-gray-200 dark:hover:bg-gray-750 transition-colors">
+                <div class="bg-gray-100 dark:bg-gray-800 rounded-2xl p-6 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors group">
                     <h4 class="font-bold text-lg text-gray-900 dark:text-white mb-2">
-                        <a href="/about">About E-Diary</a>
+                        <a href="/about">Our Mission</a>
                     </h4>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">
-                        Learn about our mission to provide the safest space for your personal reflections.
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                        Learn why we built Ediary and our commitment to providing a safe space for your thoughts.
                     </p>
+                    <a href="/about" class="text-blue-600 dark:text-blue-400 text-sm font-semibold hover:underline flex items-center gap-1">
+                        Read Our Story
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </a>
                 </div>
             </div>
         </div>

@@ -1,10 +1,13 @@
 <nav class="bg-gray-800 px-2 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto relative flex items-center justify-between h-16">
         <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div class="shrink-0 mr-8 text-xl text-gray-100">
-                {{-- <img class="block lg:hidden h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-on-dark.svg" alt="" />
-              <img class="hidden lg:block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-on-dark.svg" alt="" /> --}}
+            <div class="shrink-0 mr-8 text-xl text-gray-100 font-bold">
                 <a href="/">{{ config('app.name', 'Ediary') }}</a>
+            </div>
+            <div class="hidden sm:flex items-center space-x-4">
+                <a href="/blog" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Blog</a>
+                <a href="/about" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
+                <a href="/faq" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">FAQ</a>
             </div>
         </div>
         @auth

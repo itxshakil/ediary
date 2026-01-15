@@ -89,7 +89,7 @@
                 <!-- Badge -->
                 <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-white/20">
                     <svg class="w-4 h-4 text-green-300" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M2.166 4.999A11.954..." />
+                        <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                     </svg>
                     <span class="text-sm font-medium">Free • Private • Secure</span>
                 </div>
@@ -194,7 +194,9 @@
                                 <button type="submit"
                                         class="w-full py-3.5 px-6 rounded-xl font-semibold text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:scale-[1.02] shadow-lg transition">
                                     <span class="flex items-center justify-center">
-                                        <svg class="w-5 h-5 mr-2" ...></svg>
+                                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                                        </svg>
                                         Get Started Free
                                     </span>
                                 </button>
@@ -319,12 +321,19 @@
     </div>
 
     <!-- Blog Section -->
-    <div class="bg-gray-50 dark:bg-gray-900 py-20 md:py-32">
+    <div class="bg-gray-50 dark:bg-gray-900 py-20 md:py-32 border-t border-gray-100 dark:border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
-                    Latest Articles
-                </h2>
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">
+                        Insights & Inspiration
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-400">Discover tips on journaling, productivity, and personal growth.</p>
+                </div>
+                <a href="/blog" class="hidden md:flex items-center gap-2 text-blue-600 dark:text-blue-400 font-bold hover:underline">
+                    View All Articles
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -390,6 +399,12 @@
                             <span>By Internet Blogger</span>
                         </div>
                     </div>
+                </a>
+            </div>
+            <div class="mt-16 text-center md:hidden">
+                <a href="/blog" class="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 font-bold hover:underline">
+                    View All Articles
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                 </a>
             </div>
         </div>

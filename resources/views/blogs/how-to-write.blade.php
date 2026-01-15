@@ -67,6 +67,8 @@ How to Write a Diary
                 <span class="font-bold text-gray-900 dark:text-gray-200 uppercase tracking-wider">Shakil Alam</span>
                 <span class="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-600"></span>
                 <time datetime="2024-12-21">Dec 21, 2024</time>
+                <span class="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-600"></span>
+                <span>8 min read</span>
             </div>
         </div>
 
