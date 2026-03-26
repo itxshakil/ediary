@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Enums\Mood;
 use App\User;
 use Carbon\Carbon;
 use Carbon\Month;
@@ -27,7 +28,51 @@ final class HomeController
             'streak' => $streak['current'],
             'longestStreak' => $streak['longest'],
             'todayWritten' => $streak['todayWritten'],
+            'moodData' => $this->getMoodData($user),
         ]);
+    }
+
+    private function getMoodData(User $user): array
+    {
+        $days = collect();
+        $moodsByDate = $user->diaries()
+            ->whereNotNull('mood')
+            ->where('created_at', '>=', now()->subDays(6)->startOfDay())
+            ->get()
+            ->groupBy(fn ($entry) => Carbon::parse($entry->created_at)->toDateString());
+
+        for ($i = 6; $i >= 0; $i--) {
+            $date = now()->subDays($i);
+            $dateStr = $date->toDateString();
+            $entriesForDay = $moodsByDate->get($dateStr, collect());
+
+            if ($entriesForDay->isNotEmpty()) {
+                $moods = $entriesForDay->map(fn ($e) => Mood::from($e->mood))->all();
+                $avgScore = (int) round(Mood::averageScore($moods));
+                $avgScore = max(-2, min(2, $avgScore));
+                $dominantMood = collect($moods)->sortByDesc(fn (Mood $m) => $m->score())->first();
+                $days->push([
+                    'day'   => $date->format('D'),
+                    'date'  => $dateStr,
+                    'emoji' => $dominantMood->emoji(),
+                    'label' => $dominantMood->label(),
+                    'score' => $avgScore,
+                ]);
+            } else {
+                $days->push([
+                    'day'   => $date->format('D'),
+                    'date'  => $dateStr,
+                    'emoji' => null,
+                    'label' => null,
+                    'score' => null,
+                ]);
+            }
+        }
+
+        // Only return if at least one day has mood data
+        $hasMood = $days->contains(fn ($d) => $d['score'] !== null);
+
+        return $hasMood ? $days->all() : [];
     }
 
     private function calculateStreak(User $user): array

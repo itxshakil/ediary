@@ -58,13 +58,14 @@ How to Write a Diary
 @endpush
 @section('content')
 <div class="container mx-auto px-4 py-12 max-w-4xl">
-    <article class="bg-white dark:bg-gray-800 rounded-3xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700">
-        <div class="px-6 py-12 md:p-12 lg:p-16 border-b border-gray-50 dark:border-gray-700/50">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white leading-tight text-balance mb-6">
+    <article class="blog-card">
+        <div class="blog-article-header">
+            <span class="blog-badge blog-badge-blue mb-4">Journaling Tips</span>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-5">
                 How to Write a Diary
             </h1>
-            <div class="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
-                <span class="font-bold text-gray-900 dark:text-gray-200 uppercase tracking-wider">Shakil Alam</span>
+            <div class="flex flex-wrap items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
+                <span class="font-semibold text-gray-800 dark:text-gray-200">Shakil Alam</span>
                 <span class="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-600"></span>
                 <time datetime="2024-12-21">Dec 21, 2024</time>
                 <span class="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-600"></span>
@@ -72,7 +73,7 @@ How to Write a Diary
             </div>
         </div>
 
-        <div class="px-6 py-12 md:p-12 lg:p-16 blog-content">
+        <div class="px-6 py-12 md:p-12 blog-content">
             <p class="text-xl md:text-2xl leading-relaxed text-gray-600 dark:text-gray-400 font-medium italic">
                 Diaries are wonderful objects that allow you to discuss your emotions, record dreams or ideas, and reflect on daily life in a safe, private space.
             </p>

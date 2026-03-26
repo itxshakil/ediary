@@ -244,8 +244,8 @@
 
     moodBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            moodBtns.forEach(b => b.classList.remove('border-blue-500', 'bg-blue-50', 'dark:bg-blue-900/20'));
-            btn.classList.add('border-blue-500', 'bg-blue-50', 'dark:bg-blue-900/20');
+            moodBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
             moodInput.value = btn.dataset.mood;
         });
     });
@@ -325,7 +325,7 @@
                 tags = [];
                 updateTagsDisplay();
                 moodInput.value = '';
-                moodBtns.forEach(b => b.classList.remove('border-blue-500', 'bg-blue-50', 'dark:bg-blue-900/20'));
+                moodBtns.forEach(b => b.classList.remove('active'));
                 formChanged = false;
             } catch (error) {
                 console.error('Failed to save offline:', error);

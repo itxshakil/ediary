@@ -110,11 +110,27 @@
                                     <div class="flex items-start justify-between gap-4">
 
                                         <div class="flex-1 min-w-0">
-                                            <h1 id="displayName"
-                                                class="text-2xl sm:text-3xl font-semibold
-                                                   text-gray-900 dark:text-white truncate">
-                                                {{ $profile->name }}
-                                            </h1>
+                                            <div class="flex items-center gap-3 flex-wrap">
+                                                <h1 id="displayName"
+                                                    class="text-2xl sm:text-3xl font-semibold
+                                                       text-gray-900 dark:text-white truncate">
+                                                    {{ $profile->name }}
+                                                </h1>
+
+                                                @can('update', $profile)
+                                                    <button
+                                                        id="editBtn"
+                                                        class="inline-flex items-center gap-2
+                                                           px-4 py-2
+                                                           bg-blue-600 hover:bg-blue-700
+                                                           text-white text-sm font-medium
+                                                           rounded-full
+                                                           transition active:scale-95"
+                                                    >
+                                                        Edit Profile
+                                                    </button>
+                                                @endcan
+                                            </div>
 
                                             <p class="text-gray-500 dark:text-gray-400 mt-1">
                                                 {{ '@'.$profile->user->username }}
@@ -156,17 +172,6 @@
                                         {{-- Actions --}}
                                         <div class="flex flex-col gap-2">
                                             @can('update', $profile)
-                                                <button
-                                                    id="editBtn"
-                                                    class="inline-flex items-center gap-2
-                                                       px-4 py-2
-                                                       bg-blue-600 hover:bg-blue-700
-                                                       text-white text-sm font-medium
-                                                       rounded-full
-                                                       transition active:scale-95"
-                                                >
-                                                    Edit Profile
-                                                </button>
                                             @else
                                                 @auth
                                                     <x-button.primary

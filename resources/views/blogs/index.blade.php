@@ -116,97 +116,92 @@ Latest Blog Article
 @endpush
 @section('content')
     <div class="container mx-auto px-4 py-12 max-w-7xl">
+
+        {{-- Hero --}}
         <div class="text-center mb-16">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white mb-4">
+            <p class="text-xs font-semibold uppercase tracking-widest text-blue-500 dark:text-blue-400 mb-3">E-Diary Journal</p>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white mb-5 leading-tight">
                 Latest Articles
             </h1>
-            <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            <p class="text-lg text-gray-500 dark:text-gray-400 max-w-xl mx-auto leading-relaxed">
                 Discover tips and insights on journaling, personal growth, and documenting your life journey.
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
             {{-- Article 1 --}}
-            <div class="flex flex-col bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 group">
-                <div class="mb-6">
-                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 mb-4">
-                        Goal Setting
-                    </span>
-                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+            <div class="blog-card group">
+                <div class="blog-card-body">
+                    <span class="blog-badge blog-badge-blue">Goal Setting</span>
+                    <h2 class="blog-card-title">
                         <a href="/blogs/goal-setting-for-success">
                             5 Steps to Design the Life You’ve Always Dreamed Of
                         </a>
                     </h2>
+                    <p class="blog-card-excerpt">
+                        Ready to turn your goals into achievements? Learn the best strategies for setting clear, actionable goals that lead to real success.
+                    </p>
                 </div>
-                <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-8 flex-grow">
-                    Ready to turn your goals into achievements? Learn the best strategies for setting clear, actionable goals that lead to real success. Start planning your future today.
-                </p>
-                <div class="flex items-center justify-between pt-6 border-t border-gray-50 dark:border-gray-700/50">
-                    <div class="flex flex-col text-sm">
-                        <span class="text-gray-400 dark:text-gray-500 font-medium">Written By</span>
-                        <a class="font-bold text-gray-900 dark:text-gray-200 hover:text-blue-600 transition-colors" href="https://shakiltech.com">
-                            Shakil Alam
-                        </a>
+                <div class="blog-card-footer">
+                    <div class="blog-card-author">
+                        <span class="blog-card-author-label">Written By</span>
+                        <a class="blog-card-author-name" href="https://shakiltech.com">Shakil Alam</a>
                     </div>
-                    <a href="/blogs/goal-setting-for-success" class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-50 dark:bg-gray-700 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <a href="/blogs/goal-setting-for-success" class="blog-card-arrow" aria-label="Read article">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                     </a>
                 </div>
             </div>
 
             {{-- Article 2 --}}
-            <div class="flex flex-col bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 group">
-                <div class="mb-6">
-                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400 mb-4">
-                        Benefits
-                    </span>
-                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+            <div class="blog-card group">
+                <div class="blog-card-body">
+                    <span class="blog-badge blog-badge-purple">Benefits</span>
+                    <h2 class="blog-card-title">
                         <a href="/blogs/these-8-good-things-will-happen-when-you-start-writing-diary">
                             8 Good Things That Happen When You Start Journaling
                         </a>
                     </h2>
+                    <p class="blog-card-excerpt">
+                        Writing to yourself is an important means of self-expression. Discover how a diary can be healing, unlock creativity, and help you know yourself better.
+                    </p>
                 </div>
-                <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-8 flex-grow">
-                    Writing to yourself is an important means of self-expression. Discover how a diary can be healing, unlock creativity, and help you know yourself better.
-                </p>
-                <div class="flex items-center justify-between pt-6 border-t border-gray-50 dark:border-gray-700/50">
-                    <div class="flex flex-col text-sm">
-                        <span class="text-gray-400 dark:text-gray-500 font-medium">Written By</span>
-                        <span class="font-bold text-gray-900 dark:text-gray-200">Internet Blogger</span>
+                <div class="blog-card-footer">
+                    <div class="blog-card-author">
+                        <span class="blog-card-author-label">Written By</span>
+                        <span class="blog-card-author-name">Internet Blogger</span>
                     </div>
-                    <a href="/blogs/these-8-good-things-will-happen-when-you-start-writing-diary" class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-50 dark:bg-gray-700 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <a href="/blogs/these-8-good-things-will-happen-when-you-start-writing-diary" class="blog-card-arrow" aria-label="Read article">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                     </a>
                 </div>
             </div>
 
             {{-- Article 3 --}}
-            <div class="flex flex-col bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 group">
-                <div class="mb-6">
-                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 mb-4">
-                        Getting Started
-                    </span>
-                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+            <div class="blog-card group">
+                <div class="blog-card-body">
+                    <span class="blog-badge blog-badge-green">Getting Started</span>
+                    <h2 class="blog-card-title">
                         <a href="/blogs/how-to-start-writing-a-diary">
                             How to Start Writing a Diary
                         </a>
                     </h2>
+                    <p class="blog-card-excerpt">
+                        To start a diary, all you need is a willingness to write. Learn how to figure out what you want to write and how to make it a daily habit.
+                    </p>
                 </div>
-                <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-8 flex-grow">
-                    To start a diary, all you need is a willingness to write. Learn how to figure out what you want to write and how to make it a daily habit.
-                </p>
-                <div class="flex items-center justify-between pt-6 border-t border-gray-50 dark:border-gray-700/50">
-                    <div class="flex flex-col text-sm">
-                        <span class="text-gray-400 dark:text-gray-500 font-medium">Written By</span>
-                        <a class="font-bold text-gray-900 dark:text-gray-200 hover:text-blue-600 transition-colors" href="https://shakiltech.com">
-                            Shakil Alam
-                        </a>
+                <div class="blog-card-footer">
+                    <div class="blog-card-author">
+                        <span class="blog-card-author-label">Written By</span>
+                        <a class="blog-card-author-name" href="https://shakiltech.com">Shakil Alam</a>
                     </div>
-                    <a href="/blogs/how-to-start-writing-a-diary" class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-50 dark:bg-gray-700 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <a href="/blogs/how-to-start-writing-a-diary" class="blog-card-arrow" aria-label="Read article">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                     </a>
                 </div>
             </div>
+
         </div>
 
         @include('blogs._cta')
