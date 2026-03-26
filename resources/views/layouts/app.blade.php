@@ -159,10 +159,9 @@
     @endauth
     <div id="connection-status" class="hidden"></div>
 
-    <div id="pwa-banner" class="fixed bottom-[-150px] left-4 right-4 z-50
+    <div id="pwa-banner" class="fixed bottom-4 left-4 right-4 z-50
       bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700
-      rounded-2xl shadow-xl p-4 max-w-xl mx-auto transition-all duration-500
-      transform translate-y-0 opacity-0 hidden">
+      rounded-2xl shadow-xl p-4 max-w-xl mx-auto hidden">
 
         <div class="flex items-start gap-4">
             <img id="pwa-banner-icon" src="{{ asset('icons/android-icon-192x192.png') }}" class="w-12 h-12 rounded-xl">

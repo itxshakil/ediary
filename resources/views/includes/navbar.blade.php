@@ -1,13 +1,13 @@
-<nav class="bg-gray-800 px-2 sm:px-6 lg:px-8">
+<nav class="navbar-glass px-2 sm:px-6 lg:px-8 sticky top-0 z-40">
     <div class="max-w-7xl mx-auto relative flex items-center justify-between h-16">
         <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div class="shrink-0 mr-8 text-xl text-gray-100 font-bold">
+            <div class="shrink-0 mr-8 text-xl text-gray-900 dark:text-white font-bold">
                 <a href="/">{{ config('app.name', 'Ediary') }}</a>
             </div>
             <div class="hidden sm:flex items-center space-x-4">
-                <a href="/blog" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Blog</a>
-                <a href="/about" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
-                <a href="/faq" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">FAQ</a>
+                <a href="/blog" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Blog</a>
+                <a href="/about" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
+                <a href="/faq" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">FAQ</a>
             </div>
         </div>
         @auth
@@ -32,7 +32,7 @@
                 >Register</a>
 
                 <a
-                    class="bg-gray-700 text-gray-100 px-4 py-2 rounded-sm outline-hidden mr-2 uppercase shadow-sm hover:shadow-md font-bold text-xs"
+                    class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 px-4 py-2 rounded-sm outline-hidden mr-2 uppercase shadow-sm hover:shadow-md font-bold text-xs"
                     href="{{ route('login') }}"
                 >Login</a>
 
@@ -40,55 +40,46 @@
 
 
             @auth
-                <!-- User Dropdown -->
-                <div class="relative" x-data="{ open: false }">
-
-                    <!-- Avatar -->
-                    <button
-                        id="navbarUserMenu"
-                        class="flex text-sm border-2 border-transparent focus:outline-hidden focus:border-white transition duration-150 ease-in-out text-gray-100 w-10 h-10 rounded-full overflow-hidden"
-                    >
+                <!-- User Dropdown — native <details>/<summary>, zero JS -->
+                <details class="nav-details ml-3">
+                    <summary class="flex text-sm border-2 border-transparent focus:outline-none focus:border-blue-400 transition duration-150 ease-in-out w-10 h-10 rounded-full overflow-hidden">
                         <img
                             src="{{ $user->profile->image ?? '/default-avatar.png' }}"
                             alt="{{ $user->username }}"
                             class="w-full h-full object-cover"
                         />
-                    </button>
+                    </summary>
 
-                    <!-- Dropdown -->
-                    <div
-                        id="dropdownMenu"
-                        class="hidden absolute right-0 mt-2 w-48 rounded-md bg-white shadow-xl py-1 z-50"
-                    >
+                    <div class="nav-dropdown">
                         @if(!$user->email_verified_at)
                             <a href="{{ route('verification.notice') }}"
-                               class="block px-4 py-2 text-sm text-red-500 hover:bg-gray-100">
+                               class="block px-4 py-2 text-sm text-red-500 hover:bg-gray-100 dark:hover:bg-gray-700">
                                 Verify Email Address
                             </a>
                         @endif
 
                         <a href="{{ route('diary.create') }}"
-                           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                           class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
                             Write Entry
                         </a>
 
                         <a href="/user/{{ $user->username }}"
-                           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                           class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
                             My Profile
                         </a>
 
                         <a href="/home"
-                           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                           class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
                             Dashboard
                         </a>
 
                         <a href="/password/change"
-                           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                           class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
                             Change Password
                         </a>
 
                         <a href="/settings"
-                           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                           class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
                             Settings
                         </a>
 
@@ -96,13 +87,13 @@
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <button
-                                class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                class="w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
                             >
                                 Logout
                             </button>
                         </form>
                     </div>
-                </div>
+                </details>
             @endauth
         </div>
     </div>

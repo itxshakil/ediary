@@ -1,52 +1,25 @@
 <template>
-  <div
-    class="text-gray-900 card w-64 bg-gray-100 pb-2 md:p-5 mx-auto p-2 m-4 shadow-lg rounded-sm overflow-hidden"
-    :class="full?'w-full':null"
-  >
-    <div class="text-right text-xs text-gray-700" v-text="date"></div>
-    <p v-text="text" class="notebook whitespace-pre-wrap"></p>
-    <button class="text-blue-700" @click="toggleFull" v-if="full">show less</button>
-    <button class="text-blue-700" @click="toggleFull" v-else>show more</button>
+  <div class="text-gray-900 dark:text-gray-100 card w-64 bg-gray-100 dark:bg-gray-800 pb-2 md:p-5 mx-auto p-2 m-4 shadow-lg rounded-sm overflow-hidden">
+    <div class="text-right text-xs text-gray-500 dark:text-gray-400 mb-1" v-text="date"></div>
+    <details>
+      <summary class="list-none cursor-pointer">
+        <p class="notebook whitespace-pre-wrap line-clamp-4">{{ data.entry }}</p>
+        <span class="text-blue-600 dark:text-blue-400 text-sm">show more</span>
+      </summary>
+      <p class="notebook whitespace-pre-wrap mt-2">{{ data.entry }}</p>
+      <span class="text-blue-600 dark:text-blue-400 text-sm cursor-pointer" onclick="this.closest('details').removeAttribute('open')">show less</span>
+    </details>
   </div>
 </template>
 <script>
 export default {
   props: ["data"],
-  data() {
-    return {
-      entry: this.data.entry,
-      created_at: this.data.created_at,
-      full: false
-    };
-  },
   computed: {
     date() {
-      return this.formatDate(new Date(this.created_at));
-    },
-    text() {
-      if (this.full) {
-        return this.entry;
-      }
-      return this.entry.substring(0, 250);
-    }
-  },
-  methods: {
-    formatDate(date) {
-      //  let d = date.toDateString(); //"Fri Nov 11 2016"
-      return (
-        ("0" + date.getDate()).slice(-2) +
-        "-" +
-        ("0" + (date.getMonth() + 1)).slice(-2) +
-        "-" +
-        date.getFullYear() +
-        " " +
-        ("0" + date.getHours()).slice(-2) +
-        ":" +
-        ("0" + date.getMinutes()).slice(-2)
-      );
-    },
-    toggleFull() {
-      this.full = !this.full;
+      return new Intl.DateTimeFormat(navigator.language, {
+        year: 'numeric', month: '2-digit', day: '2-digit',
+        hour: '2-digit', minute: '2-digit'
+      }).format(new Date(this.data.created_at));
     }
   }
 };

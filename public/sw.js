@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ediary-cache-v5';
+const CACHE_NAME = 'ediary-cache-v6';
 const urlsToCache = [
     '/',
     '/?utm_source=homescreen',

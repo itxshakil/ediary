@@ -1,26 +1,10 @@
+<template>
+  <textarea class="auto-grow" v-bind="$attrs"><slot></slot></textarea>
+</template>
 <script>
+// ResizableTextarea is now a thin wrapper; actual resizing is done via
+// CSS `field-sizing: content` on the `.auto-grow` class in app.css.
 export default {
-  methods: {
-    resizeTextarea(event) {
-      event.target.style.height = "auto";
-      event.target.style.height = event.target.scrollHeight + "px";
-    }
-  },
-  mounted() {
-    this.$nextTick(() => {
-      this.$el.setAttribute(
-        "style",
-        "height:" + this.$el.scrollHeight + "px;overflow-y:hidden;"
-      );
-    });
-
-    this.$el.addEventListener("input", this.resizeTextarea);
-  },
-  beforeDestroy() {
-    this.$el.removeEventListener("input", this.resizeTextarea);
-  },
-  render() {
-    return this.$slots.default[0];
-  }
+  inheritAttrs: false
 };
 </script>

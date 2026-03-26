@@ -137,16 +137,17 @@ function maybeShowBanner(){
     ){
         applyCopy();
         const banner=document.getElementById('pwa-banner');
-        banner.classList.remove('opacity-0','translate-y-0','hidden');
-        banner.classList.add('opacity-100','translate-y-[-20px]');
+        banner.classList.remove('hidden');
+        // trigger @starting-style entrance via pwa-visible class
+        requestAnimationFrame(()=>banner.classList.add('pwa-visible'));
         trackGA('pwa_banner_shown',{variant:getVariant()});
     }
 }
 
 function hideBanner(){
     const banner=document.getElementById('pwa-banner');
-    banner.classList.add('opacity-0','translate-y-0');
-    setTimeout(()=>banner.classList.add('hidden'),500);
+    banner.classList.remove('pwa-visible');
+    banner.addEventListener('transitionend',()=>banner.classList.add('hidden'),{once:true});
 }
 
 async function showNotificationPrompt(){
@@ -228,6 +229,19 @@ function formatRelative(date, locale) {
         }
         duration /= divisions[i].amount;
     }
+}
+
+// ── View Transitions API for same-origin navigations ──
+if ('startViewTransition' in document) {
+    document.addEventListener('click', e => {
+        const a = e.target.closest('a[href]');
+        if (!a) return;
+        const url = new URL(a.href, location.href);
+        if (url.origin !== location.origin) return;
+        if (a.target === '_blank') return;
+        e.preventDefault();
+        document.startViewTransition(() => { location.href = a.href; });
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {

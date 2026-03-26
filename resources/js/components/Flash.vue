@@ -1,9 +1,10 @@
 <template>
   <div
-    class="flash-alert border px-4 py-3 my-2 rounded-sm w-64"
+    v-if="show"
+    :key="animKey"
+    class="flash-alert border px-4 py-3 my-2 rounded-sm w-64 flash-animate"
     :class="classes"
     role="alert"
-    v-show="show"
     v-text="body"
   ></div>
 </template>
@@ -15,7 +16,8 @@ export default {
     return {
       body: this.message,
       level: "success",
-      show: false
+      show: false,
+      animKey: 0
     };
   },
   created() {
@@ -26,15 +28,9 @@ export default {
   },
   computed: {
     classes() {
-      if (this.level == "success") {
-        return "bg-green-100 text-green-700 border-green-400";
-      }
-      if (this.level == "danger") {
-        return "bg-red-100 text-red-700 border-red-400";
-      }
-      if (this.level == "warning") {
-        return "bg-yellow-100 text-yellow-700 border-yellow-400";
-      }
+      if (this.level == "success") return "bg-green-100 text-green-700 border-green-400";
+      if (this.level == "danger")  return "bg-red-100 text-red-700 border-red-400";
+      if (this.level == "warning") return "bg-yellow-100 text-yellow-700 border-yellow-400";
     }
   },
   methods: {
@@ -43,13 +39,10 @@ export default {
         this.body = data.message;
         this.level = data.level;
       }
+      this.animKey++;
       this.show = true;
-      this.hide();
-    },
-    hide() {
-      setTimeout(() => {
-        this.show = false;
-      }, 3000);
+      // hide after animation completes (3.5s matches CSS keyframe duration)
+      setTimeout(() => { this.show = false; }, 3500);
     }
   }
 };
