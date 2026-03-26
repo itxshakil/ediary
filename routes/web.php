@@ -76,13 +76,6 @@ Route::view('/blogs/these-8-good-things-will-happen-when-you-start-writing-diary
 Route::view('/blogs/how-to-start-writing-a-diary', 'blogs.how-to-start-writing-a-diary')->name('blogs.how-to-start-writing-a-diary');
 Route::view('/blogs/goal-setting-for-success', 'blogs.goal-setting-for-success')->name('blogs.goal-setting-for-success');
 
-// use App\Http\Controllers\DiaryController;
-// use Illuminate\Support\Facades\Route;
-// Diary CRUD
-Route::post('/diary/store', [DiaryController::class, 'store'])
-    ->name('diary.store')
-    ->middleware('auth');
-
 Route::post('/diary/sync', [SyncController::class, 'store'])
     ->name('diary.sync')
     ->middleware('auth');
