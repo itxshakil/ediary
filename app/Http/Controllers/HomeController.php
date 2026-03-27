@@ -47,7 +47,7 @@ final class HomeController
             $entriesForDay = $moodsByDate->get($dateStr, collect());
 
             if ($entriesForDay->isNotEmpty()) {
-                $moods = $entriesForDay->map(fn ($e) => Mood::from($e->mood))->all();
+                $moods = $entriesForDay->map(fn ($e) => $e->mood)->all();
                 $avgScore = (int) round(Mood::averageScore($moods));
                 $avgScore = max(-2, min(2, $avgScore));
                 $dominantMood = collect($moods)->sortByDesc(fn (Mood $m) => $m->score())->first();
