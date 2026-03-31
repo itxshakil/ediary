@@ -25,7 +25,7 @@ return RectorConfig::configure()
     ->withPhpVersion(PhpVersion::PHP_84)
 
     ->withSets([
-        LaravelLevelSetList::UP_TO_LARAVEL_130,
+        LaravelLevelSetList::UP_TO_LARAVEL_120,
     ])
 
     ->withRules([
