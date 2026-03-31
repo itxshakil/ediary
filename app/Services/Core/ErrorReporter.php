@@ -6,6 +6,7 @@ namespace App\Services\Core;
 
 use App\Http\Middleware\RequestLogger;
 use App\Mail\ExceptionOccurred;
+use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
@@ -14,22 +15,22 @@ use Throwable;
 
 final class ErrorReporter
 {
-    public static function report(Throwable $e): void
+    public function report(Throwable $exception): void
     {
-        $recipients = self::validRecipients();
+        $recipients = $this->validRecipients();
         if ($recipients === []) {
             Log::error('ErrorReporter: No valid developer emails configured.');
 
             return;
         }
 
-        $key = self::rateLimitKey($e);
+        $key = $this->rateLimitKey($exception);
 
         if (Cache::add($key, true, now()->addMinutes(5)) === false) {
             return;
         }
 
-        $payload = self::buildPayload($e);
+        $payload = $this->buildPayload($exception, request());
 
         try {
             Mail::to($recipients)->send(new ExceptionOccurred($payload));
@@ -43,7 +44,7 @@ final class ErrorReporter
     /**
      * @return array<int, string>
      */
-    private static function validRecipients(): array
+    private function validRecipients(): array
     {
         $emails = config('mail.support.address', []);
 
@@ -61,9 +62,9 @@ final class ErrorReporter
         ));
     }
 
-    private static function rateLimitKey(Throwable $e): string
+    private function rateLimitKey(Throwable $exception): string
     {
-        $hash = md5($e->getMessage() . $e->getFile());
+        $hash = md5($exception->getMessage() . $exception->getFile());
         $hash = md5($hash . microtime());
 
         return 'exception:' . $hash;
@@ -72,30 +73,27 @@ final class ErrorReporter
     /**
      * @return array<string, mixed>
      */
-    private static function buildPayload(Throwable $e): array
+    private function buildPayload(Throwable $exception, ?Request $request): array
     {
-        $request = request();
-
         return [
-            'message_short' => class_basename($e),
-            'message' => $e->getMessage(),
-            'file' => basename($e->getFile()),
-            'line' => $e->getLine(),
-            'trace' => $e->getTraceAsString(),
+            'message_short' => class_basename($exception),
+            'message' => $exception->getMessage(),
+            'file' => basename($exception->getFile()),
+            'line' => $exception->getLine(),
+            'trace' => $exception->getTraceAsString(),
             'timestamp' => now()->toDateTimeString(),
-
-            'url' => $request->fullUrl(),
-            'method' => $request->method(),
-            'payload' => self::sanitizePayload($request->all()),
-            'user' => auth()->id(),
+            'url' => $request?->fullUrl(),
+            'method' => $request?->method(),
+            'payload' => $this->sanitizePayload($request?->all() ?? []),
+            'user' => $request?->user()?->getAuthIdentifier(),
             'environment' => app()->environment(),
-            'request_id' => request()->header(RequestLogger::X_REQUEST_ID) ?? 'N/A',
-            'ip' => $request->ip(),
-            'user_agent' => $request->userAgent(),
+            'request_id' => $request?->header(RequestLogger::X_REQUEST_ID) ?? 'N/A',
+            'ip' => $request?->ip(),
+            'user_agent' => $request?->userAgent(),
         ];
     }
 
-    private static function sanitizePayload(array $payload): array
+    private function sanitizePayload(array $payload): array
     {
         $fields = config('error_mail.sensitive_fields', []);
 

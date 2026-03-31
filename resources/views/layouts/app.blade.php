@@ -122,9 +122,13 @@
 
         <main>
             @yield('content')
-            <div data-vue-root>
-                <flash message="{{session('flash')}}"></flash>
-            </div>
+            @if (session('flash'))
+                <div class="fixed bottom-6 left-1/2 z-50 w-full max-w-md -translate-x-1/2 px-4">
+                    <div class="rounded-2xl bg-gray-900 px-4 py-3 text-sm font-medium text-white shadow-xl">
+                        {{ session('flash') }}
+                    </div>
+                </div>
+            @endif
         </main>
         @include('includes.footer')
     </div>

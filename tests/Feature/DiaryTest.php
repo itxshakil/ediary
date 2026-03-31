@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Tests\Feature;
 
-use PHPUnit\Framework\Attributes\Test;
-
 use App\Diary;
+
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 final class DiaryTest extends TestCase
@@ -18,8 +18,6 @@ final class DiaryTest extends TestCase
     use WithFaker;
 
     #[Test]
-    
-    
     public function authenticated_user_can_add_entry_to_diary(): void
     {
         $this->actingAs(User::factory()->create());
@@ -30,8 +28,6 @@ final class DiaryTest extends TestCase
     }
 
     #[Test]
-    
-    
     public function unauthenticated_user_can_not_add_entry_to_diary(): void
     {
         $this->json('POST', '/diaries', ['entry' => $this->faker->text(300)])->assertStatus(401);
@@ -41,8 +37,6 @@ final class DiaryTest extends TestCase
     }
 
     #[Test]
-    
-    
     public function diary_requires_entry(): void
     {
         $this->actingAs(User::factory()->create());

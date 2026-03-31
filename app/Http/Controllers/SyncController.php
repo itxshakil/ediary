@@ -4,31 +4,23 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Diary;
+use App\Actions\Diary\StoreDiaryAction;
+use App\Http\Requests\StoreSyncedDiaryRequest;
 use Exception;
-use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Log;
 
 final class SyncController extends Controller
 {
-    public function store(Request $request)
+    public function __construct(
+        private readonly StoreDiaryAction $storeDiary,
+    ) {}
+
+    public function store(StoreSyncedDiaryRequest $request): JsonResponse|RedirectResponse
     {
-        $validatedData = $request->validate([
-            'entry' => ['required', 'string'],
-            'created_at' => ['nullable', 'date'],
-        ]);
-
         try {
-            /** @var Diary $diary */
-            $diary = $request->user()->diaries()->create([
-                'entry' => $validatedData['entry'],
-            ]);
-
-            // If created_at is provided (from offline sync), update it
-            if (isset($validatedData['created_at'])) {
-                $diary->created_at = $validatedData['created_at'];
-                $diary->save();
-            }
+            $diary = $this->storeDiary->execute($request->user(), $request->validated());
 
             if ($request->expectsJson()) {
                 return response()->json([
@@ -53,14 +45,14 @@ final class SyncController extends Controller
                 ], 500);
             }
 
-            return back()->withErrors(['entry' => 'Failed to save entry. Please try again.']);
+            return back()->withErrors(['entry' => 'Failed to save entry. Please try again.'])->withInput();
         }
     }
 
     /**
      * Get pending sync status.
      */
-    public function syncStatus(Request $request)
+    public function syncStatus(): JsonResponse
     {
         return response()->json([
             'success' => true,

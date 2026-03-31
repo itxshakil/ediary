@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Enums;
 
 enum Audience: string
@@ -8,4 +10,3 @@ enum Audience: string
     case Followers = 'followers';
     case Guests = 'guests';
 }
-

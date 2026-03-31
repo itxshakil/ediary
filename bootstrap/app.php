@@ -23,7 +23,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $exceptions->dontReportDuplicates()
             ->report(function (Throwable $throwable): void {
                 if (app()->isProduction() || app()->environment('staging')) {
-                    ErrorReporter::report($throwable);
+                    app(ErrorReporter::class)->report($throwable);
                 }
             });
     })->create();

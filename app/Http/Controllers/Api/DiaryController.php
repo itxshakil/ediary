@@ -4,40 +4,35 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Api;
 
+use App\Actions\Diary\StoreDiaryAction;
 use App\Diary;
+use App\Http\Requests\StoreSyncedDiaryRequest;
+use App\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 final class DiaryController
 {
+    public function __construct(
+        private readonly StoreDiaryAction $storeDiary,
+    ) {}
+
     /**
      * @return LengthAwarePaginator<int, Diary>
      */
-    public function index(): LengthAwarePaginator
+    public function index(Request $request): LengthAwarePaginator
     {
+        /** @var User $user */
+        $user = $request->user();
 
-        return request()->user()->diaries()->latest()->paginate(12);
+        return $user->diaries()->latest()->paginate(12);
     }
 
-    public function store(Request $request): Diary
+    public function store(StoreSyncedDiaryRequest $request): JsonResponse
     {
-        $validatedData = $request->validate(['entry' => ['required', 'string']]);
+        $diary = $this->storeDiary->execute($request->user(), $request->validated());
 
-        /**
-         * @var Diary $diary
-         */
-        $diary = auth()->user()->diaries()->create($validatedData);
-
-        $this->addCreatedAtIfAvailable($request, $diary);
-
-        return $diary;
-    }
-
-    private function addCreatedAtIfAvailable(Request $request, $diary): void
-    {
-        if ($request->filled('created_at')) {
-            $diary->created_at = $request->created_at;
-            $diary->save();
-        }
+        return response()->json($diary, 201);
     }
 }

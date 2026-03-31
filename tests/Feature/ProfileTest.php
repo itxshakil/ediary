@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Tests\Feature;
 
-use PHPUnit\Framework\Attributes\Test;
-
 use App\User;
+
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 final class ProfileTest extends TestCase
@@ -32,7 +32,7 @@ final class ProfileTest extends TestCase
 
         $this->actingAs($user);
 
-        $response = $this->post("/profile/johndoe", [
+        $response = $this->post('/profile/johndoe', [
             'name' => 'New Name',
             'bio' => 'This is a new bio for the user.',
         ]);
@@ -53,7 +53,7 @@ final class ProfileTest extends TestCase
 
         $this->actingAs($user);
 
-        $response = $this->post("/profile/janedoe", [
+        $response = $this->post('/profile/janedoe', [
             'name' => 'Evil Name',
             'bio' => 'Trying to change another bio.',
         ]);
