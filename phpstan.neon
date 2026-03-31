@@ -12,6 +12,8 @@ parameters:
 
     level: 5
     treatPhpDocTypesAsCertain: false
+    parallel:
+        maximumNumberOfProcesses: 1
 
     ignoreErrors:
         - '#Call to function method_exists\(\) with .App\\\\Tag. and .bootSoftDeletes. will always evaluate to true\.#'

@@ -14,7 +14,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Notifications\Notifiable;
 use Override;
 
@@ -29,7 +28,6 @@ final class User extends Authenticatable implements MustVerifyEmail
     /** @use HasFactory<UserFactory> */
     use HasFactory;
     use Notifiable;
-    use VerifiesEmails;
 
     protected $fillable = [
         'username', 'email', 'password',
@@ -70,6 +68,16 @@ final class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsToMany(Profile::class);
     }
 
+    public function likes(): HasMany
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    public function bookmarks(): HasMany
+    {
+        return $this->hasMany(Bookmark::class);
+    }
+
     #[Override]
     protected static function booted(): void
     {
@@ -96,15 +104,5 @@ final class User extends Authenticatable implements MustVerifyEmail
     {
         $query->where('username', 'like', sprintf('%%%s%%', $term))
             ->orWhere('email', 'like', sprintf('%%%s%%', $term));
-    }
-
-    public function likes(): HasMany
-    {
-        return $this->hasMany(Like::class);
-    }
-
-    public function bookmarks(): HasMany
-    {
-        return $this->hasMany(Bookmark::class);
     }
 }

@@ -5,15 +5,17 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CheckUsernameAvailabilityRequest;
 use App\User;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 final class UsernameController extends Controller
 {
-    public function checkUsernameAvailability(Request $request): JsonResponse
+    public function checkUsernameAvailability(CheckUsernameAvailabilityRequest $request): JsonResponse
     {
-        if (mb_strlen($request->username) < 5 || User::isUsernameTaken($request->username)) {
+        $username = $request->string('username')->toString();
+
+        if (User::isUsernameTaken($username)) {
             return response()->json([
                 'success' => false,
                 'message' => 'Username is not available.',

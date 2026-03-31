@@ -6,26 +6,29 @@
 <a class="bg-gray-700 text-gray-100 px-4 py-2 rounded-sm outline-hidden focus:outline-hidden mr-2 mb-1 uppercase shadow-sm hover:shadow-md font-bold text-xs"
     href="/login">{{ __('Login') }}</a>
 @else
-@auth
-<dropdown v-cloak>
-    <p slot="toggler"
-        class="flex text-sm border-2 border-transparent rounded-full focus:outline-hidden focus:border-white transition duration-150 ease-in-out text-gray-100">
-        {{-- <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" /> --}}
-        {{ auth()->user()->username }}
-    </p>
-    <span slot="items" class="flex flex-col py-1 rounded-md bg-white shadow-2xs">
-        <a href="/home"
-            class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 transition duration-150 ease-in-out">Home</a>
-        <a href="/password/change"
-            class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 transition duration-150 ease-in-out">Change
-            Password</a>
-        <logout-button
-            class="block px-4 text-sm  py-2 leading-5 text-gray-700 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 transition duration-150 ease-in-out">
-        </logout-button>
-    </span>
-</dropdown>
-<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-    @csrf
-</form>
-@endauth
+    <details class="relative">
+        <summary class="flex cursor-pointer list-none items-center rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-gray-100 transition hover:bg-white/10">
+            {{ auth()->user()->username }}
+        </summary>
+
+        <div class="absolute right-0 z-50 mt-2 flex min-w-48 flex-col rounded-xl bg-white py-2 shadow-lg ring-1 ring-black/5 dark:bg-gray-800">
+            <a href="/home"
+               class="px-4 py-2 text-sm text-gray-700 transition hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">
+                Home
+            </a>
+            <a href="/password/change"
+               class="px-4 py-2 text-sm text-gray-700 transition hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">
+                Change Password
+            </a>
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button
+                    type="submit"
+                    class="block w-full px-4 py-2 text-left text-sm text-gray-700 transition hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700"
+                >
+                    Logout
+                </button>
+            </form>
+        </div>
+    </details>
 @endguest

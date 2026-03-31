@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Requests;
 
 use App\Enums\Mood;
@@ -7,8 +9,16 @@ use App\Enums\Privacy;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class StoreDiaryRequest extends FormRequest
+final class StoreDiaryRequest extends FormRequest
 {
+    public function authorize(): bool
+    {
+        return true;
+    }
+
+    /**
+     * @return array<string, array<int, mixed>>
+     */
     public function rules(): array
     {
         return [
@@ -21,10 +31,5 @@ class StoreDiaryRequest extends FormRequest
             'allow_comments' => ['nullable', 'boolean'],
             'created_at' => ['nullable', 'date'],
         ];
-    }
-
-    public function authorize(): bool
-    {
-        return true;
     }
 }

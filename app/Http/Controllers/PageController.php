@@ -4,25 +4,22 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SendContactMessageRequest;
 use App\Mail\ContactUs;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Mail;
 
 final class PageController extends Controller
 {
-    public function send(Request $request): Redirector|Application|RedirectResponse
+    public function send(SendContactMessageRequest $request): Redirector|Application|RedirectResponse
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:200'],
-            'email' => ['required', 'email'],
-            'message' => ['required', 'string'],
-        ]);
+        $validated = $request->validated();
+        $receiver = config('mail.support.address') ?: 'itxshakil@gmail.com';
+        $receiver = is_array($receiver) ? (reset($receiver) ?: 'itxshakil@gmail.com') : $receiver;
 
-        $receiver = 'itxshakil@gmail.com';
-        Mail::to($receiver)->send(new ContactUs($request->name, $request->email, $request->message));
+        Mail::to($receiver)->send(new ContactUs($validated['name'], $validated['email'], $validated['message']));
 
         return redirect('/success');
     }

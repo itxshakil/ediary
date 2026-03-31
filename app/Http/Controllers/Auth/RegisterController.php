@@ -6,66 +6,52 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rules\Password;
 
 final class RegisterController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
-
-    use RegistersUsers;
-
-    /**
-     * Where to redirect users after registration.
-     */
-    protected string $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('guest');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  string[]                                   $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
+    public function showRegistrationForm(): Factory|View
     {
-        return Validator::make($data, [
-            'username' => ['required', 'string', 'alpha_dash', 'between:5,25', 'unique:users'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        return view('auth.register');
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param array<string, mixed> $data
-     */
-    protected function create(array $data): User
+    public function register(Request $request): RedirectResponse|JsonResponse
     {
-        return User::create([
-            'username' => $data['username'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+        $validated = $request->validate([
+            'username' => ['required', 'string', 'alpha_dash', 'between:5,25', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'confirmed', Password::min(8)],
         ]);
+
+        $user = User::create([
+            'username' => $validated['username'],
+            'email' => $validated['email'],
+            'password' => Hash::make($validated['password']),
+        ]);
+
+        event(new Registered($user));
+        Auth::login($user);
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'message' => 'Registration successful.',
+                'redirect' => '/home',
+            ], 201);
+        }
+
+        return redirect('/home');
     }
 }

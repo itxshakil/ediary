@@ -5,18 +5,16 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Events\UsernameChanged;
+use App\Http\Requests\UpdateUsernameRequest;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 
 final class UsernameController extends Controller
 {
-    public function update(Request $request): Redirector|Application|RedirectResponse
+    public function update(UpdateUsernameRequest $request): Redirector|Application|RedirectResponse
     {
-        $validatedRequest = $request->validate(['username' => ['required', 'string', 'alpha_dash', 'between:5,25', 'unique:users']]);
-
-        $request->user()->update($validatedRequest);
+        $request->user()->update($request->validated());
 
         event(new UsernameChanged($request->user()));
 

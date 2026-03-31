@@ -416,7 +416,20 @@
                 Join thousands who've made journaling a daily habit. Your future self will thank you.
             </p>
             @guest
-                <register-form></register-form>
+                <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+                    <a
+                        href="{{ route('register') }}"
+                        class="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-semibold text-blue-700 shadow-sm transition hover:bg-blue-50"
+                    >
+                        Create your account
+                    </a>
+                    <a
+                        href="{{ route('login') }}"
+                        class="inline-flex items-center justify-center rounded-full border border-white/40 px-8 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+                    >
+                        Sign in
+                    </a>
+                </div>
             @endguest
 
             <p class="text-sm text-blue-200 mt-8">
