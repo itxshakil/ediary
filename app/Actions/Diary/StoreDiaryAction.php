@@ -9,11 +9,14 @@ use App\Enums\Privacy;
 use App\User;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
+use Throwable;
 
 final class StoreDiaryAction
 {
     /**
      * @param array<string, mixed> $attributes
+     *
+     * @throws Throwable
      */
     public function execute(User $user, array $attributes): Diary
     {

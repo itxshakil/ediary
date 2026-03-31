@@ -10,17 +10,14 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Log;
+use Throwable;
 
 final class SyncController extends Controller
 {
-    public function __construct(
-        private readonly StoreDiaryAction $storeDiary,
-    ) {}
-
-    public function store(StoreSyncedDiaryRequest $request): JsonResponse|RedirectResponse
+    public function store(StoreSyncedDiaryRequest $request, StoreDiaryAction $action): JsonResponse|RedirectResponse
     {
         try {
-            $diary = $this->storeDiary->execute($request->user(), $request->validated());
+            $diary = $action->execute($request->user(), $request->validated());
 
             if ($request->expectsJson()) {
                 return response()->json([
@@ -32,7 +29,9 @@ final class SyncController extends Controller
 
             return redirect()->route('home')->with('success', 'Entry saved successfully!');
 
-        } catch (Exception $exception) {
+        } catch (Exception|Throwable $exception) {
+            report($exception);
+
             Log::error('Failed to save diary entry', [
                 'error' => $exception->getMessage(),
                 'user_id' => $request->user()->id,

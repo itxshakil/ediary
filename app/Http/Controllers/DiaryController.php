@@ -19,14 +19,10 @@ use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\Response;
+use Throwable;
 
 final class DiaryController extends Controller
 {
-    public function __construct(
-        private readonly StoreDiaryAction $storeDiary,
-        private readonly DiaryAnalyticsService $analytics,
-    ) {}
-
     /**
      * @return LengthAwarePaginator<int, Diary>|Factory|View
      */
@@ -46,10 +42,10 @@ final class DiaryController extends Controller
         return view('diary.create');
     }
 
-    public function store(StoreDiaryRequest $request): JsonResponse|RedirectResponse
+    public function store(StoreDiaryRequest $request, StoreDiaryAction $action): JsonResponse|RedirectResponse
     {
         try {
-            $diary = $this->storeDiary->execute($request->user(), $request->validated());
+            $diary = $action->execute($request->user(), $request->validated());
 
             if ($request->expectsJson()) {
                 return response()->json([
@@ -72,6 +68,17 @@ final class DiaryController extends Controller
                     'success' => false,
                     'message' => 'Failed to save entry',
                 ], 500);
+            }
+
+            return back()->withErrors(['entry' => 'Failed to save entry. Please try again.'])->withInput();
+        } catch (Throwable $e) {
+            report($e);
+
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => $e->getMessage(),
+                ]);
             }
 
             return back()->withErrors(['entry' => 'Failed to save entry. Please try again.'])->withInput();
@@ -141,7 +148,7 @@ final class DiaryController extends Controller
         }
 
         // Sort
-        match ($request->get('sort', 'newest')) {
+        match ($request->input('sort', 'newest')) {
             'oldest' => $query->orderBy('created_at', 'asc'),
             'longest' => $query->orderByRaw('LENGTH(entry) DESC'),
             'shortest' => $query->orderByRaw('LENGTH(entry) ASC'),
@@ -162,7 +169,6 @@ final class DiaryController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(20);
 
-        /** @var string $view */
         $view = 'diary.tag';
 
         return view($view, [
@@ -179,7 +185,6 @@ final class DiaryController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(20);
 
-        /** @var string $view */
         $view = 'diary.mood';
 
         return view($view, [
@@ -188,13 +193,12 @@ final class DiaryController extends Controller
         ]);
     }
 
-    public function stats(Request $request): Factory|View
+    public function stats(Request $request, DiaryAnalyticsService $service): Factory|View
     {
         $user = $request->user();
         $entries = $user->diaries()->with('tags')->get();
-        $stats = $this->analytics->stats($user, $entries);
+        $stats = $service->stats($user, $entries);
 
-        /** @var string $view */
         $view = 'diary.stats';
 
         return view($view, ['stats' => $stats]);

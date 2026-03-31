@@ -11,13 +11,10 @@ use App\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Throwable;
 
 final class DiaryController
 {
-    public function __construct(
-        private readonly StoreDiaryAction $storeDiary,
-    ) {}
-
     /**
      * @return LengthAwarePaginator<int, Diary>
      */
@@ -29,9 +26,12 @@ final class DiaryController
         return $user->diaries()->latest()->paginate(12);
     }
 
-    public function store(StoreSyncedDiaryRequest $request): JsonResponse
+    /**
+     * @throws Throwable
+     */
+    public function store(StoreSyncedDiaryRequest $request, StoreDiaryAction $storeDiaryAction): JsonResponse
     {
-        $diary = $this->storeDiary->execute($request->user(), $request->validated());
+        $diary = $storeDiaryAction->execute($request->user(), $request->validated());
 
         return response()->json($diary, 201);
     }
