@@ -1,6 +1,6 @@
 # [Ediary](https://ediary.shakiltech.com)
 
-This is an Ediary app, powered by Laravel and VueJS. Its main functionality is saving your diary in encrypted form. We respect your privacy thats why dont ask and save your unneeded information.
+This is an Ediary app, powered by Laravel, Blade, Vite, and modern PHP. Its main functionality is saving your diary in encrypted form. We respect your privacy and avoid asking for unneeded personal information.
 
 It works without internet as well, Thanks to serviceworker.
 
@@ -22,8 +22,9 @@ It works without internet as well, Thanks to serviceworker.
 
 ## Technologies Used
 
--   Laravel 8.x
--   Vue 2.x
+-   Laravel 13.x
+-   PHP 8.4
+-   Blade + Vite frontend
 
 ## Contributing
 
