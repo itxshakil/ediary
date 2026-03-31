@@ -1,59 +1,66 @@
 @extends('layouts.app')
-@section('title','Change Your Ediary Password')
+
+@section('title', 'Account Settings')
+
 @section('content')
-<div class="container mx-auto flex justify-center px-3 md:px-6">
-    <div class="w-full xl:w-3/4 lg:w-11/12 flex my-6">
-        <div class="w-full h-auto hidden lg:block lg:w-1/2 bg-cover rounded-l-lg bg-blue-700">
-            <div class="flex flex-col text-gray-200 justify-center items-center">
-                <div class="feature p-4 mb-1">
-                    <h3 class="mb-2 text-xl flex flex-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-wifi-off">
-                            <line x1="1" y1="1" x2="23" y2="23"></line>
-                            <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"></path>
-                            <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"></path>
-                            <path d="M10.71 5.05A16 16 0 0 1 22.58 9"></path>
-                            <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"></path>
-                            <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
-                            <line x1="12" y1="20" x2="12.01" y2="20"></line>
-                        </svg>Availability
-                    </h3>
-                    <p class="w-96">When You aren't connected to the Internet(Offline). Then we save your entry in your
-                        device and sync back to the database when the connection back to the Internet.</p>
+    <div class="container mx-auto max-w-5xl px-4 py-8">
+        <div class="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+            <section class="rounded-2xl border border-gray-200/70 bg-white p-6 shadow-[0_1px_2px_rgba(0,0,0,0.05)] dark:border-gray-700/60 dark:bg-gray-900">
+                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">
+                    Settings
+                </p>
+                <h1 class="mt-3 text-3xl font-semibold text-gray-900 dark:text-white">Change your username</h1>
+                <p class="mt-4 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                    Update the public name people use to find your profile. Your existing routes and account stay the same, but your profile URL and future mentions will use the new username.
+                </p>
+
+                <div class="mt-6 rounded-2xl border border-blue-200/70 bg-blue-50/70 p-4 text-sm text-blue-900 dark:border-blue-900/40 dark:bg-blue-950/30 dark:text-blue-100">
+                    Pick something memorable, between 5 and 25 characters, using letters, numbers, dashes, or underscores.
                 </div>
-                <div class="feature p-4 mb-1">
-                    <h3 class="mb-2 text-xl flex flex-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                        </svg>Installable
-                    </h3>
-                    <p class="w-96">For easy access, you can add Ediary to your Home Screen. So you can use it as native
-                        apps.</p>
-                </div>
-            </div>
-        </div>
-        <div class="w-full lg:w-1/2 bg-gray-200 dark:bg-gray-800 p-2 md:p-5 rounded-lg lg:rounded-l-none">
-            <h3 class="pt-4 text-2xl text-center pb-2 md:pb-4 text-gray-900 dark:text-white">Change Your Username!</h3>
-            <form class="px-4 md:px-8  pt-6 pb-2 mb-4 bg-white dark:text-white dark:bg-gray-900 rounded-sm" method="POST" action="/username">
-                <section class="mb-4">
-                    <label class="text-sm font-semibold text-gray-700 dark:text-gray-200" for="username">
-                        Username
-                    </label>
-                    <username-input @error('email') :iserror="true" @enderror value="{{auth()->user()->username}}">
-                    </username-input>
-                    @error('username')
-                    <p class="text-xs italic text-red-500" role="alert">{{ $message }}</p>
-                    @enderror
-                </section>
-                <section class="mb-4 text-center">
-                    <button class="w-full bg-blue-500 active:bg-blue-800 text-white px-3 sm:px-4 py-2 rounded-full outline-hidden focus:outline-hidden mr-2 mb-1 uppercase shadow-sm hover:shadow-md font-bold text-xs" type="submit">
-                        Save
-                    </button>
-                </section>
-                @csrf
-                @method('PUT')
-            </form>
+            </section>
+
+            <section class="rounded-2xl border border-gray-200/70 bg-white p-6 shadow-[0_1px_2px_rgba(0,0,0,0.05)] dark:border-gray-700/60 dark:bg-gray-900">
+                <form method="POST" action="{{ url('/username') }}" class="space-y-6">
+                    @csrf
+                    @method('PUT')
+
+                    <div>
+                        <x-form.label for="username">Username</x-form.label>
+                        <x-form.input
+                            id="username"
+                            name="username"
+                            :value="auth()->user()->username"
+                            placeholder="your-username"
+                            autocomplete="username"
+                            required
+                        />
+
+                        <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">
+                            This updates the username shown on your profile and anywhere your account is referenced.
+                        </p>
+
+                        @error('username')
+                            <p class="mt-2 text-sm text-red-500" role="alert">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                        <a
+                            href="{{ route('home') }}"
+                            class="text-sm font-medium text-gray-500 transition hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                        >
+                            Cancel and go back
+                        </a>
+
+                        <button
+                            type="submit"
+                            class="inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-blue-700"
+                        >
+                            Save username
+                        </button>
+                    </div>
+                </form>
+            </section>
         </div>
     </div>
-</div>
 @endsection

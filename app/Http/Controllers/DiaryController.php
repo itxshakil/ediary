@@ -169,6 +169,7 @@ final class DiaryController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(20);
 
+        /** @var view-string $view */
         $view = 'diary.tag';
 
         return view($view, [
@@ -185,6 +186,7 @@ final class DiaryController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(20);
 
+        /** @var view-string $view */
         $view = 'diary.mood';
 
         return view($view, [
@@ -199,6 +201,7 @@ final class DiaryController extends Controller
         $entries = $user->diaries()->with('tags')->get();
         $stats = $service->stats($user, $entries);
 
+        /** @var view-string $view */
         $view = 'diary.stats';
 
         return view($view, ['stats' => $stats]);
