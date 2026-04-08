@@ -65,18 +65,3 @@ window.showInstallPromotion = function () {
 }
 
 window.showNotificationSnackBar()
-
-document.addEventListener("DOMContentLoaded", () => {
-    const avatarBtn = document.getElementById("navbarUserMenu");
-    const dropdown = document.getElementById("dropdownMenu");
-
-    avatarBtn.addEventListener("click", () => {
-        dropdown.classList.toggle("hidden");
-    });
-
-    document.addEventListener("click", (e) => {
-        if (!avatarBtn.contains(e.target) && !dropdown.contains(e.target)) {
-            dropdown.classList.add("hidden");
-        }
-    });
-});
