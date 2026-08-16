@@ -1,33 +1,24 @@
-@php use App\Enums\Mood;use App\Enums\Privacy; @endphp
+@php
+    use App\Enums\Mood;
+    use App\Enums\Privacy;
+@endphp
 
-<div
-    class="bg-white dark:bg-gray-900 rounded-2xl
-           border border-gray-200/70 dark:border-gray-700/60
-           shadow-[0_1px_2px_rgba(0,0,0,0.05)]
-           transition-all duration-200
-           hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)]
-           focus-within:ring-2 focus-within:ring-blue-500/40">
-
+<div class="rounded-2xl border border-gray-200/70 bg-white shadow-[0_1px_2px_rgba(0,0,0,0.05)] transition-all duration-200 focus-within:ring-2 focus-within:ring-blue-500/40 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] dark:border-gray-700/60 dark:bg-gray-900">
     <form method="POST" action="{{ route('diary.store') }}" id="diary-form" class="p-6">
         @csrf
 
-        <div class="flex items-center justify-between mb-5">
-            <label for="entry" class="text-lg font-semibold text-gray-900 dark:text-white">
-                New Entry
-            </label>
+        <div class="mb-5 flex items-center justify-between">
+            <label for="entry" class="text-lg font-semibold text-gray-900 dark:text-white"> New Entry </label>
 
             <div class="flex items-center gap-3">
-                <span id="offline-badge"
-                      class="hidden px-2 py-1 rounded-full
-                             bg-yellow-100/80 dark:bg-yellow-900/30
-                             text-yellow-800 dark:text-yellow-200
-                             text-xs font-medium">
+                <span
+                    id="offline-badge"
+                    class="hidden rounded-full bg-yellow-100/80 px-2 py-1 text-xs font-medium text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-200"
+                >
                     0 pending
                 </span>
 
-                <span id="char-count" class="text-xs text-gray-400 dark:text-gray-500">
-                    0 characters
-                </span>
+                <span id="char-count" class="text-xs text-gray-400 dark:text-gray-500"> 0 characters </span>
             </div>
         </div>
 
@@ -38,14 +29,7 @@
                 id="title"
                 placeholder="Entry title (optional)"
                 value="{{ old('title') }}"
-                class="w-full px-4 py-3 text-lg font-medium
-                       text-gray-900 dark:text-white
-                       bg-gray-50/80 dark:bg-gray-900/60
-                       border border-gray-200/70 dark:border-gray-700/60
-                       rounded-xl
-                       placeholder-gray-400 dark:placeholder-gray-500
-                       focus:ring-2 focus:ring-blue-500/50 focus:border-transparent
-                       transition"
+                class="w-full rounded-xl border border-gray-200/70 bg-gray-50/80 px-4 py-3 text-lg font-medium text-gray-900 placeholder-gray-400 transition focus:border-transparent focus:ring-2 focus:ring-blue-500/50 dark:border-gray-700/60 dark:bg-gray-900/60 dark:text-white dark:placeholder-gray-500"
             />
         </div>
 
@@ -55,91 +39,66 @@
             rows="6"
             required
             placeholder="Dear diary, today I..."
-            class="w-full px-4 py-3
-                   text-gray-900 dark:text-white
-                   bg-gray-50/80 dark:bg-gray-900/60
-                   border border-gray-200/70 dark:border-gray-700/60
-                   rounded-xl resize-y min-h-[120px]
-                   placeholder-gray-400 dark:placeholder-gray-500
-                   focus:ring-2 focus:ring-blue-500/50 focus:border-transparent
-                   transition"
+            class="min-h-[120px] w-full resize-y rounded-xl border border-gray-200/70 bg-gray-50/80 px-4 py-3 text-gray-900 placeholder-gray-400 transition focus:border-transparent focus:ring-2 focus:ring-blue-500/50 dark:border-gray-700/60 dark:bg-gray-900/60 dark:text-white dark:placeholder-gray-500"
         >{{ old('entry') }}</textarea>
-
         @error('entry')
-        <div
-            class="mt-3 flex items-center gap-2 text-sm
-                   text-red-600 dark:text-red-400
-                   bg-red-50/80 dark:bg-red-900/20
-                   px-3 py-2 rounded-xl">
-            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            {{ $message }}
-        </div>
+            <div class="mt-3 flex items-center gap-2 rounded-xl bg-red-50/80 px-3 py-2 text-sm text-red-600 dark:bg-red-900/20 dark:text-red-400">
+                <svg class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                </svg>
+                {{ $message }}
+            </div>
         @enderror
 
         {{-- Mood --}}
         <div class="mt-4">
-            <label class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 block">
+            <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">
                 How are you feeling?
             </label>
 
-            <div class="flex gap-2 flex-wrap" id="mood-selector">
-                @foreach(Mood::cases() as $mood)
+            <div class="flex flex-wrap gap-2" id="mood-selector">
+                @foreach (Mood::cases() as $mood)
                     <button
                         type="button"
                         data-mood="{{ $mood->value }}"
                         title="{{ $mood->label() }}"
-                        class="mood-btn p-1 md:p-3 text-2xl rounded-xl
-                               border border-transparent
-                               hover:bg-gray-100 dark:hover:bg-gray-800
-                               active:scale-95
-                               transition">
+                        class="mood-btn rounded-xl border border-transparent p-1 text-2xl transition hover:bg-gray-100 active:scale-95 md:p-3 dark:hover:bg-gray-800"
+                    >
                         {{ $mood->emoji() }}
                     </button>
                 @endforeach
             </div>
 
-            <input type="hidden" name="mood" id="mood-input">
+            <input type="hidden" name="mood" id="mood-input" />
         </div>
 
         <div class="mt-4">
-            <label class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 block">
-                Tags
-            </label>
+            <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"> Tags </label>
 
-            <div class="flex flex-wrap gap-2 mb-2" id="tags-container"></div>
+            <div class="mb-2 flex flex-wrap gap-2" id="tags-container"></div>
 
             <input
                 type="text"
                 id="tag-input"
                 placeholder="Add tags (press Enter)"
-                class="w-full px-3 py-2 text-sm
-                       text-gray-900 dark:text-white
-                       bg-gray-50/80 dark:bg-gray-900/60
-                       border border-gray-200/70 dark:border-gray-700/60
-                       rounded-xl
-                       placeholder-gray-400
-                       focus:ring-2 focus:ring-blue-500/50 focus:border-transparent
-                       transition"
+                class="w-full rounded-xl border border-gray-200/70 bg-gray-50/80 px-3 py-2 text-sm text-gray-900 placeholder-gray-400 transition focus:border-transparent focus:ring-2 focus:ring-blue-500/50 dark:border-gray-700/60 dark:bg-gray-900/60 dark:text-white"
             />
 
-            <input type="hidden" name="tags" id="tags-hidden">
+            <input type="hidden" name="tags" id="tags-hidden" />
 
             <div class="mt-2 flex flex-wrap gap-2">
                 <span class="text-xs text-gray-500 dark:text-gray-400">Popular:</span>
-                @foreach(['gratitude','work','family','health','goals','travel','thoughts'] as $tag)
+                @foreach (['gratitude', 'work', 'family', 'health', 'goals', 'travel', 'thoughts'] as $tag)
                     <button
                         type="button"
                         data-tag="{{ $tag }}"
-                        class="suggested-tag px-2 py-1 text-xs
-                               bg-gray-100/70 dark:bg-gray-700/60
-                               text-gray-600 dark:text-gray-300
-                               rounded-full
-                               hover:bg-blue-100/70 dark:hover:bg-blue-900/30
-                               hover:text-blue-600 dark:hover:text-blue-400
-                               transition">
+                        class="suggested-tag rounded-full bg-gray-100/70 px-2 py-1 text-xs text-gray-600 transition hover:bg-blue-100/70 hover:text-blue-600 dark:bg-gray-700/60 dark:text-gray-300 dark:hover:bg-blue-900/30 dark:hover:text-blue-400"
+                    >
                         #{{ $tag }}
                     </button>
                 @endforeach
@@ -147,22 +106,15 @@
         </div>
 
         {{-- Privacy --}}
-        <div class="mt-5 p-4 bg-gray-50/70 dark:bg-gray-900/40 rounded-2xl">
-            <label class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 block">
-                Privacy
-            </label>
+        <div class="mt-5 rounded-2xl bg-gray-50/70 p-4 dark:bg-gray-900/40">
+            <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"> Privacy </label>
 
             <select
                 name="privacy"
                 id="privacy-select"
-                class="w-full px-3 py-2 text-sm
-                       text-gray-900 dark:text-white
-                       bg-white dark:bg-gray-800
-                       border border-gray-200/70 dark:border-gray-700/60
-                       rounded-xl
-                       focus:ring-2 focus:ring-blue-500/50 focus:border-transparent
-                       transition">
-                @foreach(Privacy::cases() as $privacy)
+                class="w-full rounded-xl border border-gray-200/70 bg-white px-3 py-2 text-sm text-gray-900 transition focus:border-transparent focus:ring-2 focus:ring-blue-500/50 dark:border-gray-700/60 dark:bg-gray-800 dark:text-white"
+            >
+                @foreach (Privacy::cases() as $privacy)
                     <option value="{{ $privacy->value }}" @selected($privacy === Privacy::Private)>
                         {{ $privacy->emoji() }} {{ $privacy->label() }}
                     </option>
@@ -171,7 +123,7 @@
         </div>
 
         {{-- Footer --}}
-        <div class="mt-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div class="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <span id="offline-indicator" class="hidden text-xs text-yellow-600 dark:text-yellow-400">
                 • Offline mode
             </span>
@@ -179,22 +131,14 @@
             <button
                 type="submit"
                 id="submit-btn"
-                class="inline-flex items-center gap-2
-                       px-6 py-2.5
-                       bg-blue-600 hover:bg-blue-700
-                       text-white font-medium
-                       rounded-full
-                       shadow-sm hover:shadow-md
-                       transition
-                       focus:ring-2 focus:ring-blue-500/60
-                       focus:ring-offset-2 dark:focus:ring-offset-gray-900">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                class="inline-flex items-center gap-2 rounded-full bg-blue-600 px-6 py-2.5 font-medium text-white shadow-sm transition hover:bg-blue-700 hover:shadow-md focus:ring-2 focus:ring-blue-500/60 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+            >
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                 </svg>
                 <span>Publish Entry</span>
             </button>
         </div>
-
     </form>
 </div>
 
@@ -242,9 +186,9 @@
     const moodBtns = document.querySelectorAll('.mood-btn');
     const moodInput = document.getElementById('mood-input');
 
-    moodBtns.forEach(btn => {
+    moodBtns.forEach((btn) => {
         btn.addEventListener('click', () => {
-            moodBtns.forEach(b => b.classList.remove('active'));
+            moodBtns.forEach((b) => b.classList.remove('active'));
             btn.classList.add('active');
             moodInput.value = btn.dataset.mood;
         });
@@ -266,12 +210,14 @@
     }
 
     function removeTag(tag) {
-        tags = tags.filter(t => t !== tag);
+        tags = tags.filter((t) => t !== tag);
         updateTagsDisplay();
     }
 
     function updateTagsDisplay() {
-        tagsContainer.innerHTML = tags.map(tag => `
+        tagsContainer.innerHTML = tags
+            .map(
+                (tag) => `
             <span class="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">
                 #${tag}
                 <button type="button" onclick="removeTag('${tag}')" class="hover:text-blue-900 dark:hover:text-blue-100">
@@ -280,7 +226,9 @@
                     </svg>
                 </button>
             </span>
-        `).join('');
+        `,
+            )
+            .join('');
 
         tagsHidden.value = tags.join(',');
     }
@@ -293,7 +241,7 @@
     });
 
     // Suggested tags
-    document.querySelectorAll('.suggested-tag').forEach(btn => {
+    document.querySelectorAll('.suggested-tag').forEach((btn) => {
         btn.addEventListener('click', () => {
             addTag(btn.dataset.tag);
         });
@@ -316,7 +264,7 @@
                     entry: entryValue,
                     mood: moodInput.value,
                     tags: tags,
-                    privacy: document.getElementById('privacy-select').value
+                    privacy: document.getElementById('privacy-select').value,
                 });
                 textarea.value = '';
                 titleInput.value = '';
@@ -325,7 +273,7 @@
                 tags = [];
                 updateTagsDisplay();
                 moodInput.value = '';
-                moodBtns.forEach(b => b.classList.remove('active'));
+                moodBtns.forEach((b) => b.classList.remove('active'));
                 formChanged = false;
             } catch (error) {
                 console.error('Failed to save offline:', error);

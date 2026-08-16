@@ -1,16 +1,15 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <meta name="google-site-verification" content="oRXIYL6yenkxhE2G4UhEjBQarn6Sb3Z3jRtBdBCoAWA" />
 
-    <meta name="color-scheme" content="dark light">
+    <meta name="color-scheme" content="dark light" />
     <meta name="owner" content="Shakil Alam" />
     <meta name="author" content="Shakil Alam , itxshakil@gmail.com" />
 
@@ -21,48 +20,56 @@
     <meta name="og:email" content="appediary@gmail.com" />
     <meta name="og:country-name" content="India" />
 
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#667eea">
-    <link rel="apple-touch-icon" href="/icon-192.png">
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#667eea" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
 
     <!-- PWA Meta tag -->
 
-    <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.webmanifest">
-    <meta name="msapplication-TileColor" content="#2d3748">
-    <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="msapplication-TileColor" content="#2d3748" />
+    <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="#2d3748" />
     <meta name="apple-mobile-web-app-title" content="Shakil Alam | Portfolio" />
     <meta name="msapplication-TitleImage" content="/icons/old/icons-192.png" />
     <meta name="msapplication-TitleColor" content="#2d3748" />
-    <meta name="theme-color" content="#2d3748">
+    <meta name="theme-color" content="#2d3748" />
 
     @stack('meta')
 
-    <title>@yield('title',config('app.name')) | Ediary</title>
+    <title>
+        @yield('title', config('app.name'))
+        | Ediary
+    </title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Google Tag Manager -->
     <script>
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-5KBQKGS');
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5KBQKGS');
     </script>
     <!-- End Google Tag Manager -->
     @stack('head')
@@ -97,7 +104,7 @@
                 "@type": "Offer",
                 "url": "https://ediary.shakiltech.com/login",
                 "priceCurrency": "USD",
-                "price": 0.00,
+                "price": 0.0,
                 "availability": "https://schema.org/InStock"
             },
             "releaseNotes": "E-diary now supports offline entry saving and automatic syncing once you're online again.",
@@ -114,10 +121,16 @@
 
 <body class="font-sans antialiased accent-blue-500 dark:bg-gray-900 dark:text-white">
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5KBQKGS" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript
+        ><iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-5KBQKGS"
+            height="0"
+            width="0"
+            style="display: none; visibility: hidden"
+        ></iframe
+    ></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <div id="app" class="min-h-screen flex flex-col justify-between overflow-x-hidden">
+    <div id="app" class="flex min-h-screen flex-col justify-between overflow-x-hidden">
         @include('includes.navbar')
 
         <main>
@@ -132,53 +145,69 @@
         </main>
         @include('includes.footer')
     </div>
-    <div class="fixed bottom-6 right-6 flex flex-col gap-4 z-40">
+    <div class="fixed right-6 bottom-6 z-40 flex flex-col gap-4">
         @auth
-            @if(Route::currentRouteName() !== 'diary.create')
-                <a href="{{ route('diary.create') }}" 
-                   onclick="if(window.trackGA) trackGA('floating_add_clicked')"
-                   class="flex items-center justify-center w-14 h-14 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-all transform hover:scale-110 active:scale-95" 
-                   title="Add Entry">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            @if (Route::currentRouteName() !== 'diary.create')
+                <a
+                    href="{{ route('diary.create') }}"
+                    onclick="if (window.trackGA) trackGA('floating_add_clicked');"
+                    class="flex h-14 w-14 transform items-center justify-center rounded-full bg-blue-600 text-white shadow-lg transition-all hover:scale-110 hover:bg-blue-700 active:scale-95"
+                    title="Add Entry"
+                >
+                    <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                     </svg>
                 </a>
             @endif
         @endauth
 
-        @if(Request::is('/'))
-            <button id="floating-share-btn"
-                    class="flex items-center justify-center w-14 h-14 bg-green-600 text-white rounded-full shadow-lg hover:bg-green-700 transition-all transform hover:scale-110 active:scale-95"
-                    title="Share App">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        @if (Request::is('/'))
+            <button
+                id="floating-share-btn"
+                class="flex h-14 w-14 transform items-center justify-center rounded-full bg-green-600 text-white shadow-lg transition-all hover:scale-110 hover:bg-green-700 active:scale-95"
+                title="Share App"
+            >
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
                 </svg>
             </button>
         @endif
     </div>
     @auth
-    <script>
-        window.User = {!! json_encode(Auth::user()) !!}
-    </script>
+        <script>
+            window.User = {!! json_encode(Auth::user()) !!};
+        </script>
     @endauth
     <div id="connection-status" class="hidden"></div>
 
-    <div id="pwa-banner" class="fixed bottom-4 left-4 right-4 z-50
-      bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700
-      rounded-2xl shadow-xl p-4 max-w-xl mx-auto hidden">
-
+    <div
+        id="pwa-banner"
+        class="fixed right-4 bottom-4 left-4 z-50 mx-auto hidden max-w-xl rounded-2xl border border-gray-200 bg-white p-4 shadow-xl dark:border-gray-700 dark:bg-gray-900"
+    >
         <div class="flex items-start gap-4">
-            <img id="pwa-banner-icon" src="{{ asset('icons/android-icon-192x192.png') }}" class="w-12 h-12 rounded-xl">
+            <img
+                id="pwa-banner-icon"
+                src="{{ asset('icons/android-icon-192x192.png') }}"
+                class="h-12 w-12 rounded-xl"
+            />
             <div class="flex-1">
                 <h3 id="pwa-banner-title" class="font-semibold text-gray-900 dark:text-white">Install App</h3>
-                <p id="pwa-banner-body" class="text-sm text-gray-600 dark:text-gray-300 mt-1">
+                <p id="pwa-banner-body" class="mt-1 text-sm text-gray-600 dark:text-gray-300">
                     Get faster access & offline support.
                 </p>
-                <div class="flex gap-3 mt-3">
-                    <button id="pwa-banner-cta" class="px-4 py-2 text-sm rounded-full
-                bg-blue-600 text-white hover:bg-blue-700 transition">Install</button>
-                    <button id="pwa-banner-dismiss" class="px-4 py-2 text-sm rounded-full
-                text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition">Not now</button>
+                <div class="mt-3 flex gap-3">
+                    <button
+                        id="pwa-banner-cta"
+                        class="rounded-full bg-blue-600 px-4 py-2 text-sm text-white transition hover:bg-blue-700"
+                    >
+                        Install
+                    </button>
+                    <button
+                        id="pwa-banner-dismiss"
+                        class="rounded-full px-4 py-2 text-sm text-gray-500 transition hover:text-gray-700 dark:hover:text-gray-300"
+                    >
+                        Not now
+                    </button>
                 </div>
             </div>
         </div>
@@ -189,21 +218,22 @@
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then(registration => {
+                navigator.serviceWorker
+                    .register('/service-worker.js')
+                    .then((registration) => {
                         console.log('SW registered:', registration);
 
                         @auth
-                            if ('Notification' in window && Notification.permission === 'granted') {
-                                registration.update();
-                            }
+                        if ('Notification' in window && Notification.permission === 'granted') {
+                            registration.update();
+                        }
                         @endauth
 
                         setInterval(() => {
                             registration.update();
                         }, 60000);
                     })
-                    .catch(err => console.log('SW registration failed:', err));
+                    .catch((err) => console.log('SW registration failed:', err));
             });
         }
     </script>

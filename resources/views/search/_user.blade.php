@@ -1,11 +1,15 @@
- <div class="my-2 p-2 rounded-md border flex items-center search-result dark:bg-gray-900 dark:text-white">
-    <img src="{{$user->profile->image}}" alt="Profile picture of {{$user->username}}"
-        class="rounded-full h-24 w-24 border mr-2">
+<div class="search-result my-2 flex items-center rounded-md border p-2 dark:bg-gray-900 dark:text-white">
+    <img
+        src="{{ $user->profile->image }}"
+        alt="Profile picture of {{ $user->username }}"
+        class="mr-2 h-24 w-24 rounded-full border"
+    />
     <div class="ml-3 flex flex-col">
-        <h4 class="text-xl">{{$user->profile->name}}</h4>
-        <p>{{$user->profile->follower_count}} Followers</p>
-        <a href="/user/{{$user->username}}"
-            class="inline-block text-center bg-blue-600 text-gray-100 py-1 px-3 rounded-sm outline-hidden focus:outline-hidden mt-2 uppercase shadow-sm hover:shadow-md font-bold text-xs">View
-            Profile</a>
+        <h4 class="text-xl">{{ $user->profile->name }}</h4>
+        <p>{{ $user->profile->follower_count }} Followers</p>
+        <a
+            href="/user/{{ $user->username }}"
+            class="mt-2 inline-block rounded-sm bg-blue-600 px-3 py-1 text-center text-xs font-bold text-gray-100 uppercase shadow-sm outline-hidden hover:shadow-md focus:outline-hidden"
+        >View Profile</a>
     </div>
 </div>

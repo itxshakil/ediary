@@ -1,7 +1,11 @@
-<meta name="description"
-    content="Are you losing track of precious moments or struggling to organize your thoughts? With Ediary, enjoy ultimate privacy, offline access, and secure storage for your deepest reflections. Start your free journey today—because your memories matter!" />
-<meta name="keywords"
-    content="ediary,ediary app, private diary, secure diary,privacy friendly , diary App , save diary , free ediary offline , pwa, shakil alam" />
+<meta
+    name="description"
+    content="Are you losing track of precious moments or struggling to organize your thoughts? With Ediary, enjoy ultimate privacy, offline access, and secure storage for your deepest reflections. Start your free journey today—because your memories matter!"
+/>
+<meta
+    name="keywords"
+    content="ediary,ediary app, private diary, secure diary,privacy friendly , diary App , save diary , free ediary offline , pwa, shakil alam"
+/>
 <meta name="subject" content="Ediary - Securely Document Your Life, Free & Effortless" />
 <meta name="language" content="en" />
 <meta name="rating" content="General" />
@@ -14,5 +18,7 @@
 <meta name="og:title" content="Ediary - Securely Document Your Life, Free & Effortless" />
 <meta name="og:url" content="https://ediary.shakiltech.com/" />
 <meta name="og:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
-<meta name="og:description"
-    content="Are you losing track of precious moments or struggling to organize your thoughts? With Ediary, enjoy ultimate privacy, offline access, and secure storage for your deepest reflections. Start your free journey today—because your memories matter!" />
+<meta
+    name="og:description"
+    content="Are you losing track of precious moments or struggling to organize your thoughts? With Ediary, enjoy ultimate privacy, offline access, and secure storage for your deepest reflections. Start your free journey today—because your memories matter!"
+/>
