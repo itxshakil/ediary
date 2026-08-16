@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# Get staged PHP files
+staged_files=$(git diff --cached --name-only --diff-filter=ACM -- '*.php')
+
+if [ -z "$staged_files" ]; then
+    exit 0
+fi
+
+echo "Running Rector and Laravel Pint on staged PHP files..."
+
+# Run Rector process on staged files
+vendor/bin/rector process $staged_files
+
+# Run Laravel Pint on staged files (--blade formats any staged .blade.php files too)
+vendor/bin/pint --blade $staged_files
+
+# Re-stage the modified files
+git add $staged_files
+
+echo "Pre-commit checks passed."
+exit 0

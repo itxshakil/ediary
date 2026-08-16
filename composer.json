@@ -51,7 +51,8 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php artisan package:discover --ansi",
+            "@php scripts/configure-git-hooks.php"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
@@ -71,11 +72,11 @@
         "analyse": "vendor/bin/phpstan analyse --memory-limit=1G --no-progress",
         "lint:fix": [
             "rector process",
-            "pint --dirty"
+            "pint --blade --dirty"
         ],
         "lint": [
             "@analyse",
-            "pint --parallel"
+            "pint --blade --parallel"
         ],
         "qa": [
             "@lint",
