@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Http\Middleware\RequestLogger;
 use App\Services\Core\ErrorReporter;
+use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -18,6 +19,9 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware
             ->append(RequestLogger::class);
+    })
+    ->withSchedule(function (Schedule $schedule): void {
+        $schedule->command('diary:send-streak-reminders')->dailyAt('20:00');
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->dontReportDuplicates()

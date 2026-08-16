@@ -249,6 +249,36 @@ textarea.auto-grow {
     &:hover { text-decoration: underline; }
 }
 
+.diary-card-owner {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: inherit;
+    text-decoration: none;
+
+    &:hover { text-decoration: underline; }
+}
+
+.diary-card-owner-avatar {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+}
+
+.diary-card-share-link {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: #3b82f6;
+    text-decoration: none;
+
+    &:hover { text-decoration: underline; }
+}
+
 /* ── Mood button active state ── */
 .mood-btn {
     &.active {

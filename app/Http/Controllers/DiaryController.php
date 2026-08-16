@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Actions\Diary\ExportDiariesAction;
 use App\Actions\Diary\StoreDiaryAction;
 use App\Diary;
-use App\Enums\Privacy;
+use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\StoreDiaryRequest;
 use App\Services\Diary\DiaryAnalyticsService;
+use App\Services\Diary\DiaryExploreService;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -206,7 +208,7 @@ final class DiaryController extends Controller
 
     public function like(Request $request, Diary $diary): JsonResponse|RedirectResponse
     {
-        if (! $this->canAccessEntry($request->user(), $diary)) {
+        if (! $diary->isVisibleTo($request->user())) {
             abort(Response::HTTP_FORBIDDEN);
         }
 
@@ -233,16 +235,87 @@ final class DiaryController extends Controller
         return back();
     }
 
-    private function canAccessEntry($user, Diary $diary): bool
+    public function comment(StoreCommentRequest $request, Diary $diary): JsonResponse|RedirectResponse
     {
-        if ($diary->user_id === $user->id) {
-            return true;
+        $user = $request->user();
+
+        if (! $diary->isVisibleTo($user) || ! $diary->allow_comments) {
+            abort(Response::HTTP_FORBIDDEN);
         }
 
-        return match ($diary->privacy) {
-            Privacy::Public => true,
-            Privacy::Followers => $diary->owner->profile->follower()->where('user_id', $user->id)->exists(),
-            default => false,
-        };
+        $comment = $diary->comments()->create([
+            'user_id' => $user->id,
+            'comment' => $request->validated('comment'),
+        ]);
+        $diary->increment('comments_count');
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'success' => true,
+                'comment' => $comment->load('user.profile'),
+            ]);
+        }
+
+        return back()->with('success', 'Comment posted.');
+    }
+
+    public function export(Request $request, ExportDiariesAction $action): Response
+    {
+        $entries = $action->toArray($request->user());
+        $format = $request->query('format', 'json');
+
+        if ($format === 'csv') {
+            return $this->exportAsCsv($entries);
+        }
+
+        return response(json_encode($entries, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES), Response::HTTP_OK, [
+            'Content-Type' => 'application/json',
+            'Content-Disposition' => 'attachment; filename="diary-export.json"',
+        ]);
+    }
+
+    public function showPublic(Request $request, Diary $diary): Factory|View
+    {
+        if (! $diary->isVisibleTo($request->user())) {
+            abort(Response::HTTP_NOT_FOUND);
+        }
+
+        $diary->increment('views_count');
+
+        return view('diary.public', [
+            'entry' => $diary->load(['owner.profile', 'tags', 'likes', 'comments.user.profile']),
+        ]);
+    }
+
+    public function explore(DiaryExploreService $service): Factory|View
+    {
+        return view('diary.explore', [
+            'entries' => $service->feed(),
+        ]);
+    }
+
+    /**
+     * @param array<int, array<string, mixed>> $entries
+     */
+    private function exportAsCsv(array $entries): Response
+    {
+        $columns = ['title', 'entry', 'mood', 'privacy', 'tags', 'created_at'];
+
+        $handle = fopen('php://temp', 'w+');
+        fputcsv($handle, $columns);
+
+        foreach ($entries as $entry) {
+            $entry['tags'] = implode('|', $entry['tags']);
+            fputcsv($handle, array_map(static fn ($value): string => (string) $value, $entry));
+        }
+
+        rewind($handle);
+        $csv = stream_get_contents($handle);
+        fclose($handle);
+
+        return response($csv, Response::HTTP_OK, [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => 'attachment; filename="diary-export.csv"',
+        ]);
     }
 }

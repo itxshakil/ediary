@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\Enums\Audience;
 use App\Enums\Mood;
 use App\Enums\Privacy;
 use App\Support\Traits\HasTags;
@@ -19,7 +20,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Crypt;
 
 /**
- * @property Carbon $created_at
+ * @property Carbon    $created_at
+ * @property Privacy   $privacy
+ * @property Mood|null $mood
  */
 final class Diary extends Model
 {
@@ -51,6 +54,32 @@ final class Diary extends Model
     public function bookmarks(): HasMany
     {
         return $this->hasMany(Bookmark::class);
+    }
+
+    /**
+     * @return HasMany<Comment, $this>
+     */
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    /**
+     * Whether $viewer (null for a guest) is allowed to see this entry.
+     */
+    public function isVisibleTo(?User $viewer): bool
+    {
+        if ($viewer !== null && $this->user_id === $viewer->id) {
+            return true;
+        }
+
+        $audience = match (true) {
+            $viewer === null => Audience::Guests,
+            $this->owner->profile->follower()->where('user_id', $viewer->id)->exists() => Audience::Followers,
+            default => Audience::Guests,
+        };
+
+        return $this->privacy->allows($audience);
     }
 
     protected function casts(): array

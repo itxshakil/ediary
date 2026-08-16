@@ -78,6 +78,11 @@ final class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Bookmark::class);
     }
 
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     #[Override]
     protected static function booted(): void
     {
@@ -93,6 +98,7 @@ final class User extends Authenticatable implements MustVerifyEmail
     {
         return [
             'email_verified_at' => 'datetime',
+            'last_reminder_sent_at' => 'datetime',
         ];
     }
 

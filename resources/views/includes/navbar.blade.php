@@ -5,6 +5,9 @@
                 <a href="/">{{ config('app.name', 'Ediary') }}</a>
             </div>
             <div class="hidden sm:flex items-center space-x-4">
+                @auth
+                    <a href="{{ route('diary.explore') }}" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Explore</a>
+                @endauth
                 <a href="/blog" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Blog</a>
                 <a href="/about" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
                 <a href="/faq" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">FAQ</a>
