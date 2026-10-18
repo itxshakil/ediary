@@ -53,10 +53,18 @@ export function initRelativeDates() {
             minute: '2-digit',
         });
 
-        const target = element.querySelector('.js-date');
+        // A card can keep its relative date outside the <time> element, inside a shared scope.
+        const target = element.querySelector('.js-date') ?? element.closest('[data-time-scope]')?.querySelector('.js-date');
         if (target) {
             target.textContent = relative ?? absolute.split(',')[0];
         }
+
+        element.querySelectorAll('[data-date-part]').forEach((part) => {
+            const option = { day: { day: 'numeric' }, month: { month: 'short' }, weekday: { weekday: 'short' } }[part.dataset.datePart];
+            if (option) {
+                part.textContent = date.toLocaleDateString(locale, option);
+            }
+        });
 
         element.title = absolute;
         element.setAttribute('datetime', date.toISOString());

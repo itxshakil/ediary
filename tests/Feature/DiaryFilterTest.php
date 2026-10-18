@@ -97,6 +97,21 @@ final class DiaryFilterTest extends TestCase
     }
 
     #[Test]
+    public function entry_cards_only_collapse_long_entries(): void
+    {
+        $user = User::factory()->create();
+        Diary::factory()->create(['user_id' => $user->id, 'entry' => 'A short note.', 'mood' => Mood::Happy]);
+        Diary::factory()->create(['user_id' => $user->id, 'entry' => str_repeat('A much longer reflection. ', 20)]);
+
+        $response = $this->actingAs($user)->get('/diaries')->assertOk();
+
+        $this->assertSame(1, mb_substr_count($response->getContent(), '<details class="diary-card-details">'));
+        $response->assertSee('3 words')
+            ->assertSeeHtml('<span class="diary-card-privacy-label">Private</span>')
+            ->assertSeeHtml('href="' . route('diary.mood', 'happy') . '"');
+    }
+
+    #[Test]
     public function guests_cannot_view_filtered_pages(): void
     {
         $this->get(route('diary.tag', 'study'))->assertRedirect('/login');
