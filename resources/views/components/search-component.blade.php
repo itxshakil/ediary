@@ -57,17 +57,11 @@
                     <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"> Mood </label>
                     <select name="mood" class="field w-full">
                         <option value="">All moods</option>
-                        <option value="happy" {{ request('mood') == 'happy' ? 'selected' : '' }}>😊 Happy</option>
-                        <option value="sad" {{ request('mood') == 'sad' ? 'selected' : '' }}>😔 Sad</option>
-                        <option value="calm" {{ request('mood') == 'calm' ? 'selected' : '' }}>😌 Calm</option>
-                        <option value="angry" {{ request('mood') == 'angry' ? 'selected' : '' }}>😤 Angry</option>
-                        <option value="anxious" {{ request('mood') == 'anxious' ? 'selected' : '' }}>😰 Anxious</option>
-                        <option value="thoughtful" {{ request('mood') == 'thoughtful' ? 'selected' : '' }}>
-                            🤔 Thoughtful
-                        </option>
-                        <option value="tired" {{ request('mood') == 'tired' ? 'selected' : '' }}>😴 Tired</option>
-                        <option value="excited" {{ request('mood') == 'excited' ? 'selected' : '' }}>🥳 Excited</option>
-                        <option value="neutral" {{ request('mood') == 'neutral' ? 'selected' : '' }}>😐 Neutral</option>
+                        @foreach (\App\Enums\Mood::cases() as $mood)
+                            <option value="{{ $mood->value }}" @selected(request('mood') === $mood->value)>
+                                {{ $mood->emoji() }} {{ $mood->label() }}
+                            </option>
+                        @endforeach
                     </select>
                 </div>
 
@@ -76,16 +70,11 @@
                     <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"> Privacy </label>
                     <select name="privacy" class="field w-full">
                         <option value="">All entries</option>
-                        <option value="private" {{ request('privacy') == 'private' ? 'selected' : '' }}>
-                            🔒 Private
-                        </option>
-                        <option value="followers" {{ request('privacy') == 'followers' ? 'selected' : '' }}>
-                            👥 Followers
-                        </option>
-                        <option value="public" {{ request('privacy') == 'public' ? 'selected' : '' }}>🌍 Public</option>
-                        <option value="unlisted" {{ request('privacy') == 'unlisted' ? 'selected' : '' }}>
-                            🔗 Unlisted
-                        </option>
+                        @foreach (\App\Enums\Privacy::cases() as $privacy)
+                            <option value="{{ $privacy->value }}" @selected(request('privacy') === $privacy->value)>
+                                {{ $privacy->emoji() }} {{ $privacy->label() }}
+                            </option>
+                        @endforeach
                     </select>
                 </div>
 

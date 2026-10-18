@@ -67,46 +67,28 @@
 
 @section('content')
     <div class="bg-white dark:bg-gray-900">
-        <!-- Hero Section -->
-        <div class="bg-primary-600 relative overflow-hidden py-20">
-            <div class="absolute inset-0 opacity-10">
-                <div
-                    class="absolute inset-0"
-                    style="
-                        background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0);
-                        background-size: 40px 40px;
-                    "
-                ></div>
-            </div>
-            <div class="relative container mx-auto px-4 text-center">
-                <p class="text-primary-200 mb-4 text-sm font-semibold tracking-wider uppercase">
-                    For students & researchers
-                </p>
-                <h1 class="mb-6 text-4xl font-extrabold text-white md:text-6xl">
-                    A private study journal that works offline
-                </h1>
-                <p class="text-primary-100 mx-auto mb-10 max-w-2xl text-xl">
-                    Log what you studied, reflect on your research, and get exam stress out of your head. Free,
-                    unlimited, and private by default.
-                </p>
-                @auth
-                    <a
-                        href="{{ url('/home') }}"
-                        class="text-primary-700 hover:bg-primary-50 inline-block rounded-xl bg-white px-8 py-3 text-sm font-bold uppercase shadow-md transition"
-                    >
-                        Start writing
-                    </a>
-                @else
-                    <a
-                        href="{{ route('register') }}"
-                        class="text-primary-700 hover:bg-primary-50 inline-block rounded-xl bg-white px-8 py-3 text-sm font-bold uppercase shadow-md transition"
-                    >
-                        Create your free journal
-                    </a>
-                    <p class="text-primary-200 mt-4 text-sm">Just an email. No name, no phone number.</p>
-                @endauth
-            </div>
-        </div>
+        <x-page-hero
+            title="A private study journal that works offline"
+            subtitle="Log what you studied, reflect on your research, and get exam stress out of your head. Free, unlimited, and private by default."
+            eyebrow="For students & researchers"
+        >
+            @auth
+                <a
+                    href="{{ url('/home') }}"
+                    class="text-primary-700 hover:bg-primary-50 inline-block rounded-xl bg-white px-8 py-3 text-sm font-bold uppercase shadow-md transition"
+                >
+                    Start writing
+                </a>
+            @else
+                <a
+                    href="{{ route('register') }}"
+                    class="text-primary-700 hover:bg-primary-50 inline-block rounded-xl bg-white px-8 py-3 text-sm font-bold uppercase shadow-md transition"
+                >
+                    Create your free journal
+                </a>
+                <p class="text-primary-200 mt-4 text-sm">Just an email. No name, no phone number.</p>
+            @endauth
+        </x-page-hero>
 
         <!-- Use Cases -->
         <div class="container mx-auto max-w-5xl px-4 py-16">

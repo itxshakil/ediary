@@ -33,7 +33,7 @@
     {{-- Writing Patterns --}}
     <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {{-- Mood Distribution --}}
-        <div class="shadow-card rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
+        <x-card>
             <h3 class="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Mood Distribution</h3>
             <div class="space-y-3">
                 @foreach ($stats['mood_distribution'] as $mood => $count)
@@ -60,10 +60,10 @@
                     </div>
                 @endforeach
             </div>
-        </div>
+        </x-card>
 
         {{-- Writing Time Patterns --}}
-        <div class="shadow-card rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
+        <x-card>
             <h3 class="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Best Writing Times</h3>
             <div class="space-y-3">
                 @foreach ($stats['time_distribution'] as $period => $count)
@@ -89,11 +89,11 @@
                     </div>
                 @endforeach
             </div>
-        </div>
+        </x-card>
     </div>
 
     {{-- Activity Heatmap --}}
-    <div class="shadow-card rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
+    <x-card>
         <h3 class="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Activity Heatmap</h3>
         <p class="mb-4 text-sm text-gray-600 dark:text-gray-400">Your writing activity over the past year</p>
 
@@ -152,10 +152,10 @@
             </div>
             <span>More</span>
         </div>
-    </div>
+    </x-card>
 
     {{-- Top Tags --}}
-    <div class="shadow-card rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
+    <x-card>
         <h3 class="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Top Tags</h3>
         <div class="flex flex-wrap gap-2">
             @foreach ($stats['top_tags'] as $tag => $count)
@@ -165,10 +165,10 @@
                 </a>
             @endforeach
         </div>
-    </div>
+    </x-card>
 
     {{-- Achievements --}}
-    <div class="shadow-card rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
+    <x-card>
         <h3 class="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Achievements Unlocked</h3>
         <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
             @foreach ($stats['achievements'] as $achievement)
@@ -181,5 +181,5 @@
                 </div>
             @endforeach
         </div>
-    </div>
+    </x-card>
 </div>

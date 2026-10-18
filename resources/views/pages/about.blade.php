@@ -9,25 +9,10 @@
 @endpush
 @section('content')
     <div class="bg-white dark:bg-gray-900">
-        <!-- Hero Section -->
-        <div class="bg-primary-600 relative overflow-hidden py-20">
-            <div class="absolute inset-0 opacity-10">
-                <div
-                    class="absolute inset-0"
-                    style="
-                        background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0);
-                        background-size: 40px 40px;
-                    "
-                ></div>
-            </div>
-            <div class="relative container mx-auto px-4 text-center">
-                <h1 class="mb-6 text-4xl font-extrabold text-white md:text-6xl">About Ediary</h1>
-                <p class="text-primary-100 mx-auto max-w-2xl text-xl">
-                    Our mission is to provide the safest, simplest, and most private space for your personal
-                    reflections.
-                </p>
-            </div>
-        </div>
+        <x-page-hero
+            title="About Ediary"
+            subtitle="Our mission is to provide the safest, simplest, and most private space for your personal reflections."
+        />
 
         <!-- Content Section -->
         <div class="container mx-auto max-w-4xl px-4 py-16">

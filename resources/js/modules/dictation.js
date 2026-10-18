@@ -25,7 +25,6 @@ function setupDictation(button) {
 
     const render = (message = '') => {
         button.setAttribute('aria-pressed', String(listening));
-        button.classList.toggle('dictate-button--listening', listening);
         label.textContent = listening ? 'Stop' : 'Dictate';
         status.textContent = message;
     };
