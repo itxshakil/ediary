@@ -6,7 +6,7 @@
     $isLong = mb_strlen($entry->entry) > 280 || mb_substr_count($entry->entry, "\n") > 2;
 @endphp
 
-<article @class(['diary-card', 'diary-card--' . ($entry->mood?->category() ?? 'none')]) data-time-scope>
+<article @class(['diary-card', 'diary-card--' . ($entry->mood?->category() ?? 'none')])>
     <div class="diary-card-inner">
         {{-- Calendar-style date, localised to the reader's timezone by relative-dates.js --}}
         <time
@@ -28,7 +28,11 @@
                     </a>
                 @endif
 
-                <span class="diary-card-when js-date">{{ $entry->created_at->diffForHumans() }}</span>
+                <time
+                    class="diary-card-when js-date"
+                    datetime="{{ $entry->created_at->toISOString() }}"
+                    data-time="{{ $entry->created_at->toISOString() }}"
+                >{{ $entry->created_at->diffForHumans() }}</time>
 
                 <div class="diary-card-badges">
                     @if ($entry->mood)

@@ -1,26 +1,25 @@
-function formatRelative(date, locale) {
+const DIVISIONS = [
+    { amount: 60, name: 'second' },
+    { amount: 60, name: 'minute' },
+    { amount: 24, name: 'hour' },
+    { amount: 7, name: 'day' },
+    { amount: 4.34524, name: 'week' },
+    { amount: 12, name: 'month' },
+    { amount: Number.POSITIVE_INFINITY, name: 'year' },
+];
+
+function formatRelative(date, locale, relativeFormat) {
     const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
 
     if (seconds < 45) {
         return locale.startsWith('en') ? 'Just now' : null;
     }
 
-    const formatter = new Intl.RelativeTimeFormat(locale, { numeric: 'auto' });
-    const divisions = [
-        { amount: 60, name: 'second' },
-        { amount: 60, name: 'minute' },
-        { amount: 24, name: 'hour' },
-        { amount: 7, name: 'day' },
-        { amount: 4.34524, name: 'week' },
-        { amount: 12, name: 'month' },
-        { amount: Number.POSITIVE_INFINITY, name: 'year' },
-    ];
-
     let duration = seconds;
 
-    for (const division of divisions) {
+    for (const division of DIVISIONS) {
         if (Math.abs(duration) < division.amount) {
-            return formatter.format(-Math.round(duration), division.name);
+            return relativeFormat.format(-Math.round(duration), division.name);
         }
 
         duration /= division.amount;
@@ -29,44 +28,46 @@ function formatRelative(date, locale) {
     return null;
 }
 
+/**
+ * Localises every [data-time] element to the reader's language and timezone: a `.js-date`
+ * (the element itself or a child) gets a relative time, `[data-date-part]` children get the
+ * day, month or weekday, and the element gets the full date as its tooltip.
+ */
 export function initRelativeDates() {
-    document.querySelectorAll('[data-time]').forEach((element) => {
-        const iso = element.dataset.time;
+    const elements = document.querySelectorAll('[data-time]');
+    if (elements.length === 0) return;
 
-        if (!iso) {
-            return;
-        }
+    // Build the formatters once; constructing Intl formatters per element is comparatively slow.
+    const locale = navigator.language;
+    const relativeFormat = new Intl.RelativeTimeFormat(locale, { numeric: 'auto' });
+    const absoluteFormat = new Intl.DateTimeFormat(locale, { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+    const shortDateFormat = new Intl.DateTimeFormat(locale, { year: 'numeric', month: 'short', day: 'numeric' });
+    const partFormats = {
+        day: new Intl.DateTimeFormat(locale, { day: 'numeric' }),
+        month: new Intl.DateTimeFormat(locale, { month: 'short' }),
+        weekday: new Intl.DateTimeFormat(locale, { weekday: 'short' }),
+    };
 
-        const date = new Date(iso);
+    elements.forEach((element) => {
+        const date = new Date(element.dataset.time);
 
         if (Number.isNaN(date.getTime())) {
             return;
         }
 
-        const locale = navigator.language;
-        const relative = formatRelative(date, locale);
-        const absolute = date.toLocaleString(locale, {
-            year: 'numeric',
-            month: 'short',
-            day: 'numeric',
-            hour: 'numeric',
-            minute: '2-digit',
-        });
-
-        // A card can keep its relative date outside the <time> element, inside a shared scope.
-        const target = element.querySelector('.js-date') ?? element.closest('[data-time-scope]')?.querySelector('.js-date');
+        const target = element.matches('.js-date') ? element : element.querySelector('.js-date');
         if (target) {
-            target.textContent = relative ?? absolute.split(',')[0];
+            target.textContent = formatRelative(date, locale, relativeFormat) ?? shortDateFormat.format(date);
         }
 
         element.querySelectorAll('[data-date-part]').forEach((part) => {
-            const option = { day: { day: 'numeric' }, month: { month: 'short' }, weekday: { weekday: 'short' } }[part.dataset.datePart];
-            if (option) {
-                part.textContent = date.toLocaleDateString(locale, option);
+            const format = partFormats[part.dataset.datePart];
+            if (format) {
+                part.textContent = format.format(date);
             }
         });
 
-        element.title = absolute;
+        element.title = absoluteFormat.format(date);
         element.setAttribute('datetime', date.toISOString());
     });
 }
