@@ -34,7 +34,7 @@ function schedule(toast) {
     start();
 }
 
-function show({ type = 'info', title = '', message = '' } = {}) {
+export function toast({ type = 'info', title = '', message = '' } = {}) {
     const region = document.getElementById('toasts');
     const template = document.getElementById('toast-template');
 
@@ -44,27 +44,27 @@ function show({ type = 'info', title = '', message = '' } = {}) {
     }
 
     const safeType = TYPES.includes(type) ? type : 'info';
-    const toast = template.content.firstElementChild.cloneNode(true);
+    const element = template.content.firstElementChild.cloneNode(true);
 
-    toast.className = `toast toast--${safeType}`;
-    toast.dataset.toastType = safeType;
-    toast.setAttribute('role', safeType === 'error' ? 'alert' : 'status');
+    element.dataset.toastType = safeType;
+    element.setAttribute('role', safeType === 'error' ? 'alert' : 'status');
 
-    const titleEl = toast.querySelector('[data-toast-title]');
+    const titleEl = element.querySelector('[data-toast-title]');
     titleEl.textContent = title;
     titleEl.hidden = !title;
-    toast.querySelector('[data-toast-message]').textContent = message;
+    element.querySelector('[data-toast-message]').textContent = message;
 
-    region.append(toast);
-    schedule(toast);
+    region.append(element);
+    schedule(element);
 
     const visible = [...region.querySelectorAll('[data-toast]:not(.toast--leaving)')];
     visible.slice(0, Math.max(0, visible.length - MAX_VISIBLE)).forEach(dismiss);
 
-    return toast;
+    return element;
 }
 
 export function initToasts() {
-    window.toast = show;
+    // Inline Blade scripts reach toasts through window.toast.
+    window.toast = toast;
     document.querySelectorAll('#toasts [data-toast]').forEach(schedule);
 }

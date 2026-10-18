@@ -1,11 +1,6 @@
 @props(['type' => 'info', 'title' => null, 'message' => ''])
 
-<div
-    class="toast toast--{{ $type }}"
-    data-toast
-    data-toast-type="{{ $type }}"
-    role="{{ $type === 'error' ? 'alert' : 'status' }}"
->
+<div class="toast" data-toast data-toast-type="{{ $type }}" role="{{ $type === 'error' ? 'alert' : 'status' }}">
     <span class="toast__icon" aria-hidden="true">
         <svg data-icon="success" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />

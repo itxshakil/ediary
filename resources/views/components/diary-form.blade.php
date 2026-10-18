@@ -4,7 +4,14 @@
 @endphp
 
 <div class="focus-within:ring-primary-500/40 shadow-card hover:shadow-card-hover rounded-2xl border border-gray-200/70 bg-white transition-all duration-200 focus-within:ring-2 dark:border-gray-700/60 dark:bg-gray-900">
-    <form method="POST" action="{{ route('diary.store') }}" id="diary-form" class="p-6">
+    <form
+        method="POST"
+        action="{{ route('diary.store') }}"
+        id="diary-form"
+        class="p-6"
+        data-entry-form
+        data-warn-unsaved
+    >
         @csrf
 
         <div class="mb-5 flex items-center justify-between">
@@ -70,9 +77,7 @@
             <div class="mt-2 flex flex-wrap items-center gap-2">
                 <span class="text-xs text-gray-500 dark:text-gray-400">Popular:</span>
                 @foreach (['gratitude', 'work', 'family', 'health', 'goals', 'travel', 'thoughts'] as $tag)
-                    <button type="button" data-tag="{{ $tag }}" class="suggested-tag chip min-h-8 px-3 text-xs">
-                        #{{ $tag }}
-                    </button>
+                    <button type="button" data-tag="{{ $tag }}" class="chip min-h-8 px-3 text-xs">#{{ $tag }}</button>
                 @endforeach
             </div>
         </div>
@@ -94,9 +99,7 @@
 
         {{-- Footer --}}
         <div class="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <span id="offline-indicator" class="hidden text-xs text-yellow-600 dark:text-yellow-400">
-                • Offline mode
-            </span>
+            <span data-offline-note class="hidden text-xs text-yellow-600 dark:text-yellow-400"> • Offline mode </span>
 
             <x-button type="submit" id="submit-btn">
                 <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -109,180 +112,73 @@
 </div>
 
 <script>
-    const textarea = document.getElementById('entry');
-    const titleInput = document.getElementById('title');
-    const charCount = document.getElementById('char-count');
-    const submitBtn = document.getElementById('submit-btn');
-    const form = document.getElementById('diary-form');
-    const offlineIndicator = document.getElementById('offline-indicator');
+    // Tag editor and character count for this form; drafts, offline saving and submit
+    // shortcuts come from resources/js/modules/entry-form.js.
+    (() => {
+        const form = document.getElementById('diary-form');
+        const textarea = form.elements.namedItem('entry');
+        const charCount = document.getElementById('char-count');
+        const tagInput = document.getElementById('tag-input');
+        const tagsContainer = document.getElementById('tags-container');
+        const tagsHidden = document.getElementById('tags-hidden');
+        let tags = [];
 
-    // Character counter
-    textarea?.addEventListener('input', (e) => {
-        const length = e.target.value.length;
-        charCount.textContent = `${length.toLocaleString()} character${length !== 1 ? 's' : ''}`;
+        const updateCharCount = () => {
+            const length = textarea.value.length;
+            charCount.textContent = `${length.toLocaleString()} character${length !== 1 ? 's' : ''}`;
+            charCount.classList.toggle('text-orange-500', length > 5000);
+        };
 
-        if (length > 5000) {
-            charCount.classList.add('text-orange-500');
-        } else {
-            charCount.classList.remove('text-orange-500');
+        function renderTags() {
+            tagsContainer.replaceChildren(
+                ...tags.map((tag) => {
+                    const chip = document.createElement('span');
+                    chip.className = 'chip-tag';
+                    chip.textContent = `#${tag}`;
+
+                    const remove = document.createElement('button');
+                    remove.type = 'button';
+                    remove.className = '-mr-1 grid size-5 place-items-center rounded-full hover:bg-primary-500/20';
+                    remove.setAttribute('aria-label', `Remove tag ${tag}`);
+                    remove.innerHTML =
+                        '<svg aria-hidden="true" class="size-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>';
+                    remove.addEventListener('click', () => {
+                        tags = tags.filter((t) => t !== tag);
+                        renderTags();
+                    });
+
+                    chip.append(remove);
+                    return chip;
+                }),
+            );
+            tagsHidden.value = tags.join(',');
         }
 
-        localStorage.setItem('diary_draft_entry', e.target.value);
-    });
-
-    titleInput?.addEventListener('input', (e) => {
-        localStorage.setItem('diary_draft_title', e.target.value);
-    });
-
-    window.addEventListener('load', () => {
-        const draftEntry = localStorage.getItem('diary_draft_entry');
-        const draftTitle = localStorage.getItem('diary_draft_title');
-
-        if (draftEntry && !textarea.value) {
-            textarea.value = draftEntry;
-            // Trigger auto-resize and char count
-            textarea.dispatchEvent(new Event('input'));
-        }
-        if (draftTitle && !titleInput.value) {
-            titleInput.value = draftTitle;
-        }
-    });
-
-    const clearMood = () => form.querySelectorAll('[name="mood"]').forEach((radio) => (radio.checked = false));
-
-    // Tags Management
-    let tags = [];
-    const tagInput = document.getElementById('tag-input');
-    const tagsContainer = document.getElementById('tags-container');
-    const tagsHidden = document.getElementById('tags-hidden');
-
-    function addTag(tag) {
-        tag = tag.trim().toLowerCase().replace(/\s+/g, '-');
-        if (!tag || tags.includes(tag)) return;
-
-        tags.push(tag);
-        updateTagsDisplay();
-        tagInput.value = '';
-    }
-
-    function removeTag(tag) {
-        tags = tags.filter((t) => t !== tag);
-        updateTagsDisplay();
-    }
-
-    function updateTagsDisplay() {
-        tagsContainer.replaceChildren(
-            ...tags.map((tag) => {
-                const chip = document.createElement('span');
-                chip.className = 'chip-tag';
-                chip.textContent = `#${tag}`;
-
-                const remove = document.createElement('button');
-                remove.type = 'button';
-                remove.className = '-mr-1 grid size-5 place-items-center rounded-full hover:bg-primary-500/20';
-                remove.setAttribute('aria-label', `Remove tag ${tag}`);
-                remove.innerHTML =
-                    '<svg aria-hidden="true" class="size-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>';
-                remove.addEventListener('click', () => removeTag(tag));
-
-                chip.append(remove);
-                return chip;
-            }),
-        );
-
-        tagsHidden.value = tags.join(',');
-    }
-
-    tagInput?.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            addTag(tagInput.value);
-        }
-    });
-
-    // Suggested tags
-    document.querySelectorAll('.suggested-tag').forEach((btn) => {
-        btn.addEventListener('click', () => {
-            addTag(btn.dataset.tag);
-        });
-    });
-
-    // Handle form submission (online/offline)
-    form?.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const entryValue = textarea.value.trim();
-        if (!entryValue) return;
-
-        if (!navigator.onLine) {
-            try {
-                await window.offlineManager.saveOfflineEntry({
-                    title: titleInput.value,
-                    entry: entryValue,
-                    mood: form.querySelector('[name="mood"]:checked')?.value ?? '',
-                    tags: tags,
-                    privacy: document.getElementById('privacy-select').value,
-                });
-                // reset() also clears the browser's "user edited" state, so the emptied
-                // required field isn't flagged :user-invalid right after a successful save.
-                form.reset();
-                textarea.value = '';
-                titleInput.value = '';
-                charCount.textContent = '0 characters';
-                localStorage.removeItem('diary_draft_entry');
-                localStorage.removeItem('diary_draft_title');
-                tags = [];
-                updateTagsDisplay();
-                clearMood();
-                formChanged = false;
-            } catch (error) {
-                console.error('Failed to save offline:', error);
-                window.toast?.({
-                    type: 'error',
-                    title: 'Could not save offline',
-                    message: 'Your text is still in the form. Please try again.',
-                });
+        function addTag(raw) {
+            const tag = raw.trim().toLowerCase().replace(/\s+/g, '-');
+            if (tag && !tags.includes(tag)) {
+                tags.push(tag);
+                renderTags();
             }
-        } else {
-            localStorage.removeItem('diary_draft_entry');
-            localStorage.removeItem('diary_draft_title');
-            form.submit();
+            tagInput.value = '';
         }
-    });
 
-    // Update offline indicator
-    function updateOfflineUI(offline) {
-        offlineIndicator.classList.toggle('hidden', !offline);
-    }
+        textarea.addEventListener('input', updateCharCount);
+        tagInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                addTag(tagInput.value);
+            }
+        });
+        form.querySelectorAll('[data-tag]').forEach((button) =>
+            button.addEventListener('click', () => addTag(button.dataset.tag)),
+        );
+        form.addEventListener('entry-form:reset', () => {
+            tags = [];
+            renderTags();
+            updateCharCount();
+        });
 
-    window.addEventListener('online', () => updateOfflineUI(false));
-    window.addEventListener('offline', () => updateOfflineUI(true));
-    updateOfflineUI(!navigator.onLine);
-
-    // Ctrl+Enter to submit
-    textarea?.addEventListener('keydown', (e) => {
-        if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
-            e.preventDefault();
-            form.dispatchEvent(new Event('submit'));
-        }
-    });
-
-    // Auto-resize textarea
-    textarea?.addEventListener('input', function () {
-        this.style.height = 'auto';
-        this.style.height = Math.max(this.scrollHeight, 120) + 'px';
-    });
-
-    // Prevent accidental navigation
-    let formChanged = false;
-    textarea?.addEventListener('input', () => {
-        formChanged = textarea.value.trim().length > 0;
-    });
-
-    window.addEventListener('beforeunload', (e) => {
-        if (formChanged) {
-            e.preventDefault();
-            e.returnValue = '';
-        }
-    });
+        updateCharCount();
+    })();
 </script>

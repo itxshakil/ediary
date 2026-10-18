@@ -106,7 +106,7 @@
     </script>
 </head>
 
-<body class="accent-primary-500 font-sans antialiased dark:bg-gray-900 dark:text-white">
+<body class="accent-primary-500 font-sans antialiased dark:bg-gray-900 dark:text-white" @auth data-signed-in @endauth>
     <!-- Google Tag Manager (noscript) -->
     <noscript
         ><iframe
@@ -196,8 +196,6 @@
             </div>
         </div>
     </div>
-
-    <script src="{{ asset('/js/offline-manager.js') }}?v={{ filemtime(public_path('js/offline-manager.js')) }}"></script>
 
     <script>
         if ('serviceWorker' in navigator) {
