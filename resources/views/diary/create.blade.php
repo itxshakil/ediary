@@ -179,11 +179,11 @@
                 clearDraft();
             } catch (error) {
                 console.error('Failed to save offline:', error);
-                window.offlineManager?.showNotification(
-                    'Could not save offline',
-                    'Your text is still in the form. Please try again.',
-                    'error',
-                );
+                window.toast?.({
+                    type: 'error',
+                    title: 'Could not save offline',
+                    message: 'Your text is still in the form. Please try again.',
+                });
             }
         });
 

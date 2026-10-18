@@ -28,6 +28,6 @@ export function initFloatingShare() {
         }
 
         await navigator.clipboard.writeText(window.location.origin);
-        alert('App link copied to clipboard! Share it with your friends.');
+        window.toast?.({ type: 'success', message: 'App link copied. Share it with your friends!' });
     });
 }

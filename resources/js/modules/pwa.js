@@ -255,7 +255,7 @@ function bindBannerActions() {
         }
 
         if (isIOS() && !isStandalone()) {
-            alert('Tap the Share icon → Add to Home Screen to install Ediary.');
+            window.toast?.({ type: 'info', title: 'Install Ediary', message: 'Tap the Share icon, then Add to Home Screen.' });
 
             return;
         }

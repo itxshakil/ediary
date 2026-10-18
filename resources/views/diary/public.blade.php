@@ -130,7 +130,7 @@
             }
 
             await navigator.clipboard.writeText(window.location.href);
-            alert('Link copied to clipboard!');
+            window.toast?.({ type: 'success', message: 'Link copied to clipboard.' });
         });
     </script>
 @endsection

@@ -277,7 +277,11 @@
                 formChanged = false;
             } catch (error) {
                 console.error('Failed to save offline:', error);
-                alert('Failed to save entry offline. Please try again.');
+                window.toast?.({
+                    type: 'error',
+                    title: 'Could not save offline',
+                    message: 'Your text is still in the form. Please try again.',
+                });
             }
         } else {
             localStorage.removeItem('diary_draft_entry');

@@ -129,14 +129,8 @@
 
         <main>
             @yield('content')
-            @if (session('flash'))
-                <div class="fixed bottom-6 left-1/2 z-50 w-full max-w-md -translate-x-1/2 px-4">
-                    <div class="rounded-2xl bg-gray-900 px-4 py-3 text-sm font-medium text-white shadow-xl">
-                        {{ session('flash') }}
-                    </div>
-                </div>
-            @endif
         </main>
+        <x-toasts />
         @include('includes.footer')
     </div>
     <div class="fixed right-6 bottom-6 z-40 flex flex-col gap-4">
@@ -216,11 +210,11 @@
             const hadController = Boolean(navigator.serviceWorker.controller);
             navigator.serviceWorker.addEventListener('controllerchange', () => {
                 if (hadController) {
-                    window.offlineManager?.showNotification(
-                        'E-diary was updated',
-                        'Refresh the page when you are ready to get the latest version.',
-                        'info',
-                    );
+                    window.toast?.({
+                        type: 'info',
+                        title: 'E-diary was updated',
+                        message: 'Refresh the page when you are ready to get the latest version.',
+                    });
                 }
             });
 

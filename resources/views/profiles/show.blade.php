@@ -386,21 +386,7 @@
         });
 
         function showNotification(message, type = 'success') {
-            const colors = {
-                success: 'bg-green-500',
-                error: 'bg-red-500',
-            };
-
-            const notification = document.createElement('div');
-            notification.className = `fixed top-6 right-6 ${colors[type]} text-white px-6 py-4 rounded-xl shadow-xl z-50 animate-slide-down`;
-            notification.textContent = message;
-            document.body.appendChild(notification);
-
-            setTimeout(() => {
-                notification.style.opacity = '0';
-                notification.style.transform = 'translateX(100%)';
-                setTimeout(() => notification.remove(), 300);
-            }, 3000);
+            window.toast?.({ type, message });
         }
     </script>
 @endsection

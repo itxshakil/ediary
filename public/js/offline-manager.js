@@ -239,44 +239,11 @@ class OfflineManager {
     }
 
     showNotification(title, message, type = 'info') {
-        const colors = {
-            success: 'bg-green-500',
-            error: 'bg-red-500',
-            warning: 'bg-yellow-500',
-            info: 'bg-blue-500'
-        };
-
-        const icons = {
-            success: '✓',
-            error: '✕',
-            warning: '⚠',
-            info: 'ℹ'
-        };
-
-        const notification = document.createElement('div');
-        notification.className = `fixed top-6 right-6 ${colors[type]} text-white px-6 py-4 rounded-lg shadow-xl max-w-sm z-50 animate-slide-down`;
-        notification.innerHTML = `
-            <div class="flex items-start gap-3">
-                <span class="text-xl">${icons[type]}</span>
-                <div class="flex-1">
-                    <div class="font-semibold">${title}</div>
-                    <div class="text-sm opacity-90">${message}</div>
-                </div>
-                <button onclick="this.parentElement.parentElement.remove()" class="text-white hover:text-gray-200">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-        `;
-
-        document.body.appendChild(notification);
-
-        setTimeout(() => {
-            notification.style.opacity = '0';
-            notification.style.transform = 'translateX(100%)';
-            setTimeout(() => notification.remove(), 300);
-        }, 5000);
+        if (window.toast) {
+            window.toast({ type, title, message });
+        } else {
+            console.info(`[${type}] ${title}: ${message}`);
+        }
     }
 }
 
