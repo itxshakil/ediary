@@ -86,7 +86,7 @@ final class RequestLogger
     {
         $fileExtensions = ['css', 'js', 'jpg', 'jpeg', 'png', 'gif'];
 
-        return in_array(pathinfo($request->getPathInfo(), PATHINFO_EXTENSION), $fileExtensions, true);
+        return in_array(pathinfo($request->getPathInfo(), PATHINFO_EXTENSION), $fileExtensions, strict: true);
     }
 
     /**
@@ -166,7 +166,7 @@ final class RequestLogger
         $authenticatable = $request->user();
         $authenticatableId = $authenticatable ? $authenticatable->id : 'Guest';
         $bodyAsJson = $request->expectsJson()
-            ? json_encode(Arr::except(json_decode((string) $response->getContent(), true), []))
+            ? json_encode(Arr::except(json_decode((string) $response->getContent(), associative: true), []))
             : 'Non-JSON content returned';
 
         return 'IP: ' . $request->ip() . ' #' . $this->requestId .

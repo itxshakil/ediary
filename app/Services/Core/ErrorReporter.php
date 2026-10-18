@@ -26,7 +26,7 @@ final class ErrorReporter
 
         $key = $this->rateLimitKey($exception);
 
-        if (Cache::add($key, true, now()->addMinutes(5)) === false) {
+        if (Cache::add($key, value: true, ttl: now()->addMinutes(5)) === false) {
             return;
         }
 
@@ -58,7 +58,7 @@ final class ErrorReporter
 
         return array_values(array_filter(
             array_map(static fn ($email): string => mb_trim((string) $email), $emails),
-            static fn (string $email) => filter_var($email, FILTER_VALIDATE_EMAIL),
+            static fn (string $email): string|false => filter_var($email, FILTER_VALIDATE_EMAIL),
         ));
     }
 

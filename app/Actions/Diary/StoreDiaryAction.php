@@ -58,7 +58,7 @@ final class StoreDiaryAction
         }
 
         return array_values(array_filter(
-            array_map(static fn (string $tag): string => mb_trim($tag), explode(',', $rawTags)),
+            array_map(mb_trim(...), explode(',', $rawTags)),
             static fn (string $tag): bool => $tag !== '',
         ));
     }

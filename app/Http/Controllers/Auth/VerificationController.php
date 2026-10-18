@@ -45,6 +45,6 @@ final class VerificationController extends Controller
 
         $user?->sendEmailVerificationNotification();
 
-        return back()->with('resent', true);
+        return back()->with('resent', value: true);
     }
 }

@@ -69,12 +69,12 @@ final class Diary extends Model
      */
     public function isVisibleTo(?User $viewer): bool
     {
-        if ($viewer !== null && $this->user_id === $viewer->id) {
+        if ($viewer instanceof User && $this->user_id === $viewer->id) {
             return true;
         }
 
         $audience = match (true) {
-            $viewer === null => Audience::Guests,
+            ! $viewer instanceof User => Audience::Guests,
             $this->owner->profile->follower()->where('user_id', $viewer->id)->exists() => Audience::Followers,
             default => Audience::Guests,
         };

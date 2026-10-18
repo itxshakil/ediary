@@ -48,4 +48,11 @@ final class PageTest extends TestCase
 
         $this->actingAs(User::factory()->create())->get('/password/change')->assertSeeHtmlInOrder(['action="' . route('password.change') . '"', 'type="submit"']);
     }
+
+    #[Test]
+    public function the_login_and_register_pages_render(): void
+    {
+        $this->get('/login')->assertOk()->assertSeeHtml('name="password"');
+        $this->get('/register')->assertOk()->assertSeeHtml('name="password_confirmation"');
+    }
 }

@@ -69,7 +69,7 @@ enum Privacy: string
      */
     public function allows(Audience $audience): bool
     {
-        return in_array($audience, $this->audiences(), true);
+        return in_array($audience, $this->audiences(), strict: true);
     }
 
     /**

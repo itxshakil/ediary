@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Rector\Config\RectorConfig;
 use Rector\Naming\Rector\Assign\RenameVariableToMatchMethodCallReturnTypeRector;
 use Rector\Naming\Rector\ClassMethod\RenameParamToMatchTypeRector;
+use Rector\Transform\Rector\String_\StringToClassConstantRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\AddParamTypeDeclarationRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\AddReturnTypeDeclarationRector;
 use Rector\ValueObject\PhpVersion;
@@ -40,16 +41,18 @@ return RectorConfig::configure()
     ])
 
     ->withPreparedSets(
-        true,
-        true,
-        true,
-        true,
-        true,
-        true,
-        true,
-        true,
-        true,
+        deadCode: true,
+        codeQuality: true,
+        codingStyle: true,
+        typeDeclarations: true,
+        typeDeclarationDocblocks: true,
+        privatization: true,
+        naming: true,
+        namedArgs: true,
+        instanceOf: true,
     )->withSkip([
         RenameVariableToMatchMethodCallReturnTypeRector::class,
         RenameParamToMatchTypeRector::class,
+        // Mistakes the 'auth.login' view name for the legacy event string and rewrites it to Login::class.
+        StringToClassConstantRector::class => [__DIR__ . '/app/Http/Controllers/Auth/LoginController.php'],
     ]);
