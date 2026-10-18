@@ -459,3 +459,16 @@ a.blog-card-author-name:hover { color: #2563eb; }
         @apply text-blue-600 dark:text-blue-400 underline hover:no-underline;
     }
 }
+
+/* Unlayered so the listening colours win over the button's text and border utilities. */
+.dictate-button--listening {
+    color: var(--color-red-600);
+    border-color: var(--color-red-300);
+}
+
+@media (prefers-color-scheme: dark) {
+    .dictate-button--listening {
+        color: var(--color-red-400);
+        border-color: var(--color-red-800);
+    }
+}

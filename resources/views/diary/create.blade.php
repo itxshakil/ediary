@@ -42,6 +42,7 @@
                         required
                         autofocus
                     >{{ old('entry') }}</textarea>
+                    <x-dictate-button target="entry" class="mt-2" />
                     @error('entry')
                         <p class="mt-1 text-xs text-red-500" role="alert">{{ $message }}</p>
                     @enderror

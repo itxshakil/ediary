@@ -112,6 +112,15 @@
                     device, sign out when you're done.
                 </p>
 
+                <h2 id="dictation" class="mb-8 text-3xl font-bold text-gray-900 dark:text-white">Dictation</h2>
+                <p class="mb-6 leading-relaxed">
+                    The Dictate button uses your browser's built-in speech recognition. Some browsers, including Chrome,
+                    send your voice to their own speech service (Google, for Chrome) to turn it into text, so dictation
+                    needs an internet connection. E-diary never receives or stores audio: only the text that appears in
+                    your entry is saved, and it is encrypted like everything else you type. If you'd rather keep your
+                    voice off third-party services, simply type instead.
+                </p>
+
                 <h2 class="mb-8 text-3xl font-bold text-gray-900 dark:text-white">Your Data, Your Control</h2>
                 <p class="mb-6 leading-relaxed">
                     You can export all of your entries at any time, or
