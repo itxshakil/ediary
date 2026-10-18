@@ -80,7 +80,7 @@
                     "name": "How does privacy work?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "All entries in E-diary are encrypted. No one, including E-diary staff, can access your content without your login credentials."
+                        "text": "All entries in E-diary are encrypted at rest with AES-256, so a leaked database or backup does not expose readable entries. Entries are private by default, and we never sell your data or show ads. Our security page explains exactly how it works."
                     }
                 },
                 {
@@ -190,9 +190,12 @@
                     </h3>
                     <div class="pl-11">
                         <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-                            Privacy is our top priority. All your entries are stored in an
-                            <strong>encrypted</strong> format. Nothing is public by default, and no one (including our
-                            team) can read your content.
+                            Privacy is our top priority. All your entries are stored
+                            <strong>encrypted at rest</strong> with AES-256. Nothing is public by default, we never sell
+                            your data, and our
+                            <a href="{{ url('/security') }}" class="text-blue-600 hover:underline dark:text-blue-400"
+                                >security page</a>
+                            explains exactly how it works.
                         </p>
                     </div>
                 </div>

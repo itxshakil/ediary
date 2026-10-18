@@ -20,6 +20,10 @@
                     </li>
                     <li><a href="/faq" class="text-gray-400 transition-colors hover:text-blue-500">Help & FAQ</a></li>
                     <li>
+                        <a href="/security" class="text-gray-400 transition-colors hover:text-blue-500"
+                            >Security & Privacy</a>
+                    </li>
+                    <li>
                         <a href="/contact" class="text-gray-400 transition-colors hover:text-blue-500"
                             >Contact Support</a>
                     </li>

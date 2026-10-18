@@ -4,31 +4,31 @@
     <link rel="canonical" href="{{ url('login') }}" />
     <meta
         name="description"
-        content="Log in to E-Diary now! Rated 4.8/5 by 1,524 users. Join for free and start writing your private thoughts today."
+        content="Log in to E-Diary and keep writing your private thoughts. Private by default and encrypted at rest."
     />
     <meta
         name="keywords"
-        content="secure diary login, E-Diary secure login, privacy-friendly login, highly-rated app, diary app login, shakil alam"
+        content="secure diary login, E-Diary secure login, privacy-friendly login, diary app login, shakil alam"
     />
-    <meta name="subject" content="Log in to access your private diary | Rated 4.8/5 by users!" />
+    <meta name="subject" content="Log in to access your private diary" />
     <meta name="language" content="en" />
     <meta name="rating" content="General" />
     <meta name="url" content="https://ediary.shakiltech.com/login" />
     <meta name="identifier-URL" content="https://ediary.shakiltech.com/login" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@itxshakil" />
-    <meta name="twitter:title" content="Log in to E-Diary – Your Secure Space for Thoughts | Rated 4.8/5!" />
+    <meta name="twitter:title" content="Log in to E-Diary – Your Private Space for Thoughts" />
     <meta
         name="twitter:description"
-        content="Join thousands of satisfied users! Log in to E-Diary – the most secure and private way to track your thoughts and goals. Rated 4.8/5 by 1,524 happy users!"
+        content="Log in to E-Diary, a private, encrypted space to track your thoughts and goals."
     />
     <meta name="twitter:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
-    <meta name="og:title" content="Log in to E-Diary – Your Secure Space for Thoughts | Rated 4.8/5!" />
+    <meta name="og:title" content="Log in to E-Diary – Your Private Space for Thoughts" />
     <meta name="og:url" content="https://ediary.shakiltech.com/login" />
     <meta name="og:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
     <meta
         name="og:description"
-        content="E-Diary is privacy-friendly and secure. Rated 4.8/5 by 1,524 users. Log in now to start your journey!"
+        content="E-Diary is privacy-friendly and encrypted at rest. Log in now to continue your journey!"
     />
 @endpush
 
@@ -39,42 +39,7 @@
             "@type": "WebPage",
             "name": "E-Diary Login",
             "url": "https://ediary.shakiltech.com/login",
-            "description": "Join thousands of satisfied users! Log in to E-Diary – the most secure and private way to track your thoughts and goals. Rated 4.8/5 by 1,524 happy users!",
-            "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.8",
-                "reviewCount": "1524",
-                "bestRating": "5",
-                "worstRating": "1"
-            },
-            "review": [
-                {
-                    "@type": "Review",
-                    "reviewRating": {
-                        "@type": "Rating",
-                        "ratingValue": "5",
-                        "bestRating": "5"
-                    },
-                    "author": {
-                        "@type": "Person",
-                        "name": "Sophia"
-                    },
-                    "reviewBody": "E-Diary has been life-changing! I love how secure and easy it is to use."
-                },
-                {
-                    "@type": "Review",
-                    "reviewRating": {
-                        "@type": "Rating",
-                        "ratingValue": "4",
-                        "bestRating": "5"
-                    },
-                    "author": {
-                        "@type": "Person",
-                        "name": "Liam"
-                    },
-                    "reviewBody": "Great app for keeping track of my thoughts. Highly recommend!"
-                }
-            ],
+            "description": "Log in to E-Diary, a private, encrypted space to track your thoughts and goals.",
             "breadcrumb": {
                 "@type": "BreadcrumbList",
                 "itemListElement": [
@@ -244,12 +209,12 @@
                     <!-- Trust Badge for Mobile -->
                     <div class="mt-8 rounded-xl bg-blue-50 p-4 text-center lg:hidden dark:bg-blue-900/20">
                         <div class="mb-2 flex items-center justify-center gap-2">
-                            <svg class="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            <svg class="h-5 w-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                             </svg>
-                            <span class="text-lg font-bold text-gray-900 dark:text-white">4.8/5</span>
+                            <span class="text-lg font-bold text-gray-900 dark:text-white">Private by default</span>
                         </div>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Rated by 1,524+ users</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Encrypted at rest. Works offline.</p>
                     </div>
                 </div>
             </div>

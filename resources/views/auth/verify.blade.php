@@ -5,7 +5,7 @@
     <link rel="canonical" href="{{ url('email/verify') }}" />
     <meta
         name="description"
-        content="Verify your email to activate your secure E-Diary account. Join 1,500+ users enjoying a private, encrypted, and distraction-free space to store their thoughts."
+        content="Verify your email to activate your secure E-Diary account. Your private, encrypted, and distraction-free space for your thoughts is one click away."
     />
     <meta name="keywords" content="email verification, secure diary, verify account, private notes app, E-Diary" />
     <meta name="subject" content="Verify your E-Diary account email" />
@@ -17,7 +17,7 @@
     <meta name="twitter:title" content="Verify Your Email – Activate Your Secure E-Diary Account" />
     <meta
         name="twitter:description"
-        content="Just one step left! Verify your email to activate your encrypted E-Diary account and join thousands of users worldwide."
+        content="Just one step left! Verify your email to activate your encrypted E-Diary account and start writing."
     />
     <meta name="twitter:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
     <meta name="og:title" content="Verify Your Email – Activate Your Secure E-Diary Account" />
@@ -36,7 +36,7 @@
             "@type": "WebPage",
             "name": "Email Verification – E-Diary",
             "url": "{{ url('email/verify') }}",
-            "description": "Verify your email to activate your secure and encrypted E-Diary account. Rated 4.8/5 by 1,524 users.",
+            "description": "Verify your email to activate your secure and encrypted E-Diary account.",
             "publisher": {
                 "@type": "Organization",
                 "name": "E-Diary",
@@ -120,7 +120,7 @@
                     <!-- Support -->
                     <div class="text-center">
                         <a
-                            href="{{ url('/support') }}"
+                            href="{{ url('/contact') }}"
                             class="inline-flex items-center gap-1 text-sm text-blue-600 hover:underline dark:text-blue-400"
                         >
                             <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -137,15 +137,6 @@
                             </svg>
                             Contact support
                         </a>
-                    </div>
-
-                    <!-- Mobile Rating -->
-                    <div class="mt-8 rounded-xl bg-blue-50 p-4 text-center lg:hidden dark:bg-blue-900/20">
-                        <div class="mb-1 flex items-center justify-center gap-2">
-                            <span class="text-lg font-semibold text-gray-900 dark:text-white">4.8</span>
-                            <span class="text-sm text-gray-500">/ 5</span>
-                        </div>
-                        <p class="text-xs text-gray-600 dark:text-gray-400">Rated by 1,524+ users</p>
                     </div>
                 </div>
             </div>

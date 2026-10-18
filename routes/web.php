@@ -78,6 +78,7 @@ Route::post('/api/users/{user:username}/avatar', [UserAvatarController::class, '
 
 Route::view('/about', 'pages.about');
 Route::view('/faq', 'pages.faq');
+Route::view('/security', 'pages.security');
 Route::view('/contact', 'pages.contact');
 Route::view('/success', 'pages.success');
 Route::view('/request-data', 'pages.request-data')->middleware('password.confirm');

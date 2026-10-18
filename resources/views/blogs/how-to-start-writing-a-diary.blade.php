@@ -59,13 +59,6 @@
                     "@type": "ImageObject",
                     "url": "https://ediary.shakiltech.com/icons/android-icon-192x192.png"
                 }
-            },
-            "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.7",
-                "reviewCount": "250",
-                "bestRating": "5",
-                "worstRating": "1"
             }
         }
     </script>

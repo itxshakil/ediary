@@ -17,6 +17,7 @@ final class PageTest extends TestCase
     {
         $this->get('/about')->assertStatus(200);
         $this->get('/faq')->assertStatus(200);
+        $this->get('/security')->assertStatus(200);
         $this->get('/contact')->assertStatus(200);
     }
 
@@ -32,8 +33,6 @@ final class PageTest extends TestCase
         ]);
 
         $response->assertRedirect('/success');
-        Mail::assertSent(ContactUs::class, function ($mail) {
-            return $mail->hasTo('itxshakil@gmail.com');
-        });
+        Mail::assertSent(ContactUs::class, fn ($mail) => $mail->hasTo('itxshakil@gmail.com'));
     }
 }

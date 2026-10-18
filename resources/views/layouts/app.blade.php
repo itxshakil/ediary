@@ -83,13 +83,6 @@
             "description": "E-diary is the easiest and safest way to document your thoughts, memories, and experiences. With complete privacy and offline accessibility, it's the most convenient way to track your life journey.",
             "operatingSystem": "iOS, Android, Web",
             "applicationCategory": "Productivity",
-            "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.8",
-                "reviewCount": "138",
-                "bestRating": "5",
-                "worstRating": "1"
-            },
             "author": {
                 "@type": "Organization",
                 "name": "Shakil Alam"

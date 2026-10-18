@@ -263,10 +263,10 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                         </svg>
                     </div>
-                    <h3 class="mb-3 text-xl font-bold text-gray-900 dark:text-white">Bank-Level Security</h3>
+                    <h3 class="mb-3 text-xl font-bold text-gray-900 dark:text-white">Private by Default</h3>
                     <p class="leading-relaxed text-gray-600 dark:text-gray-400">
-                        Every entry is encrypted with military-grade security. Your thoughts stay yours—no exceptions,
-                        no backdoors, no compromises.
+                        Every entry is encrypted at rest with AES-256 and private unless you choose to share it. No ads,
+                        no data selling, and the code is open source.
                     </p>
                 </div>
 
@@ -329,14 +329,14 @@
                     <div class="mb-2 text-4xl font-bold text-blue-600 md:text-5xl dark:text-blue-400">100%</div>
                     <div class="mb-2 text-lg font-medium text-gray-900 dark:text-white">Private</div>
                     <p class="text-gray-600 dark:text-gray-400">
-                        Your entries are encrypted and only you can read them
+                        Entries are encrypted at rest and private unless you share them
                     </p>
                 </div>
                 <div class="text-center">
                     <div class="mb-2 text-4xl font-bold text-blue-600 md:text-5xl dark:text-blue-400">0</div>
                     <div class="mb-2 text-lg font-medium text-gray-900 dark:text-white">Personal Data</div>
                     <p class="text-gray-600 dark:text-gray-400">
-                        No name, birthday, or tracking. Just your email for login
+                        No name, birthday, or ad trackers. Just your email for login
                     </p>
                 </div>
                 <div class="text-center">

@@ -58,13 +58,6 @@
                     "@type": "ImageObject",
                     "url": "https://ediary.shakiltech.com/icons/android-icon-192x192.png"
                 }
-            },
-            "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.7",
-                "reviewCount": "215",
-                "bestRating": "5",
-                "worstRating": "1"
             }
         }
     </script>
@@ -236,7 +229,10 @@
                     <strong>Ediary</strong>, you get:
                 </p>
                 <ul>
-                    <li><strong>Complete Privacy:</strong> Your entries are encrypted and secure.</li>
+                    <li>
+                        <strong>Private by Default:</strong> Your entries are encrypted at rest and private unless you
+                        share them.
+                    </li>
                     <li><strong>Always Accessible:</strong> Offline or online, your diary is with you.</li>
                     <li><strong>Seamless Access:</strong> Online or offline, your entries sync automatically.</li>
                 </ul>

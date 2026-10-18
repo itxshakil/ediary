@@ -40,8 +40,11 @@
                     <div class="rounded-2xl border border-gray-100 bg-gray-50 p-8 dark:border-gray-700 dark:bg-gray-800">
                         <h3 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Privacy First</h3>
                         <p>
-                            We don't sell your data. We don't even look at it. Your entries are encrypted, meaning only
-                            you have the keys to your memories.
+                            We don't sell your data and we don't show ads. Your entries are encrypted at rest and
+                            private by default. Read how it works on our
+                            <a href="{{ url('/security') }}" class="text-blue-600 hover:underline dark:text-blue-400"
+                                >security page</a
+                            >.
                         </p>
                     </div>
                     <div class="rounded-2xl border border-gray-100 bg-gray-50 p-8 dark:border-gray-700 dark:bg-gray-800">

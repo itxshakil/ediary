@@ -4,31 +4,31 @@
     <link rel="canonical" href="{{ url('register') }}" />
     <meta
         name="description"
-        content="Create your free E-Diary account today! Rated 4.8/5 by 1,524 users. Join the safest and most private online diary trusted by thousands worldwide."
+        content="Create your free E-Diary account with just an email. Private by default, encrypted at rest, unlimited entries, and works offline."
     />
     <meta
         name="keywords"
         content="create diary account, free diary registration, secure diary signup, E-Diary register, start journaling, shakil alam"
     />
-    <meta name="subject" content="Register for your secure E-Diary account | Rated 4.8/5 by users!" />
+    <meta name="subject" content="Register for your private E-Diary account" />
     <meta name="language" content="en" />
     <meta name="rating" content="General" />
     <meta name="url" content="https://ediary.shakiltech.com/register" />
     <meta name="identifier-URL" content="https://ediary.shakiltech.com/register" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@itxshakil" />
-    <meta name="twitter:title" content="Sign Up for E-Diary – Your Private Space for Thoughts | Rated 4.8/5!" />
+    <meta name="twitter:title" content="Sign Up for E-Diary – Your Private Space for Thoughts" />
     <meta
         name="twitter:description"
-        content="Start your journaling journey with E-Diary — secure, private, and trusted by 1,524+ users worldwide. Create your account for free today!"
+        content="Start your journaling journey with E-Diary. Private by default, encrypted at rest, and free. Create your account today!"
     />
     <meta name="twitter:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
-    <meta name="og:title" content="Sign Up for E-Diary – The Most Secure Online Diary | Rated 4.8/5!" />
+    <meta name="og:title" content="Sign Up for E-Diary – A Private Online Diary" />
     <meta name="og:url" content="https://ediary.shakiltech.com/register" />
     <meta name="og:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
     <meta
         name="og:description"
-        content="Join thousands of users who trust E-Diary for safe, private journaling. Create your free account today and start writing your story."
+        content="Private, distraction-free journaling with just an email. Create your free account today and start writing your story."
     />
 @endpush
 
@@ -95,42 +95,7 @@
             "@type": "WebPage",
             "name": "E-Diary Registration",
             "url": "https://ediary.shakiltech.com/register",
-            "description": "Start journaling securely with E-Diary. Rated 4.8/5 by 1,524+ users. Create your free account today!",
-            "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.8",
-                "reviewCount": "1524",
-                "bestRating": "5",
-                "worstRating": "1"
-            },
-            "review": [
-                {
-                    "@type": "Review",
-                    "reviewRating": {
-                        "@type": "Rating",
-                        "ratingValue": "5",
-                        "bestRating": "5"
-                    },
-                    "author": {
-                        "@type": "Person",
-                        "name": "Ava"
-                    },
-                    "reviewBody": "The perfect place to write my daily thoughts. Love how private and secure it is!"
-                },
-                {
-                    "@type": "Review",
-                    "reviewRating": {
-                        "@type": "Rating",
-                        "ratingValue": "4",
-                        "bestRating": "5"
-                    },
-                    "author": {
-                        "@type": "Person",
-                        "name": "Noah"
-                    },
-                    "reviewBody": "Simple, elegant, and really secure. Great for daily journaling!"
-                }
-            ],
+            "description": "Start journaling privately with E-Diary. Create your free account today!",
             "breadcrumb": {
                 "@type": "BreadcrumbList",
                 "itemListElement": [
