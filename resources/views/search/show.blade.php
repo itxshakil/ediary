@@ -88,7 +88,7 @@
                         </p>
                         <a
                             href="{{ route('search') }}"
-                            class="bg-primary-600 hover:bg-primary-700 mt-6 inline-flex items-center gap-2 rounded-lg px-6 py-3 font-medium text-white transition-colors duration-200"
+                            class="bg-primary-600 hover:bg-primary-700 mt-6 inline-flex items-center gap-2 rounded-xl px-6 py-3 font-medium text-white transition-colors duration-200"
                         >
                             Explore Users
                             <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

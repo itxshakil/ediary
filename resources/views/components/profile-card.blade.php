@@ -4,7 +4,7 @@
     'profile' => null,
 ])
 
-<div class="h-auto w-full rounded-2xl border border-gray-200/70 bg-gray-200/70 bg-cover p-3 py-4 shadow-[0_1px_2px_rgba(0,0,0,0.05)] md:p-8 lg:block lg:w-1/2 dark:border-gray-700/60 dark:bg-gray-800/60 dark:text-white">
+<div class="shadow-card h-auto w-full rounded-2xl border border-gray-200/70 bg-gray-200/70 bg-cover p-3 py-4 md:p-8 lg:block lg:w-1/2 dark:border-gray-700/60 dark:bg-gray-800/60 dark:text-white">
     <div class="flex">
         {{-- Left Image --}}
         <div class="flex flex-col items-center justify-center">

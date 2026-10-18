@@ -44,7 +44,7 @@
     <div class="min-h-screen bg-linear-to-br from-gray-50/80 to-gray-100 dark:from-gray-900/80 dark:to-gray-800">
         <div class="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
             <div class="mx-auto max-w-4xl">
-                <div class="overflow-hidden rounded-2xl border border-gray-200/70 bg-white/90 shadow-[0_1px_2px_rgba(0,0,0,0.05)] dark:border-gray-700/60 dark:bg-gray-800/70">
+                <div class="shadow-card overflow-hidden rounded-2xl border border-gray-200/70 bg-white/90 dark:border-gray-700/60 dark:bg-gray-800/70">
                     {{-- Cover --}}
                     <div class="from-primary-500 h-32 bg-gradient-to-r via-purple-500 to-pink-500"></div>
 
@@ -215,7 +215,7 @@
                 </div>
 
                 {{-- Public Entries --}}
-                <div class="mt-8 rounded-2xl border border-gray-200/70 bg-white/90 p-6 shadow-[0_1px_2px_rgba(0,0,0,0.05)] sm:p-8 dark:border-gray-700/60 dark:bg-gray-800/70">
+                <div class="shadow-card mt-8 rounded-2xl border border-gray-200/70 bg-white/90 p-6 sm:p-8 dark:border-gray-700/60 dark:bg-gray-800/70">
                     <h2 class="mb-6 text-xl font-semibold text-gray-900 dark:text-white">Public Entries</h2>
 
                     <div class="py-16 text-center">
@@ -392,7 +392,7 @@
             };
 
             const notification = document.createElement('div');
-            notification.className = `fixed top-6 right-6 ${colors[type]} text-white px-6 py-4 rounded-lg shadow-xl z-50 animate-slide-down`;
+            notification.className = `fixed top-6 right-6 ${colors[type]} text-white px-6 py-4 rounded-xl shadow-xl z-50 animate-slide-down`;
             notification.textContent = message;
             document.body.appendChild(notification);
 

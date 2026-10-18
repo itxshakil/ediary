@@ -37,12 +37,12 @@
                     </div>
                 </div>
             </div>
-            <div class="w-full rounded-lg bg-gray-200 p-2 md:p-5 lg:w-1/2 lg:rounded-l-none dark:bg-gray-800">
+            <div class="w-full rounded-xl bg-gray-200 p-2 md:p-5 lg:w-1/2 lg:rounded-l-none dark:bg-gray-800">
                 <h3 class="pt-4 pb-2 text-center text-2xl text-gray-900 md:pb-4 dark:text-white">
                     Change Your Username!
                 </h3>
                 <form
-                    class="mb-4 rounded-sm bg-white px-4 pt-6 pb-2 md:px-8 dark:bg-gray-900 dark:text-white"
+                    class="mb-4 rounded-md bg-white px-4 pt-6 pb-2 md:px-8 dark:bg-gray-900 dark:text-white"
                     method="POST"
                     action="/username"
                 >

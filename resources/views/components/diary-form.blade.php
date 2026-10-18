@@ -3,7 +3,7 @@
     use App\Enums\Privacy;
 @endphp
 
-<div class="focus-within:ring-primary-500/40 rounded-2xl border border-gray-200/70 bg-white shadow-[0_1px_2px_rgba(0,0,0,0.05)] transition-all duration-200 focus-within:ring-2 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] dark:border-gray-700/60 dark:bg-gray-900">
+<div class="focus-within:ring-primary-500/40 shadow-card hover:shadow-card-hover rounded-2xl border border-gray-200/70 bg-white transition-all duration-200 focus-within:ring-2 dark:border-gray-700/60 dark:bg-gray-900">
     <form method="POST" action="{{ route('diary.store') }}" id="diary-form" class="p-6">
         @csrf
 

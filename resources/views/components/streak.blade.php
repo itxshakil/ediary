@@ -19,7 +19,7 @@
         </div>
 
         {{-- Today's Status --}}
-        <div class="mb-4 rounded-lg bg-white/20 p-3 backdrop-blur-sm">
+        <div class="mb-4 rounded-xl bg-white/20 p-3 backdrop-blur-sm">
             @if ($todayWritten)
                 <div class="flex items-center gap-2">
                     <svg class="h-5 w-5 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">

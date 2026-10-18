@@ -19,11 +19,11 @@
                     </div>
                 </div>
             </div>
-            <div class="w-full rounded-lg bg-gray-200 p-2 md:p-5 lg:w-1/2 lg:rounded-l-none dark:bg-gray-800">
+            <div class="w-full rounded-xl bg-gray-200 p-2 md:p-5 lg:w-1/2 lg:rounded-l-none dark:bg-gray-800">
                 <h1 class="pt-4 pb-2 text-center text-2xl text-gray-900 md:pb-4 dark:text-white">
                     {{ __('Confirm Password') }}
                 </h1>
-                <div class="mb-4 rounded-sm bg-white px-4 pt-6 pb-2 md:px-8">
+                <div class="mb-4 rounded-md bg-white px-4 pt-6 pb-2 md:px-8">
                     <p>{{ __('Please confirm your password before continuing.') }}</p>
 
                     <form method="POST" action="{{ route('password.confirm') }}">
@@ -44,7 +44,7 @@
                                 @endif
                             </div>
                             <input
-                                class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded-sm shadow-sm appearance-none focus:outline-hidden @error('password') border-red-500 @enderror"
+                                class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded-md shadow-sm appearance-none focus:outline-hidden @error('password') border-red-500 @enderror"
                                 id="password"
                                 type="password"
                                 name="password"

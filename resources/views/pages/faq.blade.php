@@ -118,7 +118,7 @@
                 <!-- FAQ: Q1 -->
                 <div class="group">
                     <h3 class="mb-4 flex items-center gap-3 text-2xl font-bold text-gray-900 dark:text-white">
-                        <span class="bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400 flex h-8 w-8 items-center justify-center rounded-lg text-sm">01</span>
+                        <span class="bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400 flex h-8 w-8 items-center justify-center rounded-xl text-sm">01</span>
                         What is E-diary?
                     </h3>
                     <div class="pl-11">
@@ -134,7 +134,7 @@
                 <!-- FAQ: Q2 -->
                 <div class="group">
                     <h3 class="mb-4 flex items-center gap-3 text-2xl font-bold text-gray-900 dark:text-white">
-                        <span class="bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400 flex h-8 w-8 items-center justify-center rounded-lg text-sm">02</span>
+                        <span class="bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400 flex h-8 w-8 items-center justify-center rounded-xl text-sm">02</span>
                         How can I create a diary?
                     </h3>
                     <div class="pl-11">
@@ -152,7 +152,7 @@
                 <!-- FAQ: Q3 -->
                 <div class="group">
                     <h3 class="mb-4 flex items-center gap-3 text-2xl font-bold text-gray-900 dark:text-white">
-                        <span class="bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400 flex h-8 w-8 items-center justify-center rounded-lg text-sm">03</span>
+                        <span class="bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400 flex h-8 w-8 items-center justify-center rounded-xl text-sm">03</span>
                         How can I print my entries?
                     </h3>
                     <div class="pl-11">
@@ -171,7 +171,7 @@
                 <!-- FAQ: Q4 -->
                 <div class="group">
                     <h3 class="mb-4 flex items-center gap-3 text-2xl font-bold text-gray-900 dark:text-white">
-                        <span class="bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400 flex h-8 w-8 items-center justify-center rounded-lg text-sm">04</span>
+                        <span class="bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400 flex h-8 w-8 items-center justify-center rounded-xl text-sm">04</span>
                         Who can see my entries?
                     </h3>
                     <div class="pl-11">
@@ -189,7 +189,7 @@
                 <!-- FAQ: Q5 -->
                 <div class="group">
                     <h3 class="mb-4 flex items-center gap-3 text-2xl font-bold text-gray-900 dark:text-white">
-                        <span class="bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400 flex h-8 w-8 items-center justify-center rounded-lg text-sm">05</span>
+                        <span class="bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400 flex h-8 w-8 items-center justify-center rounded-xl text-sm">05</span>
                         How does privacy work?
                     </h3>
                     <div class="pl-11">
@@ -209,7 +209,7 @@
                 <!-- FAQ: Q6 -->
                 <div class="group">
                     <h3 class="mb-4 flex items-center gap-3 text-2xl font-bold text-gray-900 dark:text-white">
-                        <span class="bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400 flex h-8 w-8 items-center justify-center rounded-lg text-sm">06</span>
+                        <span class="bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400 flex h-8 w-8 items-center justify-center rounded-xl text-sm">06</span>
                         Why am I asked for my email?
                     </h3>
                     <div class="pl-11">

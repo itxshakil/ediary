@@ -13,7 +13,7 @@
                     id="search-input"
                     value="{{ request('q') }}"
                     placeholder="Search your diary entries..."
-                    class="focus:ring-primary-500 w-full rounded-lg border border-gray-300 bg-gray-50 py-3 pr-4 pl-12 text-gray-900 transition-all duration-200 focus:border-transparent focus:ring-2 dark:border-gray-600 dark:bg-gray-900 dark:text-white"
+                    class="focus:ring-primary-500 w-full rounded-xl border border-gray-300 bg-gray-50 py-3 pr-4 pl-12 text-gray-900 transition-all duration-200 focus:border-transparent focus:ring-2 dark:border-gray-600 dark:bg-gray-900 dark:text-white"
                 />
             </div>
             <button
@@ -25,7 +25,7 @@
             <button
                 type="button"
                 id="filter-toggle"
-                class="flex items-center gap-2 rounded-lg px-4 py-3 text-gray-700 transition-colors duration-200 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
+                class="flex items-center gap-2 rounded-xl px-4 py-3 text-gray-700 transition-colors duration-200 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
             >
                 <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
@@ -42,7 +42,7 @@
                     <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"> Date Range </label>
                     <select
                         name="date_range"
-                        class="focus:ring-primary-500 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 dark:border-gray-600 dark:bg-gray-900"
+                        class="focus:ring-primary-500 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 dark:border-gray-600 dark:bg-gray-900"
                     >
                         <option value="">All time</option>
                         <option value="today" {{ request('date_range') == 'today' ? 'selected' : '' }}>Today</option>
@@ -62,7 +62,7 @@
                     <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"> Mood </label>
                     <select
                         name="mood"
-                        class="focus:ring-primary-500 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 dark:border-gray-600 dark:bg-gray-900"
+                        class="focus:ring-primary-500 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 dark:border-gray-600 dark:bg-gray-900"
                     >
                         <option value="">All moods</option>
                         <option value="happy" {{ request('mood') == 'happy' ? 'selected' : '' }}>😊 Happy</option>
@@ -84,7 +84,7 @@
                     <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"> Privacy </label>
                     <select
                         name="privacy"
-                        class="focus:ring-primary-500 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 dark:border-gray-600 dark:bg-gray-900"
+                        class="focus:ring-primary-500 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 dark:border-gray-600 dark:bg-gray-900"
                     >
                         <option value="">All entries</option>
                         <option value="private" {{ request('privacy') == 'private' ? 'selected' : '' }}>
@@ -105,7 +105,7 @@
                     <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"> Sort By </label>
                     <select
                         name="sort"
-                        class="focus:ring-primary-500 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 dark:border-gray-600 dark:bg-gray-900"
+                        class="focus:ring-primary-500 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 dark:border-gray-600 dark:bg-gray-900"
                     >
                         <option value="newest" {{ request('sort') == 'newest' ? 'selected' : '' }}>Newest first</option>
                         <option value="oldest" {{ request('sort') == 'oldest' ? 'selected' : '' }}>Oldest first</option>
@@ -127,7 +127,7 @@
                         type="date"
                         name="date_from"
                         value="{{ request('date_from') }}"
-                        class="focus:ring-primary-500 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 dark:border-gray-600 dark:bg-gray-900"
+                        class="focus:ring-primary-500 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 dark:border-gray-600 dark:bg-gray-900"
                     />
                 </div>
                 <div>
@@ -136,7 +136,7 @@
                         type="date"
                         name="date_to"
                         value="{{ request('date_to') }}"
-                        class="focus:ring-primary-500 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 dark:border-gray-600 dark:bg-gray-900"
+                        class="focus:ring-primary-500 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 dark:border-gray-600 dark:bg-gray-900"
                     />
                 </div>
             </div>
@@ -169,13 +169,13 @@
             <div class="flex gap-3 pt-2">
                 <button
                     type="submit"
-                    class="bg-primary-600 hover:bg-primary-700 rounded-lg px-4 py-2 text-sm font-medium text-white transition-colors"
+                    class="bg-primary-600 hover:bg-primary-700 rounded-xl px-4 py-2 text-sm font-medium text-white transition-colors"
                 >
                     Apply Filters
                 </button>
                 <a
                     href="{{ route('home') }}"
-                    class="rounded-lg px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
+                    class="rounded-xl px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
                 >
                     Clear All
                 </a>

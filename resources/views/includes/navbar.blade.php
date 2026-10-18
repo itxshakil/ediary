@@ -8,20 +8,20 @@
                 @auth
                     <a
                         href="{{ route('diary.explore') }}"
-                        class="rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                        class="rounded-xl px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
                     >Explore</a>
                 @endauth
                 <a
                     href="/blog"
-                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                    class="rounded-xl px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
                 >Blog</a>
                 <a
                     href="/about"
-                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                    class="rounded-xl px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
                 >About</a>
                 <a
                     href="/faq"
-                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                    class="rounded-xl px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
                 >FAQ</a>
             </div>
         </div>
@@ -50,12 +50,12 @@
             @guest
                 <!-- Guest View -->
                 <a
-                    class="bg-primary-100 text-primary-800 active:bg-primary-200 mr-2 hidden rounded-sm px-4 py-2 text-xs font-bold uppercase shadow-sm outline-hidden hover:shadow-md md:block"
+                    class="bg-primary-100 text-primary-800 active:bg-primary-200 mr-2 hidden rounded-md px-4 py-2 text-xs font-bold uppercase shadow-sm outline-hidden hover:shadow-md md:block"
                     href="{{ route('register') }}"
                 >Register</a>
 
                 <a
-                    class="mr-2 rounded-sm bg-gray-200 px-4 py-2 text-xs font-bold text-gray-800 uppercase shadow-sm outline-hidden hover:shadow-md dark:bg-gray-700 dark:text-gray-100"
+                    class="mr-2 rounded-md bg-gray-200 px-4 py-2 text-xs font-bold text-gray-800 uppercase shadow-sm outline-hidden hover:shadow-md dark:bg-gray-700 dark:text-gray-100"
                     href="{{ route('login') }}"
                 >Login</a>
 

@@ -1,7 +1,7 @@
 @props(['moodData' => []])
 
 @if (count($moodData) > 0)
-    <div class="rounded-2xl border border-gray-200/70 bg-white/90 p-5 shadow-[0_1px_2px_rgba(0,0,0,0.05)] dark:border-gray-700/60 dark:bg-gray-800/70">
+    <div class="shadow-card rounded-2xl border border-gray-200/70 bg-white/90 p-5 dark:border-gray-700/60 dark:bg-gray-800/70">
         <h3 class="mb-4 text-sm font-semibold text-gray-700 dark:text-gray-300">Mood This Week</h3>
 
         <div class="flex items-end justify-between gap-1">

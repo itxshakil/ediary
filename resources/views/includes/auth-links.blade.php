@@ -1,12 +1,12 @@
 @guest
     @if (Route::has('register'))
         <a
-            class="bg-primary-100 text-primary-800 active:bg-primary-200 mr-2 mb-1 hidden rounded-sm px-4 py-2 text-xs font-bold uppercase shadow-sm outline-hidden hover:shadow-md focus:outline-hidden md:block"
+            class="bg-primary-100 text-primary-800 active:bg-primary-200 mr-2 mb-1 hidden rounded-md px-4 py-2 text-xs font-bold uppercase shadow-sm outline-hidden hover:shadow-md focus:outline-hidden md:block"
             href="/register"
         >{{ __('Register') }}</a>
     @endif
     <a
-        class="mr-2 mb-1 rounded-sm bg-gray-700 px-4 py-2 text-xs font-bold text-gray-100 uppercase shadow-sm outline-hidden hover:shadow-md focus:outline-hidden"
+        class="mr-2 mb-1 rounded-md bg-gray-700 px-4 py-2 text-xs font-bold text-gray-100 uppercase shadow-sm outline-hidden hover:shadow-md focus:outline-hidden"
         href="/login"
     >{{ __('Login') }}</a>
 @else
