@@ -1,4 +1,12 @@
-const STATIC_CACHE = 'ediary-static-v11';
+// Generated on `npm run build` from Vite's manifest; see scripts/generate-sw-precache.mjs.
+try {
+    importScripts('/build/sw-precache.js');
+} catch (error) {
+    console.warn('No build manifest found; precaching core assets only.', error);
+}
+
+const BUILD = self.__EDIARY_BUILD ?? { version: 'dev', assets: [] };
+const STATIC_CACHE = `ediary-static-${BUILD.version}`;
 const PAGE_CACHE   = 'ediary-pages-v11';
 
 const ONE_WEEK = 7 * 24 * 60 * 60 * 1000;
@@ -26,7 +34,7 @@ const CORE_ASSETS = [
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(STATIC_CACHE)
-            .then(cache => cache.addAll(CORE_ASSETS))
+            .then(cache => precache(cache, [...CORE_ASSETS, ...BUILD.assets]))
             .then(() => self.skipWaiting())
     );
 });
@@ -81,9 +89,29 @@ async function cacheFirstStatic(request) {
         return cached;
     }
 
-    const fresh = await fetch(request);
-    await putWithTimestamp(cache, request, fresh.clone());
-    return fresh;
+    try {
+        const fresh = await fetch(request);
+        if (fresh.ok) {
+            await putWithTimestamp(cache, request, fresh.clone());
+        }
+        return fresh;
+    } catch (error) {
+        // Offline: a stale copy beats a page without its styles or scripts.
+        if (cached) return cached;
+        throw error;
+    }
+}
+
+async function precache(cache, urls) {
+    await Promise.all(urls.map(async url => {
+        const response = await fetch(url, { cache: 'reload' });
+        if (!response.ok) {
+            throw new Error(`Precache failed for ${url}: ${response.status}`);
+        }
+        // e.g. /home redirects guests to /login; don't store the login page as /home.
+        if (response.redirected) return;
+        await putWithTimestamp(cache, url, response);
+    }));
 }
 
 async function networkFirstPage(request) {
@@ -91,8 +119,12 @@ async function networkFirstPage(request) {
 
     try {
         const fresh = await fetch(request);
-        await putWithTimestamp(cache, request, fresh.clone());
-        reCacheHomeVariants();
+        if (fresh.ok) {
+            await putWithTimestamp(cache, request, fresh.clone());
+        }
+        if (new URL(request.url).pathname === '/') {
+            reCacheHomeVariants();
+        }
         return fresh;
     } catch {
         return (
@@ -164,9 +196,10 @@ function reCacheHomeVariants() {
     const variants = ['/', '/?utm_source=homescreen'];
     variants.forEach(path => {
         fetch(path).then(res => {
+            if (!res.ok) return;
             caches.open(PAGE_CACHE)
                 .then(cache => putWithTimestamp(cache, path, res));
-        });
+        }).catch(() => {});
     });
 }
 

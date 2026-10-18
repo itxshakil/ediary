@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="noindex" />
+        <title>You're offline | Ediary</title>
+        <link rel="icon" href="/icons/old/icons-48.png" />
+        <style>
+            :root {
+                color-scheme: light dark;
+                --bg: #f9fafb;
+                --card: #ffffff;
+                --text: #111827;
+                --muted: #4b5563;
+                --border: #e5e7eb;
+                --accent: #2563eb;
+                --accent-hover: #1d4ed8;
+            }
+
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --bg: #111827;
+                    --card: #1f2937;
+                    --text: #f9fafb;
+                    --muted: #9ca3af;
+                    --border: #374151;
+                    --accent: #3b82f6;
+                    --accent-hover: #60a5fa;
+                }
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                min-height: 100dvh;
+                display: grid;
+                place-items: center;
+                padding: 16px;
+                background: var(--bg);
+                color: var(--text);
+                font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            main {
+                width: 100%;
+                max-width: 28rem;
+                padding: 2.5rem 2rem;
+                text-align: center;
+                background: var(--card);
+                border: 1px solid var(--border);
+                border-radius: 1rem;
+                box-shadow: 0 8px 24px rgb(0 0 0 / 0.06);
+            }
+
+            .icon {
+                width: 3rem;
+                height: 3rem;
+                margin: 0 auto 1.25rem;
+                color: var(--accent);
+            }
+
+            h1 {
+                margin: 0 0 0.75rem;
+                font-size: 1.5rem;
+                text-wrap: balance;
+            }
+
+            p {
+                margin: 0 0 1rem;
+                color: var(--muted);
+                line-height: 1.6;
+            }
+
+            .actions {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.75rem;
+                justify-content: center;
+                margin-top: 1.5rem;
+            }
+
+            a,
+            button {
+                min-height: 2.75rem;
+                padding: 0.625rem 1.25rem;
+                border-radius: 9999px;
+                font: inherit;
+                font-weight: 600;
+                font-size: 0.875rem;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            button {
+                border: 0;
+                background: var(--accent);
+                color: #fff;
+            }
+
+            button:hover {
+                background: var(--accent-hover);
+            }
+
+            a {
+                display: inline-flex;
+                align-items: center;
+                border: 1px solid var(--border);
+                color: var(--text);
+            }
+
+            a:focus-visible,
+            button:focus-visible {
+                outline: 2px solid var(--accent);
+                outline-offset: 2px;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <svg class="icon" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 3l18 18M8.5 16.5a5 5 0 017 0M5 12.86a10 10 0 015.17-2.69M19 12.86a10 10 0 00-2.07-1.41M2 8.82a15 15 0 014.18-2.65M22 8.82A15 15 0 0011.17 5M12 20h.01" />
+            </svg>
+            <h1>You're offline</h1>
+            <p>This page isn't saved on your device yet. Pages you've opened before still work offline.</p>
+            <p>Anything you write offline from your journal is kept on this device and syncs when you're back online.</p>
+            <div class="actions">
+                <button type="button" onclick="location.reload()">Try again</button>
+                <a href="/home">Open my journal</a>
+            </div>
+        </main>
+    </body>
+</html>

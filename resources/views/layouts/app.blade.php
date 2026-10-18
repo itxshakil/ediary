@@ -210,9 +210,23 @@
 
     <script>
         if ('serviceWorker' in navigator) {
+            // A new worker takes over right after install; tell people already on a page
+            // that they're running old code, but never reload under them mid-entry.
+            const hadController = Boolean(navigator.serviceWorker.controller);
+            navigator.serviceWorker.addEventListener('controllerchange', () => {
+                if (hadController) {
+                    window.offlineManager?.showNotification(
+                        'E-diary was updated',
+                        'Refresh the page when you are ready to get the latest version.',
+                        'info',
+                    );
+                }
+            });
+
             window.addEventListener('load', () => {
                 navigator.serviceWorker
-                    .register('/service-worker.js')
+                    // Bypass the HTTP cache so a new build's sw-precache.js is noticed on update checks.
+                    .register('/service-worker.js', { updateViaCache: 'none' })
                     .then((registration) => {
                         console.log('SW registered:', registration);
 

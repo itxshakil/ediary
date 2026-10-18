@@ -13,15 +13,6 @@ class OfflineManager {
     async init() {
         await this.initDB();
 
-        if ('serviceWorker' in navigator) {
-            try {
-                const registration = await navigator.serviceWorker.register('/service-worker.js');
-                console.log('Service Worker registered:', registration);
-            } catch (error) {
-                console.error('Service Worker registration failed:', error);
-            }
-        }
-
         window.addEventListener('online', () => this.handleOnline());
         window.addEventListener('offline', () => this.handleOffline());
 
@@ -76,10 +67,25 @@ class OfflineManager {
             request.onsuccess = () => {
                 this.showNotification('Entry saved offline', 'Will sync when online', 'info');
                 this.updatePendingCount();
+                this.requestPersistentStorage();
                 resolve(request.result);
             };
             request.onerror = () => reject(request.error);
         });
+    }
+
+    // Without this the browser may evict IndexedDB under storage pressure, losing unsynced entries.
+    async requestPersistentStorage() {
+        if (!navigator.storage?.persist) return;
+
+        try {
+            if (await navigator.storage.persisted()) return;
+
+            const granted = await navigator.storage.persist();
+            console.log('Persistent storage', granted ? 'granted' : 'denied');
+        } catch (error) {
+            console.error('Persistent storage request failed:', error);
+        }
     }
 
     async getPendingEntries() {
