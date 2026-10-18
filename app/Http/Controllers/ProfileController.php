@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Enums\Privacy;
 use App\Http\Requests\UpdateProfileRequest;
 use App\User;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -20,7 +21,17 @@ final class ProfileController extends Controller
         $viewer = $request->user();
         $isFollowing = $viewer !== null && $profile->follower->contains($viewer->id);
 
-        return view('profiles.show', ['profile' => $profile, 'isFollowing' => $isFollowing]);
+        $publicEntries = $user->diaries()
+            ->where('privacy', Privacy::Public->value)
+            ->with(['tags', 'owner.profile'])
+            ->latest()
+            ->paginate(10);
+
+        return view('profiles.show', [
+            'profile' => $profile,
+            'isFollowing' => $isFollowing,
+            'publicEntries' => $publicEntries,
+        ]);
     }
 
     /**

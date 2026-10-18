@@ -22,7 +22,7 @@
                     {
                         "@type": "InteractionCounter",
                         "interactionType": "https://schema.org/WriteAction",
-                        "userInteractionCount": "{{ $profile->post_count ?? 0 }}"
+                        "userInteractionCount": "{{ $publicEntries->total() }}"
                     }
                 ]
             }
@@ -130,9 +130,9 @@
 
                                                 <div class="flex items-center gap-2">
                                                     <span class="font-semibold text-gray-900 dark:text-white">
-                                                        {{ number_format($profile->post_count ?? 0) }}
+                                                        {{ number_format($publicEntries->total()) }}
                                                     </span>
-                                                    <span class="text-gray-500 dark:text-gray-400">Entries</span>
+                                                    <span class="text-gray-500 dark:text-gray-400">Public entries</span>
                                                 </div>
                                             </div>
 
@@ -201,14 +201,24 @@
                 </div>
 
                 {{-- Public Entries --}}
-                <div class="shadow-card mt-8 rounded-2xl border border-gray-200/70 bg-white/90 p-6 sm:p-8 dark:border-gray-700/60 dark:bg-gray-800/70">
-                    <h2 class="mb-6 text-xl font-semibold text-gray-900 dark:text-white">Public Entries</h2>
+                <section class="mt-8" aria-labelledby="public-entries-heading">
+                    <h2 id="public-entries-heading" class="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
+                        Public entries
+                    </h2>
 
-                    <div class="py-16 text-center">
-                        <h3 class="mb-2 text-xl font-semibold text-gray-900 dark:text-white">Coming Soon</h3>
-                        <p class="text-gray-500 dark:text-gray-400">Public entries will appear here when published.</p>
+                    <div class="space-y-4">
+                        @forelse ($publicEntries as $entry)
+                            <x-diary-card :entry="$entry" :show-owner="true" />
+                        @empty
+                            <x-empty-state
+                                title="No public entries yet"
+                                body="Entries are private by default. Anything shared publicly will show up here."
+                            />
+                        @endforelse
                     </div>
-                </div>
+
+                    <x-diary-paginator :collection="$publicEntries" />
+                </section>
             </div>
         </div>
     </div>
