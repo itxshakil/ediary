@@ -40,6 +40,26 @@
   looks the same as it did with Tailwind CSS v3.
 */
 @layer base {
+  /* One visible keyboard focus style; components can still override it with utilities. */
+  :focus-visible {
+    outline: 2px solid var(--color-primary-500);
+    outline-offset: 2px;
+  }
+
+  /* Fields get a soft glow instead, so focus:ring-* utilities on a field win without doubling up. */
+  :where(input:not([type='checkbox'], [type='radio']), textarea, select):focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-primary-500) 35%, transparent);
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
   *,
   ::after,
   ::before,
@@ -485,5 +505,27 @@ a.blog-card-author-name:hover { color: var(--color-primary-600); }
     .dictate-button--listening {
         color: var(--color-red-400);
         border-color: var(--color-red-800);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+        animation: none !important;
+    }
+
+    /* The navbar shadow follows scroll position rather than time, so it is not motion. */
+    .navbar-glass {
+        animation-duration: auto !important;
     }
 }
