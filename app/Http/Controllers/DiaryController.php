@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\Actions\Diary\ExportDiariesAction;
 use App\Actions\Diary\StoreDiaryAction;
 use App\Diary;
+use App\Enums\Mood;
 use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\StoreDiaryRequest;
 use App\Services\Diary\DiaryAnalyticsService;
@@ -169,27 +170,25 @@ final class DiaryController extends Controller
             ->diaries()
             ->whereTag($tag)
             ->orderBy('created_at', 'desc')
+            ->with('tags')
             ->paginate(20);
 
-        $view = 'diary.tag';
-
-        return view($view, [
+        return view('diary.tag', [
             'entries' => $entries,
             'tag' => $tag,
         ]);
     }
 
-    public function byMood(Request $request, string $mood): Factory|View
+    public function byMood(Request $request, Mood $mood): Factory|View
     {
         $entries = $request->user()
             ->diaries()
             ->where('mood', $mood)
             ->orderBy('created_at', 'desc')
+            ->with('tags')
             ->paginate(20);
 
-        $view = 'diary.mood';
-
-        return view($view, [
+        return view('diary.mood', [
             'entries' => $entries,
             'mood' => $mood,
         ]);
@@ -201,9 +200,7 @@ final class DiaryController extends Controller
         $entries = $user->diaries()->with('tags')->get();
         $stats = $service->stats($user, $entries);
 
-        $view = 'diary.stats';
-
-        return view($view, ['stats' => $stats]);
+        return view('diary.stats', ['stats' => $stats]);
     }
 
     public function like(Request $request, Diary $diary): JsonResponse|RedirectResponse
@@ -302,11 +299,11 @@ final class DiaryController extends Controller
         $columns = ['title', 'entry', 'mood', 'privacy', 'tags', 'created_at'];
 
         $handle = fopen('php://temp', 'w+');
-        fputcsv($handle, $columns);
+        fputcsv($handle, $columns, escape: '\\');
 
         foreach ($entries as $entry) {
             $entry['tags'] = implode('|', $entry['tags']);
-            fputcsv($handle, array_map(static fn ($value): string => (string) $value, $entry));
+            fputcsv($handle, array_map(static fn ($value): string => (string) $value, $entry), escape: '\\');
         }
 
         rewind($handle);

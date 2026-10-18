@@ -17,8 +17,13 @@
             <span class="js-date">{{ $entry->created_at->diffForHumans() }}</span>
         </time>
         <div class="diary-card-meta">
-            @if ($entry->mood)
+            @if ($entry->mood && $showOwner)
                 <span title="{{ $entry->mood->label() }}">{{ $entry->mood->emoji() }}</span>
+            @elseif ($entry->mood)
+                <a
+                    href="{{ route('diary.mood', $entry->mood) }}"
+                    title="{{ $entry->mood->label() }} entries"
+                >{{ $entry->mood->emoji() }}</a>
             @endif
             <span title="{{ $entry->privacy->label() }}">{{ $entry->privacy->emoji() }}</span>
         </div>
@@ -35,7 +40,7 @@
                 @if ($showOwner)
                     <span class="diary-card-tag">#{{ $tag->name }}</span>
                 @else
-                    <a href="{{ route('diary.tag', $tag) }}" class="diary-card-tag">#{{ $tag->name }}</a>
+                    <a href="{{ route('diary.tag', $tag->name) }}" class="diary-card-tag">#{{ $tag->name }}</a>
                 @endif
             @endforeach
         </div>

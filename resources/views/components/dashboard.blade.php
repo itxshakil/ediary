@@ -91,18 +91,17 @@
             <div class="space-y-3">
                 @foreach ($stats['mood_distribution'] as $mood => $count)
                     @php
-                        $moodEmojis = [
-                            'happy' => '😊', 'sad' => '😔', 'calm' => '😌', 'angry' => '😤',
-                            'anxious' => '😰', 'thoughtful' => '🤔', 'tired' => '😴',
-                            'excited' => '🥳', 'neutral' => '😐',
-                        ];
+                        $mood = \App\Enums\Mood::from($mood);
                         $percentage = $stats['total_entries'] > 0 ? round(($count / $stats['total_entries']) * 100) : 0;
                     @endphp
                     <div>
                         <div class="mb-1 flex items-center justify-between text-sm">
-                            <span class="text-gray-700 dark:text-gray-300">
-                                {{ $moodEmojis[$mood] ?? '😊' }} {{ ucfirst($mood) }}
-                            </span>
+                            <a
+                                href="{{ route('diary.mood', $mood) }}"
+                                class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400"
+                            >
+                                {{ $mood->emoji() }} {{ $mood->label() }}
+                            </a>
                             <span class="text-gray-600 dark:text-gray-400">{{ $count }} ({{ $percentage }}%)</span>
                         </div>
                         <div class="h-2 w-full rounded-full bg-gray-200 dark:bg-gray-700">
