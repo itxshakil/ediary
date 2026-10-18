@@ -1,5 +1,5 @@
-const STATIC_CACHE = 'ediary-static-v10';
-const PAGE_CACHE   = 'ediary-pages-v10';
+const STATIC_CACHE = 'ediary-static-v11';
+const PAGE_CACHE   = 'ediary-pages-v11';
 
 const ONE_WEEK = 7 * 24 * 60 * 60 * 1000;
 

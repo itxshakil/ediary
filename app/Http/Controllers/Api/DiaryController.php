@@ -6,7 +6,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Actions\Diary\StoreDiaryAction;
 use App\Diary;
-use App\Http\Requests\StoreSyncedDiaryRequest;
+use App\Http\Requests\StoreDiaryRequest;
 use App\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -29,7 +29,7 @@ final class DiaryController
     /**
      * @throws Throwable
      */
-    public function store(StoreSyncedDiaryRequest $request, StoreDiaryAction $storeDiaryAction): JsonResponse
+    public function store(StoreDiaryRequest $request, StoreDiaryAction $storeDiaryAction): JsonResponse
     {
         $diary = $storeDiaryAction->execute($request->user(), $request->validated());
 

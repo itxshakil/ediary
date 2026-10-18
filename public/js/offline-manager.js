@@ -5,6 +5,7 @@ class OfflineManager {
         this.storeName = 'pendingEntries';
         this.db = null;
         this.isOnline = navigator.onLine;
+        this.isSyncing = false;
 
         this.init();
     }
@@ -65,9 +66,8 @@ class OfflineManager {
         const store = transaction.objectStore(this.storeName);
 
         const entryData = {
-            entry: entry,
+            ...entry,
             timestamp: Date.now(),
-            synced: false,
             created_at: new Date().toISOString()
         };
 
@@ -85,17 +85,36 @@ class OfflineManager {
     async getPendingEntries() {
         const transaction = this.db.transaction([this.storeName], 'readonly');
         const store = transaction.objectStore(this.storeName);
-        const index = store.index('synced');
 
         return new Promise((resolve, reject) => {
-            const request = index.getAll(IDBKeyRange.only(false));
-            request.onsuccess = () => resolve(request.result);
+            const request = store.getAll();
+            request.onsuccess = () => resolve(request.result.map((record) => this.toPayload(record)));
             request.onerror = () => reject(request.error);
         });
     }
 
+    // Older versions stored the form fields nested under `entry`; flatten them so those entries still sync.
+    toPayload(record) {
+        const fields = typeof record.entry === 'object' && record.entry !== null ? record.entry : record;
+        const tags = Array.isArray(fields.tags) ? fields.tags.join(',') : (fields.tags || '');
+
+        return {
+            id: record.id,
+            body: {
+                title: fields.title || null,
+                entry: fields.entry,
+                mood: fields.mood || null,
+                tags: tags,
+                privacy: fields.privacy || null,
+                created_at: record.created_at
+            }
+        };
+    }
+
     async syncPendingEntries() {
-        if (!this.isOnline) return;
+        if (!this.isOnline || this.isSyncing) return;
+
+        this.isSyncing = true;
 
         try {
             const pendingEntries = await this.getPendingEntries();
@@ -116,18 +135,15 @@ class OfflineManager {
                             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
                             'Accept': 'application/json'
                         },
-                        body: JSON.stringify({
-                            entry: entry.entry,
-                            created_at: entry.created_at
-                        })
+                        body: JSON.stringify(entry.body)
                     });
 
                     if (response.ok) {
-                        await this.markAsSynced(entry.id);
+                        await this.deletePendingEntry(entry.id);
                         successCount++;
                     } else {
                         failCount++;
-                        console.error('Failed to sync entry:', entry.id);
+                        console.error('Failed to sync entry:', entry.id, response.status);
                     }
                 } catch (error) {
                     failCount++;
@@ -145,28 +161,27 @@ class OfflineManager {
                 await this.updatePendingCount();
 
                 setTimeout(() => window.location.reload(), 2000);
+            } else if (failCount > 0) {
+                await this.updatePendingCount();
+                this.showNotification('Sync failed', 'Your entries are still saved on this device. Will retry later.', 'error');
             }
 
         } catch (error) {
             console.error('Sync failed:', error);
             this.showNotification('Sync failed', 'Will retry later', 'error');
+        } finally {
+            this.isSyncing = false;
         }
     }
 
-    async markAsSynced(id) {
+    async deletePendingEntry(id) {
         const transaction = this.db.transaction([this.storeName], 'readwrite');
         const store = transaction.objectStore(this.storeName);
 
         return new Promise((resolve, reject) => {
-            const getRequest = store.get(id);
-            getRequest.onsuccess = () => {
-                const entry = getRequest.result;
-                entry.synced = true;
-                const updateRequest = store.put(entry);
-                updateRequest.onsuccess = () => resolve();
-                updateRequest.onerror = () => reject(updateRequest.error);
-            };
-            getRequest.onerror = () => reject(getRequest.error);
+            const request = store.delete(id);
+            request.onsuccess = () => resolve();
+            request.onerror = () => reject(request.error);
         });
     }
 
@@ -186,7 +201,7 @@ class OfflineManager {
 
         if (badge) {
             if (pendingEntries.length > 0) {
-                badge.textContent = pendingEntries.length;
+                badge.textContent = `${pendingEntries.length} pending`;
                 badge.classList.remove('hidden');
             } else {
                 badge.classList.add('hidden');

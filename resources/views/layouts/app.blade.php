@@ -206,7 +206,7 @@
         </div>
     </div>
 
-    <script src="{{ asset('/js/offline-manager.js') }}"></script>
+    <script src="{{ asset('/js/offline-manager.js') }}?v={{ filemtime(public_path('js/offline-manager.js')) }}"></script>
 
     <script>
         if ('serviceWorker' in navigator) {

@@ -149,7 +149,6 @@
     const submitBtn = document.getElementById('submit-btn');
     const form = document.getElementById('diary-form');
     const offlineIndicator = document.getElementById('offline-indicator');
-    const syncBtn = document.getElementById('sync-btn');
 
     // Character counter
     textarea?.addEventListener('input', (e) => {
@@ -288,15 +287,7 @@
 
     // Update offline indicator
     function updateOfflineUI(offline) {
-        if (offline) {
-            offlineIndicator.classList.remove('hidden');
-            syncBtn.classList.remove('hidden');
-            syncBtn.classList.add('inline-flex');
-        } else {
-            offlineIndicator.classList.add('hidden');
-            syncBtn.classList.add('hidden');
-            syncBtn.classList.remove('inline-flex');
-        }
+        offlineIndicator.classList.toggle('hidden', !offline);
     }
 
     window.addEventListener('online', () => updateOfflineUI(false));
