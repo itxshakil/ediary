@@ -3,90 +3,37 @@
 <div class="space-y-6">
     {{-- Overview Stats --}}
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {{-- Total Entries --}}
-        <div class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-            <div class="flex items-center justify-between">
-                <div>
-                    <p class="mb-1 text-sm text-gray-600 dark:text-gray-400">Total Entries</p>
-                    <p class="text-3xl font-bold text-gray-900 dark:text-white">
-                        {{ number_format($stats['total_entries']) }}
-                    </p>
-                </div>
-                <div class="bg-primary-100 dark:bg-primary-900/30 flex h-12 w-12 items-center justify-center rounded-xl">
-                    <svg class="text-primary-600 dark:text-primary-400 h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                </div>
-            </div>
-            <div class="mt-2 flex items-center text-sm">
-                <span class="font-medium text-green-600 dark:text-green-400">+{{ $stats['entries_this_month'] }}</span>
-                <span class="ml-1 text-gray-600 dark:text-gray-400">this month</span>
-            </div>
-        </div>
-
-        {{-- Total Words --}}
-        <div class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-            <div class="flex items-center justify-between">
-                <div>
-                    <p class="mb-1 text-sm text-gray-600 dark:text-gray-400">Total Words</p>
-                    <p class="text-3xl font-bold text-gray-900 dark:text-white">
-                        {{ number_format($stats['total_words']) }}
-                    </p>
-                </div>
-                <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-purple-100 dark:bg-purple-900/30">
-                    <svg class="h-6 w-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                    </svg>
-                </div>
-            </div>
-            <div class="mt-2 flex items-center text-sm">
-                <span class="text-gray-600 dark:text-gray-400">Avg: {{ number_format($stats['avg_words_per_entry']) }} words/entry</span>
-            </div>
-        </div>
-
-        {{-- Active Days --}}
-        <div class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-            <div class="flex items-center justify-between">
-                <div>
-                    <p class="mb-1 text-sm text-gray-600 dark:text-gray-400">Active Days</p>
-                    <p class="text-3xl font-bold text-gray-900 dark:text-white">{{ $stats['active_days'] }}</p>
-                </div>
-                <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-100 dark:bg-green-900/30">
-                    <svg class="h-6 w-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                </div>
-            </div>
-            <div class="mt-2 flex items-center text-sm">
-                <span class="text-gray-600 dark:text-gray-400">{{ $stats['days_since_start'] }} days total</span>
-            </div>
-        </div>
-
-        {{-- Longest Entry --}}
-        <div class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-            <div class="flex items-center justify-between">
-                <div>
-                    <p class="mb-1 text-sm text-gray-600 dark:text-gray-400">Longest Entry</p>
-                    <p class="text-3xl font-bold text-gray-900 dark:text-white">
-                        {{ number_format($stats['longest_entry']) }}
-                    </p>
-                </div>
-                <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 dark:bg-orange-900/30">
-                    <svg class="h-6 w-6 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                </div>
-            </div>
-            <div class="mt-2 flex items-center text-sm">
-                <span class="text-gray-600 dark:text-gray-400">words</span>
-            </div>
-        </div>
+        <x-stat-card label="Total entries" :value="number_format($stats['total_entries'])">
+            <x-slot:icon>
+                <svg class="size-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+            </x-slot:icon>
+            <span class="font-medium text-green-600 dark:text-green-400">+{{ $stats['entries_this_month'] }}</span> this
+            month
+        </x-stat-card>
+        <x-stat-card label="Total words" :value="number_format($stats['total_words'])" tone="purple">
+            <x-slot:icon>
+                <svg class="size-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+            </x-slot:icon>
+            Avg {{ number_format($stats['avg_words_per_entry']) }} words per entry
+        </x-stat-card>
+        <x-stat-card label="Active days" :value="$stats['active_days']" tone="green">
+            <x-slot:icon>
+                <svg class="size-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+            </x-slot:icon>
+            {{ $stats['days_since_start'] }} days since your first entry
+        </x-stat-card>
+        <x-stat-card label="Longest entry" :value="number_format($stats['longest_entry'])" tone="orange">
+            <x-slot:icon>
+                <svg class="size-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+            </x-slot:icon>
+            words
+        </x-stat-card>
     </div>
 
     {{-- Writing Patterns --}}
     <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {{-- Mood Distribution --}}
-        <div class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+        <div class="shadow-card rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
             <h3 class="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Mood Distribution</h3>
             <div class="space-y-3">
                 @foreach ($stats['mood_distribution'] as $mood => $count)
@@ -116,7 +63,7 @@
         </div>
 
         {{-- Writing Time Patterns --}}
-        <div class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+        <div class="shadow-card rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
             <h3 class="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Best Writing Times</h3>
             <div class="space-y-3">
                 @foreach ($stats['time_distribution'] as $period => $count)
@@ -146,7 +93,7 @@
     </div>
 
     {{-- Activity Heatmap --}}
-    <div class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+    <div class="shadow-card rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
         <h3 class="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Activity Heatmap</h3>
         <p class="mb-4 text-sm text-gray-600 dark:text-gray-400">Your writing activity over the past year</p>
 
@@ -208,7 +155,7 @@
     </div>
 
     {{-- Top Tags --}}
-    <div class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+    <div class="shadow-card rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
         <h3 class="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Top Tags</h3>
         <div class="flex flex-wrap gap-2">
             @foreach ($stats['top_tags'] as $tag => $count)
@@ -221,7 +168,7 @@
     </div>
 
     {{-- Achievements --}}
-    <div class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+    <div class="shadow-card rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-800">
         <h3 class="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Achievements Unlocked</h3>
         <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
             @foreach ($stats['achievements'] as $achievement)

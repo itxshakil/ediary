@@ -78,7 +78,7 @@ final class DiaryFilterTest extends TestCase
         $this->actingAs($user)
             ->get(route('diary.stats'))
             ->assertOk()
-            ->assertSee('Total Entries')
+            ->assertSee('Total entries')
             ->assertSee('#study');
     }
 
@@ -92,7 +92,7 @@ final class DiaryFilterTest extends TestCase
         $this->actingAs($user)
             ->get(route('diary.stats'))
             ->assertOk()
-            ->assertSee('12 days total')
+            ->assertSee('12 days since your first entry')
             ->assertDontSee('-12 days');
     }
 
