@@ -8,7 +8,7 @@
         </div>
 
         <div class="diary-card">
-            <form method="POST" action="{{ route('diary.store') }}">
+            <form method="POST" action="{{ route('diary.store') }}" id="create-entry-form">
                 @csrf
 
                 {{-- Title --}}
@@ -113,6 +113,9 @@
                 </div>
 
                 {{-- Submit --}}
+                <p id="offline-note" class="mb-3 hidden text-center text-xs text-yellow-600 dark:text-yellow-400">
+                    You're offline. Your entry will be saved on this device and synced when you're back online.
+                </p>
                 <button
                     type="submit"
                     class="w-full rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700 active:scale-95"
@@ -124,7 +127,65 @@
     </div>
 
     <script>
+        const createForm = document.getElementById('create-entry-form');
+        const titleField = document.getElementById('title');
+        const entryField = document.getElementById('entry');
+        const tagsField = document.getElementById('tags');
+        const privacyField = document.getElementById('privacy');
+        const offlineNote = document.getElementById('offline-note');
         const moodInput = document.getElementById('mood-input');
+
+        // Keep a draft so nothing is lost if the connection drops mid-write.
+        if (!entryField.value && !titleField.value) {
+            entryField.value = localStorage.getItem('diary_draft_entry') || '';
+            titleField.value = localStorage.getItem('diary_draft_title') || '';
+        }
+        entryField.addEventListener('input', () => localStorage.setItem('diary_draft_entry', entryField.value));
+        titleField.addEventListener('input', () => localStorage.setItem('diary_draft_title', titleField.value));
+
+        function clearDraft() {
+            localStorage.removeItem('diary_draft_entry');
+            localStorage.removeItem('diary_draft_title');
+        }
+
+        const updateOfflineNote = () => offlineNote.classList.toggle('hidden', navigator.onLine);
+        window.addEventListener('online', updateOfflineNote);
+        window.addEventListener('offline', updateOfflineNote);
+        updateOfflineNote();
+
+        createForm.addEventListener('submit', async (e) => {
+            if (navigator.onLine) {
+                clearDraft();
+                return;
+            }
+
+            e.preventDefault();
+
+            try {
+                await window.offlineManager.saveOfflineEntry({
+                    title: titleField.value,
+                    entry: entryField.value.trim(),
+                    mood: moodInput.value,
+                    tags: tagsField.value,
+                    privacy: privacyField.value,
+                });
+                titleField.value = '';
+                entryField.value = '';
+                tagsField.value = '';
+                privacyField.value = 'private';
+                moodInput.value = '';
+                document.querySelectorAll('.mood-btn').forEach((b) => b.classList.remove('active'));
+                clearDraft();
+            } catch (error) {
+                console.error('Failed to save offline:', error);
+                window.offlineManager?.showNotification(
+                    'Could not save offline',
+                    'Your text is still in the form. Please try again.',
+                    'error',
+                );
+            }
+        });
+
         document.querySelectorAll('.mood-btn').forEach((btn) => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.mood-btn').forEach((b) => b.classList.remove('active'));
