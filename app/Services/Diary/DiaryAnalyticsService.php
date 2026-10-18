@@ -88,8 +88,8 @@ final class DiaryAnalyticsService
             'total_words' => $totalWords,
             'avg_words_per_entry' => $totalEntries > 0 ? (int) round($totalWords / $totalEntries) : 0,
             'active_days' => $entries->pluck('created_at')->map(fn ($date) => $date->format('Y-m-d'))->unique()->count(),
-            'days_since_start' => $entries->min('created_at')
-                ? now()->diffInDays($entries->min('created_at'))
+            'days_since_start' => $entries->isNotEmpty()
+                ? (int) $entries->min('created_at')->copy()->startOfDay()->diffInDays(today())
                 : 0,
             'longest_entry' => $entries->max(fn ($entry): int => str_word_count((string) $entry->entry)),
             'mood_distribution' => $entries->whereNotNull('mood')
@@ -114,7 +114,7 @@ final class DiaryAnalyticsService
             ->whereNotNull('mood')
             ->where('created_at', '>=', now()->subDays(6)->startOfDay())
             ->get()
-            ->groupBy(fn ($entry) => Carbon::parse($entry->created_at)->toDateString());
+            ->groupBy(fn ($entry): string => Carbon::parse($entry->created_at)->toDateString());
 
         for ($i = 6; $i >= 0; $i--) {
             $date = now()->subDays($i);
@@ -196,7 +196,7 @@ final class DiaryAnalyticsService
 
         arsort($tagCounts);
 
-        return array_slice($tagCounts, 0, 10, true);
+        return array_slice($tagCounts, 0, 10, preserve_keys: true);
     }
 
     /**

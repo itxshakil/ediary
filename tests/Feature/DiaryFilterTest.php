@@ -83,6 +83,20 @@ final class DiaryFilterTest extends TestCase
     }
 
     #[Test]
+    public function stats_show_whole_days_since_the_first_entry(): void
+    {
+        $this->travelTo(now()->setTime(18, 30));
+        $user = User::factory()->create();
+        Diary::factory()->create(['user_id' => $user->id])->forceFill(['created_at' => now()->subDays(12)->setTime(9, 15)])->save();
+
+        $this->actingAs($user)
+            ->get(route('diary.stats'))
+            ->assertOk()
+            ->assertSee('12 days total')
+            ->assertDontSee('-12 days');
+    }
+
+    #[Test]
     public function guests_cannot_view_filtered_pages(): void
     {
         $this->get(route('diary.tag', 'study'))->assertRedirect('/login');
