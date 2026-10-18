@@ -50,22 +50,7 @@
 
                 {{-- Mood picker --}}
                 <div class="mb-5">
-                    <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">
-                        Mood <span class="font-normal text-gray-400">(optional)</span>
-                    </label>
-                    <input type="hidden" name="mood" id="mood-input" value="{{ old('mood') }}" />
-                    <div class="flex flex-wrap gap-2">
-                        @foreach (\App\Enums\Mood::cases() as $mood)
-                            <button
-                                type="button"
-                                data-mood="{{ $mood->value }}"
-                                class="mood-btn flex items-center gap-1.5 rounded-full border border-gray-200 dark:border-gray-700 bg-white/60 dark:bg-gray-800/60 px-3 py-1.5 text-sm transition {{ old('mood') === $mood->value ? 'active' : '' }}"
-                            >
-                                <span>{{ $mood->emoji() }}</span>
-                                <span class="text-gray-700 dark:text-gray-300">{{ $mood->label() }}</span>
-                            </button>
-                        @endforeach
-                    </div>
+                    <x-mood-picker :selected="old('mood')" legend="Mood" />
                     @error('mood')
                         <p class="mt-1 text-xs text-red-500" role="alert">{{ $message }}</p>
                     @enderror
@@ -125,7 +110,6 @@
         const tagsField = document.getElementById('tags');
         const privacyField = document.getElementById('privacy');
         const offlineNote = document.getElementById('offline-note');
-        const moodInput = document.getElementById('mood-input');
 
         // Keep a draft so nothing is lost if the connection drops mid-write.
         if (!entryField.value && !titleField.value) {
@@ -157,7 +141,7 @@
                 await window.offlineManager.saveOfflineEntry({
                     title: titleField.value,
                     entry: entryField.value.trim(),
-                    mood: moodInput.value,
+                    mood: createForm.querySelector('[name="mood"]:checked')?.value ?? '',
                     tags: tagsField.value,
                     privacy: privacyField.value,
                 });
@@ -165,8 +149,7 @@
                 entryField.value = '';
                 tagsField.value = '';
                 privacyField.value = 'private';
-                moodInput.value = '';
-                document.querySelectorAll('.mood-btn').forEach((b) => b.classList.remove('active'));
+                createForm.querySelectorAll('[name="mood"]').forEach((radio) => (radio.checked = false));
                 clearDraft();
             } catch (error) {
                 console.error('Failed to save offline:', error);
@@ -176,18 +159,6 @@
                     message: 'Your text is still in the form. Please try again.',
                 });
             }
-        });
-
-        document.querySelectorAll('.mood-btn').forEach((btn) => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.mood-btn').forEach((b) => b.classList.remove('active'));
-                if (moodInput.value === btn.dataset.mood) {
-                    moodInput.value = '';
-                } else {
-                    btn.classList.add('active');
-                    moodInput.value = btn.dataset.mood;
-                }
-            });
         });
     </script>
 @endsection

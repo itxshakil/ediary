@@ -212,12 +212,9 @@
         <h3 class="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Top Tags</h3>
         <div class="flex flex-wrap gap-2">
             @foreach ($stats['top_tags'] as $tag => $count)
-                <a
-                    href="{{ route('diary.tag', $tag) }}"
-                    class="bg-primary-50 text-primary-700 hover:bg-primary-100 dark:bg-primary-900/20 dark:text-primary-300 dark:hover:bg-primary-900/30 inline-flex items-center gap-2 rounded-full px-4 py-2 transition-colors"
-                >
-                    <span class="font-medium">#{{ $tag }}</span>
-                    <span class="text-sm opacity-75">{{ $count }}</span>
+                <a href="{{ route('diary.tag', $tag) }}" class="chip-tag min-h-9 gap-2 px-3.5 text-sm">
+                    #{{ $tag }}
+                    <span class="opacity-70">{{ $count }}</span>
                 </a>
             @endforeach
         </div>

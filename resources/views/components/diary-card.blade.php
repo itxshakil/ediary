@@ -38,9 +38,9 @@
         <div class="diary-card-tags">
             @foreach ($entry->tags as $tag)
                 @if ($showOwner)
-                    <span class="diary-card-tag">#{{ $tag->name }}</span>
+                    <span class="chip-tag">#{{ $tag->name }}</span>
                 @else
-                    <a href="{{ route('diary.tag', $tag->name) }}" class="diary-card-tag">#{{ $tag->name }}</a>
+                    <a href="{{ route('diary.tag', $tag->name) }}" class="chip-tag">#{{ $tag->name }}</a>
                 @endif
             @endforeach
         </div>

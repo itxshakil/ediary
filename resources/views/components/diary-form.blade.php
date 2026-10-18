@@ -56,27 +56,7 @@
             </div>
         @enderror
 
-        {{-- Mood --}}
-        <div class="mt-4">
-            <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">
-                How are you feeling?
-            </label>
-
-            <div class="flex flex-wrap gap-2" id="mood-selector">
-                @foreach (Mood::cases() as $mood)
-                    <button
-                        type="button"
-                        data-mood="{{ $mood->value }}"
-                        title="{{ $mood->label() }}"
-                        class="mood-btn rounded-xl border border-transparent p-1 text-2xl transition hover:bg-gray-100 active:scale-95 md:p-3 dark:hover:bg-gray-800"
-                    >
-                        {{ $mood->emoji() }}
-                    </button>
-                @endforeach
-            </div>
-
-            <input type="hidden" name="mood" id="mood-input" />
-        </div>
+        <x-mood-picker class="mt-4" />
 
         <div class="mt-4">
             <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"> Tags </label>
@@ -90,11 +70,7 @@
             <div class="mt-2 flex flex-wrap gap-2">
                 <span class="text-xs text-gray-500 dark:text-gray-400">Popular:</span>
                 @foreach (['gratitude', 'work', 'family', 'health', 'goals', 'travel', 'thoughts'] as $tag)
-                    <button
-                        type="button"
-                        data-tag="{{ $tag }}"
-                        class="suggested-tag hover:bg-primary-100/70 hover:text-primary-600 dark:hover:bg-primary-900/30 dark:hover:text-primary-400 rounded-full bg-gray-100/70 px-2 py-1 text-xs text-gray-600 transition dark:bg-gray-700/60 dark:text-gray-300"
-                    >
+                    <button type="button" data-tag="{{ $tag }}" class="suggested-tag chip min-h-8 px-3 text-xs">
                         #{{ $tag }}
                     </button>
                 @endforeach
@@ -170,16 +146,7 @@
         }
     });
 
-    const moodBtns = document.querySelectorAll('.mood-btn');
-    const moodInput = document.getElementById('mood-input');
-
-    moodBtns.forEach((btn) => {
-        btn.addEventListener('click', () => {
-            moodBtns.forEach((b) => b.classList.remove('active'));
-            btn.classList.add('active');
-            moodInput.value = btn.dataset.mood;
-        });
-    });
+    const clearMood = () => form.querySelectorAll('[name="mood"]').forEach((radio) => (radio.checked = false));
 
     // Tags Management
     let tags = [];
@@ -202,20 +169,24 @@
     }
 
     function updateTagsDisplay() {
-        tagsContainer.innerHTML = tags
-            .map(
-                (tag) => `
-            <span class="inline-flex items-center gap-1 px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-sm">
-                #${tag}
-                <button type="button" onclick="removeTag('${tag}')" class="hover:text-primary-900 dark:hover:text-primary-100">
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </span>
-        `,
-            )
-            .join('');
+        tagsContainer.replaceChildren(
+            ...tags.map((tag) => {
+                const chip = document.createElement('span');
+                chip.className = 'chip-tag';
+                chip.textContent = `#${tag}`;
+
+                const remove = document.createElement('button');
+                remove.type = 'button';
+                remove.className = '-mr-1 grid size-5 place-items-center rounded-full hover:bg-primary-500/20';
+                remove.setAttribute('aria-label', `Remove tag ${tag}`);
+                remove.innerHTML =
+                    '<svg aria-hidden="true" class="size-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>';
+                remove.addEventListener('click', () => removeTag(tag));
+
+                chip.append(remove);
+                return chip;
+            }),
+        );
 
         tagsHidden.value = tags.join(',');
     }
@@ -234,9 +205,6 @@
         });
     });
 
-    // Make removeTag global
-    window.removeTag = removeTag;
-
     // Handle form submission (online/offline)
     form?.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -249,7 +217,7 @@
                 await window.offlineManager.saveOfflineEntry({
                     title: titleInput.value,
                     entry: entryValue,
-                    mood: moodInput.value,
+                    mood: form.querySelector('[name="mood"]:checked')?.value ?? '',
                     tags: tags,
                     privacy: document.getElementById('privacy-select').value,
                 });
@@ -259,8 +227,7 @@
                 localStorage.removeItem('diary_draft_title');
                 tags = [];
                 updateTagsDisplay();
-                moodInput.value = '';
-                moodBtns.forEach((b) => b.classList.remove('active'));
+                clearMood();
                 formChanged = false;
             } catch (error) {
                 console.error('Failed to save offline:', error);
