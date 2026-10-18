@@ -97,7 +97,19 @@ final class Diary extends Model
      */
     protected function entry(): Attribute
     {
-        return Attribute::make(get: static fn (string $value) => Crypt::decryptString($value), set: fn (string $value): array => ['entry' => Crypt::encryptString($value)]);
+        // Cached so a card that reads the text several times decrypts it once.
+        return Attribute::make(get: static fn (string $value) => Crypt::decryptString($value), set: fn (string $value): array => ['entry' => Crypt::encryptString($value)])->shouldCache();
+    }
+
+    /**
+     * Entries anyone may read: the single rule for what is publicly visible.
+     *
+     * @param Builder<Diary> $query
+     */
+    #[Scope]
+    protected function public(Builder $query): void
+    {
+        $query->where('privacy', Privacy::Public->value);
     }
 
     /**

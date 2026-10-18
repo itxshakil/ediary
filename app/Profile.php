@@ -41,7 +41,7 @@ final class Profile extends Model
     {
         return Attribute::get(fn ($value) => $value && Storage::disk('public')->exists($value)
             ? Storage::disk('public')->url($value)
-            : $this->initialsAvatar());
+            : $this->initialsAvatar())->shouldCache();
     }
 
     /**

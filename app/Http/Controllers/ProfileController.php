@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Enums\Privacy;
 use App\Http\Requests\UpdateProfileRequest;
 use App\User;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -21,11 +20,12 @@ final class ProfileController extends Controller
         $viewer = $request->user();
         $isFollowing = $viewer !== null && $profile->follower->contains($viewer->id);
 
-        $publicEntries = $user->diaries()
-            ->where('privacy', Privacy::Public->value)
-            ->with(['tags', 'owner.profile'])
-            ->latest()
-            ->paginate(10);
+        $publicEntries = $user->diaries()->public()->with('tags')->latest()->paginate(10);
+        // Every entry is this person's, whose profile is already loaded.
+        $user->setRelation('profile', $profile);
+        foreach ($publicEntries as $publicEntry) {
+            $publicEntry->setRelation('owner', $user);
+        }
 
         return view('profiles.show', [
             'profile' => $profile,
