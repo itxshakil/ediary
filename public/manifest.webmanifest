@@ -1,28 +1,19 @@
 {
     "id": "com.shakiltech.ediary",
-    "name": "Ediary App",
+    "name": "Ediary",
     "short_name": "Ediary",
+    "description": "A free, private online diary that works offline. Unlimited entries, private by default, and just an email to sign up.",
     "start_url": "/?utm_source=homescreen",
     "scope": "/",
     "display": "standalone",
     "orientation": "portrait-primary",
-    "background_color": "#2d3748",
-    "theme-color": "#2d3748",
-    "description": "E-diary is a free service to keep track of your past and think about your future. You can make predictions about what will happen and see if they come true. TRY NOW FOR FREE!!!",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "dir": "ltr",
     "icons": [
-        {
-            "src": "/icons/old/icons-512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        },
         {
             "src": "/icons/old/icons-24.png",
             "sizes": "24x24",
-            "type": "image/png"
-        },
-        {
-            "src": "/icons/old/icons-36.png",
-            "sizes": "36x36",
             "type": "image/png"
         },
         {
@@ -78,7 +69,8 @@
         {
             "src": "/icons/old/icons-192.png",
             "sizes": "192x192",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "/icons/old/icons-300.png",
@@ -86,23 +78,14 @@
             "type": "image/png"
         },
         {
-            "src": "/icons/old/icons-1024.png",
-            "sizes": "1024x1024",
-            "type": "image/png"
-        },
-        {
-            "src": "/icons/old/icons-620_300.png",
-            "sizes": "620x300",
-            "type": "image/png"
+            "src": "/icons/old/icons-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "/icons/old/icons-1024.png",
             "sizes": "1024x1024",
-            "type": "image/png"
-        },
-        {
-            "src": "/icons/old/icons-1240_600.png",
-            "sizes": "1240x600",
             "type": "image/png"
         }
     ],
@@ -112,49 +95,89 @@
             "short_name": "Home",
             "description": "Read and write diary.",
             "url": "/home?utm_source=homescreen",
-            "icons": [{ "src": "/icons/old/icons-96.png", "sizes": "96x96" }]
+            "icons": [
+                {
+                    "src": "/icons/old/icons-96.png",
+                    "sizes": "96x96"
+                }
+            ]
         },
         {
             "name": "Search",
             "description": "Search the users on Ediary.",
             "url": "/search?utm_source=homescreen",
-            "icons": [{ "src": "/icons/old/icons-96.png", "sizes": "96x96" }]
+            "icons": [
+                {
+                    "src": "/icons/old/icons-96.png",
+                    "sizes": "96x96"
+                }
+            ]
         },
         {
             "name": "Change Password",
             "description": "Change your password.",
             "url": "/password/change?utm_source=homescreen",
-            "icons": [{ "src": "/icons/old/icons-96.png", "sizes": "96x96" }]
+            "icons": [
+                {
+                    "src": "/icons/old/icons-96.png",
+                    "sizes": "96x96"
+                }
+            ]
         },
         {
             "name": "Settings",
             "description": "Update your username.",
             "url": "/settings?utm_source=homescreen",
-            "icons": [{ "src": "/icons/old/icons-96.png", "sizes": "96x96" }]
+            "icons": [
+                {
+                    "src": "/icons/old/icons-96.png",
+                    "sizes": "96x96"
+                }
+            ]
         },
         {
             "name": "FAQ",
             "description": "Read Frequently Asked Questions.",
             "url": "/faq?utm_source=homescreen",
-            "icons": [{ "src": "/icons/old/icons-96.png", "sizes": "96x96" }]
+            "icons": [
+                {
+                    "src": "/icons/old/icons-96.png",
+                    "sizes": "96x96"
+                }
+            ]
         },
         {
             "name": "Contact Us",
             "description": "Contact us by form.",
             "url": "/contact?utm_source=homescreen",
-            "icons": [{ "src": "/icons/old/icons-96.png", "sizes": "96x96" }]
+            "icons": [
+                {
+                    "src": "/icons/old/icons-96.png",
+                    "sizes": "96x96"
+                }
+            ]
         },
         {
             "name": "About Us",
             "description": "Read about us.",
             "url": "/about?utm_source=homescreen",
-            "icons": [{ "src": "/icons/old/icons-96.png", "sizes": "96x96" }]
+            "icons": [
+                {
+                    "src": "/icons/old/icons-96.png",
+                    "sizes": "96x96"
+                }
+            ]
         },
         {
             "name": "Download My Data",
             "description": "Download your data.",
             "url": "/request-data?utm_source=homescreen",
-            "icons": [{ "src": "/icons/old/icons-96.png", "sizes": "96x96" }]
+            "icons": [
+                {
+                    "src": "/icons/old/icons-96.png",
+                    "sizes": "96x96"
+                }
+            ]
         }
     ],
     "screenshots": [
@@ -179,7 +202,10 @@
             "type": "image/png"
         }
     ],
-    "dir": "ltr",
-    "handle_links": "preferred",
-    "categories": ["productivity", "utilities", "personalization"]
+    "categories": [
+        "productivity",
+        "utilities",
+        "personalization"
+    ],
+    "handle_links": "preferred"
 }

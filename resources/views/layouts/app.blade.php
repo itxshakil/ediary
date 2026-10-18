@@ -20,9 +20,6 @@
     <meta name="og:email" content="appediary@gmail.com" />
     <meta name="og:country-name" content="India" />
 
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="apple-touch-icon" href="/icon-192.png" />
-
     <!-- PWA Meta tag -->
 
     <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png" />
@@ -39,13 +36,11 @@
     <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
-    <meta name="msapplication-TileColor" content="#2d3748" />
+    <meta name="msapplication-TileColor" content="#2563eb" />
     <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="#2d3748" />
-    <meta name="apple-mobile-web-app-title" content="Shakil Alam | Portfolio" />
-    <meta name="msapplication-TitleImage" content="/icons/old/icons-192.png" />
-    <meta name="msapplication-TitleColor" content="#2d3748" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Ediary" />
 
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#101828" media="(prefers-color-scheme: dark)" />
@@ -109,8 +104,6 @@
             }
         }
     </script>
-
-    @stack('scripts')
 </head>
 
 <body class="accent-primary-500 font-sans antialiased dark:bg-gray-900 dark:text-white">

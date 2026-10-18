@@ -49,4 +49,36 @@ final class ServiceWorkerTest extends TestCase
             $this->assertFileExists(public_path($asset));
         }
     }
+
+    /**
+     * Browsers only offer to install the app when the linked manifest is valid and its icons load.
+     */
+    #[Test]
+    public function the_layout_links_one_valid_manifest_whose_files_exist(): void
+    {
+        $html = $this->get('/about')->assertOk()->getContent();
+
+        preg_match_all('/<link rel="manifest" href="([^"]+)"/', (string) $html, $links);
+        $this->assertCount(1, $links[1], 'Exactly one manifest should be linked');
+
+        $manifest = json_decode((string) file_get_contents(public_path($links[1][0])), associative: true, flags: JSON_THROW_ON_ERROR);
+
+        $this->assertArrayHasKey('id', $manifest);
+        $this->assertArrayHasKey('theme_color', $manifest);
+        $sizes = array_column($manifest['icons'], 'sizes');
+        $this->assertContains('192x192', $sizes);
+        $this->assertContains('512x512', $sizes);
+
+        foreach ([...$manifest['icons'], ...$manifest['screenshots'] ?? []] as $image) {
+            $this->assertFileExists(public_path($image['src']));
+        }
+    }
+
+    #[Test]
+    public function pushed_scripts_are_output_once(): void
+    {
+        $html = (string) $this->get('/register')->assertOk()->getContent();
+
+        $this->assertSame(1, mb_substr_count($html, "document.getElementById('username')"));
+    }
 }
