@@ -223,8 +223,12 @@
                     tags: tags,
                     privacy: document.getElementById('privacy-select').value,
                 });
+                // reset() also clears the browser's "user edited" state, so the emptied
+                // required field isn't flagged :user-invalid right after a successful save.
+                form.reset();
                 textarea.value = '';
                 titleInput.value = '';
+                charCount.textContent = '0 characters';
                 localStorage.removeItem('diary_draft_entry');
                 localStorage.removeItem('diary_draft_title');
                 tags = [];

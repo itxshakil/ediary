@@ -145,6 +145,9 @@
                     tags: tagsField.value,
                     privacy: privacyField.value,
                 });
+                // reset() also clears the browser's "user edited" state, so the emptied
+                // required field isn't flagged :user-invalid right after a successful save.
+                createForm.reset();
                 titleField.value = '';
                 entryField.value = '';
                 tagsField.value = '';

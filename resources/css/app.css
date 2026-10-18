@@ -78,6 +78,11 @@
   }
 }
 
+/* A field's label turns red with it once the person has interacted with an invalid value. */
+label:has(+ .field:user-invalid, + .field[aria-invalid='true']) {
+  color: light-dark(var(--color-red-600), var(--color-red-400));
+}
+
 /*
   Chips: compact pill controls. A chip is selected when it has aria-pressed="true" or
   contains a checked radio/checkbox, so the same look works for buttons and form inputs.

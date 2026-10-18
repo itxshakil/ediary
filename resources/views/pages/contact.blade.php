@@ -104,6 +104,7 @@
                             <x-form.input
                                 name="name"
                                 id="name"
+                                autocomplete="name"
                                 value="{{ old('name') }}"
                                 placeholder="John Doe"
                                 required
@@ -119,6 +120,8 @@
                             <x-form.input
                                 name="email"
                                 id="email"
+                                type="email"
+                                autocomplete="email"
                                 value="{{ old('email') }}"
                                 placeholder="john@example.com"
                                 required
