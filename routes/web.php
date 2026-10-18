@@ -95,7 +95,6 @@ Route::middleware(['auth'])->group(function (): void {
 
 /* Sitemap Route */
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap.xml');
-Route::get('/sitemap.xml/users', [SitemapController::class, 'users']);
 
 Route::get('/settings', SettingController::class)->middleware('verified');
 Route::put('/username', [UsernameController::class, 'update'])->middleware('verified');

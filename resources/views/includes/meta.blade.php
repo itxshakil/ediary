@@ -1,3 +1,4 @@
+<link rel="canonical" href="{{ url('/') }}" />
 <meta
     name="description"
     content="Ediary is a free, private online diary that works offline. Unlimited entries, encrypted at rest, private by default, and just an email to sign up."

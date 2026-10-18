@@ -2,6 +2,7 @@
 @section('title', 'Contact Us – E-Diary')
 
 @push('meta')
+    <link rel="canonical" href="{{ url('contact') }}" />
     <meta
         name="description"
         content="Get in touch with the E-diary support team for bug reports, feature requests, or general inquiries. Use our contact form to reach us quickly and easily."

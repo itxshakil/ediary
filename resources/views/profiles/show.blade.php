@@ -31,6 +31,7 @@
 @endpush
 
 @push('meta')
+    <meta name="robots" content="noindex, follow" />
     <link rel="canonical" href="{{ request()->fullUrl() }}" />
     <meta name="description" content="{{ $profile->name }}'s profile — {{ $profile->bio }}" />
     <meta property="og:title" content="{{ $profile->name }}'s Profile" />

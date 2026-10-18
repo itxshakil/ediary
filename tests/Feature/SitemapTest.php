@@ -15,26 +15,35 @@ final class SitemapTest extends TestCase
     use RefreshDatabase;
 
     #[Test]
-    public function it_can_access_the_sitemap(): void
+    public function it_lists_public_pages_and_blog_posts(): void
+    {
+        $response = $this->get('/sitemap.xml');
+
+        $response->assertStatus(200);
+        $response->assertHeader('Content-Type', 'text/xml; charset=utf-8');
+        $response->assertSeeHtml('<loc>' . url('/') . '</loc>');
+        $response->assertSeeHtml('<loc>' . url('/for-students') . '</loc>');
+        $response->assertSeeHtml('<loc>' . url('/security') . '</loc>');
+        $response->assertSeeHtml('<loc>' . route('blogs.how-to-write') . '</loc>');
+    }
+
+    #[Test]
+    public function it_leaves_out_private_utility_and_profile_pages(): void
     {
         User::factory()->create(['username' => 'johndoe']);
 
         $response = $this->get('/sitemap.xml');
 
-        $response->assertStatus(200);
-        $response->assertHeader('Content-Type', 'text/xml; charset=utf-8');
-        $response->assertSee('johndoe');
+        foreach (['/home', '/settings', '/diary/export', '/password/reset', '/success', '/up', '/_debugbar', '/user/johndoe', '/explore'] as $path) {
+            $response->assertDontSeeHtml('<loc>' . url($path));
+        }
     }
 
     #[Test]
-    public function it_can_access_the_users_sitemap(): void
+    public function profile_pages_are_not_indexed(): void
     {
-        User::factory()->create(['username' => 'janedoe']);
+        User::factory()->create(['username' => 'johndoe']);
 
-        $response = $this->get('/sitemap.xml/users');
-
-        $response->assertStatus(200);
-        $response->assertHeader('Content-Type', 'text/xml; charset=utf-8');
-        $response->assertSee('janedoe');
+        $this->get('/user/johndoe')->assertOk()->assertSeeHtml('<meta name="robots" content="noindex, follow" />');
     }
 }
