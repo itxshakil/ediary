@@ -1,7 +1,7 @@
 @guest
     @if (Route::has('register'))
         <a
-            class="mr-2 mb-1 hidden rounded-sm bg-blue-100 px-4 py-2 text-xs font-bold text-blue-800 uppercase shadow-sm outline-hidden hover:shadow-md focus:outline-hidden active:bg-blue-200 md:block"
+            class="bg-primary-100 text-primary-800 active:bg-primary-200 mr-2 mb-1 hidden rounded-sm px-4 py-2 text-xs font-bold uppercase shadow-sm outline-hidden hover:shadow-md focus:outline-hidden md:block"
             href="/register"
         >{{ __('Register') }}</a>
     @endif

@@ -3,7 +3,7 @@
 @section('content')
     <div class="container mx-auto flex justify-center px-3 md:px-6">
         <div class="my-6 flex w-full lg:w-11/12 xl:w-3/4">
-            <div class="hidden h-auto w-full rounded-l-lg bg-blue-700 bg-cover lg:block lg:w-1/2">
+            <div class="bg-primary-700 hidden h-auto w-full rounded-l-lg bg-cover lg:block lg:w-1/2">
                 <div class="flex h-full flex-col items-center justify-center text-gray-200">
                     <div class="feature mb-1 p-4">
                         <h3 class="flex-center mb-2 flex text-xl">
@@ -55,7 +55,7 @@
                         </div>
                         <div class="mb-4 text-center">
                             <button
-                                class="w-full rounded-full bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-hidden"
+                                class="bg-primary-500 hover:bg-primary-700 w-full rounded-full px-4 py-2 font-bold text-white focus:outline-hidden"
                                 type="submit"
                             >
                                 {{ __('Send Password Reset Link') }}

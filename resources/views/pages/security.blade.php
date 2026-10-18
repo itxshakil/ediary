@@ -17,7 +17,7 @@
 @section('content')
     <div class="bg-white dark:bg-gray-900">
         <!-- Hero Section -->
-        <div class="relative overflow-hidden bg-blue-600 py-20">
+        <div class="bg-primary-600 relative overflow-hidden py-20">
             <div class="absolute inset-0 opacity-10">
                 <div
                     class="absolute inset-0"
@@ -29,7 +29,7 @@
             </div>
             <div class="relative container mx-auto px-4 text-center">
                 <h1 class="mb-6 text-4xl font-extrabold text-white md:text-6xl">Security & Privacy</h1>
-                <p class="mx-auto max-w-2xl text-xl text-blue-100">
+                <p class="text-primary-100 mx-auto max-w-2xl text-xl">
                     A plain-language explanation of how your journal is protected, including what we can and cannot do.
                 </p>
             </div>
@@ -58,7 +58,7 @@
                             Our code is public on
                             <a
                                 href="https://github.com/itxshakil/ediary"
-                                class="text-blue-600 hover:underline dark:text-blue-400"
+                                class="text-primary-600 dark:text-primary-400 hover:underline"
                                 rel="noopener"
                                 >GitHub</a
                             >, so anyone can check how it works.
@@ -124,10 +124,10 @@
                 <h2 class="mb-8 text-3xl font-bold text-gray-900 dark:text-white">Your Data, Your Control</h2>
                 <p class="mb-6 leading-relaxed">
                     You can export all of your entries at any time, or
-                    <a href="{{ url('/request-data') }}" class="text-blue-600 hover:underline dark:text-blue-400"
+                    <a href="{{ url('/request-data') }}" class="text-primary-600 dark:text-primary-400 hover:underline"
                         >request a copy of your data</a>
                     by email. If you find a security issue, please
-                    <a href="{{ url('/contact') }}" class="text-blue-600 hover:underline dark:text-blue-400"
+                    <a href="{{ url('/contact') }}" class="text-primary-600 dark:text-primary-400 hover:underline"
                         >contact us</a>
                     and we will respond quickly.
                 </p>

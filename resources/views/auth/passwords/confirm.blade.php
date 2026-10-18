@@ -3,7 +3,7 @@
 @section('content')
     <div class="container mx-auto flex justify-center px-3 md:px-6">
         <div class="my-6 flex w-full lg:w-11/12 xl:w-3/4">
-            <div class="hidden h-auto w-full rounded-l-lg bg-blue-700 bg-cover lg:block lg:w-1/2">
+            <div class="bg-primary-700 hidden h-auto w-full rounded-l-lg bg-cover lg:block lg:w-1/2">
                 <div class="flex h-full flex-col items-center justify-center text-gray-200">
                     <div class="feature mb-1 p-4">
                         <h3 class="flex-center mb-2 flex text-xl">
@@ -36,7 +36,7 @@
                                 </label>
                                 @if (Route::has('password.request'))
                                     <a
-                                        class="mr-2 mb-2 block text-xs font-semibold text-blue-700"
+                                        class="text-primary-700 mr-2 mb-2 block text-xs font-semibold"
                                         href="{{ route('password.request') }}"
                                     >
                                         {{ __('Forgot Your Password?') }}
@@ -57,7 +57,7 @@
 
                         <div class="mb-4 text-center">
                             <button
-                                class="w-full rounded-full bg-blue-500 px-3 py-2 text-xs font-bold text-white uppercase shadow-sm outline-hidden hover:shadow-md focus:outline-hidden active:bg-blue-800 sm:px-4"
+                                class="bg-primary-500 active:bg-primary-800 w-full rounded-full px-3 py-2 text-xs font-bold text-white uppercase shadow-sm outline-hidden hover:shadow-md focus:outline-hidden sm:px-4"
                                 type="submit"
                             >
                                 {{ __('Confirm Password') }}

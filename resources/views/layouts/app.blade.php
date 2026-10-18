@@ -21,7 +21,6 @@
     <meta name="og:country-name" content="India" />
 
     <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#667eea" />
     <link rel="apple-touch-icon" href="/icon-192.png" />
 
     <!-- PWA Meta tag -->
@@ -47,7 +46,9 @@
     <meta name="apple-mobile-web-app-title" content="Shakil Alam | Portfolio" />
     <meta name="msapplication-TitleImage" content="/icons/old/icons-192.png" />
     <meta name="msapplication-TitleColor" content="#2d3748" />
-    <meta name="theme-color" content="#2d3748" />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#101828" media="(prefers-color-scheme: dark)" />
 
     @stack('meta')
 
@@ -112,7 +113,7 @@
     @stack('scripts')
 </head>
 
-<body class="font-sans antialiased accent-blue-500 dark:bg-gray-900 dark:text-white">
+<body class="accent-primary-500 font-sans antialiased dark:bg-gray-900 dark:text-white">
     <!-- Google Tag Manager (noscript) -->
     <noscript
         ><iframe
@@ -144,7 +145,7 @@
                 <a
                     href="{{ route('diary.create') }}"
                     onclick="if (window.trackGA) trackGA('floating_add_clicked');"
-                    class="flex h-14 w-14 transform items-center justify-center rounded-full bg-blue-600 text-white shadow-lg transition-all hover:scale-110 hover:bg-blue-700 active:scale-95"
+                    class="bg-primary-600 hover:bg-primary-700 flex h-14 w-14 transform items-center justify-center rounded-full text-white shadow-lg transition-all hover:scale-110 active:scale-95"
                     title="Add Entry"
                 >
                     <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -191,7 +192,7 @@
                 <div class="mt-3 flex gap-3">
                     <button
                         id="pwa-banner-cta"
-                        class="rounded-full bg-blue-600 px-4 py-2 text-sm text-white transition hover:bg-blue-700"
+                        class="bg-primary-600 hover:bg-primary-700 rounded-full px-4 py-2 text-sm text-white transition"
                     >
                         Install
                     </button>

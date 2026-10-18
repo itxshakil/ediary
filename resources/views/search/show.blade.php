@@ -53,7 +53,7 @@
                             name="q"
                             value="{{ request('q') }}"
                             placeholder="Search for users..."
-                            class="w-full rounded-xl border border-gray-300 bg-white py-4 pr-4 pl-12 text-gray-900 shadow-sm transition-all duration-200 focus:border-transparent focus:ring-2 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-800 dark:text-white"
+                            class="focus:ring-primary-500 w-full rounded-xl border border-gray-300 bg-white py-4 pr-4 pl-12 text-gray-900 shadow-sm transition-all duration-200 focus:border-transparent focus:ring-2 dark:border-gray-700 dark:bg-gray-800 dark:text-white"
                             autofocus
                         />
                     </div>
@@ -88,7 +88,7 @@
                         </p>
                         <a
                             href="{{ route('search') }}"
-                            class="mt-6 inline-flex items-center gap-2 rounded-lg bg-blue-600 px-6 py-3 font-medium text-white transition-colors duration-200 hover:bg-blue-700"
+                            class="bg-primary-600 hover:bg-primary-700 mt-6 inline-flex items-center gap-2 rounded-lg px-6 py-3 font-medium text-white transition-colors duration-200"
                         >
                             Explore Users
                             <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

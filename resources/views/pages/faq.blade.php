@@ -106,7 +106,7 @@
                 </h1>
                 <p class="mx-auto max-w-2xl text-xl text-gray-600 dark:text-gray-400">
                     Everything you need to know about Ediary. Can't find the answer you're looking for?
-                    <a href="/contact" class="text-blue-600 hover:underline dark:text-blue-400"
+                    <a href="/contact" class="text-primary-600 dark:text-primary-400 hover:underline"
                         >Contact our support team</a
                     >.
                 </p>
@@ -118,7 +118,7 @@
                 <!-- FAQ: Q1 -->
                 <div class="group">
                     <h3 class="mb-4 flex items-center gap-3 text-2xl font-bold text-gray-900 dark:text-white">
-                        <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-100 text-sm text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">01</span>
+                        <span class="bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400 flex h-8 w-8 items-center justify-center rounded-lg text-sm">01</span>
                         What is E-diary?
                     </h3>
                     <div class="pl-11">
@@ -134,14 +134,16 @@
                 <!-- FAQ: Q2 -->
                 <div class="group">
                     <h3 class="mb-4 flex items-center gap-3 text-2xl font-bold text-gray-900 dark:text-white">
-                        <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-100 text-sm text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">02</span>
+                        <span class="bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400 flex h-8 w-8 items-center justify-center rounded-lg text-sm">02</span>
                         How can I create a diary?
                     </h3>
                     <div class="pl-11">
                         <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
                             Just register with a username and password.
-                            <a href="/register" class="font-semibold text-blue-600 hover:underline dark:text-blue-400"
-                                >Sign up here</a>
+                            <a
+                                href="/register"
+                                class="text-primary-600 dark:text-primary-400 font-semibold hover:underline"
+                            >Sign up here</a>
                             and start writing instantly. No complicated setup required.
                         </p>
                     </div>
@@ -150,7 +152,7 @@
                 <!-- FAQ: Q3 -->
                 <div class="group">
                     <h3 class="mb-4 flex items-center gap-3 text-2xl font-bold text-gray-900 dark:text-white">
-                        <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-100 text-sm text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">03</span>
+                        <span class="bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400 flex h-8 w-8 items-center justify-center rounded-lg text-sm">03</span>
                         How can I print my entries?
                     </h3>
                     <div class="pl-11">
@@ -158,7 +160,7 @@
                             Visit the
                             <a
                                 href="/request-data"
-                                class="font-semibold text-blue-600 hover:underline dark:text-blue-400"
+                                class="text-primary-600 dark:text-primary-400 font-semibold hover:underline"
                             >Request Data</a>
                             page to receive all your entries via email. You can unzip the file and print any entry you
                             like. You may also print directly from your browser using the system print dialog.
@@ -169,13 +171,15 @@
                 <!-- FAQ: Q4 -->
                 <div class="group">
                     <h3 class="mb-4 flex items-center gap-3 text-2xl font-bold text-gray-900 dark:text-white">
-                        <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-100 text-sm text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">04</span>
+                        <span class="bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400 flex h-8 w-8 items-center justify-center rounded-lg text-sm">04</span>
                         Who can see my entries?
                     </h3>
                     <div class="pl-11">
                         <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
                             All entries are private by default and visible only to you after you
-                            <a href="/login" class="font-semibold text-blue-600 hover:underline dark:text-blue-400"
+                            <a
+                                href="/login"
+                                class="text-primary-600 dark:text-primary-400 font-semibold hover:underline"
                                 >log in</a
                             >. We take your privacy seriously and ensure that your personal space remains truly yours.
                         </p>
@@ -185,7 +189,7 @@
                 <!-- FAQ: Q5 -->
                 <div class="group">
                     <h3 class="mb-4 flex items-center gap-3 text-2xl font-bold text-gray-900 dark:text-white">
-                        <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-100 text-sm text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">05</span>
+                        <span class="bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400 flex h-8 w-8 items-center justify-center rounded-lg text-sm">05</span>
                         How does privacy work?
                     </h3>
                     <div class="pl-11">
@@ -193,8 +197,10 @@
                             Privacy is our top priority. All your entries are stored
                             <strong>encrypted at rest</strong> with AES-256. Nothing is public by default, we never sell
                             your data, and our
-                            <a href="{{ url('/security') }}" class="text-blue-600 hover:underline dark:text-blue-400"
-                                >security page</a>
+                            <a
+                                href="{{ url('/security') }}"
+                                class="text-primary-600 dark:text-primary-400 hover:underline"
+                            >security page</a>
                             explains exactly how it works.
                         </p>
                     </div>
@@ -203,7 +209,7 @@
                 <!-- FAQ: Q6 -->
                 <div class="group">
                     <h3 class="mb-4 flex items-center gap-3 text-2xl font-bold text-gray-900 dark:text-white">
-                        <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-100 text-sm text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">06</span>
+                        <span class="bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400 flex h-8 w-8 items-center justify-center rounded-lg text-sm">06</span>
                         Why am I asked for my email?
                     </h3>
                     <div class="pl-11">

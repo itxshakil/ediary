@@ -12,23 +12,25 @@
                 <h4 class="mb-6 text-sm font-bold tracking-wider text-white uppercase">Navigation</h4>
                 <ul class="space-y-4">
                     <li>
-                        <a href="/blog" class="text-gray-400 transition-colors hover:text-blue-500">Blog Articles</a>
+                        <a href="/blog" class="hover:text-primary-500 text-gray-400 transition-colors">Blog Articles</a>
                     </li>
                     <li>
-                        <a href="/about" class="text-gray-400 transition-colors hover:text-blue-500"
+                        <a href="/about" class="hover:text-primary-500 text-gray-400 transition-colors"
                             >About Our Mission</a>
                     </li>
                     <li>
-                        <a href="/for-students" class="text-gray-400 transition-colors hover:text-blue-500"
+                        <a href="/for-students" class="hover:text-primary-500 text-gray-400 transition-colors"
                             >For Students</a>
                     </li>
-                    <li><a href="/faq" class="text-gray-400 transition-colors hover:text-blue-500">Help & FAQ</a></li>
                     <li>
-                        <a href="/security" class="text-gray-400 transition-colors hover:text-blue-500"
+                        <a href="/faq" class="hover:text-primary-500 text-gray-400 transition-colors">Help & FAQ</a>
+                    </li>
+                    <li>
+                        <a href="/security" class="hover:text-primary-500 text-gray-400 transition-colors"
                             >Security & Privacy</a>
                     </li>
                     <li>
-                        <a href="/contact" class="text-gray-400 transition-colors hover:text-blue-500"
+                        <a href="/contact" class="hover:text-primary-500 text-gray-400 transition-colors"
                             >Contact Support</a>
                     </li>
                 </ul>
@@ -37,7 +39,10 @@
                 <h4 class="mb-6 text-sm font-bold tracking-wider text-white uppercase">Connect</h4>
                 <p class="mb-4 text-sm text-gray-400">Follow us for updates and journaling tips.</p>
                 <div class="flex space-x-4">
-                    <a href="https://twitter.com/itxshakil" class="text-gray-400 transition-colors hover:text-blue-400">
+                    <a
+                        href="https://twitter.com/itxshakil"
+                        class="hover:text-primary-400 text-gray-400 transition-colors"
+                    >
                         <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.84 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" /></svg>
                     </a>
                 </div>

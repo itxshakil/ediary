@@ -72,7 +72,7 @@
 
 @section('content')
     <!-- Hero Section -->
-    <div class="relative overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white">
+    <div class="from-primary-600 via-primary-700 relative overflow-hidden bg-gradient-to-br to-indigo-800 text-white">
         <!-- Subtle background pattern -->
         <div class="absolute inset-0 opacity-10">
             <div
@@ -101,7 +101,7 @@
                 </h1>
 
                 <!-- Subheadline -->
-                <p class="mx-auto mb-8 max-w-3xl text-xl leading-relaxed text-blue-100 md:text-2xl">
+                <p class="text-primary-100 mx-auto mb-8 max-w-3xl text-xl leading-relaxed md:text-2xl">
                     Write freely, even offline. A private journal with unlimited entries, encrypted at rest, and nothing
                     but an email to sign up.
                 </p>
@@ -133,9 +133,9 @@
                                                 autocomplete="email"
                                                 placeholder="you@example.com"
                                                 value="{{ old('email') }}"
-                                                class="w-full rounded-xl border border-gray-200 bg-white py-3 pr-4 pl-10 transition-all focus:ring-2 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-800"
+                                                class="focus:ring-primary-500 w-full rounded-xl border border-gray-200 bg-white py-3 pr-4 pl-10 transition-all focus:ring-2 dark:border-gray-700 dark:bg-gray-800"
                                             />
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-3.5 left-3 h-5 w-5 text-gray-400 transition-colors group-focus-within:text-blue-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-focus-within:text-primary-500 absolute top-3.5 left-3 h-5 w-5 text-gray-400 transition-colors">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                                 <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
                                                 <path d="M3 7l9 6l9 -6" />
@@ -156,9 +156,9 @@
                                                 required
                                                 placeholder="johndoe"
                                                 value="{{ old('username') }}"
-                                                class="w-full rounded-xl border border-gray-200 bg-white py-3 pr-4 pl-10 transition-all focus:ring-2 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-800"
+                                                class="focus:ring-primary-500 w-full rounded-xl border border-gray-200 bg-white py-3 pr-4 pl-10 transition-all focus:ring-2 dark:border-gray-700 dark:bg-gray-800"
                                             />
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-3.5 left-3 h-5 w-5 text-gray-400 transition-colors group-focus-within:text-blue-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-focus-within:text-primary-500 absolute top-3.5 left-3 h-5 w-5 text-gray-400 transition-colors">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                                 <path d="M12 13a3 3 0 1 0 0 -6a3 3 0 0 0 0 6z" />
                                                 <path d="M6.201 18.744a4 4 0 0 1 3.799 -2.744h4a4 4 0 0 1 3.798 2.741" />
@@ -181,9 +181,9 @@
                                                 autocomplete="new-password"
                                                 placeholder="•••••••••"
                                                 minlength="8"
-                                                class="w-full rounded-xl border border-gray-200 bg-white py-3 pr-4 pl-10 transition-all focus:ring-2 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-800"
+                                                class="focus:ring-primary-500 w-full rounded-xl border border-gray-200 bg-white py-3 pr-4 pl-10 transition-all focus:ring-2 dark:border-gray-700 dark:bg-gray-800"
                                             />
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-3.5 left-3 h-5 w-5 text-gray-400 transition-colors group-focus-within:text-blue-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-focus-within:text-primary-500 absolute top-3.5 left-3 h-5 w-5 text-gray-400 transition-colors">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                                 <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z" />
                                                 <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
@@ -206,9 +206,9 @@
                                                 placeholder="•••••••••"
                                                 autocomplete="new-password"
                                                 minlength="8"
-                                                class="w-full rounded-xl border border-gray-200 bg-white py-3 pr-4 pl-10 transition-all focus:ring-2 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-800"
+                                                class="focus:ring-primary-500 w-full rounded-xl border border-gray-200 bg-white py-3 pr-4 pl-10 transition-all focus:ring-2 dark:border-gray-700 dark:bg-gray-800"
                                             />
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute top-3.5 left-3 h-5 w-5 text-gray-400 transition-colors group-focus-within:text-blue-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-focus-within:text-primary-500 absolute top-3.5 left-3 h-5 w-5 text-gray-400 transition-colors">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                                 <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z" />
                                                 <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
@@ -220,7 +220,7 @@
 
                                 <button
                                     type="submit"
-                                    class="group w-full rounded-2xl bg-blue-600 px-6 py-4 text-lg font-bold text-white shadow-lg transition-all duration-200 hover:bg-blue-700 hover:shadow-blue-500/30 active:scale-[0.98]"
+                                    class="group bg-primary-600 hover:bg-primary-700 hover:shadow-primary-500/30 w-full rounded-2xl px-6 py-4 text-lg font-bold text-white shadow-lg transition-all duration-200 active:scale-[0.98]"
                                 >
                                     <span class="flex items-center justify-center">
                                         Get Started Free
@@ -258,8 +258,8 @@
             <div class="grid gap-8 md:grid-cols-2 lg:gap-12">
                 <!-- Feature 1 -->
                 <div class="group rounded-2xl bg-white p-8 shadow-sm transition-shadow duration-300 hover:shadow-xl dark:bg-gray-800">
-                    <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 transition-transform duration-300 group-hover:scale-110 dark:bg-blue-900/30">
-                        <svg class="h-6 w-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="bg-primary-100 dark:bg-primary-900/30 mb-5 flex h-12 w-12 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-110">
+                        <svg class="text-primary-600 dark:text-primary-400 h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                         </svg>
                     </div>
@@ -326,21 +326,21 @@
 
             <div class="grid gap-8 md:grid-cols-3">
                 <div class="text-center">
-                    <div class="mb-2 text-4xl font-bold text-blue-600 md:text-5xl dark:text-blue-400">100%</div>
+                    <div class="text-primary-600 dark:text-primary-400 mb-2 text-4xl font-bold md:text-5xl">100%</div>
                     <div class="mb-2 text-lg font-medium text-gray-900 dark:text-white">Private</div>
                     <p class="text-gray-600 dark:text-gray-400">
                         Entries are encrypted at rest and private unless you share them
                     </p>
                 </div>
                 <div class="text-center">
-                    <div class="mb-2 text-4xl font-bold text-blue-600 md:text-5xl dark:text-blue-400">0</div>
+                    <div class="text-primary-600 dark:text-primary-400 mb-2 text-4xl font-bold md:text-5xl">0</div>
                     <div class="mb-2 text-lg font-medium text-gray-900 dark:text-white">Personal Data</div>
                     <p class="text-gray-600 dark:text-gray-400">
                         No name, birthday, or ad trackers. Just your email for login
                     </p>
                 </div>
                 <div class="text-center">
-                    <div class="mb-2 text-4xl font-bold text-blue-600 md:text-5xl dark:text-blue-400">∞</div>
+                    <div class="text-primary-600 dark:text-primary-400 mb-2 text-4xl font-bold md:text-5xl">∞</div>
                     <div class="mb-2 text-lg font-medium text-gray-900 dark:text-white">Entries</div>
                     <p class="text-gray-600 dark:text-gray-400">Write unlimited entries. No storage limits, ever</p>
                 </div>
@@ -349,17 +349,17 @@
     </div>
 
     <!-- Students Section -->
-    <div class="bg-blue-600 py-12">
+    <div class="bg-primary-600 py-12">
         <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 text-center sm:px-6 md:flex-row md:text-left lg:px-8">
             <div>
                 <h2 class="mb-2 text-2xl font-bold text-white">Studying or doing research?</h2>
-                <p class="text-blue-100">
+                <p class="text-primary-100">
                     Keep study logs and research reflections in a private journal that works offline.
                 </p>
             </div>
             <a
                 href="{{ url('/for-students') }}"
-                class="shrink-0 rounded-xl bg-white px-6 py-3 text-sm font-bold text-blue-700 shadow-md transition hover:bg-blue-50"
+                class="text-primary-700 hover:bg-primary-50 shrink-0 rounded-xl bg-white px-6 py-3 text-sm font-bold shadow-md transition"
             >
                 See how students use Ediary
             </a>
@@ -380,7 +380,7 @@
                 </div>
                 <a
                     href="/blog"
-                    class="hidden items-center gap-2 font-bold text-blue-600 hover:underline md:flex dark:text-blue-400"
+                    class="text-primary-600 dark:text-primary-400 hidden items-center gap-2 font-bold hover:underline md:flex"
                 >
                     View All Articles
                     <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
@@ -394,14 +394,14 @@
                     class="group overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:shadow-xl dark:bg-gray-800"
                 >
                     <div class="p-8">
-                        <div class="mb-4 flex items-center gap-2 text-xs font-semibold tracking-wide text-blue-600 uppercase dark:text-blue-400">
+                        <div class="text-primary-600 dark:text-primary-400 mb-4 flex items-center gap-2 text-xs font-semibold tracking-wide uppercase">
                             <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
                                 <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd" />
                             </svg>
                             Goal Setting
                         </div>
-                        <h3 class="mb-3 text-xl font-bold text-gray-900 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
+                        <h3 class="group-hover:text-primary-600 dark:group-hover:text-primary-400 mb-3 text-xl font-bold text-gray-900 transition-colors dark:text-white">
                             5 Steps to Design the Life You've Always Dreamed Of
                         </h3>
                         <p class="mb-4 leading-relaxed text-gray-600 dark:text-gray-400">
@@ -426,7 +426,7 @@
                             </svg>
                             Getting Started
                         </div>
-                        <h3 class="mb-3 text-xl font-bold text-gray-900 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
+                        <h3 class="group-hover:text-primary-600 dark:group-hover:text-primary-400 mb-3 text-xl font-bold text-gray-900 transition-colors dark:text-white">
                             How to Start Writing a Diary
                         </h3>
                         <p class="mb-4 leading-relaxed text-gray-600 dark:text-gray-400">
@@ -451,7 +451,7 @@
                             </svg>
                             Benefits
                         </div>
-                        <h3 class="mb-3 text-xl font-bold text-gray-900 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
+                        <h3 class="group-hover:text-primary-600 dark:group-hover:text-primary-400 mb-3 text-xl font-bold text-gray-900 transition-colors dark:text-white">
                             8 Good Things That Happen When You Start Journaling
                         </h3>
                         <p class="mb-4 leading-relaxed text-gray-600 dark:text-gray-400">
@@ -467,7 +467,7 @@
             <div class="mt-16 text-center md:hidden">
                 <a
                     href="/blog"
-                    class="inline-flex items-center gap-2 font-bold text-blue-600 hover:underline dark:text-blue-400"
+                    class="text-primary-600 dark:text-primary-400 inline-flex items-center gap-2 font-bold hover:underline"
                 >
                     View All Articles
                     <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
@@ -477,17 +477,17 @@
     </div>
 
     <!-- Final CTA Section -->
-    <div class="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 py-20 text-white md:py-32">
+    <div class="from-primary-600 via-primary-700 bg-gradient-to-br to-indigo-800 py-20 text-white md:py-32">
         <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
             <h2 class="mb-6 text-3xl font-bold md:text-5xl">Start your journey today</h2>
-            <p class="mx-auto mb-10 max-w-2xl text-xl text-blue-100">
+            <p class="text-primary-100 mx-auto mb-10 max-w-2xl text-xl">
                 Join thousands who've made journaling a daily habit. Your future self will thank you.
             </p>
             @guest
                 <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
                     <a
                         href="{{ route('register') }}"
-                        class="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-semibold text-blue-700 shadow-sm transition hover:bg-blue-50"
+                        class="text-primary-700 hover:bg-primary-50 inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-semibold shadow-sm transition"
                     >
                         Create your account
                     </a>
@@ -500,7 +500,7 @@
                 </div>
             @endguest
 
-            <p class="mt-8 text-sm text-blue-200">Free forever. No credit card required. Cancel anytime.</p>
+            <p class="text-primary-200 mt-8 text-sm">Free forever. No credit card required. Cancel anytime.</p>
         </div>
     </div>
 

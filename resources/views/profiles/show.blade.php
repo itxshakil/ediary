@@ -46,7 +46,7 @@
             <div class="mx-auto max-w-4xl">
                 <div class="overflow-hidden rounded-2xl border border-gray-200/70 bg-white/90 shadow-[0_1px_2px_rgba(0,0,0,0.05)] dark:border-gray-700/60 dark:bg-gray-800/70">
                     {{-- Cover --}}
-                    <div class="h-32 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
+                    <div class="from-primary-500 h-32 bg-gradient-to-r via-purple-500 to-pink-500"></div>
 
                     <div class="p-6 sm:p-8">
                         <div class="flex flex-col gap-6 sm:flex-row">
@@ -63,7 +63,7 @@
                                     @can('update', $profile)
                                         <label
                                             for="imageUploader"
-                                            class="absolute right-2 bottom-2 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-blue-600 shadow-lg transition hover:bg-blue-700 active:scale-95"
+                                            class="bg-primary-600 hover:bg-primary-700 absolute right-2 bottom-2 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full shadow-lg transition active:scale-95"
                                         >
                                             <svg class="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
@@ -100,7 +100,7 @@
                                                 @can('update', $profile)
                                                     <button
                                                         id="editBtn"
-                                                        class="inline-flex items-center gap-2 rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-700 active:scale-95"
+                                                        class="bg-primary-600 hover:bg-primary-700 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-white transition active:scale-95"
                                                     >
                                                         Edit Profile
                                                     </button>
@@ -182,21 +182,21 @@
                                             type="text"
                                             placeholder="Name"
                                             value="{{ $profile->name }}"
-                                            class="w-full rounded-xl border border-gray-200/70 bg-gray-50/80 px-4 py-2 text-sm text-gray-900 focus:border-transparent focus:ring-2 focus:ring-blue-500/50 dark:border-gray-700/60 dark:bg-gray-900/60 dark:text-white"
+                                            class="focus:ring-primary-500/50 w-full rounded-xl border border-gray-200/70 bg-gray-50/80 px-4 py-2 text-sm text-gray-900 focus:border-transparent focus:ring-2 dark:border-gray-700/60 dark:bg-gray-900/60 dark:text-white"
                                         />
                                         <p id="nameError" class="hidden text-xs text-red-500"></p>
 
                                         <textarea
                                             id="bioInput"
                                             rows="4"
-                                            class="w-full resize-none rounded-xl border border-gray-200/70 bg-gray-50/80 px-4 py-2 text-sm text-gray-900 focus:border-transparent focus:ring-2 focus:ring-blue-500/50 dark:border-gray-700/60 dark:bg-gray-900/60 dark:text-white"
+                                            class="focus:ring-primary-500/50 w-full resize-none rounded-xl border border-gray-200/70 bg-gray-50/80 px-4 py-2 text-sm text-gray-900 focus:border-transparent focus:ring-2 dark:border-gray-700/60 dark:bg-gray-900/60 dark:text-white"
                                         >{{ $profile->bio }}</textarea>
                                         <p id="bioError" class="hidden text-xs text-red-500"></p>
 
                                         <div class="flex gap-3">
                                             <button
                                                 id="saveBtn"
-                                                class="rounded-full bg-blue-600 px-6 py-2 text-sm font-medium text-white transition hover:bg-blue-700 active:scale-95"
+                                                class="bg-primary-600 hover:bg-primary-700 rounded-full px-6 py-2 text-sm font-medium text-white transition active:scale-95"
                                             >
                                                 Save
                                             </button>

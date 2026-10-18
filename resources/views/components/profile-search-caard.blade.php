@@ -19,7 +19,7 @@
                 <div class="flex flex-col items-start justify-between gap-4 md:flex-row">
                     <div class="flex-1">
                         <a href="{{ route('profile.show', $user->username) }}" class="group/name block">
-                            <h3 class="text-lg font-semibold text-gray-900 transition-colors group-hover/name:text-blue-600 dark:text-white dark:group-hover/name:text-blue-400">
+                            <h3 class="group-hover/name:text-primary-600 dark:group-hover/name:text-primary-400 text-lg font-semibold text-gray-900 transition-colors dark:text-white">
                                 {{ $user->profile->name }}
                             </h3>
                         </a>
@@ -64,7 +64,7 @@
                             @if (auth()->id() !== $user->id)
                                 <a
                                     href="{{ route('profile.show', $user->username) }}"
-                                    class="inline-flex items-center gap-2 rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-all duration-200 hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none dark:focus:ring-offset-gray-800"
+                                    class="bg-primary-600 hover:bg-primary-700 focus:ring-primary-500 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-white transition-all duration-200 focus:ring-2 focus:ring-offset-2 focus:outline-none dark:focus:ring-offset-gray-800"
                                 >
                                     View Profile
                                     <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -79,7 +79,7 @@
                         @else
                             <a
                                 href="{{ route('login') }}"
-                                class="inline-flex items-center gap-2 rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors duration-200 hover:bg-blue-700"
+                                class="bg-primary-600 hover:bg-primary-700 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-white transition-colors duration-200"
                             >
                                 Follow
                             </a>

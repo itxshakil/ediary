@@ -3,7 +3,7 @@
     use App\Enums\Privacy;
 @endphp
 
-<div class="rounded-2xl border border-gray-200/70 bg-white shadow-[0_1px_2px_rgba(0,0,0,0.05)] transition-all duration-200 focus-within:ring-2 focus-within:ring-blue-500/40 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] dark:border-gray-700/60 dark:bg-gray-900">
+<div class="focus-within:ring-primary-500/40 rounded-2xl border border-gray-200/70 bg-white shadow-[0_1px_2px_rgba(0,0,0,0.05)] transition-all duration-200 focus-within:ring-2 hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] dark:border-gray-700/60 dark:bg-gray-900">
     <form method="POST" action="{{ route('diary.store') }}" id="diary-form" class="p-6">
         @csrf
 
@@ -29,7 +29,7 @@
                 id="title"
                 placeholder="Entry title (optional)"
                 value="{{ old('title') }}"
-                class="w-full rounded-xl border border-gray-200/70 bg-gray-50/80 px-4 py-3 text-lg font-medium text-gray-900 placeholder-gray-400 transition focus:border-transparent focus:ring-2 focus:ring-blue-500/50 dark:border-gray-700/60 dark:bg-gray-900/60 dark:text-white dark:placeholder-gray-500"
+                class="focus:ring-primary-500/50 w-full rounded-xl border border-gray-200/70 bg-gray-50/80 px-4 py-3 text-lg font-medium text-gray-900 placeholder-gray-400 transition focus:border-transparent focus:ring-2 dark:border-gray-700/60 dark:bg-gray-900/60 dark:text-white dark:placeholder-gray-500"
             />
         </div>
 
@@ -39,7 +39,7 @@
             rows="6"
             required
             placeholder="Dear diary, today I..."
-            class="min-h-[120px] w-full resize-y rounded-xl border border-gray-200/70 bg-gray-50/80 px-4 py-3 text-gray-900 placeholder-gray-400 transition focus:border-transparent focus:ring-2 focus:ring-blue-500/50 dark:border-gray-700/60 dark:bg-gray-900/60 dark:text-white dark:placeholder-gray-500"
+            class="focus:ring-primary-500/50 min-h-[120px] w-full resize-y rounded-xl border border-gray-200/70 bg-gray-50/80 px-4 py-3 text-gray-900 placeholder-gray-400 transition focus:border-transparent focus:ring-2 dark:border-gray-700/60 dark:bg-gray-900/60 dark:text-white dark:placeholder-gray-500"
         >{{ old('entry') }}</textarea>
         <x-dictate-button target="entry" class="mt-3" />
         @error('entry')
@@ -87,7 +87,7 @@
                 type="text"
                 id="tag-input"
                 placeholder="Add tags (press Enter)"
-                class="w-full rounded-xl border border-gray-200/70 bg-gray-50/80 px-3 py-2 text-sm text-gray-900 placeholder-gray-400 transition focus:border-transparent focus:ring-2 focus:ring-blue-500/50 dark:border-gray-700/60 dark:bg-gray-900/60 dark:text-white"
+                class="focus:ring-primary-500/50 w-full rounded-xl border border-gray-200/70 bg-gray-50/80 px-3 py-2 text-sm text-gray-900 placeholder-gray-400 transition focus:border-transparent focus:ring-2 dark:border-gray-700/60 dark:bg-gray-900/60 dark:text-white"
             />
 
             <input type="hidden" name="tags" id="tags-hidden" />
@@ -98,7 +98,7 @@
                     <button
                         type="button"
                         data-tag="{{ $tag }}"
-                        class="suggested-tag rounded-full bg-gray-100/70 px-2 py-1 text-xs text-gray-600 transition hover:bg-blue-100/70 hover:text-blue-600 dark:bg-gray-700/60 dark:text-gray-300 dark:hover:bg-blue-900/30 dark:hover:text-blue-400"
+                        class="suggested-tag hover:bg-primary-100/70 hover:text-primary-600 dark:hover:bg-primary-900/30 dark:hover:text-primary-400 rounded-full bg-gray-100/70 px-2 py-1 text-xs text-gray-600 transition dark:bg-gray-700/60 dark:text-gray-300"
                     >
                         #{{ $tag }}
                     </button>
@@ -113,7 +113,7 @@
             <select
                 name="privacy"
                 id="privacy-select"
-                class="w-full rounded-xl border border-gray-200/70 bg-white px-3 py-2 text-sm text-gray-900 transition focus:border-transparent focus:ring-2 focus:ring-blue-500/50 dark:border-gray-700/60 dark:bg-gray-800 dark:text-white"
+                class="focus:ring-primary-500/50 w-full rounded-xl border border-gray-200/70 bg-white px-3 py-2 text-sm text-gray-900 transition focus:border-transparent focus:ring-2 dark:border-gray-700/60 dark:bg-gray-800 dark:text-white"
             >
                 @foreach (Privacy::cases() as $privacy)
                     <option value="{{ $privacy->value }}" @selected($privacy === Privacy::Private)>
@@ -132,7 +132,7 @@
             <button
                 type="submit"
                 id="submit-btn"
-                class="inline-flex items-center gap-2 rounded-full bg-blue-600 px-6 py-2.5 font-medium text-white shadow-sm transition hover:bg-blue-700 hover:shadow-md focus:ring-2 focus:ring-blue-500/60 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+                class="bg-primary-600 hover:bg-primary-700 focus:ring-primary-500/60 inline-flex items-center gap-2 rounded-full px-6 py-2.5 font-medium text-white shadow-sm transition hover:shadow-md focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
             >
                 <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
@@ -218,9 +218,9 @@
         tagsContainer.innerHTML = tags
             .map(
                 (tag) => `
-            <span class="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">
+            <span class="inline-flex items-center gap-1 px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-sm">
                 #${tag}
-                <button type="button" onclick="removeTag('${tag}')" class="hover:text-blue-900 dark:hover:text-blue-100">
+                <button type="button" onclick="removeTag('${tag}')" class="hover:text-primary-900 dark:hover:text-primary-100">
                     <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>

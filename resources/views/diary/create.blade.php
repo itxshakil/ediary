@@ -22,7 +22,7 @@
                         name="title"
                         value="{{ old('title') }}"
                         placeholder="Give your entry a title…"
-                        class="w-full rounded-xl border border-gray-200 bg-white/60 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 transition focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-700 dark:bg-gray-800/60 dark:text-white"
+                        class="focus:ring-primary-500 w-full rounded-xl border border-gray-200 bg-white/60 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 transition focus:ring-2 focus:outline-none dark:border-gray-700 dark:bg-gray-800/60 dark:text-white"
                     />
                     @error('title')
                         <p class="mt-1 text-xs text-red-500" role="alert">{{ $message }}</p>
@@ -37,7 +37,7 @@
                     <textarea
                         id="entry"
                         name="entry"
-                        class="notebook auto-grow w-full rounded-xl border border-gray-200 bg-white/60 px-4 py-3 text-sm text-gray-900 placeholder-gray-400 transition focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-700 dark:bg-gray-800/60 dark:text-white"
+                        class="notebook auto-grow focus:ring-primary-500 w-full rounded-xl border border-gray-200 bg-white/60 px-4 py-3 text-sm text-gray-900 placeholder-gray-400 transition focus:ring-2 focus:outline-none dark:border-gray-700 dark:bg-gray-800/60 dark:text-white"
                         placeholder="It was an awesome day today…"
                         required
                         autofocus
@@ -82,7 +82,7 @@
                         name="tags"
                         value="{{ old('tags') }}"
                         placeholder="work, gratitude, travel…"
-                        class="w-full rounded-xl border border-gray-200 bg-white/60 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 transition focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-700 dark:bg-gray-800/60 dark:text-white"
+                        class="focus:ring-primary-500 w-full rounded-xl border border-gray-200 bg-white/60 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 transition focus:ring-2 focus:outline-none dark:border-gray-700 dark:bg-gray-800/60 dark:text-white"
                     />
                     @error('tags')
                         <p class="mt-1 text-xs text-red-500" role="alert">{{ $message }}</p>
@@ -97,7 +97,7 @@
                     <select
                         id="privacy"
                         name="privacy"
-                        class="w-full rounded-xl border border-gray-200 bg-white/60 px-4 py-2.5 text-sm text-gray-900 transition focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-700 dark:bg-gray-800/60 dark:text-white"
+                        class="focus:ring-primary-500 w-full rounded-xl border border-gray-200 bg-white/60 px-4 py-2.5 text-sm text-gray-900 transition focus:ring-2 focus:outline-none dark:border-gray-700 dark:bg-gray-800/60 dark:text-white"
                     >
                         @foreach (\App\Enums\Privacy::cases() as $privacy)
                             <option
@@ -119,7 +119,7 @@
                 </p>
                 <button
                     type="submit"
-                    class="w-full rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700 active:scale-95"
+                    class="bg-primary-600 hover:bg-primary-700 w-full rounded-full px-6 py-3 text-sm font-semibold text-white shadow-sm transition active:scale-95"
                 >
                     Save entry
                 </button>

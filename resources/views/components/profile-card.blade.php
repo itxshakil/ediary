@@ -37,7 +37,7 @@
                     type="text"
                     id="nameInput"
                     value="{{ $profile['name'] }}"
-                    class="w-full rounded-xl border border-gray-200/70 bg-gray-50/80 px-3 py-2 text-sm text-gray-700 shadow-sm focus:border-transparent focus:ring-2 focus:ring-blue-500/50 dark:border-gray-700/60 dark:bg-gray-900/60 dark:text-gray-200"
+                    class="focus:ring-primary-500/50 w-full rounded-xl border border-gray-200/70 bg-gray-50/80 px-3 py-2 text-sm text-gray-700 shadow-sm focus:border-transparent focus:ring-2 dark:border-gray-700/60 dark:bg-gray-900/60 dark:text-gray-200"
                 />
 
                 <p id="nameError" class="mt-1 hidden text-xs text-red-500 italic"></p>
@@ -50,14 +50,14 @@
                 <textarea
                     id="bioInput"
                     rows="6"
-                    class="mt-3 w-full rounded-xl border border-gray-200/70 bg-gray-50/80 px-3 py-2 text-sm text-gray-700 shadow-sm focus:border-transparent focus:ring-2 focus:ring-blue-500/50 dark:border-gray-700/60 dark:bg-gray-900/60 dark:text-gray-200"
+                    class="focus:ring-primary-500/50 mt-3 w-full rounded-xl border border-gray-200/70 bg-gray-50/80 px-3 py-2 text-sm text-gray-700 shadow-sm focus:border-transparent focus:ring-2 dark:border-gray-700/60 dark:bg-gray-900/60 dark:text-gray-200"
                 >{{ $profile['bio'] }}</textarea>
                 <p id="bioError" class="mt-1 hidden text-xs text-red-500 italic"></p>
 
                 <div class="mt-4 flex gap-2">
                     <button
                         id="saveBtn"
-                        class="rounded-full bg-blue-600 px-4 py-2 text-xs font-semibold text-white uppercase shadow-sm transition hover:shadow-md active:scale-95"
+                        class="bg-primary-600 rounded-full px-4 py-2 text-xs font-semibold text-white uppercase shadow-sm transition hover:shadow-md active:scale-95"
                     >
                         Save
                     </button>
@@ -85,7 +85,7 @@
                                    {{
                                        $isFollowing
                                        ? 'bg-red-100 text-red-700 hover:bg-red-200'
-                                       : 'bg-blue-100 text-blue-700 hover:bg-blue-200'
+                                       : 'bg-primary-100 text-primary-700 hover:bg-primary-200'
                                    }}"
                             data-following="{{ $isFollowing ? '1' : '0' }}"
                         >
@@ -97,7 +97,7 @@
                 @if ($canEdit)
                     <a
                         id="editBtn"
-                        class="ml-1 cursor-pointer text-xs text-blue-600 hover:underline dark:text-blue-400"
+                        class="text-primary-600 dark:text-primary-400 ml-1 cursor-pointer text-xs hover:underline"
                     >
                         Edit Profile
                     </a>

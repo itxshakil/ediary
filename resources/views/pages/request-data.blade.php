@@ -22,7 +22,7 @@
 
                     <button
                         type="submit"
-                        class="h-11 w-full rounded-full bg-blue-600 text-sm font-medium text-white transition hover:bg-blue-700 focus:ring-4 focus:ring-blue-500/30 focus:outline-none active:scale-[0.98]"
+                        class="bg-primary-600 hover:bg-primary-700 focus:ring-primary-500/30 h-11 w-full rounded-full text-sm font-medium text-white transition focus:ring-4 focus:outline-none active:scale-[0.98]"
                     >
                         {{ __('Download My Data') }}
                     </button>

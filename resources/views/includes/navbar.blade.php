@@ -50,7 +50,7 @@
             @guest
                 <!-- Guest View -->
                 <a
-                    class="mr-2 hidden rounded-sm bg-blue-100 px-4 py-2 text-xs font-bold text-blue-800 uppercase shadow-sm outline-hidden hover:shadow-md active:bg-blue-200 md:block"
+                    class="bg-primary-100 text-primary-800 active:bg-primary-200 mr-2 hidden rounded-sm px-4 py-2 text-xs font-bold uppercase shadow-sm outline-hidden hover:shadow-md md:block"
                     href="{{ route('register') }}"
                 >Register</a>
 
@@ -64,7 +64,7 @@
             @auth
                 <!-- User Dropdown — native <details>/<summary>, zero JS -->
                 <details class="nav-details ml-3">
-                    <summary class="flex h-10 w-10 overflow-hidden rounded-full border-2 border-transparent text-sm transition duration-150 ease-in-out focus:border-blue-400 focus:outline-none">
+                    <summary class="focus:border-primary-400 flex h-10 w-10 overflow-hidden rounded-full border-2 border-transparent text-sm transition duration-150 ease-in-out focus:outline-none">
                         <img
                             src="{{ $user->profile->image ?? '/default-avatar.png' }}"
                             alt="{{ $user->username }}"

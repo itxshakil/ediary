@@ -13,12 +13,12 @@
                     id="search-input"
                     value="{{ request('q') }}"
                     placeholder="Search your diary entries..."
-                    class="w-full rounded-lg border border-gray-300 bg-gray-50 py-3 pr-4 pl-12 text-gray-900 transition-all duration-200 focus:border-transparent focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-900 dark:text-white"
+                    class="focus:ring-primary-500 w-full rounded-lg border border-gray-300 bg-gray-50 py-3 pr-4 pl-12 text-gray-900 transition-all duration-200 focus:border-transparent focus:ring-2 dark:border-gray-600 dark:bg-gray-900 dark:text-white"
                 />
             </div>
             <button
                 type="submit"
-                class="inline-flex items-center gap-2 rounded-full bg-blue-600 px-6 py-2.5 font-medium text-white shadow-sm transition hover:bg-blue-700 hover:shadow-md focus:ring-2 focus:ring-blue-500/60 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+                class="bg-primary-600 hover:bg-primary-700 focus:ring-primary-500/60 inline-flex items-center gap-2 rounded-full px-6 py-2.5 font-medium text-white shadow-sm transition hover:shadow-md focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
             >
                 Search
             </button>
@@ -42,7 +42,7 @@
                     <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"> Date Range </label>
                     <select
                         name="date_range"
-                        class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-900"
+                        class="focus:ring-primary-500 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 dark:border-gray-600 dark:bg-gray-900"
                     >
                         <option value="">All time</option>
                         <option value="today" {{ request('date_range') == 'today' ? 'selected' : '' }}>Today</option>
@@ -62,7 +62,7 @@
                     <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"> Mood </label>
                     <select
                         name="mood"
-                        class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-900"
+                        class="focus:ring-primary-500 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 dark:border-gray-600 dark:bg-gray-900"
                     >
                         <option value="">All moods</option>
                         <option value="happy" {{ request('mood') == 'happy' ? 'selected' : '' }}>😊 Happy</option>
@@ -84,7 +84,7 @@
                     <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"> Privacy </label>
                     <select
                         name="privacy"
-                        class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-900"
+                        class="focus:ring-primary-500 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 dark:border-gray-600 dark:bg-gray-900"
                     >
                         <option value="">All entries</option>
                         <option value="private" {{ request('privacy') == 'private' ? 'selected' : '' }}>
@@ -105,7 +105,7 @@
                     <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"> Sort By </label>
                     <select
                         name="sort"
-                        class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-900"
+                        class="focus:ring-primary-500 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 dark:border-gray-600 dark:bg-gray-900"
                     >
                         <option value="newest" {{ request('sort') == 'newest' ? 'selected' : '' }}>Newest first</option>
                         <option value="oldest" {{ request('sort') == 'oldest' ? 'selected' : '' }}>Oldest first</option>
@@ -127,7 +127,7 @@
                         type="date"
                         name="date_from"
                         value="{{ request('date_from') }}"
-                        class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-900"
+                        class="focus:ring-primary-500 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 dark:border-gray-600 dark:bg-gray-900"
                     />
                 </div>
                 <div>
@@ -136,7 +136,7 @@
                         type="date"
                         name="date_to"
                         value="{{ request('date_to') }}"
-                        class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-900"
+                        class="focus:ring-primary-500 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 dark:border-gray-600 dark:bg-gray-900"
                     />
                 </div>
             </div>
@@ -149,7 +149,7 @@
                         name="featured"
                         value="1"
                         {{ request('featured') ? 'checked' : '' }}
-                        class="h-4 w-4 rounded text-blue-600 focus:ring-2 focus:ring-blue-500"
+                        class="text-primary-600 focus:ring-primary-500 h-4 w-4 rounded focus:ring-2"
                     />
                     <span class="text-sm text-gray-700 dark:text-gray-300">⭐ Featured only</span>
                 </label>
@@ -159,7 +159,7 @@
                         name="has_title"
                         value="1"
                         {{ request('has_title') ? 'checked' : '' }}
-                        class="h-4 w-4 rounded text-blue-600 focus:ring-2 focus:ring-blue-500"
+                        class="text-primary-600 focus:ring-primary-500 h-4 w-4 rounded focus:ring-2"
                     />
                     <span class="text-sm text-gray-700 dark:text-gray-300">📝 Has title</span>
                 </label>
@@ -169,7 +169,7 @@
             <div class="flex gap-3 pt-2">
                 <button
                     type="submit"
-                    class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700"
+                    class="bg-primary-600 hover:bg-primary-700 rounded-lg px-4 py-2 text-sm font-medium text-white transition-colors"
                 >
                     Apply Filters
                 </button>
@@ -188,32 +188,35 @@
                 <span class="text-sm text-gray-600 dark:text-gray-400">Active filters:</span>
 
                 @if (request('q'))
-                    <span class="inline-flex items-center gap-1 rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
+                    <span class="bg-primary-100 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300 inline-flex items-center gap-1 rounded-full px-3 py-1 text-sm">
                         "{{ request('q') }}"
-                        <a href="{{ request()->fullUrlWithQuery(['q' => null]) }}" class="hover:text-blue-900">×</a>
+                        <a href="{{ request()->fullUrlWithQuery(['q' => null]) }}" class="hover:text-primary-900">×</a>
                     </span>
                 @endif
 
                 @if (request('mood'))
-                    <span class="inline-flex items-center gap-1 rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
+                    <span class="bg-primary-100 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300 inline-flex items-center gap-1 rounded-full px-3 py-1 text-sm">
                         Mood: {{ ucfirst(request('mood')) }}
-                        <a href="{{ request()->fullUrlWithQuery(['mood' => null]) }}" class="hover:text-blue-900">×</a>
+                        <a href="{{ request()->fullUrlWithQuery(['mood' => null]) }}" class="hover:text-primary-900"
+                            >×</a>
                     </span>
                 @endif
 
                 @if (request('privacy'))
-                    <span class="inline-flex items-center gap-1 rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
+                    <span class="bg-primary-100 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300 inline-flex items-center gap-1 rounded-full px-3 py-1 text-sm">
                         Privacy: {{ ucfirst(request('privacy')) }}
-                        <a href="{{ request()->fullUrlWithQuery(['privacy' => null]) }}" class="hover:text-blue-900"
+                        <a href="{{ request()->fullUrlWithQuery(['privacy' => null]) }}" class="hover:text-primary-900"
                             >×</a>
                     </span>
                 @endif
 
                 @if (request('date_range'))
-                    <span class="inline-flex items-center gap-1 rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
+                    <span class="bg-primary-100 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300 inline-flex items-center gap-1 rounded-full px-3 py-1 text-sm">
                         Date: {{ ucfirst(request('date_range')) }}
-                        <a href="{{ request()->fullUrlWithQuery(['date_range' => null]) }}" class="hover:text-blue-900"
-                            >×</a>
+                        <a
+                            href="{{ request()->fullUrlWithQuery(['date_range' => null]) }}"
+                            class="hover:text-primary-900"
+                        >×</a>
                     </span>
                 @endif
             </div>

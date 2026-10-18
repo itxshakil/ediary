@@ -72,7 +72,7 @@
 @endpush
 
 @section('content')
-    <div class="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 px-4 py-12">
+    <div class="from-primary-600 via-primary-700 flex min-h-screen items-center justify-center bg-gradient-to-br to-indigo-800 px-4 py-12">
         <div class="w-full max-w-6xl">
             <div class="flex flex-col overflow-hidden rounded-3xl shadow-2xl lg:flex-row">
                 <!-- Left Side - Image/Branding -->
@@ -82,8 +82,8 @@
                 <div class="w-full bg-white p-8 md:p-12 lg:w-1/2 dark:bg-gray-800">
                     <!-- Mobile Logo -->
                     <div class="mb-8 text-center lg:hidden">
-                        <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-100 dark:bg-blue-900">
-                            <svg class="h-8 w-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="bg-primary-100 dark:bg-primary-900 mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl">
+                            <svg class="text-primary-600 dark:text-primary-400 h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                             </svg>
                         </div>
@@ -111,7 +111,7 @@
                                 value="{{ old('username') }}"
                                 required
                                 autofocus
-                                class="mt-2 w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-gray-900 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200"
+                                class="focus:ring-primary-500 mt-2 w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-gray-900 focus:ring-2 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200"
                             />
                             @error('username')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -128,7 +128,7 @@
                                 type="password"
                                 name="password"
                                 required
-                                class="mt-2 w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-gray-900 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200"
+                                class="focus:ring-primary-500 mt-2 w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-gray-900 focus:ring-2 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200"
                             />
                             @error('password')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -141,7 +141,7 @@
                                 <input
                                     type="checkbox"
                                     name="remember"
-                                    class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                                    class="text-primary-600 focus:ring-primary-500 h-4 w-4 rounded border-gray-300"
                                 />
                                 <span class="ml-2 text-sm text-gray-700 dark:text-gray-300"> Remember Me </span>
                             </label>
@@ -149,7 +149,7 @@
                             @if (Route::has('password.request'))
                                 <a
                                     href="{{ route('password.request') }}"
-                                    class="text-sm text-blue-600 hover:underline dark:text-blue-400"
+                                    class="text-primary-600 dark:text-primary-400 text-sm hover:underline"
                                 >
                                     Forgot Password?
                                 </a>
@@ -160,7 +160,7 @@
                         <div>
                             <button
                                 type="submit"
-                                class="w-full rounded-xl bg-blue-600 px-4 py-3 font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-700"
+                                class="bg-primary-600 hover:bg-primary-700 w-full rounded-xl px-4 py-3 font-semibold text-white shadow-md transition-all duration-200"
                             >
                                 Log In
                             </button>
@@ -183,7 +183,7 @@
                     <div class="space-y-4">
                         <a
                             href="{{ route('register') }}"
-                            class="flex w-full items-center justify-center rounded-xl border-2 border-blue-600 px-4 py-3 font-semibold text-blue-600 transition-all duration-200 hover:bg-blue-50 dark:border-blue-500 dark:text-blue-400 dark:hover:bg-blue-900/20"
+                            class="border-primary-600 text-primary-600 hover:bg-primary-50 dark:border-primary-500 dark:text-primary-400 dark:hover:bg-primary-900/20 flex w-full items-center justify-center rounded-xl border-2 px-4 py-3 font-semibold transition-all duration-200"
                         >
                             <svg class="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
@@ -195,7 +195,7 @@
                             <div class="text-center">
                                 <a
                                     href="{{ route('password.request') }}"
-                                    class="inline-flex items-center gap-1 text-sm text-gray-600 transition-colors hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+                                    class="hover:text-primary-600 dark:hover:text-primary-400 inline-flex items-center gap-1 text-sm text-gray-600 transition-colors dark:text-gray-400"
                                 >
                                     <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -207,9 +207,9 @@
                     </div>
 
                     <!-- Trust Badge for Mobile -->
-                    <div class="mt-8 rounded-xl bg-blue-50 p-4 text-center lg:hidden dark:bg-blue-900/20">
+                    <div class="bg-primary-50 dark:bg-primary-900/20 mt-8 rounded-xl p-4 text-center lg:hidden">
                         <div class="mb-2 flex items-center justify-center gap-2">
-                            <svg class="h-5 w-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="text-primary-600 dark:text-primary-400 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                             </svg>
                             <span class="text-lg font-bold text-gray-900 dark:text-white">Private by default</span>

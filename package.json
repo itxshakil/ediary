@@ -4,7 +4,8 @@
         "dev": "vite",
         "build": "vite build",
         "postbuild": "node scripts/generate-sw-precache.mjs",
-        "test:js": "node --test tests/js/*.test.mjs"
+        "test:js": "node --test tests/js/*.test.mjs",
+        "ui:screenshots": "node scripts/ui-screenshots.mjs"
     },
     "devDependencies": {
         "@tailwindcss/postcss": "^4.3.0",

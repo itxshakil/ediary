@@ -12,8 +12,8 @@
                         {{ number_format($stats['total_entries']) }}
                     </p>
                 </div>
-                <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/30">
-                    <svg class="h-6 w-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="bg-primary-100 dark:bg-primary-900/30 flex h-12 w-12 items-center justify-center rounded-lg">
+                    <svg class="text-primary-600 dark:text-primary-400 h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
                 </div>
@@ -98,7 +98,7 @@
                         <div class="mb-1 flex items-center justify-between text-sm">
                             <a
                                 href="{{ route('diary.mood', $mood) }}"
-                                class="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400"
+                                class="hover:text-primary-600 dark:hover:text-primary-400 text-gray-700 dark:text-gray-300"
                             >
                                 {{ $mood->emoji() }} {{ $mood->label() }}
                             </a>
@@ -106,7 +106,7 @@
                         </div>
                         <div class="h-2 w-full rounded-full bg-gray-200 dark:bg-gray-700">
                             <div
-                                class="h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-500"
+                                class="from-primary-500 h-2 rounded-full bg-gradient-to-r to-purple-500 transition-all duration-500"
                                 style="width: {{ $percentage }}%"
                             ></div>
                         </div>
@@ -185,7 +185,7 @@
                                 ];
                             @endphp
                             <div
-                                class="w-3 h-3 rounded-sm {{ $colors[$intensity] }} cursor-pointer hover:ring-2 hover:ring-blue-500"
+                                class="w-3 h-3 rounded-sm {{ $colors[$intensity] }} cursor-pointer hover:ring-2 hover:ring-primary-500"
                                 title="{{ $date->format('M d, Y') }}: {{ $count }} {{ $count === 1 ? 'entry' : 'entries' }}"
                             ></div>
                         @endfor
@@ -214,7 +214,7 @@
             @foreach ($stats['top_tags'] as $tag => $count)
                 <a
                     href="{{ route('diary.tag', $tag) }}"
-                    class="inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-2 text-blue-700 transition-colors hover:bg-blue-100 dark:bg-blue-900/20 dark:text-blue-300 dark:hover:bg-blue-900/30"
+                    class="bg-primary-50 text-primary-700 hover:bg-primary-100 dark:bg-primary-900/20 dark:text-primary-300 dark:hover:bg-primary-900/30 inline-flex items-center gap-2 rounded-full px-4 py-2 transition-colors"
                 >
                     <span class="font-medium">#{{ $tag }}</span>
                     <span class="text-sm opacity-75">{{ $count }}</span>

@@ -14,13 +14,13 @@
         py-2 px-4 rounded-full
         text-sm font-medium text-white
 
-        bg-gradient-to-b from-blue-500 to-blue-600
-        hover:from-blue-600 hover:to-blue-700
+        bg-gradient-to-b from-primary-500 to-primary-600
+        hover:from-primary-600 hover:to-primary-700
 
         active:scale-[0.96]
 
         focus:outline-none
-        focus:ring-4 focus:ring-blue-500/20
+        focus:ring-4 focus:ring-primary-500/20
 
         disabled:opacity-60 disabled:cursor-not-allowed
 

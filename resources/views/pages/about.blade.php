@@ -10,7 +10,7 @@
 @section('content')
     <div class="bg-white dark:bg-gray-900">
         <!-- Hero Section -->
-        <div class="relative overflow-hidden bg-blue-600 py-20">
+        <div class="bg-primary-600 relative overflow-hidden py-20">
             <div class="absolute inset-0 opacity-10">
                 <div
                     class="absolute inset-0"
@@ -22,7 +22,7 @@
             </div>
             <div class="relative container mx-auto px-4 text-center">
                 <h1 class="mb-6 text-4xl font-extrabold text-white md:text-6xl">About Ediary</h1>
-                <p class="mx-auto max-w-2xl text-xl text-blue-100">
+                <p class="text-primary-100 mx-auto max-w-2xl text-xl">
                     Our mission is to provide the safest, simplest, and most private space for your personal
                     reflections.
                 </p>
@@ -49,7 +49,9 @@
                         <p>
                             We don't sell your data and we don't show ads. Your entries are encrypted at rest and
                             private by default. Read how it works on our
-                            <a href="{{ url('/security') }}" class="text-blue-600 hover:underline dark:text-blue-400"
+                            <a
+                                href="{{ url('/security') }}"
+                                class="text-primary-600 dark:text-primary-400 hover:underline"
                                 >security page</a
                             >.
                         </p>

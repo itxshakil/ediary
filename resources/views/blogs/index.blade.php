@@ -185,7 +185,7 @@
     <div class="container mx-auto max-w-7xl px-4 py-12">
         {{-- Hero --}}
         <div class="mb-16 text-center">
-            <p class="mb-3 text-xs font-semibold tracking-widest text-blue-500 uppercase dark:text-blue-400">
+            <p class="text-primary-500 dark:text-primary-400 mb-3 text-xs font-semibold tracking-widest uppercase">
                 E-Diary Journal
             </p>
             <h1 class="mb-5 text-4xl leading-tight font-extrabold text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
@@ -380,7 +380,7 @@
                     </p>
                     <a
                         href="/faq"
-                        class="flex items-center gap-1 text-sm font-semibold text-blue-600 hover:underline dark:text-blue-400"
+                        class="text-primary-600 dark:text-primary-400 flex items-center gap-1 text-sm font-semibold hover:underline"
                     >
                         View FAQ
                         <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
@@ -395,7 +395,7 @@
                     </p>
                     <a
                         href="/about"
-                        class="flex items-center gap-1 text-sm font-semibold text-blue-600 hover:underline dark:text-blue-400"
+                        class="text-primary-600 dark:text-primary-400 flex items-center gap-1 text-sm font-semibold hover:underline"
                     >
                         Read Our Story
                         <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>

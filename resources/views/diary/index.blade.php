@@ -12,7 +12,7 @@
 
             <a
                 href="{{ route('diary.create') }}"
-                class="inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-blue-700"
+                class="bg-primary-600 hover:bg-primary-700 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-white shadow-sm transition"
             >
                 <span>New entry</span>
             </a>

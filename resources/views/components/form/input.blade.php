@@ -21,8 +21,8 @@
         text-gray-900 dark:text-gray-100
         placeholder-gray-400 dark:placeholder-gray-500
         focus:outline-none
-        focus:ring-4 focus:ring-blue-500/15
-        focus:border-blue-500
+        focus:ring-4 focus:ring-primary-500/15
+        focus:border-primary-500
         transition duration-150 ease-in-out
         ',
         ])

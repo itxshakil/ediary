@@ -68,7 +68,7 @@
 @section('content')
     <div class="bg-white dark:bg-gray-900">
         <!-- Hero Section -->
-        <div class="relative overflow-hidden bg-blue-600 py-20">
+        <div class="bg-primary-600 relative overflow-hidden py-20">
             <div class="absolute inset-0 opacity-10">
                 <div
                     class="absolute inset-0"
@@ -79,31 +79,31 @@
                 ></div>
             </div>
             <div class="relative container mx-auto px-4 text-center">
-                <p class="mb-4 text-sm font-semibold tracking-wider text-blue-200 uppercase">
+                <p class="text-primary-200 mb-4 text-sm font-semibold tracking-wider uppercase">
                     For students & researchers
                 </p>
                 <h1 class="mb-6 text-4xl font-extrabold text-white md:text-6xl">
                     A private study journal that works offline
                 </h1>
-                <p class="mx-auto mb-10 max-w-2xl text-xl text-blue-100">
+                <p class="text-primary-100 mx-auto mb-10 max-w-2xl text-xl">
                     Log what you studied, reflect on your research, and get exam stress out of your head. Free,
                     unlimited, and private by default.
                 </p>
                 @auth
                     <a
                         href="{{ url('/home') }}"
-                        class="inline-block rounded-xl bg-white px-8 py-3 text-sm font-bold text-blue-700 uppercase shadow-md transition hover:bg-blue-50"
+                        class="text-primary-700 hover:bg-primary-50 inline-block rounded-xl bg-white px-8 py-3 text-sm font-bold uppercase shadow-md transition"
                     >
                         Start writing
                     </a>
                 @else
                     <a
                         href="{{ route('register') }}"
-                        class="inline-block rounded-xl bg-white px-8 py-3 text-sm font-bold text-blue-700 uppercase shadow-md transition hover:bg-blue-50"
+                        class="text-primary-700 hover:bg-primary-50 inline-block rounded-xl bg-white px-8 py-3 text-sm font-bold uppercase shadow-md transition"
                     >
                         Create your free journal
                     </a>
-                    <p class="mt-4 text-sm text-blue-200">Just an email. No name, no phone number.</p>
+                    <p class="text-primary-200 mt-4 text-sm">Just an email. No name, no phone number.</p>
                 @endauth
             </div>
         </div>
@@ -164,7 +164,7 @@
                     <li>
                         <strong class="text-gray-900 dark:text-white">Your notes stay yours.</strong>
                         Export everything at any time. Read
-                        <a href="{{ url('/security') }}" class="text-blue-600 hover:underline dark:text-blue-400"
+                        <a href="{{ url('/security') }}" class="text-primary-600 dark:text-primary-400 hover:underline"
                             >how we protect your data</a
                         >.
                     </li>
@@ -177,15 +177,15 @@
             <h2 class="mb-10 text-center text-3xl font-bold text-gray-900 dark:text-white">Start in under a minute</h2>
             <ol class="grid gap-8 md:grid-cols-3">
                 <li class="text-center">
-                    <span class="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 font-bold text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">1</span>
+                    <span class="bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400 mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-full font-bold">1</span>
                     <p class="text-gray-700 dark:text-gray-300">Sign up with your email address.</p>
                 </li>
                 <li class="text-center">
-                    <span class="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 font-bold text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">2</span>
+                    <span class="bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400 mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-full font-bold">2</span>
                     <p class="text-gray-700 dark:text-gray-300">Write your first entry: what did you study today?</p>
                 </li>
                 <li class="text-center">
-                    <span class="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 font-bold text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">3</span>
+                    <span class="bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400 mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-full font-bold">3</span>
                     <p class="text-gray-700 dark:text-gray-300">
                         Add a course tag so you can find it again at revision time.
                     </p>

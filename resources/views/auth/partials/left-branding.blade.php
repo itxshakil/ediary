@@ -1,4 +1,4 @@
-<div class="relative hidden items-center justify-center overflow-hidden bg-gradient-to-br from-blue-800 to-indigo-900 p-12 lg:flex lg:w-1/2">
+<div class="from-primary-800 relative hidden items-center justify-center overflow-hidden bg-gradient-to-br to-indigo-900 p-12 lg:flex lg:w-1/2">
     <!-- Background Pattern -->
     <div class="absolute inset-0 opacity-10">
         <div
@@ -21,7 +21,7 @@
         </div>
 
         <h2 class="mb-4 text-3xl font-bold text-white md:text-4xl">Your Thoughts,<br />Your Sanctuary</h2>
-        <p class="mb-8 text-lg text-blue-100">A private, distraction-free place for your journaling</p>
+        <p class="text-primary-100 mb-8 text-lg">A private, distraction-free place for your journaling</p>
 
         <!-- Trust Badges -->
         <div class="space-y-4">
@@ -32,10 +32,12 @@
                     </svg>
                     <span class="text-2xl font-bold text-white">Private by default</span>
                 </div>
-                <p class="text-sm text-blue-100">Entries encrypted at rest. Works offline. Just an email to sign up.</p>
+                <p class="text-primary-100 text-sm">
+                    Entries encrypted at rest. Works offline. Just an email to sign up.
+                </p>
             </div>
 
-            <div class="flex items-center justify-center gap-6 text-sm text-blue-100">
+            <div class="text-primary-100 flex items-center justify-center gap-6 text-sm">
                 <div class="flex items-center gap-2">
                     <svg class="h-5 w-5 text-green-300" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />

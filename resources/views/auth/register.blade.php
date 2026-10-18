@@ -128,7 +128,7 @@
 @endpush
 
 @section('content')
-    <div class="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 px-4 py-12">
+    <div class="from-primary-600 via-primary-700 flex min-h-screen items-center justify-center bg-gradient-to-br to-indigo-800 px-4 py-12">
         <div class="w-full max-w-6xl">
             <div class="flex flex-col overflow-hidden rounded-3xl shadow-2xl lg:flex-row">
                 {{-- Left Side Branding (unchanged) --}}
@@ -138,8 +138,8 @@
                 <div class="w-full bg-white p-8 md:p-12 lg:w-1/2 dark:bg-gray-800">
                     {{-- Mobile Logo --}}
                     <div class="mb-8 text-center lg:hidden">
-                        <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-100 dark:bg-blue-900">
-                            <svg class="h-8 w-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="bg-primary-100 dark:bg-primary-900 mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl">
+                            <svg class="text-primary-600 dark:text-primary-400 h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                             </svg>
                         </div>
@@ -227,7 +227,7 @@
                         {{-- Submit --}}
                         <button
                             type="submit"
-                            class="w-full rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 py-3.5 font-semibold text-white shadow-md transition hover:scale-[1.01]"
+                            class="from-primary-600 to-primary-700 w-full rounded-xl bg-gradient-to-r py-3.5 font-semibold text-white shadow-md transition hover:scale-[1.01]"
                         >
                             Create Account
                         </button>
@@ -248,7 +248,7 @@
                     {{-- Link to Login --}}
                     <a
                         href="{{ route('login') }}"
-                        class="flex w-full items-center justify-center rounded-xl border-2 border-blue-600 px-4 py-3 font-semibold text-blue-600 transition-all hover:bg-blue-50 dark:border-blue-500 dark:text-blue-400 dark:hover:bg-blue-900/20"
+                        class="border-primary-600 text-primary-600 hover:bg-primary-50 dark:border-primary-500 dark:text-primary-400 dark:hover:bg-primary-900/20 flex w-full items-center justify-center rounded-xl border-2 px-4 py-3 font-semibold transition-all"
                     >
                         Log In Instead
                     </a>

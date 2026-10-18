@@ -9,7 +9,7 @@
         <p>{{ $user->profile->follower_count }} Followers</p>
         <a
             href="/user/{{ $user->username }}"
-            class="mt-2 inline-block rounded-sm bg-blue-600 px-3 py-1 text-center text-xs font-bold text-gray-100 uppercase shadow-sm outline-hidden hover:shadow-md focus:outline-hidden"
+            class="bg-primary-600 mt-2 inline-block rounded-sm px-3 py-1 text-center text-xs font-bold text-gray-100 uppercase shadow-sm outline-hidden hover:shadow-md focus:outline-hidden"
         >View Profile</a>
     </div>
 </div>

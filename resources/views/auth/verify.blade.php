@@ -68,7 +68,7 @@
 @endpush
 
 @section('content')
-    <div class="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-600/90 via-blue-700 to-indigo-800 px-4 py-12">
+    <div class="from-primary-600/90 via-primary-700 flex min-h-screen items-center justify-center bg-gradient-to-br to-indigo-800 px-4 py-12">
         <div class="w-full max-w-5xl">
             <div class="flex flex-col overflow-hidden rounded-3xl bg-white shadow-2xl lg:flex-row dark:bg-gray-800">
                 @include('auth.partials.left-branding')
@@ -100,7 +100,7 @@
                             @csrf
                             <button
                                 type="submit"
-                                class="h-11 w-full rounded-xl bg-blue-600 font-medium text-white transition hover:bg-blue-700 focus:ring-4 focus:ring-blue-500/20 focus:outline-none active:scale-[0.98]"
+                                class="bg-primary-600 hover:bg-primary-700 focus:ring-primary-500/20 h-11 w-full rounded-xl font-medium text-white transition focus:ring-4 focus:outline-none active:scale-[0.98]"
                             >
                                 Resend verification email
                             </button>
@@ -121,7 +121,7 @@
                     <div class="text-center">
                         <a
                             href="{{ url('/contact') }}"
-                            class="inline-flex items-center gap-1 text-sm text-blue-600 hover:underline dark:text-blue-400"
+                            class="text-primary-600 dark:text-primary-400 inline-flex items-center gap-1 text-sm hover:underline"
                         >
                             <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path

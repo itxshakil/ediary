@@ -49,14 +49,14 @@
                             required
                             maxlength="2000"
                             placeholder="Write a comment..."
-                            class="w-full rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 focus:border-transparent focus:ring-2 focus:ring-blue-500/50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100"
+                            class="focus:ring-primary-500/50 w-full rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 focus:border-transparent focus:ring-2 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100"
                         >{{ old('comment') }}</textarea>
                         @error('comment')
                             <p class="mt-1 text-xs text-red-500 italic">{{ $message }}</p>
                         @enderror
                         <button
                             type="submit"
-                            class="mt-2 inline-flex items-center rounded-full bg-blue-600 px-4 py-1.5 text-sm font-medium text-white shadow-sm transition hover:bg-blue-700"
+                            class="bg-primary-600 hover:bg-primary-700 mt-2 inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium text-white shadow-sm transition"
                         >
                             Post comment
                         </button>
@@ -66,7 +66,8 @@
                 @endif
             @else
                 <p class="mb-6 text-sm text-gray-500 dark:text-gray-400">
-                    <a href="{{ route('login') }}" class="text-blue-600 hover:underline dark:text-blue-400">Log in</a>
+                    <a href="{{ route('login') }}" class="text-primary-600 dark:text-primary-400 hover:underline"
+                        >Log in</a>
                     to comment.
                 </p>
             @endauth

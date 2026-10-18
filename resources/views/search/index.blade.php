@@ -12,9 +12,9 @@
                 <x-diary-card :entry="$entry" />
             @empty
                 <div class="relative overflow-hidden rounded-2xl border border-dashed border-gray-200 bg-linear-to-br from-gray-50 to-white p-10 text-center dark:border-gray-700 dark:from-gray-800 dark:to-gray-900">
-                    <div class="absolute -top-10 -right-10 h-32 w-32 rounded-full bg-blue-500/10 blur-3xl"></div>
+                    <div class="bg-primary-500/10 absolute -top-10 -right-10 h-32 w-32 rounded-full blur-3xl"></div>
 
-                    <div class="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
+                    <div class="bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400 mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-xl">
                         <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path
                                 stroke-linecap="round"
@@ -39,7 +39,7 @@
                     <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
                         <button
                             id="show-add-form"
-                            class="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-blue-700"
+                            class="bg-primary-600 hover:bg-primary-700 inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-medium text-white shadow-sm transition"
                         >
                             ✍️ Write new entry
                         </button>
