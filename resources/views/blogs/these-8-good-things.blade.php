@@ -181,22 +181,7 @@
                 </p>
 
                 @include('blogs._cta')
-
-                @php
-                    $related = [
-                        [
-                            'url' => '/blogs/how-to-write-diary',
-                            'title' => 'How to Write a Diary',
-                            'description' => 'Learn tips and tricks to get the most out of writing a diary. Explore ways to discuss emotions, record ideas, and reflect on life.',
-                        ],
-                        [
-                            'url' => '/blogs/how-to-start-writing-a-diary',
-                            'title' => 'How to Start Writing a Diary',
-                            'description' => 'Learn how to begin your journaling journey. Find tips for starting your diary and making writing a daily habit.',
-                        ],
-                    ];
-                @endphp
-                @include('blogs._related', ['related' => $related])
+                @include('blogs._related')
             </div>
         </article>
     </div>

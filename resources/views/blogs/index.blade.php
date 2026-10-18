@@ -36,150 +36,38 @@
 @endpush
 
 @push('head')
+    @php
+        $posts = config('blog.posts');
+    @endphp
     <script type="application/ld+json">
-        {
-            "@@context": "https://schema.org/",
-            "@type": "Blog",
-            "@id": "https://ediary.shakiltech.com/blog",
-            "mainEntityOfPage": "https://ediary.shakiltech.com/blog",
-            "name": "E-Diary Articles",
-            "description": "Discover how to start writing a diary, unlock creativity, self-expression, and inspiration through insightful articles from expert writers.",
-            "publisher": {
-                "@type": "Organization",
-                "@id": "https://ediary.shakiltech.com",
-                "name": "E-Diary",
-                "logo": {
-                    "@type": "ImageObject",
-                    "@id": "https://ediary.shakiltech.com/icons/android-icon-192x192.png",
-                    "url": "https://ediary.shakiltech.com/icons/android-icon-192x192.png",
-                    "width": "96",
-                    "height": "96"
-                }
-            },
-            "blogPost": [
-                {
-                    "@type": "BlogPosting",
-                    "@id": "https://ediary.shakiltech.com/blogs/how-to-keep-a-study-journal/#BlogPosting",
-                    "mainEntityOfPage": "https://ediary.shakiltech.com/blogs/how-to-keep-a-study-journal",
-                    "headline": "How to Keep a Study Journal",
-                    "name": "How to Keep a Study Journal",
-                    "description": "What to write after each study session, a five-minute template, and how your journal makes revision easier.",
-                    "datePublished": "2026-10-18",
-                    "dateModified": "2026-10-18",
-                    "author": {
-                        "@type": "Person",
-                        "@id": "https://ediary.shakiltech.com/author/shakil-alam/#Person",
-                        "name": "Shakil Alam"
-                    },
-                    "url": "https://ediary.shakiltech.com/blogs/how-to-keep-a-study-journal",
-                    "keywords": ["Study Journal", "Students", "Revision"]
-                },
-                {
-                    "@type": "BlogPosting",
-                    "@id": "https://ediary.shakiltech.com/blogs/how-to-keep-a-research-journal/#BlogPosting",
-                    "mainEntityOfPage": "https://ediary.shakiltech.com/blogs/how-to-keep-a-research-journal",
-                    "headline": "How to Keep a Research Journal",
-                    "name": "How to Keep a Research Journal",
-                    "description": "What to write, how often, and how a research journal pays off in your methods chapter and supervisor meetings.",
-                    "datePublished": "2026-10-18",
-                    "dateModified": "2026-10-18",
-                    "author": {
-                        "@type": "Person",
-                        "@id": "https://ediary.shakiltech.com/author/shakil-alam/#Person",
-                        "name": "Shakil Alam"
-                    },
-                    "url": "https://ediary.shakiltech.com/blogs/how-to-keep-a-research-journal",
-                    "keywords": ["Research Journal", "PhD", "Thesis Writing"]
-                },
-                {
-                    "@type": "BlogPosting",
-                    "@id": "https://ediary.shakiltech.com/blogs/journaling-prompts-for-students/#BlogPosting",
-                    "mainEntityOfPage": "https://ediary.shakiltech.com/blogs/journaling-prompts-for-students",
-                    "headline": "40 Journaling Prompts for Students",
-                    "name": "40 Journaling Prompts for Students",
-                    "description": "Prompts for study reflection, exam stress, motivation, friendships, and the end of the semester.",
-                    "datePublished": "2026-10-18",
-                    "dateModified": "2026-10-18",
-                    "author": {
-                        "@type": "Person",
-                        "@id": "https://ediary.shakiltech.com/author/shakil-alam/#Person",
-                        "name": "Shakil Alam"
-                    },
-                    "url": "https://ediary.shakiltech.com/blogs/journaling-prompts-for-students",
-                    "keywords": ["Journaling Prompts", "Students", "Exam Stress"]
-                },
-                {
-                    "@type": "BlogPosting",
-                    "@id": "https://ediary.shakiltech.com/blogs/how-to-choose-a-private-journal-app/#BlogPosting",
-                    "mainEntityOfPage": "https://ediary.shakiltech.com/blogs/how-to-choose-a-private-journal-app",
-                    "headline": "How to Choose a Private Journal App",
-                    "name": "How to Choose a Private Journal App",
-                    "description": "Encryption, data collection, offline access, sharing, and export: what to check before you trust an app with your journal.",
-                    "datePublished": "2026-10-18",
-                    "dateModified": "2026-10-18",
-                    "author": {
-                        "@type": "Person",
-                        "@id": "https://ediary.shakiltech.com/author/shakil-alam/#Person",
-                        "name": "Shakil Alam"
-                    },
-                    "url": "https://ediary.shakiltech.com/blogs/how-to-choose-a-private-journal-app",
-                    "keywords": ["Privacy", "Encryption", "Journal Apps"]
-                },
-                {
-                    "@type": "BlogPosting",
-                    "@id": "https://ediary.shakiltech.com/blogs/how-to-write-diary/#BlogPosting",
-                    "mainEntityOfPage": "https://ediary.shakiltech.com/blogs/how-to-write-diary",
-                    "headline": "How to Write a Diary",
-                    "name": "How to Write a Diary",
-                    "description": "Learn tips and tricks to get the most out of writing a diary. Explore ways to discuss emotions, record ideas, and reflect on life.",
-                    "datePublished": "2023-01-01",
-                    "dateModified": "2023-01-01",
-                    "author": {
-                        "@type": "Organization",
-                        "@id": "https://ediary.shakiltech.com",
-                        "name": "WikiHow"
-                    },
-                    "url": "https://ediary.shakiltech.com/blogs/how-to-write-diary",
-                    "keywords": ["Diary Writing", "Journaling Tips", "Self-Expression"]
-                },
-                {
-                    "@type": "BlogPosting",
-                    "@id": "https://ediary.shakiltech.com/blogs/these-8-good-things-will-happen-when-you-start-writing-diary/#BlogPosting",
-                    "mainEntityOfPage": "https://ediary.shakiltech.com/blogs/these-8-good-things-will-happen-when-you-start-writing-diary",
-                    "headline": "These 8 Good Things Will Happen When You Start Writing Diaries",
-                    "name": "These 8 Good Things Will Happen When You Start Writing Diaries",
-                    "description": "Discover the amazing benefits of diary writing, including self-expression, creativity, and manifesting dreams.",
-                    "datePublished": "2023-02-15",
-                    "dateModified": "2023-02-15",
-                    "author": {
-                        "@type": "Person",
-                        "@id": "https://ediary.shakiltech.com/author/internet-blogger/#Person",
-                        "name": "Internet Blogger"
-                    },
-                    "url": "https://ediary.shakiltech.com/blogs/these-8-good-things-will-happen-when-you-start-writing-diary",
-                    "keywords": ["Diary Benefits", "Creativity", "Self-Expression"]
-                },
-                {
-                    "@type": "BlogPosting",
-                    "@id": "https://ediary.shakiltech.com/blogs/how-to-start-writing-a-diary/#BlogPosting",
-                    "mainEntityOfPage": "https://ediary.shakiltech.com/blogs/how-to-start-writing-a-diary",
-                    "headline": "How to Start Writing a Diary",
-                    "name": "How to Start Writing a Diary",
-                    "description": "Learn how to begin your journaling journey. Find tips for starting your diary and making writing a daily habit.",
-                    "datePublished": "2023-03-01",
-                    "dateModified": "2023-03-01",
-                    "author": {
-                        "@type": "Person",
-                        "@id": "https://ediary.shakiltech.com/author/shakil-alam/#Person",
-                        "name": "Shakil Alam"
-                    },
-                    "url": "https://ediary.shakiltech.com/blogs/how-to-start-writing-a-diary",
-                    "keywords": ["Starting a Diary", "Journaling Tips", "Writing Habit"]
-                }
-            ]
-        }
+        {!!
+            json_encode([
+                '@context' => 'https://schema.org/',
+                '@type' => 'Blog',
+                '@id' => url('blog'),
+                'mainEntityOfPage' => url('blog'),
+                'name' => 'E-Diary Articles',
+                'description' => 'Articles on starting and keeping a diary, journaling for students and researchers, and choosing a private journal.',
+                'publisher' => [
+                    '@type' => 'Organization',
+                    '@id' => url('/'),
+                    'name' => 'E-Diary',
+                    'logo' => ['@type' => 'ImageObject', 'url' => url('/icons/android-icon-192x192.png')],
+                ],
+                'blogPost' => collect($posts)->map(fn (array $post, string $slug) => [
+                    '@type' => 'BlogPosting',
+                    '@id' => url("blogs/{$slug}") . '#BlogPosting',
+                    'mainEntityOfPage' => url("blogs/{$slug}"),
+                    'headline' => $post['headline'] ?? $post['title'],
+                    'description' => $post['description'],
+                    'datePublished' => $post['date'],
+                    'author' => ['@type' => 'Person', 'name' => $post['author']],
+                    'url' => url("blogs/{$slug}"),
+                    'keywords' => $post['keywords'] ?? [],
+                ])->values(),
+            ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG)
+        !!}
     </script>
-
 @endpush
 @section('content')
     <div class="container mx-auto max-w-7xl px-4 py-12">
@@ -197,173 +85,31 @@
         </div>
 
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <div class="blog-card group">
-                <div class="blog-card-body">
-                    <span class="blog-badge blog-badge-blue">Students</span>
-                    <h2 class="blog-card-title">
-                        <a href="/blogs/how-to-keep-a-study-journal">How to Keep a Study Journal</a>
-                    </h2>
-                    <p class="blog-card-excerpt">
-                        What to write after each study session, a five-minute template, and how your journal makes
-                        revision easier.
-                    </p>
-                </div>
-                <div class="blog-card-footer">
-                    <div class="blog-card-author">
-                        <span class="blog-card-author-label">Written By</span>
-                        <a class="blog-card-author-name" href="https://shakiltech.com">Shakil Alam</a>
+            @foreach (config('blog.posts') as $slug => $post)
+                @continue(! ($post['listed'] ?? true))
+                <div class="blog-card group">
+                    <div class="blog-card-body">
+                        <span class="blog-badge blog-badge-{{ $post['badge_color'] ?? 'blue' }}">{{ $post['badge'] }}</span>
+                        <h2 class="blog-card-title">
+                            <a href="{{ url("blogs/{$slug}") }}">{{ $post['title'] }}</a>
+                        </h2>
+                        <p class="blog-card-excerpt">{{ $post['description'] }}</p>
                     </div>
-                    <a href="/blogs/how-to-keep-a-study-journal" class="blog-card-arrow" aria-label="Read article">
-                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                    </a>
-                </div>
-            </div>
-
-            <div class="blog-card group">
-                <div class="blog-card-body">
-                    <span class="blog-badge blog-badge-blue">Researchers</span>
-                    <h2 class="blog-card-title">
-                        <a href="/blogs/how-to-keep-a-research-journal">How to Keep a Research Journal</a>
-                    </h2>
-                    <p class="blog-card-excerpt">
-                        What to write, how often, and how a research journal pays off in your methods chapter and
-                        supervisor meetings.
-                    </p>
-                </div>
-                <div class="blog-card-footer">
-                    <div class="blog-card-author">
-                        <span class="blog-card-author-label">Written By</span>
-                        <a class="blog-card-author-name" href="https://shakiltech.com">Shakil Alam</a>
-                    </div>
-                    <a href="/blogs/how-to-keep-a-research-journal" class="blog-card-arrow" aria-label="Read article">
-                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                    </a>
-                </div>
-            </div>
-
-            <div class="blog-card group">
-                <div class="blog-card-body">
-                    <span class="blog-badge blog-badge-blue">Prompts</span>
-                    <h2 class="blog-card-title">
-                        <a href="/blogs/journaling-prompts-for-students">40 Journaling Prompts for Students</a>
-                    </h2>
-                    <p class="blog-card-excerpt">
-                        Prompts for study reflection, exam stress, motivation, friendships, and the end of the semester.
-                    </p>
-                </div>
-                <div class="blog-card-footer">
-                    <div class="blog-card-author">
-                        <span class="blog-card-author-label">Written By</span>
-                        <a class="blog-card-author-name" href="https://shakiltech.com">Shakil Alam</a>
-                    </div>
-                    <a href="/blogs/journaling-prompts-for-students" class="blog-card-arrow" aria-label="Read article">
-                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                    </a>
-                </div>
-            </div>
-
-            <div class="blog-card group">
-                <div class="blog-card-body">
-                    <span class="blog-badge blog-badge-blue">Privacy</span>
-                    <h2 class="blog-card-title">
-                        <a href="/blogs/how-to-choose-a-private-journal-app">How to Choose a Private Journal App</a>
-                    </h2>
-                    <p class="blog-card-excerpt">
-                        Encryption, data collection, offline access, sharing, and export: what to check before you trust
-                        an app with your journal.
-                    </p>
-                </div>
-                <div class="blog-card-footer">
-                    <div class="blog-card-author">
-                        <span class="blog-card-author-label">Written By</span>
-                        <a class="blog-card-author-name" href="https://shakiltech.com">Shakil Alam</a>
-                    </div>
-                    <a
-                        href="/blogs/how-to-choose-a-private-journal-app"
-                        class="blog-card-arrow"
-                        aria-label="Read article"
-                    >
-                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                    </a>
-                </div>
-            </div>
-
-            {{-- Article 1 --}}
-            <div class="blog-card group">
-                <div class="blog-card-body">
-                    <span class="blog-badge blog-badge-blue">Goal Setting</span>
-                    <h2 class="blog-card-title">
-                        <a href="/blogs/goal-setting-for-success">
-                            5 Steps to Design the Life You’ve Always Dreamed Of
+                    <div class="blog-card-footer">
+                        <div class="blog-card-author">
+                            <span class="blog-card-author-label">Written By</span>
+                            <span class="blog-card-author-name">{{ $post['author'] }}</span>
+                        </div>
+                        <a
+                            href="{{ url("blogs/{$slug}") }}"
+                            class="blog-card-arrow"
+                            aria-label="Read {{ $post['title'] }}"
+                        >
+                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
                         </a>
-                    </h2>
-                    <p class="blog-card-excerpt">
-                        Ready to turn your goals into achievements? Learn the best strategies for setting clear,
-                        actionable goals that lead to real success.
-                    </p>
-                </div>
-                <div class="blog-card-footer">
-                    <div class="blog-card-author">
-                        <span class="blog-card-author-label">Written By</span>
-                        <a class="blog-card-author-name" href="https://shakiltech.com">Shakil Alam</a>
                     </div>
-                    <a href="/blogs/goal-setting-for-success" class="blog-card-arrow" aria-label="Read article">
-                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                    </a>
                 </div>
-            </div>
-
-            {{-- Article 2 --}}
-            <div class="blog-card group">
-                <div class="blog-card-body">
-                    <span class="blog-badge blog-badge-purple">Benefits</span>
-                    <h2 class="blog-card-title">
-                        <a href="/blogs/these-8-good-things-will-happen-when-you-start-writing-diary">
-                            8 Good Things That Happen When You Start Journaling
-                        </a>
-                    </h2>
-                    <p class="blog-card-excerpt">
-                        Writing to yourself is an important means of self-expression. Discover how a diary can be
-                        healing, unlock creativity, and help you know yourself better.
-                    </p>
-                </div>
-                <div class="blog-card-footer">
-                    <div class="blog-card-author">
-                        <span class="blog-card-author-label">Written By</span>
-                        <span class="blog-card-author-name">Internet Blogger</span>
-                    </div>
-                    <a
-                        href="/blogs/these-8-good-things-will-happen-when-you-start-writing-diary"
-                        class="blog-card-arrow"
-                        aria-label="Read article"
-                    >
-                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                    </a>
-                </div>
-            </div>
-
-            {{-- Article 3 --}}
-            <div class="blog-card group">
-                <div class="blog-card-body">
-                    <span class="blog-badge blog-badge-green">Getting Started</span>
-                    <h2 class="blog-card-title">
-                        <a href="/blogs/how-to-start-writing-a-diary"> How to Start Writing a Diary </a>
-                    </h2>
-                    <p class="blog-card-excerpt">
-                        To start a diary, all you need is a willingness to write. Learn how to figure out what you want
-                        to write and how to make it a daily habit.
-                    </p>
-                </div>
-                <div class="blog-card-footer">
-                    <div class="blog-card-author">
-                        <span class="blog-card-author-label">Written By</span>
-                        <a class="blog-card-author-name" href="https://shakiltech.com">Shakil Alam</a>
-                    </div>
-                    <a href="/blogs/how-to-start-writing-a-diary" class="blog-card-arrow" aria-label="Read article">
-                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                    </a>
-                </div>
-            </div>
+            @endforeach
         </div>
 
         @include('blogs._cta')
