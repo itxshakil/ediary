@@ -72,24 +72,27 @@
         "analyse": "vendor/bin/phpstan analyse --memory-limit=1G --no-progress",
         "lint:fix": [
             "rector process",
-            "pint --blade --dirty"
+            "pint --blade"
         ],
         "lint": [
             "@analyse",
-            "pint --blade --parallel"
+            "rector process --dry-run",
+            "pint --test --blade"
         ],
         "qa": [
             "@lint",
-            "@test"
-        ]
+            "@test",
+            "@test:js"
+        ],
+        "test:js": "npm run --silent test:js"
     },
     "scripts-descriptions": {
         "setup": "Fresh project setup: install dependencies, copy .env, generate key, run migrations/seeders, install NPM packages and build assets.",
-        "test:types": "Run PHPStan static analysis with extended memory limit.",
         "test": "Run the PHPUnit test suite",
         "analyse": "Run static analysis using PHPStan",
-        "lint:fix": "Automatically fix code style issues using Rector and Laravel Pint",
-        "lint": "Run static analysis and code style checks without modifying files",
-        "qa": "Run full quality assurance checks (lint + tests)"
+        "lint:fix": "Apply Rector and Pint fixes.",
+        "lint": "Check code without changing it: PHPStan, Rector (dry run) and Pint.",
+        "qa": "Everything CI should run: lint, PHP tests and JavaScript tests.",
+        "test:js": "Run the JavaScript unit tests."
     }
 }
