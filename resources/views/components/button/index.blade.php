@@ -10,7 +10,7 @@
 @php
     $classes = [
         'relative inline-flex shrink-0 items-center justify-center gap-2 rounded-full font-medium whitespace-nowrap select-none',
-        'transition duration-150 ease-out active:scale-[0.97] disabled:pointer-events-none disabled:opacity-60',
+        'press disabled:pointer-events-none disabled:opacity-60',
         match ($variant) {
             'secondary' => 'border border-gray-200 bg-white text-gray-800 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700',
             'ghost' => 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800',

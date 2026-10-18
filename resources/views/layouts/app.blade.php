@@ -117,7 +117,7 @@
         ></iframe
     ></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <div id="app" class="flex min-h-screen flex-col justify-between overflow-x-hidden">
+    <div id="app" class="flex min-h-screen flex-col justify-between overflow-x-clip">
         @include('includes.navbar')
 
         <main>

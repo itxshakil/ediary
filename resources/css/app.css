@@ -30,6 +30,8 @@
     Shape scale: rounded-xl for controls (buttons, fields, icon tiles), rounded-2xl for cards,
     rounded-full for pills, chips and avatars. Tailwind's default radius values are kept.
   */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
   --shadow-card: 0 1px 2px rgb(0 0 0 / 0.05);
   --shadow-card-hover: 0 8px 24px rgb(0 0 0 / 0.08);
 }
@@ -83,6 +85,21 @@ label:has(+ .field:user-invalid, + .field[aria-invalid='true']) {
   color: light-dark(var(--color-red-600), var(--color-red-400));
 }
 
+/* Tactile press: colours change linearly, the scale springs back. */
+@utility press {
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    box-shadow 150ms ease,
+    scale 300ms var(--ease-spring);
+
+  &:active {
+    scale: 0.96;
+    transition-duration: 80ms;
+  }
+}
+
 /*
   Chips: compact pill controls. A chip is selected when it has aria-pressed="true" or
   contains a checked radio/checkbox, so the same look works for buttons and form inputs.
@@ -102,14 +119,19 @@ label:has(+ .field:user-invalid, + .field[aria-invalid='true']) {
   white-space: nowrap;
   cursor: pointer;
   user-select: none;
-  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease, scale 150ms ease;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    scale 300ms var(--ease-spring);
 
   &:hover {
     background-color: light-dark(var(--color-gray-200), var(--color-gray-700));
   }
 
   &:active {
-    scale: 0.97;
+    scale: 0.96;
+    transition-duration: 80ms;
   }
 
   &:is([aria-pressed='true'], :has(:checked)) {
@@ -208,11 +230,13 @@ label:has(+ .field:user-invalid, + .field[aria-invalid='true']) {
 .navbar-glass {
     background: light-dark(var(--color-surface), var(--color-surface-dark));
     backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
     border-bottom: 1px solid light-dark(var(--color-border), var(--color-border-dark));
 
+    /* Longhands: the minifier folds a timeline into the animation shorthand, which browsers reject. */
     @supports (animation-timeline: scroll()) {
-        animation: navbar-shadow linear both;
+        animation-name: navbar-shadow;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
         animation-timeline: scroll();
         animation-range: 0px 80px;
     }
@@ -243,7 +267,6 @@ label:has(+ .field:user-invalid, + .field[aria-invalid='true']) {
     border-radius: var(--radius-xl);
     background: light-dark(var(--color-surface), var(--color-surface-dark));
     backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
     border: 1px solid light-dark(var(--color-border), var(--color-border-dark));
     box-shadow: 0 8px 32px rgba(0,0,0,0.12);
     overflow: hidden;
@@ -617,9 +640,45 @@ a.diary-card-mood:hover {
 @view-transition {
     navigation: auto;
 }
-::view-transition-old(root),
-::view-transition-new(root) {
+::view-transition-group(*) {
     animation-duration: 0.25s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Persistent chrome stays put while the page underneath cross-fades; the page title morphs. */
+.navbar-glass {
+    view-transition-name: site-nav;
+}
+
+.tab-bar {
+    view-transition-name: tab-bar;
+}
+
+.page-title {
+    view-transition-name: page-title;
+}
+
+::view-transition-group(site-nav),
+::view-transition-group(tab-bar) {
+    animation: none;
+}
+
+/* ── Scroll reveal: fade sections up as they enter the viewport ── */
+@keyframes reveal {
+    from {
+        opacity: 0;
+        translate: 0 1.5rem;
+    }
+}
+
+@supports (animation-timeline: view()) {
+    .reveal {
+        animation-name: reveal;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 25%;
+    }
 }
 
 /* ── Blog card (frosted glass, Apple-like) ── */
@@ -628,7 +687,6 @@ a.diary-card-mood:hover {
     flex-direction: column;
     background: light-dark(var(--color-surface), var(--color-surface-dark));
     backdrop-filter: blur(12px) saturate(180%);
-    -webkit-backdrop-filter: blur(12px) saturate(180%);
     border: 1px solid light-dark(var(--color-border), var(--color-border-dark));
     border-radius: var(--radius-2xl);
     box-shadow: 0 1px 4px rgba(0,0,0,0.06);
@@ -856,7 +914,7 @@ a.blog-card-author-name:hover { color: var(--color-primary-600); }
 .tab-bar-icon {
     display: grid;
     place-items: center;
-    transition: scale 150ms ease;
+    transition: scale 300ms var(--ease-spring);
 }
 
 /* Write is the primary action: a raised circle without a label underneath. */
@@ -998,6 +1056,10 @@ a.blog-card-author-name:hover { color: var(--color-primary-600); }
     ::view-transition-old(*),
     ::view-transition-new(*) {
         animation: none !important;
+    }
+
+    .reveal {
+        animation: none;
     }
 
     /* The navbar shadow follows scroll position rather than time, so it is not motion. */
