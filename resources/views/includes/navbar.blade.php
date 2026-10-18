@@ -1,52 +1,56 @@
-<nav class="navbar-glass sticky top-0 z-40 px-2 sm:px-6 lg:px-8">
-    <div class="relative mx-auto flex h-16 max-w-7xl items-center justify-between">
-        <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div class="mr-8 shrink-0 text-xl font-bold text-gray-900 dark:text-white">
-                <a href="/">{{ config('app.name', 'Ediary') }}</a>
-            </div>
-            <div class="hidden items-center space-x-4 sm:flex">
-                @auth
+@inject('navigation', App\Support\Navigation::class)
+
+<nav class="navbar-glass sticky top-0 z-40 px-4 sm:px-6 lg:px-8" aria-label="Main">
+    <div class="relative mx-auto flex h-16 max-w-7xl items-center justify-between gap-4">
+        <div class="flex min-w-0 items-center gap-6">
+            <a href="{{ url('/') }}" class="shrink-0 text-xl font-bold text-gray-900 dark:text-white">
+                {{ config('app.name', 'Ediary') }}
+            </a>
+            <div class="hidden items-center gap-1 sm:flex">
+                @foreach (auth()->check() ? collect($navigation->journal())->reject(fn ($item) => $item['key'] === 'write') : $navigation->site() as $item)
                     <a
-                        href="{{ route('diary.explore') }}"
-                        class="rounded-xl px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
-                    >Explore</a>
-                @endauth
-                <a
-                    href="/blog"
-                    class="rounded-xl px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
-                >Blog</a>
-                <a
-                    href="/about"
-                    class="rounded-xl px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
-                >About</a>
-                <a
-                    href="/faq"
-                    class="rounded-xl px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
-                >FAQ</a>
+                        href="{{ $item['url'] }}"
+                        @class([
+                            'rounded-full px-3 py-2 text-sm font-medium transition-colors',
+                            'bg-primary-50 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300' => $item['active'],
+                            'text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white' => ! $item['active'],
+                        ])
+                        @if ($item['active']) aria-current="page" @endif
+                    >{{ $item['label'] }}</a>
+                @endforeach
             </div>
         </div>
         @auth
-            <form action="/search" method="get" class="w-full text-right">
+            <form action="{{ route('search') }}" method="get" role="search" class="ml-auto hidden md:block">
+                <label for="search" class="sr-only">Search people</label>
                 <x-form.input
                     id="search"
-                    placeholder="Search user..."
-                    class="w-32 sm:w-56"
+                    placeholder="Search people…"
+                    class="w-56"
                     type="search"
                     name="q"
                     value="{{ request('q') }}"
                     autocomplete="off"
                     required
                 />
-                @error('q')
-                    <p class="text-xs text-red-500 italic" role="alert">{{ $message }}</p>
-                @enderror
             </form>
+            <x-button
+                variant="ghost"
+                size="icon"
+                href="{{ route('search') }}"
+                class="ml-auto md:hidden"
+                aria-label="Search people"
+            >
+                <svg aria-hidden="true" class="size-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
+                </svg>
+            </x-button>
         @endauth
         @php
             $user = Auth::user();
         @endphp
 
-        <div class="flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+        <div class="flex shrink-0 items-center">
             @guest
                 <!-- Guest View -->
                 <div class="flex items-center gap-2">
@@ -58,13 +62,12 @@
 
             @auth
                 <!-- User Dropdown — native <details>/<summary>, zero JS -->
-                <details class="nav-details ml-3">
-                    <summary class="focus:border-primary-400 flex h-10 w-10 overflow-hidden rounded-full border-2 border-transparent text-sm transition duration-150 ease-in-out focus:outline-none">
-                        <img
-                            src="{{ $user->profile->image ?? '/default-avatar.png' }}"
-                            alt="{{ $user->username }}"
-                            class="h-full w-full object-cover"
-                        />
+                <details class="nav-details">
+                    <summary
+                        class="flex size-10 cursor-pointer overflow-hidden rounded-full ring-1 ring-black/5 dark:ring-white/10"
+                        aria-label="Account menu"
+                    >
+                        <img src="{{ $user->profile->image }}" alt="" class="h-full w-full object-cover" />
                     </summary>
 
                     <div class="nav-dropdown">

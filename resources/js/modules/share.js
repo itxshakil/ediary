@@ -4,13 +4,7 @@ function trackShare() {
 }
 
 export function initFloatingShare() {
-    const shareButton = document.getElementById('floating-share-btn');
-
-    if (!shareButton) {
-        return;
-    }
-
-    shareButton.addEventListener('click', async () => {
+    document.querySelectorAll('[data-share-app]').forEach((shareButton) => shareButton.addEventListener('click', async () => {
         trackShare();
 
         if (navigator.share) {
@@ -29,5 +23,5 @@ export function initFloatingShare() {
 
         await navigator.clipboard.writeText(window.location.origin);
         window.toast?.({ type: 'success', message: 'App link copied. Share it with your friends!' });
-    });
+    }));
 }

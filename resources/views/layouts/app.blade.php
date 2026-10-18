@@ -126,14 +126,19 @@
         <x-toasts />
         @include('includes.footer')
     </div>
-    <div class="fixed right-6 bottom-6 z-40 flex flex-col gap-4">
+    @auth
+        @include('includes.tab-bar')
+    @endauth
+    {{-- Floating actions are desktop-only; the tab bar and footer cover them on phones. --}}
+    <div class="fixed right-6 bottom-6 z-40 flex flex-col gap-4 max-sm:hidden">
         @auth
             @if (Route::currentRouteName() !== 'diary.create')
                 <a
                     href="{{ route('diary.create') }}"
                     onclick="if (window.trackGA) trackGA('floating_add_clicked');"
                     class="bg-primary-600 hover:bg-primary-700 flex h-14 w-14 transform items-center justify-center rounded-full text-white shadow-lg transition-all hover:scale-110 active:scale-95"
-                    title="Add Entry"
+                    title="Write an entry"
+                    aria-label="Write an entry"
                 >
                     <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
@@ -145,6 +150,9 @@
         @if (Request::is('/'))
             <button
                 id="floating-share-btn"
+                type="button"
+                data-share-app
+                aria-label="Share Ediary"
                 class="flex h-14 w-14 transform items-center justify-center rounded-full bg-green-600 text-white shadow-lg transition-all hover:scale-110 hover:bg-green-700 active:scale-95"
                 title="Share App"
             >
@@ -163,7 +171,7 @@
 
     <div
         id="pwa-banner"
-        class="fixed right-4 bottom-4 left-4 z-50 mx-auto hidden max-w-xl rounded-2xl border border-gray-200 bg-white p-4 shadow-xl dark:border-gray-700 dark:bg-gray-900"
+        class="fixed right-4 bottom-[calc(var(--overlay-bottom)+1rem)] left-4 z-50 mx-auto hidden max-w-xl rounded-2xl border border-gray-200 bg-white p-4 shadow-xl dark:border-gray-700 dark:bg-gray-900"
     >
         <div class="flex items-start gap-4">
             <img

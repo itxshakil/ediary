@@ -7,7 +7,7 @@
             <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">What's on your mind today?</p>
         </div>
 
-        <div class="diary-card">
+        <x-card>
             <form method="POST" action="{{ route('diary.store') }}" id="create-entry-form">
                 @csrf
 
@@ -100,7 +100,7 @@
                 </p>
                 <x-button size="lg" type="submit" class="w-full"> Save entry </x-button>
             </form>
-        </div>
+        </x-card>
     </div>
 
     <script>
