@@ -18,6 +18,7 @@ final class PageTest extends TestCase
         $this->get('/about')->assertStatus(200);
         $this->get('/faq')->assertStatus(200);
         $this->get('/security')->assertStatus(200);
+        $this->get('/for-students')->assertStatus(200);
         $this->get('/contact')->assertStatus(200);
     }
 

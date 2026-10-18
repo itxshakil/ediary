@@ -1,6 +1,6 @@
 <meta
     name="description"
-    content="Are you losing track of precious moments or struggling to organize your thoughts? With Ediary, enjoy ultimate privacy, offline access, and secure storage for your deepest reflections. Start your free journey today—because your memories matter!"
+    content="Ediary is a free, private online diary that works offline. Unlimited entries, encrypted at rest, private by default, and just an email to sign up."
 />
 <meta
     name="keywords"
@@ -20,5 +20,5 @@
 <meta name="og:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
 <meta
     name="og:description"
-    content="Are you losing track of precious moments or struggling to organize your thoughts? With Ediary, enjoy ultimate privacy, offline access, and secure storage for your deepest reflections. Start your free journey today—because your memories matter!"
+    content="Ediary is a free, private online diary that works offline. Unlimited entries, encrypted at rest, private by default, and just an email to sign up."
 />

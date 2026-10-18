@@ -18,6 +18,10 @@
                         <a href="/about" class="text-gray-400 transition-colors hover:text-blue-500"
                             >About Our Mission</a>
                     </li>
+                    <li>
+                        <a href="/for-students" class="text-gray-400 transition-colors hover:text-blue-500"
+                            >For Students</a>
+                    </li>
                     <li><a href="/faq" class="text-gray-400 transition-colors hover:text-blue-500">Help & FAQ</a></li>
                     <li>
                         <a href="/security" class="text-gray-400 transition-colors hover:text-blue-500"

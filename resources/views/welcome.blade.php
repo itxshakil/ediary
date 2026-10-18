@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Ediary - Your Private Digital Journal')
+@section('title', 'Ediary - A Private Online Diary That Works Offline')
 @push('meta')
     @include('includes.meta')
 @endpush
@@ -91,7 +91,7 @@
                     <svg class="h-4 w-4 text-green-300" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                     </svg>
-                    <span class="text-sm font-medium">Free • Private • Secure</span>
+                    <span class="text-sm font-medium">Free • Private • Works Offline</span>
                 </div>
 
                 <!-- Main Headline -->
@@ -102,8 +102,8 @@
 
                 <!-- Subheadline -->
                 <p class="mx-auto mb-8 max-w-3xl text-xl leading-relaxed text-blue-100 md:text-2xl">
-                    Write freely. Reflect deeply. Your thoughts deserve a space that's completely yours—private, secure,
-                    and always accessible.
+                    Write freely, even offline. A private journal with unlimited entries, encrypted at rest, and nothing
+                    but an email to sign up.
                 </p>
 
                 @guest
@@ -345,6 +345,24 @@
                     <p class="text-gray-600 dark:text-gray-400">Write unlimited entries. No storage limits, ever</p>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Students Section -->
+    <div class="bg-blue-600 py-12">
+        <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 text-center sm:px-6 md:flex-row md:text-left lg:px-8">
+            <div>
+                <h2 class="mb-2 text-2xl font-bold text-white">Studying or doing research?</h2>
+                <p class="text-blue-100">
+                    Keep study logs and research reflections in a private journal that works offline.
+                </p>
+            </div>
+            <a
+                href="{{ url('/for-students') }}"
+                class="shrink-0 rounded-xl bg-white px-6 py-3 text-sm font-bold text-blue-700 shadow-md transition hover:bg-blue-50"
+            >
+                See how students use Ediary
+            </a>
         </div>
     </div>
 
