@@ -4,11 +4,25 @@ declare(strict_types=1);
 
 namespace Tests\Feature;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 final class BlogTest extends TestCase
 {
+    /**
+     * @return array<string, array{string, string}>
+     */
+    public static function studentClusterPosts(): array
+    {
+        return [
+            'study journal' => ['blogs.how-to-keep-a-study-journal', 'How to Keep a Study Journal'],
+            'research journal' => ['blogs.how-to-keep-a-research-journal', 'How to Keep a Research Journal'],
+            'student prompts' => ['blogs.journaling-prompts-for-students', '40 Journaling Prompts for Students'],
+            'private journal app' => ['blogs.how-to-choose-a-private-journal-app', 'How to Choose a Private Journal App'],
+        ];
+    }
+
     #[Test]
     public function it_displays_the_blog_index_page(): void
     {
@@ -59,5 +73,17 @@ final class BlogTest extends TestCase
         $response->assertStatus(200);
         $response->assertSee('Goal Setting for Success');
         $response->assertSee('blog-content');
+    }
+
+    #[Test]
+    #[DataProvider(methodName: 'studentClusterPosts')]
+    public function it_displays_and_lists_the_student_cluster_posts(string $route, string $title): void
+    {
+        $this->get(route($route))
+            ->assertStatus(200)
+            ->assertSee($title)
+            ->assertSee('blog-content');
+
+        $this->get('/blog')->assertSee($title);
     }
 }

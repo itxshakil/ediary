@@ -104,6 +104,10 @@ Route::view('/blogs/how-to-write-diary', 'blogs.how-to-write')->name('blogs.how-
 Route::view('/blogs/these-8-good-things-will-happen-when-you-start-writing-diary', 'blogs.these-8-good-things')->name('blogs.these-8-good-things');
 Route::view('/blogs/how-to-start-writing-a-diary', 'blogs.how-to-start-writing-a-diary')->name('blogs.how-to-start-writing-a-diary');
 Route::view('/blogs/goal-setting-for-success', 'blogs.goal-setting-for-success')->name('blogs.goal-setting-for-success');
+Route::view('/blogs/how-to-keep-a-study-journal', 'blogs.how-to-keep-a-study-journal')->name('blogs.how-to-keep-a-study-journal');
+Route::view('/blogs/how-to-keep-a-research-journal', 'blogs.how-to-keep-a-research-journal')->name('blogs.how-to-keep-a-research-journal');
+Route::view('/blogs/journaling-prompts-for-students', 'blogs.journaling-prompts-for-students')->name('blogs.journaling-prompts-for-students');
+Route::view('/blogs/how-to-choose-a-private-journal-app', 'blogs.how-to-choose-a-private-journal-app')->name('blogs.how-to-choose-a-private-journal-app');
 
 Route::post('/diary/sync', [SyncController::class, 'store'])
     ->name('diary.sync')

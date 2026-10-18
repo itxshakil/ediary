@@ -193,6 +193,44 @@
             </ol>
         </div>
 
+        <!-- Guides -->
+        <div class="bg-gray-50 py-16 dark:bg-gray-800/50">
+            <div class="container mx-auto max-w-4xl px-4">
+                <h2 class="mb-8 text-center text-3xl font-bold text-gray-900 dark:text-white">
+                    Guides to get you started
+                </h2>
+                <ul class="grid gap-4 md:grid-cols-3">
+                    <li>
+                        <a
+                            href="/blogs/how-to-keep-a-study-journal"
+                            class="block h-full rounded-2xl border border-gray-100 bg-white p-6 transition hover:shadow-md dark:border-gray-700 dark:bg-gray-800"
+                        >
+                            <span class="mb-2 block font-bold text-gray-900 dark:text-white">How to keep a study journal</span>
+                            <span class="text-sm text-gray-600 dark:text-gray-400">A five-minute template for after every study session.</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="/blogs/how-to-keep-a-research-journal"
+                            class="block h-full rounded-2xl border border-gray-100 bg-white p-6 transition hover:shadow-md dark:border-gray-700 dark:bg-gray-800"
+                        >
+                            <span class="mb-2 block font-bold text-gray-900 dark:text-white">How to keep a research journal</span>
+                            <span class="text-sm text-gray-600 dark:text-gray-400">Record decisions and dead ends for your thesis.</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="/blogs/journaling-prompts-for-students"
+                            class="block h-full rounded-2xl border border-gray-100 bg-white p-6 transition hover:shadow-md dark:border-gray-700 dark:bg-gray-800"
+                        >
+                            <span class="mb-2 block font-bold text-gray-900 dark:text-white">40 journaling prompts for students</span>
+                            <span class="text-sm text-gray-600 dark:text-gray-400">For study reflection, exam stress, and more.</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
         <!-- FAQ -->
         <div class="container mx-auto max-w-3xl px-4 pb-16">
             <h2 class="mb-8 text-3xl font-bold text-gray-900 dark:text-white">Questions</h2>

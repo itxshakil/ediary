@@ -59,6 +59,74 @@
             "blogPost": [
                 {
                     "@type": "BlogPosting",
+                    "@id": "https://ediary.shakiltech.com/blogs/how-to-keep-a-study-journal/#BlogPosting",
+                    "mainEntityOfPage": "https://ediary.shakiltech.com/blogs/how-to-keep-a-study-journal",
+                    "headline": "How to Keep a Study Journal",
+                    "name": "How to Keep a Study Journal",
+                    "description": "What to write after each study session, a five-minute template, and how your journal makes revision easier.",
+                    "datePublished": "2026-10-18",
+                    "dateModified": "2026-10-18",
+                    "author": {
+                        "@type": "Person",
+                        "@id": "https://ediary.shakiltech.com/author/shakil-alam/#Person",
+                        "name": "Shakil Alam"
+                    },
+                    "url": "https://ediary.shakiltech.com/blogs/how-to-keep-a-study-journal",
+                    "keywords": ["Study Journal", "Students", "Revision"]
+                },
+                {
+                    "@type": "BlogPosting",
+                    "@id": "https://ediary.shakiltech.com/blogs/how-to-keep-a-research-journal/#BlogPosting",
+                    "mainEntityOfPage": "https://ediary.shakiltech.com/blogs/how-to-keep-a-research-journal",
+                    "headline": "How to Keep a Research Journal",
+                    "name": "How to Keep a Research Journal",
+                    "description": "What to write, how often, and how a research journal pays off in your methods chapter and supervisor meetings.",
+                    "datePublished": "2026-10-18",
+                    "dateModified": "2026-10-18",
+                    "author": {
+                        "@type": "Person",
+                        "@id": "https://ediary.shakiltech.com/author/shakil-alam/#Person",
+                        "name": "Shakil Alam"
+                    },
+                    "url": "https://ediary.shakiltech.com/blogs/how-to-keep-a-research-journal",
+                    "keywords": ["Research Journal", "PhD", "Thesis Writing"]
+                },
+                {
+                    "@type": "BlogPosting",
+                    "@id": "https://ediary.shakiltech.com/blogs/journaling-prompts-for-students/#BlogPosting",
+                    "mainEntityOfPage": "https://ediary.shakiltech.com/blogs/journaling-prompts-for-students",
+                    "headline": "40 Journaling Prompts for Students",
+                    "name": "40 Journaling Prompts for Students",
+                    "description": "Prompts for study reflection, exam stress, motivation, friendships, and the end of the semester.",
+                    "datePublished": "2026-10-18",
+                    "dateModified": "2026-10-18",
+                    "author": {
+                        "@type": "Person",
+                        "@id": "https://ediary.shakiltech.com/author/shakil-alam/#Person",
+                        "name": "Shakil Alam"
+                    },
+                    "url": "https://ediary.shakiltech.com/blogs/journaling-prompts-for-students",
+                    "keywords": ["Journaling Prompts", "Students", "Exam Stress"]
+                },
+                {
+                    "@type": "BlogPosting",
+                    "@id": "https://ediary.shakiltech.com/blogs/how-to-choose-a-private-journal-app/#BlogPosting",
+                    "mainEntityOfPage": "https://ediary.shakiltech.com/blogs/how-to-choose-a-private-journal-app",
+                    "headline": "How to Choose a Private Journal App",
+                    "name": "How to Choose a Private Journal App",
+                    "description": "Encryption, data collection, offline access, sharing, and export: what to check before you trust an app with your journal.",
+                    "datePublished": "2026-10-18",
+                    "dateModified": "2026-10-18",
+                    "author": {
+                        "@type": "Person",
+                        "@id": "https://ediary.shakiltech.com/author/shakil-alam/#Person",
+                        "name": "Shakil Alam"
+                    },
+                    "url": "https://ediary.shakiltech.com/blogs/how-to-choose-a-private-journal-app",
+                    "keywords": ["Privacy", "Encryption", "Journal Apps"]
+                },
+                {
+                    "@type": "BlogPosting",
                     "@id": "https://ediary.shakiltech.com/blogs/how-to-write-diary/#BlogPosting",
                     "mainEntityOfPage": "https://ediary.shakiltech.com/blogs/how-to-write-diary",
                     "headline": "How to Write a Diary",
@@ -129,6 +197,97 @@
         </div>
 
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div class="blog-card group">
+                <div class="blog-card-body">
+                    <span class="blog-badge blog-badge-blue">Students</span>
+                    <h2 class="blog-card-title">
+                        <a href="/blogs/how-to-keep-a-study-journal">How to Keep a Study Journal</a>
+                    </h2>
+                    <p class="blog-card-excerpt">
+                        What to write after each study session, a five-minute template, and how your journal makes
+                        revision easier.
+                    </p>
+                </div>
+                <div class="blog-card-footer">
+                    <div class="blog-card-author">
+                        <span class="blog-card-author-label">Written By</span>
+                        <a class="blog-card-author-name" href="https://shakiltech.com">Shakil Alam</a>
+                    </div>
+                    <a href="/blogs/how-to-keep-a-study-journal" class="blog-card-arrow" aria-label="Read article">
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="blog-card group">
+                <div class="blog-card-body">
+                    <span class="blog-badge blog-badge-blue">Researchers</span>
+                    <h2 class="blog-card-title">
+                        <a href="/blogs/how-to-keep-a-research-journal">How to Keep a Research Journal</a>
+                    </h2>
+                    <p class="blog-card-excerpt">
+                        What to write, how often, and how a research journal pays off in your methods chapter and
+                        supervisor meetings.
+                    </p>
+                </div>
+                <div class="blog-card-footer">
+                    <div class="blog-card-author">
+                        <span class="blog-card-author-label">Written By</span>
+                        <a class="blog-card-author-name" href="https://shakiltech.com">Shakil Alam</a>
+                    </div>
+                    <a href="/blogs/how-to-keep-a-research-journal" class="blog-card-arrow" aria-label="Read article">
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="blog-card group">
+                <div class="blog-card-body">
+                    <span class="blog-badge blog-badge-blue">Prompts</span>
+                    <h2 class="blog-card-title">
+                        <a href="/blogs/journaling-prompts-for-students">40 Journaling Prompts for Students</a>
+                    </h2>
+                    <p class="blog-card-excerpt">
+                        Prompts for study reflection, exam stress, motivation, friendships, and the end of the semester.
+                    </p>
+                </div>
+                <div class="blog-card-footer">
+                    <div class="blog-card-author">
+                        <span class="blog-card-author-label">Written By</span>
+                        <a class="blog-card-author-name" href="https://shakiltech.com">Shakil Alam</a>
+                    </div>
+                    <a href="/blogs/journaling-prompts-for-students" class="blog-card-arrow" aria-label="Read article">
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="blog-card group">
+                <div class="blog-card-body">
+                    <span class="blog-badge blog-badge-blue">Privacy</span>
+                    <h2 class="blog-card-title">
+                        <a href="/blogs/how-to-choose-a-private-journal-app">How to Choose a Private Journal App</a>
+                    </h2>
+                    <p class="blog-card-excerpt">
+                        Encryption, data collection, offline access, sharing, and export: what to check before you trust
+                        an app with your journal.
+                    </p>
+                </div>
+                <div class="blog-card-footer">
+                    <div class="blog-card-author">
+                        <span class="blog-card-author-label">Written By</span>
+                        <a class="blog-card-author-name" href="https://shakiltech.com">Shakil Alam</a>
+                    </div>
+                    <a
+                        href="/blogs/how-to-choose-a-private-journal-app"
+                        class="blog-card-arrow"
+                        aria-label="Read article"
+                    >
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    </a>
+                </div>
+            </div>
+
             {{-- Article 1 --}}
             <div class="blog-card group">
                 <div class="blog-card-body">
