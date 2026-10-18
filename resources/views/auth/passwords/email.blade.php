@@ -39,7 +39,8 @@
                                 {{ __('E-Mail Address') }}
                             </label>
                             <input
-                                class="w-full px-3 py-2 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded-md shadow-sm appearance-none focus:outline-hidden @error('email') border-red-500 @enderror"
+                                class="field w-full"
+                                @error('email') aria-invalid="true" @enderror
                                 id="email"
                                 type="email"
                                 placeholder="john@example.com"
@@ -54,12 +55,7 @@
                             @enderror
                         </div>
                         <div class="mb-4 text-center">
-                            <button
-                                class="bg-primary-500 hover:bg-primary-700 w-full rounded-full px-4 py-2 font-bold text-white focus:outline-hidden"
-                                type="submit"
-                            >
-                                {{ __('Send Password Reset Link') }}
-                            </button>
+                            <x-button type="submit" class="w-full"> {{ __('Send Password Reset Link') }} </x-button>
                         </div>
                     </form>
                 </div>

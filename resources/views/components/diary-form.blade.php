@@ -29,7 +29,7 @@
                 id="title"
                 placeholder="Entry title (optional)"
                 value="{{ old('title') }}"
-                class="focus:ring-primary-500/50 w-full rounded-xl border border-gray-200/70 bg-gray-50/80 px-4 py-3 text-lg font-medium text-gray-900 placeholder-gray-400 transition focus:border-transparent focus:ring-2 dark:border-gray-700/60 dark:bg-gray-900/60 dark:text-white dark:placeholder-gray-500"
+                class="field w-full text-lg font-medium"
             />
         </div>
 
@@ -39,7 +39,7 @@
             rows="6"
             required
             placeholder="Dear diary, today I..."
-            class="focus:ring-primary-500/50 min-h-[120px] w-full resize-y rounded-xl border border-gray-200/70 bg-gray-50/80 px-4 py-3 text-gray-900 placeholder-gray-400 transition focus:border-transparent focus:ring-2 dark:border-gray-700/60 dark:bg-gray-900/60 dark:text-white dark:placeholder-gray-500"
+            class="field min-h-[120px] w-full resize-y"
         >{{ old('entry') }}</textarea>
         <x-dictate-button target="entry" class="mt-3" />
         @error('entry')
@@ -83,12 +83,7 @@
 
             <div class="mb-2 flex flex-wrap gap-2" id="tags-container"></div>
 
-            <input
-                type="text"
-                id="tag-input"
-                placeholder="Add tags (press Enter)"
-                class="focus:ring-primary-500/50 w-full rounded-xl border border-gray-200/70 bg-gray-50/80 px-3 py-2 text-sm text-gray-900 placeholder-gray-400 transition focus:border-transparent focus:ring-2 dark:border-gray-700/60 dark:bg-gray-900/60 dark:text-white"
-            />
+            <input type="text" id="tag-input" placeholder="Add tags (press Enter)" class="field w-full" />
 
             <input type="hidden" name="tags" id="tags-hidden" />
 
@@ -110,11 +105,7 @@
         <div class="mt-5 rounded-2xl bg-gray-50/70 p-4 dark:bg-gray-900/40">
             <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"> Privacy </label>
 
-            <select
-                name="privacy"
-                id="privacy-select"
-                class="focus:ring-primary-500/50 w-full rounded-xl border border-gray-200/70 bg-white px-3 py-2 text-sm text-gray-900 transition focus:border-transparent focus:ring-2 dark:border-gray-700/60 dark:bg-gray-800 dark:text-white"
-            >
+            <select name="privacy" id="privacy-select" class="field w-full">
                 @foreach (Privacy::cases() as $privacy)
                     <option value="{{ $privacy->value }}" @selected($privacy === Privacy::Private)>
                         {{ $privacy->emoji() }} {{ $privacy->label() }}
@@ -129,16 +120,12 @@
                 • Offline mode
             </span>
 
-            <button
-                type="submit"
-                id="submit-btn"
-                class="bg-primary-600 hover:bg-primary-700 focus:ring-primary-500/60 inline-flex items-center gap-2 rounded-full px-6 py-2.5 font-medium text-white shadow-sm transition hover:shadow-md focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
-            >
+            <x-button type="submit" id="submit-btn">
                 <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                 </svg>
                 <span>Publish Entry</span>
-            </button>
+            </x-button>
         </div>
     </form>
 </div>

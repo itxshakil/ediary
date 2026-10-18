@@ -98,12 +98,7 @@
                                                 </h1>
 
                                                 @can('update', $profile)
-                                                    <button
-                                                        id="editBtn"
-                                                        class="bg-primary-600 hover:bg-primary-700 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-white transition active:scale-95"
-                                                    >
-                                                        Edit Profile
-                                                    </button>
+                                                    <x-button id="editBtn"> Edit Profile </x-button>
                                                 @endcan
                                             </div>
 
@@ -154,20 +149,21 @@
                                             @can('update', $profile)
                                             @else
                                                 @auth
-                                                    <x-button.primary
+                                                    <x-button
                                                         id="followBtn"
                                                         data-following="{{ $isFollowing ? '1' : '0' }}"
                                                         class="{{ $isFollowing ? 'opacity-0 pointer-events-none h-0' : '' }}"
                                                     >
                                                         Follow
-                                                    </x-button.primary>
+                                                    </x-button>
 
-                                                    <x-button.secondary
+                                                    <x-button
+                                                        variant="secondary"
                                                         id="followingBtn"
                                                         class="{{ $isFollowing ? '' : 'opacity-0 pointer-events-none h-0' }}"
                                                     >
                                                         Following
-                                                    </x-button.secondary>
+                                                    </x-button>
                                                 @endauth
                                             @endcan
                                         </div>
@@ -182,30 +178,20 @@
                                             type="text"
                                             placeholder="Name"
                                             value="{{ $profile->name }}"
-                                            class="focus:ring-primary-500/50 w-full rounded-xl border border-gray-200/70 bg-gray-50/80 px-4 py-2 text-sm text-gray-900 focus:border-transparent focus:ring-2 dark:border-gray-700/60 dark:bg-gray-900/60 dark:text-white"
+                                            class="field w-full"
                                         />
                                         <p id="nameError" class="hidden text-xs text-red-500"></p>
 
                                         <textarea
                                             id="bioInput"
                                             rows="4"
-                                            class="focus:ring-primary-500/50 w-full resize-none rounded-xl border border-gray-200/70 bg-gray-50/80 px-4 py-2 text-sm text-gray-900 focus:border-transparent focus:ring-2 dark:border-gray-700/60 dark:bg-gray-900/60 dark:text-white"
+                                            class="field w-full resize-none"
                                         >{{ $profile->bio }}</textarea>
                                         <p id="bioError" class="hidden text-xs text-red-500"></p>
 
                                         <div class="flex gap-3">
-                                            <button
-                                                id="saveBtn"
-                                                class="bg-primary-600 hover:bg-primary-700 rounded-full px-6 py-2 text-sm font-medium text-white transition active:scale-95"
-                                            >
-                                                Save
-                                            </button>
-                                            <button
-                                                id="cancelBtn"
-                                                class="rounded-full bg-gray-200 px-6 py-2 text-gray-700 transition active:scale-95 dark:bg-gray-700 dark:text-gray-300"
-                                            >
-                                                Cancel
-                                            </button>
+                                            <x-button id="saveBtn"> Save </x-button>
+                                            <x-button variant="secondary" id="cancelBtn"> Cancel </x-button>
                                         </div>
                                     </div>
                                 </div>

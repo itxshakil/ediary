@@ -6,15 +6,16 @@
 
         <div class="mt-4 flex items-center gap-4">
             @auth
-                <button
+                <x-button
+                    variant="secondary"
+                    size="sm"
                     id="like-btn"
                     data-diary-id="{{ $entry->id }}"
                     data-liked="{{ $entry->likes->contains('user_id', auth()->id()) ? '1' : '0' }}"
-                    class="inline-flex items-center gap-1.5 rounded-full border border-gray-200 px-4 py-1.5 text-sm font-medium text-gray-700 transition hover:bg-gray-50 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800"
                 >
                     <span id="like-icon">{{ $entry->likes->contains('user_id', auth()->id()) ? '❤️' : '🤍' }}</span>
                     <span id="like-count">{{ $entry->likes_count }}</span>
-                </button>
+                </x-button>
             @else
                 <span class="inline-flex items-center gap-1.5 text-sm font-medium text-gray-700 dark:text-gray-200">
                     <span>🤍</span>
@@ -22,12 +23,7 @@
                 </span>
             @endauth
             <span class="text-sm text-gray-500 dark:text-gray-400">{{ $entry->views_count }} views</span>
-            <button
-                id="share-entry-btn"
-                class="ml-auto inline-flex items-center gap-1.5 rounded-full border border-gray-200 px-4 py-1.5 text-sm font-medium text-gray-700 transition hover:bg-gray-50 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800"
-            >
-                Share
-            </button>
+            <x-button variant="secondary" size="sm" id="share-entry-btn" class="ml-auto"> Share </x-button>
         </div>
 
         <div class="mt-8">
@@ -49,17 +45,12 @@
                             required
                             maxlength="2000"
                             placeholder="Write a comment..."
-                            class="focus:ring-primary-500/50 w-full rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 focus:border-transparent focus:ring-2 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100"
+                            class="field w-full"
                         >{{ old('comment') }}</textarea>
                         @error('comment')
                             <p class="mt-1 text-xs text-red-500 italic">{{ $message }}</p>
                         @enderror
-                        <button
-                            type="submit"
-                            class="bg-primary-600 hover:bg-primary-700 mt-2 inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium text-white shadow-sm transition"
-                        >
-                            Post comment
-                        </button>
+                        <x-button size="sm" type="submit" class="mt-2"> Post comment </x-button>
                     </form>
                 @else
                     <p class="mb-6 text-sm text-gray-500 dark:text-gray-400">Comments are disabled for this entry.</p>

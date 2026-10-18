@@ -33,12 +33,7 @@
         <div class="info ml-4 flex-1">
             {{-- Editing Mode --}}
             <div id="editMode" class="hidden">
-                <input
-                    type="text"
-                    id="nameInput"
-                    value="{{ $profile['name'] }}"
-                    class="focus:ring-primary-500/50 w-full rounded-xl border border-gray-200/70 bg-gray-50/80 px-3 py-2 text-sm text-gray-700 shadow-sm focus:border-transparent focus:ring-2 dark:border-gray-700/60 dark:bg-gray-900/60 dark:text-gray-200"
-                />
+                <input type="text" id="nameInput" value="{{ $profile['name'] }}" class="field w-full" />
 
                 <p id="nameError" class="mt-1 hidden text-xs text-red-500 italic"></p>
 
@@ -47,27 +42,13 @@
                     <strong id="followingEdit">{{ $profile['user']['following_count'] }}</strong> Following
                 </div>
 
-                <textarea
-                    id="bioInput"
-                    rows="6"
-                    class="focus:ring-primary-500/50 mt-3 w-full rounded-xl border border-gray-200/70 bg-gray-50/80 px-3 py-2 text-sm text-gray-700 shadow-sm focus:border-transparent focus:ring-2 dark:border-gray-700/60 dark:bg-gray-900/60 dark:text-gray-200"
-                >{{ $profile['bio'] }}</textarea>
+                <textarea id="bioInput" rows="6" class="field mt-3 w-full">{{ $profile['bio'] }}</textarea>
                 <p id="bioError" class="mt-1 hidden text-xs text-red-500 italic"></p>
 
                 <div class="mt-4 flex gap-2">
-                    <button
-                        id="saveBtn"
-                        class="bg-primary-600 rounded-full px-4 py-2 text-xs font-semibold text-white uppercase shadow-sm transition hover:shadow-md active:scale-95"
-                    >
-                        Save
-                    </button>
+                    <x-button size="sm" id="saveBtn"> Save </x-button>
 
-                    <button
-                        id="cancelBtn"
-                        class="rounded-full bg-gray-500 px-4 py-2 text-xs font-semibold text-white uppercase shadow-sm transition hover:shadow-md active:scale-95"
-                    >
-                        Cancel
-                    </button>
+                    <x-button variant="secondary" size="sm" id="cancelBtn"> Cancel </x-button>
                 </div>
             </div>
 

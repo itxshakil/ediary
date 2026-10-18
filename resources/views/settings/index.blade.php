@@ -59,12 +59,7 @@
                         @enderror
                     </section>
                     <section class="mb-4 text-center">
-                        <button
-                            class="bg-primary-500 active:bg-primary-800 mr-2 mb-1 w-full rounded-full px-3 py-2 text-xs font-bold text-white uppercase shadow-sm outline-hidden hover:shadow-md focus:outline-hidden sm:px-4"
-                            type="submit"
-                        >
-                            Save
-                        </button>
+                        <x-button size="sm" type="submit" class="mr-2 mb-1 w-full"> Save </x-button>
                     </section>
                     @csrf
                     @method('PUT')

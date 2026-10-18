@@ -44,7 +44,8 @@
                                 @endif
                             </div>
                             <input
-                                class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded-md shadow-sm appearance-none focus:outline-hidden @error('password') border-red-500 @enderror"
+                                class="field mb-3 w-full"
+                                @error('password') aria-invalid="true" @enderror
                                 id="password"
                                 type="password"
                                 name="password"
@@ -56,12 +57,7 @@
                         </div>
 
                         <div class="mb-4 text-center">
-                            <button
-                                class="bg-primary-500 active:bg-primary-800 w-full rounded-full px-3 py-2 text-xs font-bold text-white uppercase shadow-sm outline-hidden hover:shadow-md focus:outline-hidden sm:px-4"
-                                type="submit"
-                            >
-                                {{ __('Confirm Password') }}
-                            </button>
+                            <x-button size="sm" type="submit" class="w-full"> {{ __('Confirm Password') }} </x-button>
                         </div>
                     </form>
                 </div>

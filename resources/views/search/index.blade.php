@@ -37,12 +37,7 @@
                     </p>
 
                     <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                        <button
-                            id="show-add-form"
-                            class="bg-primary-600 hover:bg-primary-700 inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-medium text-white shadow-sm transition"
-                        >
-                            ✍️ Write new entry
-                        </button>
+                        <x-button id="show-add-form"> ✍️ Write new entry </x-button>
 
                         <a
                             href="{{ route('home') }}"

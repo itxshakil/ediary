@@ -35,7 +35,8 @@
                             {{ __('E-Mail Address') }}
                         </label>
                         <input
-                            class="w-full px-3 py-2 text-sm leading-tight text-gray-700 dark:text-gray-200 border rounded-md shadow-sm appearance-none focus:outline-hidden @error('email') border-red-500 @enderror"
+                            class="field w-full"
+                            @error('email') aria-invalid="true" @enderror
                             id="email"
                             type="email"
                             placeholder="john@example.com"
@@ -54,7 +55,8 @@
                             {{ __('Password') }}
                         </label>
                         <input
-                            class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded-md shadow-sm appearance-none focus:outline-hidden @error('password') border-red-500 @enderror"
+                            class="field mb-3 w-full"
+                            @error('password') aria-invalid="true" @enderror
                             id="password"
                             type="password"
                             name="password"
@@ -72,7 +74,8 @@
                             {{ __('Confirm Password') }}
                         </label>
                         <input
-                            class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded-md shadow-sm appearance-none focus:outline-hidden @error('password_confirmation') border-red-500 @enderror"
+                            class="field mb-3 w-full"
+                            @error('password_confirmation') aria-invalid="true" @enderror
                             id="password_confirmation"
                             type="password"
                             name="password_confirmation"
@@ -83,12 +86,7 @@
                         @enderror
                     </div>
                     <div class="mb-4 text-center">
-                        <button
-                            class="bg-primary-500 hover:bg-primary-700 w-full rounded-full px-4 py-2 font-bold text-white focus:outline-hidden"
-                            type="submit"
-                        >
-                            {{ __('Reset Password') }}
-                        </button>
+                        <x-button type="submit" class="w-full"> {{ __('Reset Password') }} </x-button>
                     </div>
                     @csrf
                 </form>

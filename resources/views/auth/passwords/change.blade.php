@@ -51,7 +51,7 @@
                             @enderror
                         </div>
 
-                        <x-button.primary class="w-full">Change Password</x-button.primary>
+                        <x-button type="submit" class="w-full">Change Password</x-button>
                     </form>
                 </div>
             </div>

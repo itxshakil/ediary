@@ -4,18 +4,8 @@
         Start a private journal in seconds with just your email. Free, unlimited, and it works offline.
     </p>
     @auth
-        <a
-            class="bg-primary-600 hover:bg-primary-700 active:bg-primary-800 inline-block transform rounded-xl px-8 py-3 text-sm font-bold text-white uppercase shadow-md transition-all hover:scale-105 hover:shadow-lg"
-            href="/home"
-        >
-            Start writing Now
-        </a>
+        <x-button size="lg" href="/home"> Start writing Now </x-button>
     @else
-        <a
-            class="bg-primary-600 hover:bg-primary-700 active:bg-primary-800 inline-block transform rounded-xl px-8 py-3 text-sm font-bold text-white uppercase shadow-md transition-all hover:scale-105 hover:shadow-lg"
-            href="{{ route('register') }}"
-        >
-            Start Writing now
-        </a>
+        <x-button size="lg" href="{{ route('register') }}"> Start Writing now </x-button>
     @endauth
 </div>

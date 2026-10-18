@@ -136,7 +136,7 @@
                                 rows="6"
                                 required
                                 placeholder="Enter your message here..."
-                                class="focus:border-primary-500 focus:ring-primary-500/15 w-full rounded-xl border border-gray-200 bg-white px-4 py-2 text-gray-900 placeholder-gray-400 transition duration-150 ease-in-out focus:ring-4 focus:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-500"
+                                class="field w-full"
                             >{{ old('message') }}</textarea>
                             @error('message')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -144,7 +144,7 @@
                         </div>
 
                         <div>
-                            <x-button.primary class="h-10 w-full">Send Message</x-button.primary>
+                            <x-button type="submit" class="w-full">Send Message</x-button>
                         </div>
                     </form>
                 </div>

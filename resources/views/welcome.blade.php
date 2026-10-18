@@ -123,7 +123,10 @@
 
                                 <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
                                     <div>
-                                        <label class="mb-1 block text-left text-sm font-semibold">Email Address</label>
+                                        <label
+                                            for="email"
+                                            class="mb-1 block text-left text-sm font-semibold text-gray-700 dark:text-gray-200"
+                                        >Email Address</label>
                                         <div class="group relative">
                                             <input
                                                 id="email"
@@ -133,7 +136,7 @@
                                                 autocomplete="email"
                                                 placeholder="you@example.com"
                                                 value="{{ old('email') }}"
-                                                class="focus:ring-primary-500 w-full rounded-xl border border-gray-200 bg-white py-3 pr-4 pl-10 transition-all focus:ring-2 dark:border-gray-700 dark:bg-gray-800"
+                                                class="field w-full pr-4 pl-10"
                                             />
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-focus-within:text-primary-500 absolute top-3.5 left-3 h-5 w-5 text-gray-400 transition-colors">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -147,7 +150,10 @@
                                     </div>
 
                                     <div>
-                                        <label class="mb-1 block text-left text-sm font-semibold">Username</label>
+                                        <label
+                                            for="username"
+                                            class="mb-1 block text-left text-sm font-semibold text-gray-700 dark:text-gray-200"
+                                        >Username</label>
                                         <div class="group relative">
                                             <input
                                                 id="username"
@@ -156,7 +162,7 @@
                                                 required
                                                 placeholder="johndoe"
                                                 value="{{ old('username') }}"
-                                                class="focus:ring-primary-500 w-full rounded-xl border border-gray-200 bg-white py-3 pr-4 pl-10 transition-all focus:ring-2 dark:border-gray-700 dark:bg-gray-800"
+                                                class="field w-full pr-4 pl-10"
                                             />
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-focus-within:text-primary-500 absolute top-3.5 left-3 h-5 w-5 text-gray-400 transition-colors">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -171,7 +177,10 @@
                                     </div>
 
                                     <div>
-                                        <label class="mb-1 block text-left text-sm font-semibold">Password</label>
+                                        <label
+                                            for="password"
+                                            class="mb-1 block text-left text-sm font-semibold text-gray-700 dark:text-gray-200"
+                                        >Password</label>
                                         <div class="group relative">
                                             <input
                                                 id="password"
@@ -181,7 +190,7 @@
                                                 autocomplete="new-password"
                                                 placeholder="•••••••••"
                                                 minlength="8"
-                                                class="focus:ring-primary-500 w-full rounded-xl border border-gray-200 bg-white py-3 pr-4 pl-10 transition-all focus:ring-2 dark:border-gray-700 dark:bg-gray-800"
+                                                class="field w-full pr-4 pl-10"
                                             />
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-focus-within:text-primary-500 absolute top-3.5 left-3 h-5 w-5 text-gray-400 transition-colors">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -196,7 +205,10 @@
                                     </div>
 
                                     <div>
-                                        <label class="mb-1 block text-left text-sm font-semibold">Confirm Password</label>
+                                        <label
+                                            for="password_confirmation"
+                                            class="mb-1 block text-left text-sm font-semibold text-gray-700 dark:text-gray-200"
+                                        >Confirm Password</label>
                                         <div class="group relative">
                                             <input
                                                 id="password_confirmation"
@@ -206,7 +218,7 @@
                                                 placeholder="•••••••••"
                                                 autocomplete="new-password"
                                                 minlength="8"
-                                                class="focus:ring-primary-500 w-full rounded-xl border border-gray-200 bg-white py-3 pr-4 pl-10 transition-all focus:ring-2 dark:border-gray-700 dark:bg-gray-800"
+                                                class="field w-full pr-4 pl-10"
                                             />
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-focus-within:text-primary-500 absolute top-3.5 left-3 h-5 w-5 text-gray-400 transition-colors">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -218,17 +230,14 @@
                                     </div>
                                 </div>
 
-                                <button
-                                    type="submit"
-                                    class="group bg-primary-600 hover:bg-primary-700 hover:shadow-primary-500/30 w-full rounded-2xl px-6 py-4 text-lg font-bold text-white shadow-lg transition-all duration-200 active:scale-[0.98]"
-                                >
+                                <x-button size="lg" type="submit" class="group w-full">
                                     <span class="flex items-center justify-center">
                                         Get Started Free
-                                        <svg class="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <svg class="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                                         </svg>
                                     </span>
-                                </button>
+                                </x-button>
                             </form>
 
                             <p class="mt-6 text-center text-sm text-gray-600 dark:text-gray-300">

@@ -225,12 +225,7 @@
                         </div>
 
                         {{-- Submit --}}
-                        <button
-                            type="submit"
-                            class="from-primary-600 to-primary-700 w-full rounded-xl bg-gradient-to-r py-3.5 font-semibold text-white shadow-md transition hover:scale-[1.01]"
-                        >
-                            Create Account
-                        </button>
+                        <x-button size="lg" type="submit" class="w-full"> Create Account </x-button>
                     </form>
 
                     {{-- Divider --}}

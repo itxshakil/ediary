@@ -184,12 +184,7 @@
                     Get faster access & offline support.
                 </p>
                 <div class="mt-3 flex gap-3">
-                    <button
-                        id="pwa-banner-cta"
-                        class="bg-primary-600 hover:bg-primary-700 rounded-full px-4 py-2 text-sm text-white transition"
-                    >
-                        Install
-                    </button>
+                    <x-button id="pwa-banner-cta"> Install </x-button>
                     <button
                         id="pwa-banner-dismiss"
                         class="rounded-full px-4 py-2 text-sm text-gray-500 transition hover:text-gray-700 dark:hover:text-gray-300"

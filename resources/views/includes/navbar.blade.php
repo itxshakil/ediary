@@ -49,15 +49,10 @@
         <div class="flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             @guest
                 <!-- Guest View -->
-                <a
-                    class="bg-primary-100 text-primary-800 active:bg-primary-200 mr-2 hidden rounded-md px-4 py-2 text-xs font-bold uppercase shadow-sm outline-hidden hover:shadow-md md:block"
-                    href="{{ route('register') }}"
-                >Register</a>
-
-                <a
-                    class="mr-2 rounded-md bg-gray-200 px-4 py-2 text-xs font-bold text-gray-800 uppercase shadow-sm outline-hidden hover:shadow-md dark:bg-gray-700 dark:text-gray-100"
-                    href="{{ route('login') }}"
-                >Login</a>
+                <div class="flex items-center gap-2">
+                    <x-button variant="secondary" size="sm" href="{{ route('login') }}">Log in</x-button>
+                    <x-button size="sm" href="{{ route('register') }}" class="max-md:hidden">Sign up</x-button>
+                </div>
 
             @endguest
 

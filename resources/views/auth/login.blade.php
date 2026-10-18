@@ -111,7 +111,7 @@
                                 value="{{ old('username') }}"
                                 required
                                 autofocus
-                                class="focus:ring-primary-500 mt-2 w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-gray-900 focus:ring-2 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200"
+                                class="field mt-2 w-full"
                             />
                             @error('username')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -123,13 +123,7 @@
                             <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
                                 Password
                             </label>
-                            <input
-                                id="password"
-                                type="password"
-                                name="password"
-                                required
-                                class="focus:ring-primary-500 mt-2 w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-gray-900 focus:ring-2 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200"
-                            />
+                            <input id="password" type="password" name="password" required class="field mt-2 w-full" />
                             @error('password')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -158,12 +152,7 @@
 
                         {{-- Submit Button --}}
                         <div>
-                            <button
-                                type="submit"
-                                class="bg-primary-600 hover:bg-primary-700 w-full rounded-xl px-4 py-3 font-semibold text-white shadow-md transition-all duration-200"
-                            >
-                                Log In
-                            </button>
+                            <x-button size="lg" type="submit" class="w-full"> Log In </x-button>
                         </div>
                     </form>
 
@@ -181,15 +170,12 @@
 
                     <!-- Additional Links -->
                     <div class="space-y-4">
-                        <a
-                            href="{{ route('register') }}"
-                            class="border-primary-600 text-primary-600 hover:bg-primary-50 dark:border-primary-500 dark:text-primary-400 dark:hover:bg-primary-900/20 flex w-full items-center justify-center rounded-xl border-2 px-4 py-3 font-semibold transition-all duration-200"
-                        >
-                            <svg class="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <x-button variant="secondary" size="lg" href="{{ route('register') }}" class="w-full">
+                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
                             </svg>
                             Create a Free Account
-                        </a>
+                        </x-button>
 
                         @if (Route::has('password.request'))
                             <div class="text-center">

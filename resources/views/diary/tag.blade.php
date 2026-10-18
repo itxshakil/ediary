@@ -11,12 +11,9 @@
                 </p>
             </div>
 
-            <a
-                href="{{ url('/diaries') }}"
-                class="inline-flex items-center gap-2 rounded-full border border-gray-200 px-5 py-2.5 text-sm font-medium text-gray-700 transition hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800"
-            >
+            <x-button variant="secondary" href="{{ url('/diaries') }}">
                 <span>All entries</span>
-            </a>
+            </x-button>
         </div>
 
         <div class="space-y-4">

@@ -13,15 +13,10 @@
                     id="search-input"
                     value="{{ request('q') }}"
                     placeholder="Search your diary entries..."
-                    class="focus:ring-primary-500 w-full rounded-xl border border-gray-300 bg-gray-50 py-3 pr-4 pl-12 text-gray-900 transition-all duration-200 focus:border-transparent focus:ring-2 dark:border-gray-600 dark:bg-gray-900 dark:text-white"
+                    class="field w-full pr-4 pl-12"
                 />
             </div>
-            <button
-                type="submit"
-                class="bg-primary-600 hover:bg-primary-700 focus:ring-primary-500/60 inline-flex items-center gap-2 rounded-full px-6 py-2.5 font-medium text-white shadow-sm transition hover:shadow-md focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
-            >
-                Search
-            </button>
+            <x-button type="submit"> Search </x-button>
             <button
                 type="button"
                 id="filter-toggle"
@@ -40,10 +35,7 @@
                 {{-- Date Range --}}
                 <div>
                     <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"> Date Range </label>
-                    <select
-                        name="date_range"
-                        class="focus:ring-primary-500 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 dark:border-gray-600 dark:bg-gray-900"
-                    >
+                    <select name="date_range" class="field w-full">
                         <option value="">All time</option>
                         <option value="today" {{ request('date_range') == 'today' ? 'selected' : '' }}>Today</option>
                         <option value="week" {{ request('date_range') == 'week' ? 'selected' : '' }}>This week</option>
@@ -60,10 +52,7 @@
                 {{-- Mood Filter --}}
                 <div>
                     <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"> Mood </label>
-                    <select
-                        name="mood"
-                        class="focus:ring-primary-500 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 dark:border-gray-600 dark:bg-gray-900"
-                    >
+                    <select name="mood" class="field w-full">
                         <option value="">All moods</option>
                         <option value="happy" {{ request('mood') == 'happy' ? 'selected' : '' }}>😊 Happy</option>
                         <option value="sad" {{ request('mood') == 'sad' ? 'selected' : '' }}>😔 Sad</option>
@@ -82,10 +71,7 @@
                 {{-- Privacy Level --}}
                 <div>
                     <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"> Privacy </label>
-                    <select
-                        name="privacy"
-                        class="focus:ring-primary-500 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 dark:border-gray-600 dark:bg-gray-900"
-                    >
+                    <select name="privacy" class="field w-full">
                         <option value="">All entries</option>
                         <option value="private" {{ request('privacy') == 'private' ? 'selected' : '' }}>
                             🔒 Private
@@ -103,10 +89,7 @@
                 {{-- Sort By --}}
                 <div>
                     <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"> Sort By </label>
-                    <select
-                        name="sort"
-                        class="focus:ring-primary-500 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 dark:border-gray-600 dark:bg-gray-900"
-                    >
+                    <select name="sort" class="field w-full">
                         <option value="newest" {{ request('sort') == 'newest' ? 'selected' : '' }}>Newest first</option>
                         <option value="oldest" {{ request('sort') == 'oldest' ? 'selected' : '' }}>Oldest first</option>
                         <option value="longest" {{ request('sort') == 'longest' ? 'selected' : '' }}>
@@ -123,21 +106,11 @@
             <div id="custom-date-range" class="grid hidden grid-cols-2 gap-4">
                 <div>
                     <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">From</label>
-                    <input
-                        type="date"
-                        name="date_from"
-                        value="{{ request('date_from') }}"
-                        class="focus:ring-primary-500 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 dark:border-gray-600 dark:bg-gray-900"
-                    />
+                    <input type="date" name="date_from" value="{{ request('date_from') }}" class="field w-full" />
                 </div>
                 <div>
                     <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">To</label>
-                    <input
-                        type="date"
-                        name="date_to"
-                        value="{{ request('date_to') }}"
-                        class="focus:ring-primary-500 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm focus:ring-2 dark:border-gray-600 dark:bg-gray-900"
-                    />
+                    <input type="date" name="date_to" value="{{ request('date_to') }}" class="field w-full" />
                 </div>
             </div>
 
@@ -167,12 +140,7 @@
 
             {{-- Action Buttons --}}
             <div class="flex gap-3 pt-2">
-                <button
-                    type="submit"
-                    class="bg-primary-600 hover:bg-primary-700 rounded-xl px-4 py-2 text-sm font-medium text-white transition-colors"
-                >
-                    Apply Filters
-                </button>
+                <x-button type="submit"> Apply Filters </x-button>
                 <a
                     href="{{ route('home') }}"
                     class="rounded-xl px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"

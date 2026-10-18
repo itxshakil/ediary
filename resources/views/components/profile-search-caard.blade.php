@@ -62,27 +62,19 @@
                     <div class="w-full shrink-0 md:w-auto">
                         @auth
                             @if (auth()->id() !== $user->id)
-                                <a
-                                    href="{{ route('profile.show', $user->username) }}"
-                                    class="bg-primary-600 hover:bg-primary-700 focus:ring-primary-500 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-white transition-all duration-200 focus:ring-2 focus:ring-offset-2 focus:outline-none dark:focus:ring-offset-gray-800"
-                                >
+                                <x-button href="{{ route('profile.show', $user->username) }}">
                                     View Profile
                                     <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                                     </svg>
-                                </a>
+                                </x-button>
                             @else
                                 <span class="inline-flex items-center rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-600 dark:bg-gray-700 dark:text-gray-400">
                                     You
                                 </span>
                             @endif
                         @else
-                            <a
-                                href="{{ route('login') }}"
-                                class="bg-primary-600 hover:bg-primary-700 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-white transition-colors duration-200"
-                            >
-                                Follow
-                            </a>
+                            <x-button href="{{ route('login') }}"> Follow </x-button>
                         @endauth
                     </div>
                 </div>

@@ -35,6 +35,50 @@
 }
 
 /*
+  One look for every text input, textarea and select. 16px text on phones stops iOS zooming
+  in on focus; layout (width, margins, icon padding) stays with each field's own utilities.
+*/
+@utility field {
+  width: 100%;
+  border: 1px solid light-dark(var(--color-gray-300), var(--color-gray-600));
+  border-radius: var(--radius-xl);
+  background-color: light-dark(var(--color-white), var(--color-gray-800));
+  color: light-dark(var(--color-gray-900), var(--color-gray-100));
+  padding: 0.625rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+
+  &::placeholder {
+    color: light-dark(var(--color-gray-400), var(--color-gray-500));
+  }
+
+  &:focus {
+    border-color: var(--color-primary-500);
+    outline: none;
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-primary-500) 25%, transparent);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  &[aria-invalid='true'],
+  &:user-invalid {
+    border-color: light-dark(var(--color-red-500), var(--color-red-400));
+  }
+
+  /* Long-form writing stays at 16px; single-line fields step down on larger screens. */
+  &:where(input, select) {
+    @media (width >= 40rem) {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+  }
+}
+
+/*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
   looks the same as it did with Tailwind CSS v3.

@@ -53,7 +53,7 @@
                             name="q"
                             value="{{ request('q') }}"
                             placeholder="Search for users..."
-                            class="focus:ring-primary-500 w-full rounded-xl border border-gray-300 bg-white py-4 pr-4 pl-12 text-gray-900 shadow-sm transition-all duration-200 focus:border-transparent focus:ring-2 dark:border-gray-700 dark:bg-gray-800 dark:text-white"
+                            class="field w-full pr-4 pl-12"
                             autofocus
                         />
                     </div>
@@ -86,15 +86,12 @@
                         <p class="mx-auto max-w-md text-gray-600 dark:text-gray-400">
                             We couldn't find any users matching your search. Try different keywords or browse all users.
                         </p>
-                        <a
-                            href="{{ route('search') }}"
-                            class="bg-primary-600 hover:bg-primary-700 mt-6 inline-flex items-center gap-2 rounded-xl px-6 py-3 font-medium text-white transition-colors duration-200"
-                        >
+                        <x-button size="lg" href="{{ route('search') }}" class="mt-6">
                             Explore Users
                             <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
-                        </a>
+                        </x-button>
                     </div>
                 @endforelse
             </div>

@@ -7,9 +7,6 @@
     <div class="ml-3 flex flex-col">
         <h4 class="text-xl">{{ $user->profile->name }}</h4>
         <p>{{ $user->profile->follower_count }} Followers</p>
-        <a
-            href="/user/{{ $user->username }}"
-            class="bg-primary-600 mt-2 inline-block rounded-md px-3 py-1 text-center text-xs font-bold text-gray-100 uppercase shadow-sm outline-hidden hover:shadow-md focus:outline-hidden"
-        >View Profile</a>
+        <x-button size="sm" href="/user/{{ $user->username }}" class="mt-2">View Profile</x-button>
     </div>
 </div>

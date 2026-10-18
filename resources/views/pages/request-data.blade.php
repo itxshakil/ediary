@@ -20,12 +20,7 @@
                 <form method="POST" action="{{ route('request.data') }}">
                     @csrf
 
-                    <button
-                        type="submit"
-                        class="bg-primary-600 hover:bg-primary-700 focus:ring-primary-500/30 h-11 w-full rounded-full text-sm font-medium text-white transition focus:ring-4 focus:outline-none active:scale-[0.98]"
-                    >
-                        {{ __('Download My Data') }}
-                    </button>
+                    <x-button size="lg" type="submit" class="w-full"> {{ __('Download My Data') }} </x-button>
                 </form>
             </div>
         </div>

@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Tests\Feature;
 
 use App\Mail\ContactUs;
+use App\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 use Illuminate\Support\Facades\Mail;
 use PHPUnit\Framework\Attributes\Test;
@@ -12,6 +14,8 @@ use Tests\TestCase;
 
 final class PageTest extends TestCase
 {
+    use RefreshDatabase;
+
     #[Test]
     public function it_displays_static_pages(): void
     {
@@ -35,5 +39,13 @@ final class PageTest extends TestCase
 
         $response->assertRedirect('/success');
         Mail::assertSent(ContactUs::class, fn ($mail) => $mail->hasTo('itxshakil@gmail.com'));
+    }
+
+    #[Test]
+    public function the_contact_and_change_password_forms_have_a_submit_button(): void
+    {
+        $this->get('/contact')->assertSeeHtmlInOrder(['action="' . route('contact.send') . '"', 'type="submit"']);
+
+        $this->actingAs(User::factory()->create())->get('/password/change')->assertSeeHtmlInOrder(['action="' . route('password.change') . '"', 'type="submit"']);
     }
 }

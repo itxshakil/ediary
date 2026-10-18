@@ -10,12 +10,9 @@
                 </p>
             </div>
 
-            <a
-                href="{{ route('diary.create') }}"
-                class="bg-primary-600 hover:bg-primary-700 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-white shadow-sm transition"
-            >
+            <x-button href="{{ route('diary.create') }}">
                 <span>New entry</span>
-            </a>
+            </x-button>
         </div>
 
         <div class="space-y-4">
