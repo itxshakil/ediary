@@ -42,4 +42,18 @@ final class SettingTest extends TestCase
 
         $response->assertRedirect('/email/verify');
     }
+
+    #[Test]
+    public function the_settings_page_has_a_working_username_field_and_data_links(): void
+    {
+        $user = User::factory()->create(['username' => 'janedoe', 'email_verified_at' => now()]);
+
+        $this->actingAs($user)
+            ->get('/settings')
+            ->assertOk()
+            ->assertSeeHtml('name="username"')
+            ->assertSeeHtml('value="janedoe"')
+            ->assertSeeHtml('href="' . route('diary.export', ['format' => 'csv']) . '"')
+            ->assertSeeHtml('href="' . url('/password/change') . '"');
+    }
 }

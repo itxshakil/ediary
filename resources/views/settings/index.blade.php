@@ -1,70 +1,86 @@
 @extends('layouts.app')
-@section('title', 'Change Your Ediary Password')
+@section('title', 'Settings')
 @section('content')
-    <div class="container mx-auto flex justify-center px-3 md:px-6">
-        <div class="my-6 flex w-full lg:w-11/12 xl:w-3/4">
-            <div class="bg-primary-700 hidden h-auto w-full rounded-l-lg bg-cover lg:block lg:w-1/2">
-                <div class="flex flex-col items-center justify-center text-gray-200">
-                    <div class="feature mb-1 p-4">
-                        <h3 class="flex-center mb-2 flex text-xl">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-wifi-off">
-                                <line x1="1" y1="1" x2="23" y2="23"></line>
-                                <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"></path>
-                                <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"></path>
-                                <path d="M10.71 5.05A16 16 0 0 1 22.58 9"></path>
-                                <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"></path>
-                                <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
-                                <line x1="12" y1="20" x2="12.01" y2="20"></line>
-                            </svg
-                            >Availability
-                        </h3>
-                        <p class="w-96">
-                            When You aren't connected to the Internet(Offline). Then we save your entry in your device
-                            and sync back to the database when the connection back to the Internet.
-                        </p>
-                    </div>
-                    <div class="feature mb-1 p-4">
-                        <h3 class="flex-center mb-2 flex text-xl">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
-                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                            </svg
-                            >Installable
-                        </h3>
-                        <p class="w-96">
-                            For easy access, you can add Ediary to your Home Screen. So you can use it as native apps.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="w-full rounded-xl bg-gray-200 p-2 md:p-5 lg:w-1/2 lg:rounded-l-none dark:bg-gray-800">
-                <h3 class="pt-4 pb-2 text-center text-2xl text-gray-900 md:pb-4 dark:text-white">
-                    Change Your Username!
-                </h3>
-                <form
-                    class="mb-4 rounded-md bg-white px-4 pt-6 pb-2 md:px-8 dark:bg-gray-900 dark:text-white"
-                    method="POST"
-                    action="/username"
-                >
-                    <section class="mb-4">
-                        <label class="text-sm font-semibold text-gray-700 dark:text-gray-200" for="username">
-                            Username
-                        </label>
-                        <username-input
-                            @error('email') :iserror="true" @enderror
-                            value="{{ auth()->user()->username }}"
-                        ></username-input>
-                        @error('username')
-                            <p class="text-xs text-red-500 italic" role="alert">{{ $message }}</p>
-                        @enderror
-                    </section>
-                    <section class="mb-4 text-center">
-                        <x-button size="sm" type="submit" class="mr-2 mb-1 w-full"> Save </x-button>
-                    </section>
+    <div class="container mx-auto max-w-3xl px-4 py-8">
+        <x-page-header title="Settings" subtitle="Manage your account and your data." />
+
+        <div class="space-y-6">
+            <x-card>
+                <form method="POST" action="{{ url('/username') }}">
                     @csrf
                     @method('PUT')
+
+                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Username</h2>
+                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                        Your username is used to sign in and appears in your profile link.
+                    </p>
+
+                    <label for="username" class="sr-only">Username</label>
+                    <div class="mt-4 flex flex-col gap-3 sm:flex-row">
+                        <input
+                            id="username"
+                            name="username"
+                            type="text"
+                            value="{{ old('username', auth()->user()->username) }}"
+                            required
+                            minlength="5"
+                            maxlength="25"
+                            pattern="[A-Za-z0-9_\-]+"
+                            autocomplete="username"
+                            spellcheck="false"
+                            aria-describedby="username-help"
+                            class="field"
+                            @error('username') aria-invalid="true" @enderror
+                        />
+                        <x-button type="submit" class="sm:w-auto">Save username</x-button>
+                    </div>
+                    @error('username')
+                        <p class="mt-2 text-sm text-red-600 dark:text-red-400" role="alert">{{ $message }}</p>
+                    @else
+                        <p id="username-help" class="mt-2 text-xs text-gray-500 dark:text-gray-400">
+                            5 to 25 characters: letters, numbers, dashes and underscores.
+                        </p>
+                    @enderror
                 </form>
-            </div>
+            </x-card>
+
+            <x-card>
+                <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Password</h2>
+                <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Choose a new password for your account.</p>
+                <x-button variant="secondary" href="{{ url('/password/change') }}" class="mt-4"
+                    >Change password</x-button>
+            </x-card>
+
+            <x-card>
+                <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Your data</h2>
+                <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                    Download every entry you've written. Your journal is yours to keep.
+                    <a href="{{ url('/security') }}" class="text-primary-600 dark:text-primary-400 underline"
+                        >How we protect it</a>
+                </p>
+                <div class="mt-4 flex flex-wrap gap-3">
+                    <x-button variant="secondary" href="{{ route('diary.export', ['format' => 'csv']) }}"
+                        >Export as CSV</x-button>
+                    <x-button variant="secondary" href="{{ route('diary.export', ['format' => 'json']) }}"
+                        >Export as JSON</x-button>
+                    <x-button variant="ghost" href="{{ url('/request-data') }}">Email me a copy</x-button>
+                </div>
+            </x-card>
+
+            <x-card>
+                <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Use Ediary like an app</h2>
+                <ul class="mt-3 space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                    <li>
+                        <strong class="text-gray-900 dark:text-white">Works offline.</strong>
+                        Entries you write without a connection are saved on this device and sync when you're back
+                        online.
+                    </li>
+                    <li>
+                        <strong class="text-gray-900 dark:text-white">Install it.</strong>
+                        Add Ediary to your home screen from your browser's menu for one-tap access.
+                    </li>
+                </ul>
+            </x-card>
         </div>
     </div>
 @endsection
