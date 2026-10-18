@@ -6,14 +6,18 @@ try {
 }
 
 const BUILD = self.__EDIARY_BUILD ?? { version: 'dev', assets: [] };
+// Hashed build files: a new build gets a new cache. Icons, manifest and the offline page rarely
+// change, so they live in a stable cache (bump CORE_CACHE when one of them does).
 const STATIC_CACHE = `ediary-static-${BUILD.version}`;
+const CORE_CACHE   = 'ediary-core-v1';
 const PAGE_CACHE   = 'ediary-pages-v11';
+const HOME_VARIANTS = ['/', '/?utm_source=homescreen'];
 
 const ONE_WEEK = 7 * 24 * 60 * 60 * 1000;
 
-const CORE_ASSETS = [
-    '/',
-    '/home',
+const CORE_PAGES = ['/', '/home', '/blog', '/faq'];
+
+const CORE_FILES = [
     '/offline.html',
     '/manifest.webmanifest',
 
@@ -26,16 +30,15 @@ const CORE_ASSETS = [
     '/icons/old/icons-144.png',
     '/icons/old/icons-192.png',
     '/icons/old/icons-512.png',
-
-    '/blog',
-    '/faq',
 ];
 
 self.addEventListener('install', event => {
     event.waitUntil(
-        caches.open(STATIC_CACHE)
-            .then(cache => precache(cache, [...CORE_ASSETS, ...BUILD.assets]))
-            .then(() => self.skipWaiting())
+        Promise.all([
+            precache(STATIC_CACHE, BUILD.assets),
+            precache(CORE_CACHE, CORE_FILES),
+            precache(PAGE_CACHE, CORE_PAGES),
+        ]).then(() => self.skipWaiting())
     );
 });
 
@@ -44,7 +47,7 @@ self.addEventListener('activate', event => {
         caches.keys().then(keys =>
             Promise.all(
                 keys
-                    .filter(key => ![STATIC_CACHE, PAGE_CACHE].includes(key))
+                    .filter(key => ![STATIC_CACHE, CORE_CACHE, PAGE_CACHE].includes(key))
                     .map(key => caches.delete(key))
             )
         )
@@ -81,11 +84,13 @@ function isStaticAsset(pathname) {
 }
 
 async function cacheFirstStatic(request) {
-    const cache = await caches.open(STATIC_CACHE);
-    const cached = await cache.match(request);
+    // Content-hashed build files never change, so they are never revalidated or expired.
+    const hashed = new URL(request.url).pathname.startsWith('/build/');
+    const cache = await caches.open(hashed ? STATIC_CACHE : CORE_CACHE);
+    const cached = await caches.match(request);
 
-    if (cached && !isExpired(cached)) {
-        revalidateStatic(request, cache);
+    if (cached && (hashed || !isExpired(cached))) {
+        if (!hashed) revalidateStatic(request, cache);
         return cached;
     }
 
@@ -102,8 +107,12 @@ async function cacheFirstStatic(request) {
     }
 }
 
-async function precache(cache, urls) {
-    await Promise.all(urls.map(async url => {
+// Fetches only what the cache doesn't already hold, so a new build doesn't re-download unchanged files.
+async function precache(cacheName, urls) {
+    const cache = await caches.open(cacheName);
+    const missing = (await Promise.all(urls.map(async url => ((await cache.match(url)) ? null : url)))).filter(Boolean);
+
+    await Promise.all(missing.map(async url => {
         const response = await fetch(url, { cache: 'reload' });
         if (!response.ok) {
             throw new Error(`Precache failed for ${url}: ${response.status}`);
@@ -120,10 +129,10 @@ async function networkFirstPage(request) {
     try {
         const fresh = await fetch(request);
         if (fresh.ok) {
-            await putWithTimestamp(cache, request, fresh.clone());
-        }
-        if (new URL(request.url).pathname === '/') {
-            reCacheHomeVariants();
+            const url = new URL(request.url);
+            // The home page is also opened from the home screen with a tracking query; keep both fresh.
+            const keys = url.pathname === '/' ? HOME_VARIANTS : [request];
+            await Promise.all(keys.map(key => putWithTimestamp(cache, key, fresh.clone())));
         }
         return fresh;
     } catch {
@@ -190,17 +199,6 @@ async function handleLogout(request) {
         await cache.delete('/home');
     }
     return response;
-}
-
-function reCacheHomeVariants() {
-    const variants = ['/', '/?utm_source=homescreen'];
-    variants.forEach(path => {
-        fetch(path).then(res => {
-            if (!res.ok) return;
-            caches.open(PAGE_CACHE)
-                .then(cache => putWithTimestamp(cache, path, res));
-        }).catch(() => {});
-    });
 }
 
 self.addEventListener('sync', event => {

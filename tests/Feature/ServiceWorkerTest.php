@@ -21,10 +21,10 @@ final class ServiceWorkerTest extends TestCase
     public function every_precached_core_asset_exists(): void
     {
         $script = (string) file_get_contents(public_path('service-worker.js'));
-        preg_match('/const CORE_ASSETS = \[(.*?)\];/s', $script, $match);
-        preg_match_all("/'([^']+)'/", $match[1] ?? '', $urls);
+        preg_match_all('/const CORE_(?:FILES|PAGES) = \[(.*?)\];/s', $script, $lists);
+        preg_match_all("/'([^']+)'/", implode(',', $lists[1]), $urls);
 
-        $this->assertNotEmpty($urls[1], 'Could not find CORE_ASSETS in service-worker.js');
+        $this->assertCount(2, $lists[1], 'Could not find CORE_FILES and CORE_PAGES in service-worker.js');
 
         $this->actingAs(User::factory()->create());
 
