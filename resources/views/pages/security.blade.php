@@ -23,7 +23,7 @@
 
         <!-- Content Section -->
         <div class="container mx-auto max-w-4xl px-4 py-16">
-            <div class="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+            <div class="text-gray-700 dark:text-gray-300">
                 <h2 class="mb-8 text-3xl font-bold text-gray-900 dark:text-white">The Short Version</h2>
                 <div class="my-12 grid gap-8 md:grid-cols-2">
                     <div class="rounded-2xl border border-gray-100 bg-gray-50 p-8 dark:border-gray-700 dark:bg-gray-800">

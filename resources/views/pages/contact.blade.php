@@ -139,7 +139,7 @@
                                 rows="6"
                                 required
                                 placeholder="Enter your message here..."
-                                class="field w-full"
+                                class="field"
                             >{{ old('message') }}</textarea>
                             @error('message')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>

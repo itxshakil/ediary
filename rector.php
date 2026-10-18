@@ -5,12 +5,10 @@ declare(strict_types=1);
 use Rector\Config\RectorConfig;
 use Rector\Naming\Rector\Assign\RenameVariableToMatchMethodCallReturnTypeRector;
 use Rector\Naming\Rector\ClassMethod\RenameParamToMatchTypeRector;
-use Rector\Transform\Rector\String_\StringToClassConstantRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\AddParamTypeDeclarationRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\AddReturnTypeDeclarationRector;
 use Rector\ValueObject\PhpVersion;
 use RectorLaravel\Rector\FuncCall\RemoveDumpDataDeadCodeRector;
-use RectorLaravel\Set\LaravelLevelSetList;
 
 return RectorConfig::configure()
     ->withPaths([
@@ -24,10 +22,6 @@ return RectorConfig::configure()
 
     ->withPhpSets(php84: true)
     ->withPhpVersion(PhpVersion::PHP_84)
-
-    ->withSets([
-        LaravelLevelSetList::UP_TO_LARAVEL_120,
-    ])
 
     ->withRules([
         AddReturnTypeDeclarationRector::class,
@@ -53,6 +47,4 @@ return RectorConfig::configure()
     )->withSkip([
         RenameVariableToMatchMethodCallReturnTypeRector::class,
         RenameParamToMatchTypeRector::class,
-        // Mistakes the 'auth.login' view name for the legacy event string and rewrites it to Login::class.
-        StringToClassConstantRector::class => [__DIR__ . '/app/Http/Controllers/Auth/LoginController.php'],
     ]);

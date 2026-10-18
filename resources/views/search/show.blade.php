@@ -53,7 +53,7 @@
                             name="q"
                             value="{{ request('q') }}"
                             placeholder="Search for users..."
-                            class="field w-full pr-4 pl-12"
+                            class="field pr-4 pl-12"
                             autofocus
                         />
                     </div>

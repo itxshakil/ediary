@@ -36,7 +36,7 @@
                 id="title"
                 placeholder="Entry title (optional)"
                 value="{{ old('title') }}"
-                class="field w-full text-lg font-medium"
+                class="field text-lg font-medium"
             />
         </div>
 
@@ -46,7 +46,7 @@
             rows="6"
             required
             placeholder="Dear diary, today I..."
-            class="field min-h-[120px] w-full resize-y"
+            class="field min-h-[120px] resize-y"
         >{{ old('entry') }}</textarea>
         <x-dictate-button target="entry" class="mt-3" />
         @error('entry')
@@ -70,7 +70,7 @@
 
             <div class="mb-2 flex flex-wrap gap-2" id="tags-container"></div>
 
-            <input type="text" id="tag-input" placeholder="Add tags (press Enter)" class="field w-full" />
+            <input type="text" id="tag-input" placeholder="Add tags (press Enter)" class="field" />
 
             <input type="hidden" name="tags" id="tags-hidden" />
 
@@ -88,7 +88,7 @@
                 Who can see this?
             </label>
 
-            <select name="privacy" id="privacy-select" class="field w-full">
+            <select name="privacy" id="privacy-select" class="field">
                 @foreach (Privacy::cases() as $privacy)
                     <option value="{{ $privacy->value }}" @selected($privacy === Privacy::Private)>
                         {{ $privacy->emoji() }} {{ $privacy->label() }}

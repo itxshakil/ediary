@@ -45,7 +45,7 @@
                             required
                             maxlength="2000"
                             placeholder="Write a comment..."
-                            class="field w-full"
+                            class="field"
                         >{{ old('comment') }}</textarea>
                         @error('comment')
                             <p class="mt-1 text-xs text-red-500 italic">{{ $message }}</p>

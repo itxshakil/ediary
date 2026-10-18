@@ -16,7 +16,7 @@
 
         <!-- Content Section -->
         <div class="container mx-auto max-w-4xl px-4 py-16">
-            <div class="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+            <div class="text-gray-700 dark:text-gray-300">
                 <h2 class="mb-8 text-3xl font-bold text-gray-900 dark:text-white">The Story Behind Ediary</h2>
                 <p class="mb-6 leading-relaxed">
                     Ediary was born from a simple belief: everyone deserves a private place to think. In an age where

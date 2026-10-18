@@ -72,62 +72,27 @@
 
                     <div class="nav-dropdown">
                         @if (! $user->email_verified_at)
-                            <a
-                                href="{{ route('verification.notice') }}"
-                                class="block px-4 py-2 text-sm text-red-500 hover:bg-gray-100 dark:hover:bg-gray-700"
-                            >
+                            <a href="{{ route('verification.notice') }}" class="text-red-500!">
                                 Verify Email Address
                             </a>
                         @endif
 
-                        <a
-                            href="{{ route('diary.create') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700"
-                        >
-                            Write Entry
-                        </a>
+                        <a href="{{ route('diary.create') }}"> Write Entry </a>
 
-                        <a
-                            href="/user/{{ $user->username }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700"
-                        >
-                            My Profile
-                        </a>
+                        <a href="/user/{{ $user->username }}"> My Profile </a>
 
-                        <a
-                            href="/home"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700"
-                        >
-                            Dashboard
-                        </a>
+                        <a href="/home"> Dashboard </a>
 
-                        <a
-                            href="{{ route('diary.stats') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700"
-                        >
-                            Stats
-                        </a>
+                        <a href="{{ route('diary.stats') }}"> Stats </a>
 
-                        <a
-                            href="/password/change"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700"
-                        >
-                            Change Password
-                        </a>
+                        <a href="/password/change"> Change Password </a>
 
-                        <a
-                            href="/settings"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700"
-                        >
-                            Settings
-                        </a>
+                        <a href="/settings"> Settings </a>
 
                         <!-- Logout -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <button class="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">
-                                Logout
-                            </button>
+                            <button>Logout</button>
                         </form>
                     </div>
                 </details>

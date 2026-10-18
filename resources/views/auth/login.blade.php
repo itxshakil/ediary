@@ -111,7 +111,7 @@
                                 value="{{ old('username') }}"
                                 required
                                 autofocus
-                                class="field mt-2 w-full"
+                                class="field mt-2"
                             />
                             @error('username')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -123,7 +123,7 @@
                             <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
                                 Password
                             </label>
-                            <input id="password" type="password" name="password" required class="field mt-2 w-full" />
+                            <input id="password" type="password" name="password" required class="field mt-2" />
                             @error('password')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                             @enderror

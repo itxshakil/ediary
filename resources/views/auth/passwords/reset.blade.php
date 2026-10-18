@@ -35,7 +35,7 @@
                             {{ __('E-Mail Address') }}
                         </label>
                         <input
-                            class="field w-full"
+                            class="field"
                             @error('email') aria-invalid="true" @enderror
                             id="email"
                             type="email"
@@ -55,7 +55,7 @@
                             {{ __('Password') }}
                         </label>
                         <input
-                            class="field mb-3 w-full"
+                            class="field mb-3"
                             @error('password') aria-invalid="true" @enderror
                             id="password"
                             type="password"
@@ -74,7 +74,7 @@
                             {{ __('Confirm Password') }}
                         </label>
                         <input
-                            class="field mb-3 w-full"
+                            class="field mb-3"
                             @error('password_confirmation') aria-invalid="true" @enderror
                             id="password_confirmation"
                             type="password"

@@ -136,7 +136,7 @@
                                                 autocomplete="email"
                                                 placeholder="you@example.com"
                                                 value="{{ old('email') }}"
-                                                class="field w-full pr-4 pl-10"
+                                                class="field pr-4 pl-10"
                                             />
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-focus-within:text-primary-500 absolute top-3.5 left-3 h-5 w-5 text-gray-400 transition-colors">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -162,7 +162,7 @@
                                                 required
                                                 placeholder="johndoe"
                                                 value="{{ old('username') }}"
-                                                class="field w-full pr-4 pl-10"
+                                                class="field pr-4 pl-10"
                                             />
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-focus-within:text-primary-500 absolute top-3.5 left-3 h-5 w-5 text-gray-400 transition-colors">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -190,7 +190,7 @@
                                                 autocomplete="new-password"
                                                 placeholder="•••••••••"
                                                 minlength="8"
-                                                class="field w-full pr-4 pl-10"
+                                                class="field pr-4 pl-10"
                                             />
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-focus-within:text-primary-500 absolute top-3.5 left-3 h-5 w-5 text-gray-400 transition-colors">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -218,7 +218,7 @@
                                                 placeholder="•••••••••"
                                                 autocomplete="new-password"
                                                 minlength="8"
-                                                class="field w-full pr-4 pl-10"
+                                                class="field pr-4 pl-10"
                                             />
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-focus-within:text-primary-500 absolute top-3.5 left-3 h-5 w-5 text-gray-400 transition-colors">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />

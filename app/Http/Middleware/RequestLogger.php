@@ -7,7 +7,6 @@ namespace App\Http\Middleware;
 use Closure;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Context;
 use Illuminate\Support\Facades\Log;
@@ -166,7 +165,7 @@ final class RequestLogger
         $authenticatable = $request->user();
         $authenticatableId = $authenticatable ? $authenticatable->id : 'Guest';
         $bodyAsJson = $request->expectsJson()
-            ? json_encode(Arr::except(json_decode((string) $response->getContent(), associative: true), []))
+            ? (string) $response->getContent()
             : 'Non-JSON content returned';
 
         return 'IP: ' . $request->ip() . ' #' . $this->requestId .

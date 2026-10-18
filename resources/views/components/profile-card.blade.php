@@ -33,7 +33,7 @@
         <div class="info ml-4 flex-1">
             {{-- Editing Mode --}}
             <div id="editMode" class="hidden">
-                <input type="text" id="nameInput" value="{{ $profile['name'] }}" class="field w-full" />
+                <input type="text" id="nameInput" value="{{ $profile['name'] }}" class="field" />
 
                 <p id="nameError" class="mt-1 hidden text-xs text-red-500 italic"></p>
 
@@ -42,7 +42,7 @@
                     <strong id="followingEdit">{{ $profile['user']['following_count'] }}</strong> Following
                 </div>
 
-                <textarea id="bioInput" rows="6" class="field mt-3 w-full">{{ $profile['bio'] }}</textarea>
+                <textarea id="bioInput" rows="6" class="field mt-3">{{ $profile['bio'] }}</textarea>
                 <p id="bioError" class="mt-1 hidden text-xs text-red-500 italic"></p>
 
                 <div class="mt-4 flex gap-2">

@@ -39,7 +39,7 @@
                                 {{ __('E-Mail Address') }}
                             </label>
                             <input
-                                class="field w-full"
+                                class="field"
                                 @error('email') aria-invalid="true" @enderror
                                 id="email"
                                 type="email"

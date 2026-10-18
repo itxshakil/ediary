@@ -178,14 +178,14 @@
                                             type="text"
                                             placeholder="Name"
                                             value="{{ $profile->name }}"
-                                            class="field w-full"
+                                            class="field"
                                         />
                                         <p id="nameError" class="hidden text-xs text-red-500"></p>
 
                                         <textarea
                                             id="bioInput"
                                             rows="4"
-                                            class="field w-full resize-none"
+                                            class="field resize-none"
                                         >{{ $profile->bio }}</textarea>
                                         <p id="bioError" class="hidden text-xs text-red-500"></p>
 

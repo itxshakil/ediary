@@ -44,7 +44,7 @@
                                 @endif
                             </div>
                             <input
-                                class="field mb-3 w-full"
+                                class="field mb-3"
                                 @error('password') aria-invalid="true" @enderror
                                 id="password"
                                 type="password"

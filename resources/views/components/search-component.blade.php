@@ -25,7 +25,7 @@
                     id="search-input"
                     value="{{ request('q') }}"
                     placeholder="Search your diary entries..."
-                    class="field w-full pr-4 pl-12"
+                    class="field pr-4 pl-12"
                 />
             </div>
 
@@ -38,7 +38,7 @@
                 {{-- Date Range --}}
                 <div>
                     <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"> Date Range </label>
-                    <select name="date_range" class="field w-full">
+                    <select name="date_range" class="field">
                         <option value="">All time</option>
                         <option value="today" {{ request('date_range') == 'today' ? 'selected' : '' }}>Today</option>
                         <option value="week" {{ request('date_range') == 'week' ? 'selected' : '' }}>This week</option>
@@ -55,7 +55,7 @@
                 {{-- Mood --}}
                 <div>
                     <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"> Mood </label>
-                    <select name="mood" class="field w-full">
+                    <select name="mood" class="field">
                         <option value="">All moods</option>
                         @foreach (\App\Enums\Mood::cases() as $mood)
                             <option value="{{ $mood->value }}" @selected(request('mood') === $mood->value)>
@@ -68,7 +68,7 @@
                 {{-- Privacy --}}
                 <div>
                     <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"> Privacy </label>
-                    <select name="privacy" class="field w-full">
+                    <select name="privacy" class="field">
                         <option value="">All entries</option>
                         @foreach (\App\Enums\Privacy::cases() as $privacy)
                             <option value="{{ $privacy->value }}" @selected(request('privacy') === $privacy->value)>
@@ -81,7 +81,7 @@
                 {{-- Sort --}}
                 <div>
                     <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"> Sort By </label>
-                    <select name="sort" class="field w-full">
+                    <select name="sort" class="field">
                         <option value="newest" {{ request('sort') == 'newest' ? 'selected' : '' }}>Newest first</option>
                         <option value="oldest" {{ request('sort') == 'oldest' ? 'selected' : '' }}>Oldest first</option>
                         <option value="longest" {{ request('sort') == 'longest' ? 'selected' : '' }}>
@@ -98,11 +98,11 @@
             <div id="custom-date-range" class="grid hidden grid-cols-2 gap-4">
                 <div>
                     <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">From</label>
-                    <input type="date" name="date_from" value="{{ request('date_from') }}" class="field w-full" />
+                    <input type="date" name="date_from" value="{{ request('date_from') }}" class="field" />
                 </div>
                 <div>
                     <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">To</label>
-                    <input type="date" name="date_to" value="{{ request('date_to') }}" class="field w-full" />
+                    <input type="date" name="date_to" value="{{ request('date_to') }}" class="field" />
                 </div>
             </div>
 
