@@ -59,7 +59,7 @@
         <x-mood-picker class="mt-4" />
 
         <div class="mt-4">
-            <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"> Tags </label>
+            <label for="tag-input" class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">Tags</label>
 
             <div class="mb-2 flex flex-wrap gap-2" id="tags-container"></div>
 
@@ -67,7 +67,7 @@
 
             <input type="hidden" name="tags" id="tags-hidden" />
 
-            <div class="mt-2 flex flex-wrap gap-2">
+            <div class="mt-2 flex flex-wrap items-center gap-2">
                 <span class="text-xs text-gray-500 dark:text-gray-400">Popular:</span>
                 @foreach (['gratitude', 'work', 'family', 'health', 'goals', 'travel', 'thoughts'] as $tag)
                     <button type="button" data-tag="{{ $tag }}" class="suggested-tag chip min-h-8 px-3 text-xs">
@@ -78,8 +78,10 @@
         </div>
 
         {{-- Privacy --}}
-        <div class="mt-5 rounded-2xl bg-gray-50/70 p-4 dark:bg-gray-900/40">
-            <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300"> Privacy </label>
+        <div class="mt-4">
+            <label for="privacy-select" class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">
+                Who can see this?
+            </label>
 
             <select name="privacy" id="privacy-select" class="field w-full">
                 @foreach (Privacy::cases() as $privacy)

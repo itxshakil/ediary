@@ -184,6 +184,9 @@
     line-height: 1.5rem;
     background-color: transparent;
     background-size: 100% 1.5rem;
+    /* Rule from where the text starts and scroll with it, so each line sits under its text. */
+    background-origin: content-box;
+    background-attachment: local;
     background-image: light-dark(
         linear-gradient(transparent 95%, rgba(0, 0, 0, 0.2) 5%),
         linear-gradient(transparent 95%, rgba(255, 255, 255, 0.2) 5%)
