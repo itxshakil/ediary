@@ -81,4 +81,20 @@ final class DiaryTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    #[Test]
+    public function the_entries_list_uses_the_app_pagination(): void
+    {
+        $user = User::factory()->create();
+        Diary::factory()->count(25)->create(['user_id' => $user->id]);
+
+        $this->actingAs($user)
+            ->get('/diaries?page=2')
+            ->assertOk()
+            ->assertSeeHtml('aria-label="Pagination"')
+            ->assertSeeHtml('aria-current="page"')
+            ->assertSee('Page 2 of 3')
+            ->assertSeeHtml('rel="prev"')
+            ->assertSeeHtml('rel="next"');
+    }
 }
