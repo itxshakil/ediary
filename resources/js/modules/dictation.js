@@ -1,6 +1,7 @@
-import { insertTranscript } from './dictation-text';
+import { applySessionTranscript, insertTranscript, latestFinalTranscript } from './dictation-text';
 
 const SpeechRecognition = window.SpeechRecognition ?? window.webkitSpeechRecognition;
+const IS_ANDROID = /Android/i.test(navigator.userAgent);
 
 // Errors that end dictation for good instead of restarting after a pause.
 const FATAL_ERRORS = {
@@ -22,6 +23,8 @@ function setupDictation(button) {
 
     let recognition = null;
     let listening = false;
+    // Text the current Android recognition session has inserted, which its next result replaces.
+    let session = null;
 
     const render = (message = '') => {
         button.setAttribute('aria-pressed', String(listening));
@@ -29,12 +32,21 @@ function setupDictation(button) {
         status.textContent = message;
     };
 
-    const insert = (transcript) => {
-        const { value, caret } = insertTranscript(target.value, target.selectionStart, target.selectionEnd, transcript);
+    const write = ({ value, caret }) => {
         target.value = value;
         target.setSelectionRange(caret, caret);
         // Lets drafts, the character count and auto-resize react to dictated text.
         target.dispatchEvent(new Event('input', { bubbles: true }));
+    };
+
+    const insert = (transcript) => {
+        write(insertTranscript(target.value, target.selectionStart, target.selectionEnd, transcript));
+    };
+
+    const replaceSession = (transcript) => {
+        const result = applySessionTranscript(target.value, session, target.selectionStart, target.selectionEnd, transcript);
+        session = result.session;
+        write(result);
     };
 
     const stop = () => {
@@ -46,8 +58,14 @@ function setupDictation(button) {
     const start = () => {
         recognition = new SpeechRecognition();
         recognition.lang = document.documentElement.lang || navigator.language || 'en-US';
-        recognition.continuous = true;
+        // Android cannot recognise continuously: Chrome there re-sends the growing utterance as new
+        // final results, which repeats words. One utterance per session, restarted by onend, avoids it.
+        recognition.continuous = !IS_ANDROID;
         recognition.interimResults = true;
+
+        recognition.onstart = () => {
+            session = null;
+        };
 
         recognition.onresult = (event) => {
             let interim = '';
@@ -55,10 +73,19 @@ function setupDictation(button) {
             for (let i = event.resultIndex; i < event.results.length; i++) {
                 const result = event.results[i];
 
-                if (result.isFinal) {
-                    insert(result[0].transcript);
-                } else {
+                if (!result.isFinal) {
                     interim += result[0].transcript;
+                } else if (!IS_ANDROID) {
+                    insert(result[0].transcript);
+                }
+            }
+
+            // Each Android final result is the whole utterance so far, so it replaces the last one.
+            if (IS_ANDROID) {
+                const transcript = latestFinalTranscript(event.results);
+
+                if (transcript) {
+                    replaceSession(transcript);
                 }
             }
 
