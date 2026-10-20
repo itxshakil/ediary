@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Support\Analytics;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -28,9 +29,12 @@ final class VerificationController extends Controller
         return view('auth.verify');
     }
 
-    public function verify(EmailVerificationRequest $request): RedirectResponse
+    public function verify(EmailVerificationRequest $request, Analytics $analytics): RedirectResponse
     {
-        $request->fulfill();
+        if (! $request->user()->hasVerifiedEmail()) {
+            $request->fulfill();
+            $analytics->track('email_verified');
+        }
 
         return redirect('/home?verified=1');
     }

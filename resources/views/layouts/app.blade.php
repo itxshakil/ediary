@@ -68,6 +68,7 @@
         })(window, document, 'script', 'dataLayer', 'GTM-5KBQKGS');
     </script>
     <!-- End Google Tag Manager -->
+    <x-analytics-events />
     @stack('head')
 
     <script type="application/ld+json">
@@ -135,7 +136,7 @@
             @if (Route::currentRouteName() !== 'diary.create')
                 <a
                     href="{{ route('diary.create') }}"
-                    onclick="if (window.trackGA) trackGA('floating_add_clicked');"
+                    data-track="floating_add_clicked"
                     class="bg-primary-600 hover:bg-primary-700 flex h-14 w-14 transform items-center justify-center rounded-full text-white shadow-lg transition-all hover:scale-110 active:scale-95"
                     title="Write an entry"
                     aria-label="Write an entry"
@@ -162,11 +163,6 @@
             </button>
         @endif
     </div>
-    @auth
-        <script>
-            window.User = {!! json_encode(Auth::user()) !!};
-        </script>
-    @endauth
     <div id="connection-status" class="hidden"></div>
 
     <div

@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Actions\Diary\StoreDiaryAction;
 use App\Http\Requests\StoreDiaryRequest;
+use App\Support\Analytics;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Log;
@@ -13,10 +14,11 @@ use Throwable;
 
 final class SyncController extends Controller
 {
-    public function store(StoreDiaryRequest $request, StoreDiaryAction $action): JsonResponse|RedirectResponse
+    public function store(StoreDiaryRequest $request, StoreDiaryAction $action, Analytics $analytics): JsonResponse|RedirectResponse
     {
         try {
             $diary = $action->execute($request->user(), $request->validated());
+            $analytics->entryCreated($request->user(), source: 'offline_sync');
 
             if ($request->expectsJson()) {
                 return response()->json([

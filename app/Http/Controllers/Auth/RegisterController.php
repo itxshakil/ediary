@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Support\Analytics;
 use App\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Contracts\View\Factory;
@@ -28,7 +29,7 @@ final class RegisterController extends Controller
         return view('auth.register');
     }
 
-    public function register(Request $request): RedirectResponse|JsonResponse
+    public function register(Request $request, Analytics $analytics): RedirectResponse|JsonResponse
     {
         $validated = $request->validate([
             'username' => ['required', 'string', 'alpha_dash', 'between:5,25', 'unique:users'],
@@ -44,6 +45,7 @@ final class RegisterController extends Controller
 
         event(new Registered($user));
         Auth::login($user);
+        $analytics->track('sign_up', ['method' => 'email']);
 
         if ($request->expectsJson()) {
             return response()->json([

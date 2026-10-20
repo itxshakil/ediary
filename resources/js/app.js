@@ -7,8 +7,10 @@ import { initToasts } from './modules/toast';
 import { initMoodPickers } from './modules/mood-picker';
 import { initOfflineSync } from './modules/offline-store';
 import { initEntryForms } from './modules/entry-form';
+import { initClickTracking } from './modules/analytics';
 
 initToasts();
+initClickTracking();
 initPwaExperience();
 
 document.addEventListener('DOMContentLoaded', () => {

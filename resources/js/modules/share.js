@@ -1,11 +1,8 @@
-function trackShare() {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: 'floating_share_clicked' });
-}
+import { track } from './analytics';
 
 export function initFloatingShare() {
     document.querySelectorAll('[data-share-app]').forEach((shareButton) => shareButton.addEventListener('click', async () => {
-        trackShare();
+        track('floating_share_clicked');
 
         if (navigator.share) {
             try {

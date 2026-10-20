@@ -12,7 +12,7 @@ use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\StoreDiaryRequest;
 use App\Services\Diary\DiaryAnalyticsService;
 use App\Services\Diary\DiaryExploreService;
-use Exception;
+use App\Support\Analytics;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -45,10 +45,11 @@ final class DiaryController extends Controller
         return view('diary.create');
     }
 
-    public function store(StoreDiaryRequest $request, StoreDiaryAction $action): JsonResponse|RedirectResponse
+    public function store(StoreDiaryRequest $request, StoreDiaryAction $action, Analytics $analytics): JsonResponse|RedirectResponse
     {
         try {
             $diary = $action->execute($request->user(), $request->validated());
+            $analytics->entryCreated($request->user(), source: 'web');
 
             if ($request->expectsJson()) {
                 return response()->json([
@@ -60,9 +61,11 @@ final class DiaryController extends Controller
 
             return redirect()->route('home')->with('success', 'Entry saved successfully!');
 
-        } catch (Exception $exception) {
+        } catch (Throwable $throwable) {
+            report($throwable);
+
             Log::error('Failed to save diary entry', [
-                'error' => $exception->getMessage(),
+                'error' => $throwable->getMessage(),
                 'user_id' => $request->user()->id,
             ]);
 
@@ -71,17 +74,6 @@ final class DiaryController extends Controller
                     'success' => false,
                     'message' => 'Failed to save entry',
                 ], 500);
-            }
-
-            return back()->withErrors(['entry' => 'Failed to save entry. Please try again.'])->withInput();
-        } catch (Throwable $e) {
-            report($e);
-
-            if ($request->expectsJson()) {
-                return response()->json([
-                    'success' => false,
-                    'message' => $e->getMessage(),
-                ]);
             }
 
             return back()->withErrors(['entry' => 'Failed to save entry. Please try again.'])->withInput();

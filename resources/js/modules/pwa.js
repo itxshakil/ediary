@@ -1,3 +1,5 @@
+import { track } from './analytics';
+
 const DAY = 24 * 60 * 60 * 1000;
 
 const COPY = {
@@ -20,11 +22,6 @@ let deferredPrompt = null;
 const now = () => Date.now();
 const isIOS = () => /iphone|ipad|ipod/i.test(navigator.userAgent);
 const isStandalone = () => window.navigator.standalone === true;
-
-const trackGA = (event, params = {}) => {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event, ...params });
-};
 
 function trackVisits() {
     const today = new Date().toISOString().slice(0, 10);
@@ -87,7 +84,7 @@ function fallbackNotification() {
         });
 
         localStorage.setItem(lastKey, String(current));
-        trackGA('daily_reminder_fallback');
+        track('daily_reminder_fallback');
     }
 }
 
@@ -192,7 +189,7 @@ function maybeShowBanner() {
     applyCopy();
     banner.classList.remove('hidden');
     requestAnimationFrame(() => banner.classList.add('pwa-visible'));
-    trackGA('pwa_banner_shown', { variant: getVariant() });
+    track('pwa_banner_shown', { variant: getVariant() });
 }
 
 async function showNotificationPrompt() {
@@ -207,7 +204,7 @@ async function showNotificationPrompt() {
 
         try {
             const permission = await Notification.requestPermission();
-            trackGA('notification_permission', { permission });
+            track('notification_permission', { permission });
 
             if (permission === 'granted') {
                 await registerDailyReminder();
@@ -235,7 +232,7 @@ function incrementEntryCount() {
 
 function bindBannerActions() {
     document.getElementById('pwa-banner-cta')?.addEventListener('click', async () => {
-        trackGA('pwa_banner_clicked');
+        track('pwa_banner_clicked');
 
         if (deferredPrompt) {
             deferredPrompt.prompt();
@@ -243,9 +240,9 @@ function bindBannerActions() {
 
             if (outcome === 'accepted') {
                 localStorage.setItem('pwa:installed', '1');
-                trackGA('pwa_install_accepted');
+                track('pwa_install_accepted');
             } else {
-                trackGA('pwa_install_rejected');
+                track('pwa_install_rejected');
             }
 
             deferredPrompt = null;
@@ -265,7 +262,7 @@ function bindBannerActions() {
 
     document.getElementById('pwa-banner-dismiss')?.addEventListener('click', () => {
         localStorage.setItem('pwa:banner_dismissed', String(now()));
-        trackGA('pwa_banner_dismissed');
+        track('pwa_banner_dismissed');
         hideBanner();
     });
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Support\Analytics;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -24,7 +25,7 @@ final class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function login(Request $request): RedirectResponse
+    public function login(Request $request, Analytics $analytics): RedirectResponse
     {
         $credentials = $request->validate([
             'username' => ['required', 'string'],
@@ -40,6 +41,7 @@ final class LoginController extends Controller
         }
 
         $request->session()->regenerate();
+        $analytics->track('login', ['method' => 'password']);
 
         return redirect()->intended('/home');
     }
