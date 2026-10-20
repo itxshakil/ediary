@@ -13,6 +13,14 @@ declare(strict_types=1);
  * - listed: false keeps a post out of the index, its structured data and the sitemap while it stays reachable
  */
 return [
+    // Shown in the author box under each post and as the Article author's profile link.
+    'authors' => [
+        'Shakil Alam' => [
+            'bio' => 'Shakil builds and maintains Ediary, an open-source private diary that works offline. He writes about keeping a journal you will actually stick with.',
+            'url' => 'https://github.com/itxshakil',
+        ],
+    ],
+
     'posts' => [
         'how-to-keep-a-study-journal' => [
             'view' => 'how-to-keep-a-study-journal',

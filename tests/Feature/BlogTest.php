@@ -109,4 +109,14 @@ final class BlogTest extends TestCase
             ->assertSeeInOrder(['Updated', 'datetime="2026-10-20"', 'Oct 20, 2026'], escape: false)
             ->assertSee('"datePublished":"2024-12-21","dateModified":"2026-10-20"', escape: false);
     }
+
+    #[Test]
+    public function posts_introduce_their_author(): void
+    {
+        $this->get(route('blogs.how-to-keep-a-study-journal'))
+            ->assertSee('About the author')
+            ->assertSeeHtml('href="https://github.com/itxshakil"')
+            ->assertSeeHtml('rel="author noopener"')
+            ->assertSee('"author":{"@type":"Person","name":"Shakil Alam","url":"https://github.com/itxshakil"}', escape: false);
+    }
 }
