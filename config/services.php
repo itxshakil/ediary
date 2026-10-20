@@ -32,4 +32,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'google_analytics' => [
+        // GA4 measurement ID; the script only loads in production (see layouts/app.blade.php).
+        'id' => env('GOOGLE_ANALYTICS_ID', 'G-LZJVVY21NY'),
+    ],
+
 ];

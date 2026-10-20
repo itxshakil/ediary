@@ -18,7 +18,7 @@ beforeEach(() => {
         querySelector: (selector) => ({ '[data-prompt-text]': text, '[data-prompt-next]': button('next'), '[data-prompt-use]': button('use') })[selector],
         closest: () => ({ elements: { namedItem: (name) => fields[name] } }),
     };
-    globalThis.window = {};
+    globalThis.window = { gtag: (...args) => (window.calls ??= []).push(args) };
     globalThis.document = { querySelectorAll: () => [box] };
     initWritingPrompts();
 });
@@ -36,7 +36,7 @@ test('using a prompt fills an empty title, focuses the entry and reports it', ()
 
     assert.equal(fields.title.value, 'Second');
     assert.equal(fields.entry.focused, true);
-    assert.deepEqual(window.dataLayer, [{ event: 'writing_prompt_used' }]);
+    assert.deepEqual(window.calls, [['event', 'writing_prompt_used', {}]]);
 });
 
 test('a title the writer already typed is kept', () => {

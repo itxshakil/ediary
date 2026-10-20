@@ -1,7 +1,6 @@
-/** Sends an event to GTM's dataLayer; GTM decides which events reach GA. */
+/** Sends an event to Google Analytics; gtag() is defined in the layout head. */
 export function track(event, params = {}) {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event, ...params });
+    window.gtag?.('event', event, params);
 }
 
 /** Elements with data-track="event_name" report a click without page-specific code. */

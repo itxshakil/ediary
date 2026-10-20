@@ -23,7 +23,7 @@ final class AnalyticsTest extends TestCase
                 'password' => 'secret-password',
             ])
             ->assertOk()
-            ->assertSeeHtml('window.dataLayer.push({"event":"sign_up","method":"email"})');
+            ->assertSeeHtml('gtag(\'event\', "sign_up", {"method":"email"});');
     }
 
     #[Test]
@@ -34,8 +34,8 @@ final class AnalyticsTest extends TestCase
             'password' => 'secret-password',
         ])->assertCreated();
 
-        $this->get('/home')->assertSeeHtml('"event":"sign_up"');
-        $this->get('/home')->assertDontSeeHtml('"event":"sign_up"');
+        $this->get('/home')->assertSeeHtml('"sign_up", {"method":"email"}');
+        $this->get('/home')->assertDontSeeHtml('"sign_up", {"method":"email"}');
     }
 
     #[Test]
@@ -46,7 +46,7 @@ final class AnalyticsTest extends TestCase
         $this->followingRedirects()
             ->post('/login', ['login' => $user->username, 'password' => 'password'])
             ->assertOk()
-            ->assertSeeHtml('window.dataLayer.push({"event":"login","method":"password"})');
+            ->assertSeeHtml('gtag(\'event\', "login", {"method":"password"});');
     }
 
     #[Test]
@@ -58,10 +58,10 @@ final class AnalyticsTest extends TestCase
             'hash' => sha1((string) $user->email),
         ]);
 
-        $this->actingAs($user)->followingRedirects()->get($link)->assertSeeHtml('"event":"email_verified"');
+        $this->actingAs($user)->followingRedirects()->get($link)->assertSeeHtml('gtag(\'event\', "email_verified", {});');
         $this->assertTrue($user->fresh()->hasVerifiedEmail());
 
-        $this->followingRedirects()->get($link)->assertDontSeeHtml('"event":"email_verified"');
+        $this->followingRedirects()->get($link)->assertDontSeeHtml('"email_verified"');
     }
 
     #[Test]
@@ -70,10 +70,10 @@ final class AnalyticsTest extends TestCase
         $this->actingAs(User::factory()->create());
 
         $this->followingRedirects()->post('/diaries', ['entry' => 'Day one.'])
-            ->assertSeeHtml('window.dataLayer.push({"event":"entry_created","source":"web","first_entry":true})');
+            ->assertSeeHtml('gtag(\'event\', "entry_created", {"source":"web","first_entry":true});');
 
         $this->followingRedirects()->post('/diaries', ['entry' => 'Day two.'])
-            ->assertSeeHtml('window.dataLayer.push({"event":"entry_created","source":"web","first_entry":false})');
+            ->assertSeeHtml('gtag(\'event\', "entry_created", {"source":"web","first_entry":false});');
     }
 
     #[Test]
@@ -83,7 +83,7 @@ final class AnalyticsTest extends TestCase
 
         $this->postJson(route('diary.sync'), ['entry' => 'Written offline.'])->assertCreated();
 
-        $this->get('/home')->assertSeeHtml('{"event":"entry_created","source":"offline_sync","first_entry":true}');
+        $this->get('/home')->assertSeeHtml('"entry_created", {"source":"offline_sync","first_entry":true}');
     }
 
     #[Test]
@@ -98,5 +98,27 @@ final class AnalyticsTest extends TestCase
     public function the_write_button_reports_its_clicks(): void
     {
         $this->actingAs(User::factory()->create())->get('/home')->assertSeeHtml('data-track="floating_add_clicked"');
+    }
+
+    #[Test]
+    public function google_analytics_loads_directly_in_production_only(): void
+    {
+        $this->get('/about')
+            ->assertSeeHtml("gtag('config', \"G-LZJVVY21NY\")")
+            ->assertDontSee('googletagmanager.com/gtag/js', escape: false)
+            ->assertDontSee('GTM-5KBQKGS', escape: false);
+
+        $this->app['env'] = 'production';
+
+        $this->get('/about')->assertSeeHtml('https://www.googletagmanager.com/gtag/js?id=G-LZJVVY21NY');
+    }
+
+    #[Test]
+    public function events_queued_in_the_old_format_are_dropped_instead_of_breaking_the_page(): void
+    {
+        $this->withSession(['analytics.events' => [['event' => 'sign_up', 'method' => 'email']]])
+            ->get('/about')
+            ->assertOk()
+            ->assertDontSeeHtml('"sign_up"');
     }
 }

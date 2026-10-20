@@ -73,35 +73,27 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <!-- Google Tag Manager -->
+    {{-- Google Analytics (GA4), loaded directly. gtag() is defined everywhere so tracking code behaves the
+         same locally, but only production loads the script, keeping test traffic out of the reports. --}}
     <script>
-        (function (w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-5KBQKGS');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', @json(config('services.google_analytics.id')));
     </script>
-    <!-- End Google Tag Manager -->
+    @production
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id={{ config('services.google_analytics.id') }}"
+        ></script>
+    @endproduction
     <x-analytics-events />
     @stack('head')
 </head>
 
 <body class="accent-primary-500 font-sans antialiased dark:bg-gray-900 dark:text-white" @auth data-signed-in @endauth>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript
-        ><iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-5KBQKGS"
-            height="0"
-            width="0"
-            style="display: none; visibility: hidden"
-        ></iframe
-    ></noscript>
-    <!-- End Google Tag Manager (noscript) -->
     <div id="app" class="flex min-h-screen flex-col justify-between overflow-x-clip">
         @include('includes.navbar')
 

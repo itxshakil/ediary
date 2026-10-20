@@ -5,9 +5,8 @@
 @if ($events !== [])
     {{-- Funnel events raised on the server (signup, login, entries); see App\Support\Analytics. --}}
     <script>
-        window.dataLayer = window.dataLayer || [];
         @foreach ($events as $event)
-            window.dataLayer.push(@json($event));
+            gtag('event', @json($event['name']), @json((object) $event['params']));
         @endforeach
     </script>
 @endif
