@@ -82,6 +82,10 @@ Route::view('/about', 'pages.about');
 Route::view('/faq', 'pages.faq');
 Route::view('/security', 'pages.security');
 Route::view('/for-students', 'pages.for-students');
+foreach (config('landing-pages.pages') as $slug => $page) {
+    Route::view("/{$slug}", 'pages.landing', ['page' => $page])->name("landing.{$slug}");
+}
+
 Route::view('/contact', 'pages.contact');
 Route::view('/success', 'pages.success');
 Route::view('/request-data', 'pages.request-data')->middleware('password.confirm');

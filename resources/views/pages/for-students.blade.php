@@ -117,7 +117,7 @@
                     </li>
                     <li>
                         <strong class="text-gray-900 dark:text-white">Tags, search, and stats.</strong>
-                        Find any note by course or keyword, and see your writing streaks and mood trends.
+                        Find notes by tag or title, and see your writing streaks and mood trends.
                     </li>
                     <li>
                         <strong class="text-gray-900 dark:text-white">Install it like an app.</strong>

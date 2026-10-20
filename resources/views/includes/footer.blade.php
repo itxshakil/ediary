@@ -23,6 +23,18 @@
                             >About Our Mission</a>
                     </li>
                     <li>
+                        <a href="/mood-journal" class="hover:text-primary-500 text-gray-400 transition-colors"
+                            >Mood Journal</a>
+                    </li>
+                    <li>
+                        <a href="/voice-journal" class="hover:text-primary-500 text-gray-400 transition-colors"
+                            >Voice Journal</a>
+                    </li>
+                    <li>
+                        <a href="/private-diary" class="hover:text-primary-500 text-gray-400 transition-colors"
+                            >Private Diary</a>
+                    </li>
+                    <li>
                         <a href="/for-students" class="hover:text-primary-500 text-gray-400 transition-colors"
                             >For Students</a>
                     </li>

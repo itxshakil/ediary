@@ -15,7 +15,7 @@ final class SitemapController extends Controller
 
     public function index(): Response
     {
-        $pages = collect(self::PAGES)->map(fn (string $uri): array => ['loc' => url($uri), 'lastmod' => null]);
+        $pages = collect(self::PAGES)->merge(array_keys(config('landing-pages.pages')))->map(fn (string $uri): array => ['loc' => url($uri), 'lastmod' => null]);
 
         $posts = collect(config('blog.posts'))
             ->filter(fn (array $post): bool => $post['listed'] ?? true)
