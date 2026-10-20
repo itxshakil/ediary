@@ -45,6 +45,50 @@
             </x-card>
 
             <x-card>
+                <form method="POST" action="{{ route('settings.reminders') }}">
+                    @csrf
+                    @method('PUT')
+
+                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Email reminders</h2>
+                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                        A short nudge around 8 pm your time on days you haven't written. Never more than one a day, and
+                        never with your entries in it.
+                    </p>
+
+                    <label class="mt-4 flex items-center gap-3 text-sm text-gray-800 dark:text-gray-200">
+                        <input
+                            type="checkbox"
+                            name="reminders_enabled"
+                            value="1"
+                            @checked(old('reminders_enabled', auth()->user()->reminders_enabled))
+                            class="text-primary-600 focus:ring-primary-500 h-4 w-4 rounded border-gray-300"
+                        />
+                        Send me evening reminders
+                    </label>
+
+                    <label for="timezone" class="mt-4 block text-sm font-medium text-gray-700 dark:text-gray-300">
+                        Your timezone
+                    </label>
+                    <div class="mt-2 flex flex-col gap-3 sm:flex-row">
+                        @php
+                            $currentZone = old('timezone', auth()->user()->localTimezone());
+                            // Keep a legacy alias someone already has (e.g. Asia/Calcutta) selectable.
+                            $zones = collect(DateTimeZone::listIdentifiers())->push($currentZone)->unique()->sort();
+                        @endphp
+                        <select id="timezone" name="timezone" class="field">
+                            @foreach ($zones as $zone)
+                                <option value="{{ $zone }}" @selected($currentZone === $zone)>
+                                    {{ str_replace('_', ' ', $zone) }}
+                                </option>
+                            @endforeach
+                        </select>
+                        <x-button type="submit" class="sm:w-auto">Save reminders</x-button>
+                    </div>
+                    <x-form.error name="timezone" />
+                </form>
+            </x-card>
+
+            <x-card>
                 <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Password</h2>
                 <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Choose a new password for your account.</p>
                 <x-button variant="secondary" href="{{ url('/password/change') }}" class="mt-4"

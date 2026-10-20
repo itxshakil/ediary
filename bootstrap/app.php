@@ -18,13 +18,17 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        // Mail clients' one-click unsubscribe posts without a session; the signed URL authorises it.
+        $middleware->validateCsrfTokens(except: ['reminders/unsubscribe/*']);
+
         $middleware
             ->prepend(RedirectToCanonicalUrl::class)
             ->append(SecurityHeaders::class)
             ->append(RequestLogger::class);
     })
     ->withSchedule(function (Schedule $schedule): void {
-        $schedule->command('diary:send-streak-reminders')->dailyAt('20:00');
+        // Each run reaches the people for whom it is now evening, so it must run every hour.
+        $schedule->command('diary:send-reminders')->hourly();
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->dontReportDuplicates()

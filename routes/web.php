@@ -15,6 +15,7 @@ use App\Http\Controllers\FollowController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReminderController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SitemapController;
@@ -100,6 +101,12 @@ Route::middleware(['auth'])->group(function (): void {
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap.xml');
 
 Route::get('/settings', SettingController::class)->middleware('verified');
+Route::put('/settings/reminders', [ReminderController::class, 'update'])->name('settings.reminders')->middleware('verified');
+
+Route::middleware('signed')->group(function (): void {
+    Route::get('/reminders/unsubscribe/{user}', [ReminderController::class, 'confirmUnsubscribe'])->name('reminders.unsubscribe');
+    Route::post('/reminders/unsubscribe/{user}', [ReminderController::class, 'unsubscribe']);
+});
 Route::put('/username', [UsernameController::class, 'update'])->middleware('verified');
 
 Route::view('/blog', 'blogs.index');
