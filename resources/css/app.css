@@ -849,6 +849,9 @@ a.blog-card-author-name:hover { color: var(--color-primary-600); }
     .blog-content ol {
         @apply space-y-3 mb-6 list-decimal list-inside text-lg text-gray-700 dark:text-gray-300;
     }
+    .blog-content blockquote {
+        @apply my-6 rounded-r-xl border-l-4 border-primary-300 bg-primary-50/60 px-5 py-4 text-lg leading-relaxed text-gray-700 italic dark:border-primary-700 dark:bg-gray-800 dark:text-gray-300;
+    }
     /* Journal prompt pages: one prompt per row with its "Write about this" link, no bullets. */
     .blog-content ul.prompt-list {
         @apply space-y-0 divide-y divide-gray-100 dark:divide-gray-700/60;

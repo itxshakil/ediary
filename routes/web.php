@@ -116,6 +116,8 @@ Route::put('/username', [UsernameController::class, 'update'])->middleware('veri
 
 Route::view('/blog', 'blogs.index');
 Route::permanentRedirect('/blogs', '/blog');
+// Retired: merged into the beginner's guide.
+Route::permanentRedirect('/blogs/how-to-write-diary', '/blogs/how-to-start-writing-a-diary');
 
 Route::get('/journal-prompts', [JournalPromptController::class, 'index'])->name('journal-prompts');
 Route::get('/journal-prompts/{slug}', [JournalPromptController::class, 'show'])->name('journal-prompts.show');

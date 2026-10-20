@@ -83,7 +83,7 @@ final class IndexingTest extends TestCase
     #[Test]
     public function open_graph_tags_use_the_property_attribute(): void
     {
-        foreach (['/', '/faq', '/blog', '/login', route('blogs.how-to-write')] as $path) {
+        foreach (['/', '/faq', '/blog', '/login', route('blogs.these-8-good-things')] as $path) {
             $this->get($path)
                 ->assertOk()
                 ->assertDontSeeHtml('name="og:')
@@ -131,5 +131,21 @@ final class IndexingTest extends TestCase
             ->assertSeeInOrder(['<h1', 'A private online diary', 'that works offline', '</h1>'], escape: false)
             ->assertSee('How to Keep a Study Journal')
             ->assertDontSee('Cancel anytime');
+    }
+
+    #[Test]
+    public function every_structured_data_block_is_valid_schema_org_json(): void
+    {
+        $pages = ['/', '/about', '/faq', '/for-students', '/blog', '/journal-prompts', '/journal-prompts/gratitude', '/mood-journal', route('blogs.how-to-start-writing-a-diary')];
+
+        foreach ($pages as $page) {
+            preg_match_all('#<script type="application/ld\+json">(.*?)</script>#s', (string) $this->get($page)->getContent(), $blocks);
+
+            foreach ($blocks[1] as $json) {
+                $data = json_decode($json, associative: true, flags: JSON_THROW_ON_ERROR);
+                // Blade compiles a bare '@context' in templates as a directive, dropping the key.
+                $this->assertMatchesRegularExpression('#^https://schema\.org/?$#', (string) ($data['@context'] ?? ''), "{$page} structured data needs @context");
+            }
+        }
     }
 }

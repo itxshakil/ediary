@@ -17,7 +17,7 @@ const CHROME = process.env.CHROME_PATH ?? '/Applications/Google Chrome.app/Conte
 const OUT = path.resolve(process.argv[2] ?? 'storage/app/ui-screenshots');
 const PORT = 9400 + Math.floor(Math.random() * 500);
 
-const GUEST_PAGES = ['/', '/about', '/faq', '/security', '/for-students', '/blog', '/blogs/how-to-keep-a-study-journal', '/journal-prompts', '/journal-prompts/gratitude', '/mood-journal', '/voice-journal', '/private-diary', '/contact', '/login', '/register'];
+const GUEST_PAGES = ['/', '/about', '/faq', '/security', '/for-students', '/blog', '/blogs/how-to-keep-a-study-journal', '/blogs/how-to-start-writing-a-diary', '/journal-prompts', '/journal-prompts/gratitude', '/mood-journal', '/voice-journal', '/private-diary', '/contact', '/login', '/register'];
 const AUTH_PAGES = ['/home', '/diaries', '/diaries/create', '/diary/stats', '/settings'];
 const VIEWPORTS = [
     { name: 'mobile', width: 390, height: 844, mobile: true },

@@ -39,7 +39,9 @@ final class SitemapTest extends TestCase
     #[Test]
     public function unlisted_blog_posts_are_left_out(): void
     {
-        $this->get('/sitemap.xml')->assertDontSeeHtml(route('blogs.how-to-write'));
+        config(['blog.posts.draft-post' => [...config('blog.posts.how-to-keep-a-study-journal'), 'listed' => false]]);
+
+        $this->get('/sitemap.xml')->assertDontSeeHtml(url('blogs/draft-post'));
     }
 
     #[Test]

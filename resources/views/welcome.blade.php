@@ -5,7 +5,7 @@
     <script type="application/ld+json">
         {!!
             json_encode([
-                '@context' => 'https://schema.org',
+                '@@context' => 'https://schema.org',
                 '@graph' => [
                     [
                         // WebSite name/alternateName feed the site name Google shows above results.

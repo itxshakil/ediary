@@ -2,83 +2,92 @@
 
 @section('article')
     <p class="text-xl leading-relaxed font-medium text-gray-600 italic md:text-2xl dark:text-gray-400">
-        Writing to yourself is an important means of self-expression. Discover how keeping a diary can be healing and
-        help you know yourself better.
+        Journaling won't fix your life. But a few honest minutes a day changes more than you'd expect, and most of the
+        changes show up within weeks.
     </p>
 
     <p>
-        Whether you call it a diary or refer to it as a journal, having a place to write down your thoughts, feelings,
-        memories and personal impressions about life can be healing and teach you to know yourself better. It can also
-        unlock the power of your creativity, and inspire you to manifest dreams that might otherwise stay hidden. If you
-        don't keep a diary already, here are 8 good things that will happen when you start writing diaries.
+        People start keeping a diary for all sorts of reasons: a stressful year, a new job, a wish to remember more.
+        Whatever brings you to it, these are the things that tend to happen once writing becomes a habit.
     </p>
 
-    <h2>1. You'll Know Yourself Better</h2>
+    <h2>1. Your head gets quieter</h2>
     <p>
-        History tells us that the Greek philosopher Socrates, often credited as the source for the famous adage Know
-        Thyself, used a method of teaching which involved dialogues, questions and answers between individuals going
-        back and forth that whittled an issue down to its deepest level of truth. When writing a diary, it is very
-        common for us to engage in similar forms of inquiry on paper, writing out questions about life and then
-        answering them ourselves.
-    </p>
-    <p>
-        Whether you come to a final truth in the end is less important than the actual process of giving voice to your
-        own inner reasoning and various points of view. Witnessing the richness of your human experience and being able
-        to see it on paper truly helps you to, as the great philosopher said, know thyself.
+        Thoughts that loop in your head often lose their grip once they're on a page. Writing a worry down turns a vague
+        feeling into a specific sentence, and specific sentences are easier to deal with, or to put down for the night.
+        Many people find an evening entry helps them fall asleep with less on their mind.
     </p>
 
-    <h2>2. You'll Express Yourself</h2>
+    <h2>2. You understand your feelings better</h2>
     <p>
-        Expressing yourself is another important aspect of keeping a diary. Beyond simply offering a means of
-        self-expression through the written word, often diaries are full of doodles and drawings that accentuate the
-        actual text of what is being written.
-    </p>
-    <p>
-        Regardless of the actual content, this mirror of expression allows you to say what otherwise might be too
-        challenging to say and give voice to emotions that may otherwise be repressed. Having the blank page to fill up
-        is in many ways an analogy to life, seeing yourself be expressed one letter and one doodle at a time.
+        "I feel bad" is hard to act on. "I feel left out because nobody asked me to lunch" is something you can
+        understand and maybe change. Journaling makes you name feelings precisely. Psychologists have long studied
+        expressive writing, starting with James Pennebaker's experiments in the 1980s, and putting emotions into words
+        is consistently linked with feeling less overwhelmed by them.
     </p>
 
-    <h2>3. You'll Work Through Hard Choices</h2>
+    <h2>3. You remember more of your own life</h2>
     <p>
-        When life sends you any kind of challenge, you can work through those options in your diary, noting the moral
-        implications as well as the emotional pains of decisions that are difficult to make. As an extreme example, you
-        can explore historical accounts like the Donner Party timeline to see how people have used diaries in the most
-        challenging of times.
+        Memory is generous with big events and stingy with ordinary days. A diary keeps the small things: what a friend
+        said that made you laugh, the meal you cooked when you were homesick, what you were worried about before it all
+        worked out. A year from now, those details are what you'll be glad you wrote down.
     </p>
 
-    <h2>4. You'll Develop Emotional Intimacy</h2>
+    <h2>4. You start to see patterns</h2>
     <p>
-        Keeping a diary is a process not only of self-expression but also self-reflection. As you read what you have
-        written, it becomes a means of listening to yourself and uncovering the emotional landscape of who you truly
-        are. By developing this sense of intimacy with yourself, it opens the possibility for greater emotional intimacy
-        with others.
+        One entry tells you about a day. Thirty entries tell you about yourself. Read back a month and you'll notice
+        that Sunday evenings always feel heavy, that a certain friend always leaves you energised, or that you sleep
+        worse when you skip exercise. Tracking your <a href="{{ url('mood-journal') }}">mood next to your entries</a>
+        makes these patterns even easier to spot.
     </p>
 
-    <h2>5. You'll Feel Better</h2>
+    <h2>5. Decisions get easier</h2>
     <p>
-        Often, a diary is that safe place where we can unleash thoughts or emotions that might be too uncomfortable to
-        express in a more public setting. Whether it is venting anger, writing about a romantic crush, or grieving the
-        loss of a loved one, having a safe place to release your thoughts usually makes you feel better as a whole.
+        When you're stuck, writing both sides of a decision slows your thinking down enough to notice what you actually
+        want. You'll often find the answer was already there, hidden under the noise. Later, your diary also shows you
+        how past decisions played out, which is useful the next time you face something similar.
     </p>
 
-    <h2>6. You'll Build Memories on Paper</h2>
+    <h2>6. You get kinder to yourself</h2>
     <p>
-        Sometimes even the smallest details of events in our past are items we grow to cherish as we get older. By
-        keeping a detailed diary you are documenting those moments in your life that are worth writing about.
+        Reading back old entries, you see how much you were dealing with and how you got through it. That makes it
+        harder to be harsh with yourself today. Many people notice their entries slowly shift from criticism ("I should
+        have...") to curiosity ("Why did I...?").
     </p>
 
-    <h2>7. You'll Brainstorm New Ideas</h2>
+    <h2>7. Your thinking gets clearer</h2>
     <p>
-        Having the opportunity to brainstorm and toss out ideas without being attached to an outcome is a diary tool
-        used by some of the worlds greatest artistic geniuses. It's a technique that allows you to arrive at creative
-        solutions and new perspectives.
+        Writing regularly is practice at turning messy thoughts into clear sentences. Over time that carries over into
+        emails, essays, conversations and arguments. You don't need to write well in your diary for this to happen; you
+        just need to write often.
     </p>
 
-    <h2>8. You'll Create a Map of Your Own Evolution</h2>
+    <h2>8. You can see how far you've come</h2>
     <p>
-        A diary reveals far more about a person than simply the details of what is written inside of it. Noticing how
-        your handwriting or writing style changes as you grow older, when it is bold and confident versus when it is
-        small and timid, is just one of the interesting benefits of keeping a diary over a long period of time.
+        Progress is invisible from the inside. The problem that felt enormous in January looks smaller in June, but only
+        if you can read what January felt like. A diary is the most honest record of growth you'll ever have, and on bad
+        days it's a reminder that you've handled hard things before.
+    </p>
+
+    <h2>How to get these benefits</h2>
+    <p>None of this needs long entries. What matters is regularity:</p>
+    <ul>
+        <li><strong>Write a little, often.</strong> Three sentences most days beats a page once a month.</li>
+        <li><strong>Be honest.</strong> Keep your diary private, so you can write what you actually think.</li>
+        <li><strong>Read it back.</strong> Once a month, look over recent entries; that's when patterns appear.</li>
+        <li>
+            <strong>Use prompts when stuck.</strong> Our <a href="{{ url('journal-prompts') }}">journal prompts</a>
+            give you a question to start from.
+        </li>
+    </ul>
+    <p>
+        New to journaling? Read
+        <a href="{{ url('blogs/how-to-start-writing-a-diary') }}">how to start writing a diary</a> for a simple way to
+        make the habit stick.
+    </p>
+
+    <p class="text-sm text-gray-500 dark:text-gray-400">
+        Journaling can support your wellbeing, but it isn't a substitute for professional help. If you're struggling,
+        please reach out to someone you trust or a health professional.
     </p>
 @endsection

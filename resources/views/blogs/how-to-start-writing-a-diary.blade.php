@@ -2,131 +2,107 @@
 
 @section('article')
     <p class="text-xl leading-relaxed font-medium text-gray-600 italic md:text-2xl dark:text-gray-400">
-        Embarking on the journey of writing a diary is a wonderful way to document your personal growth and capture
-        precious moments of your life.
+        Most diaries don't fail on day one. They fail on day nine, when life gets busy and the habit was never small
+        enough to survive a busy day.
     </p>
 
     <p>
-        If you're unsure of how to begin or what to write, don't worry! This article will guide you through the process
-        and provide you with valuable tips to make your diary writing experience enjoyable, meaningful, and easy to
-        maintain.
+        Starting a diary is easy: you write something. Keeping one is the hard part. This guide is about both, with the
+        emphasis on the second, because a diary you keep for a year is worth far more than a beautiful first week.
     </p>
 
-    <h2>1. Make the decision to write</h2>
+    <h2>You need less than you think</h2>
     <p>
-        Deciding to start a diary is the first step towards creating a valuable record of your thoughts and experiences.
-        By dedicating time to this practice, you'll be amazed at the insights and self-discovery it can bring.
-    </p>
-    <p>
-        <strong>Example:</strong> Imagine reflecting on your diary entries years from now, reminiscing about the journey
-        you've taken and the person you've become.
+        You don't need a special notebook, a theme or a writing style. You need a place to write and a few minutes. A
+        paper notebook feels personal and keeps you off screens. An app is always in your pocket, can't be found in a
+        drawer, and makes old entries easy to search and read back. Pick whichever you will actually open on a tired
+        evening. You can always switch later.
     </p>
 
-    <h2>2. Choose your diary's focus</h2>
+    <h2>Make it too small to skip</h2>
     <p>
-        Deciding what to write about can be challenging, but it's an essential step. You can opt for a specific topic or
-        keep your diary more general. Here are some ideas to inspire you:
+        The most common mistake is aiming too high: an hour a day, a page every night. That works until the first bad
+        week. Instead, set a minimum so low it feels silly, such as <strong>two minutes or three sentences</strong>. On
+        good days you will write more anyway. On bad days the minimum keeps the habit alive, and a habit that survives
+        bad days is a habit that lasts.
+    </p>
+
+    <h2>Attach it to something you already do</h2>
+    <p>
+        "I'll write when I have time" rarely happens. "I'll write after I brush my teeth" usually does. Tie your diary
+        to an existing moment:
     </p>
     <ul>
-        <li>Food</li>
-        <li>Fashion</li>
-        <li>Travel</li>
-        <li>Work</li>
-        <li>School</li>
-        <li>Dreams</li>
+        <li>with your first coffee or tea in the morning,</li>
+        <li>on the commute home, if you don't drive,</li>
+        <li>straight after dinner, before the evening disappears,</li>
+        <li>in bed, before you put your phone away.</li>
     </ul>
     <p>
-        <strong>Example:</strong> Let's say you're passionate about cooking. Create a diary dedicated to food and use it
-        to jot down recipes, your culinary experiments, and memorable dining experiences.
+        Morning entries tend to be about intentions; evening entries tend to be about what happened. Neither is better.
+        Choose the one that fits your day and stick to it for two weeks before judging.
     </p>
 
-    <h2>3. Establish a writing schedule</h2>
-    <p>
-        Consistency is key when it comes to diary writing. Determine how frequently you'd like to write, whether it's
-        daily, weekly, or a customized schedule. Making writing a part of your routine helps it become a valuable habit.
-    </p>
-    <p>
-        <strong>Example:</strong> If you choose a general diary, writing in it every night before bed might work well
-        for you. For a food-focused diary, consider jotting down entries whenever you cook or try a new recipe.
-    </p>
+    <h2>Your first entry</h2>
+    <p>Don't try to write your life story. Write about today, plus one line about why you are starting. For example:</p>
+    <blockquote>
+        Starting a diary because the year is flying past and I can't remember what happened in March. Today: rain, long
+        meeting, good soup. Called Mum, she sounded tired. Want to check in on her again this weekend.
+    </blockquote>
+    <p>That is a complete, useful entry. It took a minute.</p>
 
-    <h2>4. Set a time limit</h2>
-    <p>
-        Writing can sometimes feel overwhelming, and it's easy to get carried away. To keep your entries concise and
-        focused, set a reasonable time limit for each session. Aim for around 30 minutes to an hour, but feel free to
-        adjust based on your preferences.
-    </p>
-    <p>
-        <strong>Example:</strong> By allocating a specific time frame for writing, such as 45 minutes, you can strike a
-        balance between capturing your thoughts and avoiding writer's block.
-    </p>
-
-    <h2>5. Date your entries</h2>
-    <p>
-        Dating each entry is crucial for tracking your progress over time. It allows you to reflect on your past
-        experiences and observe your personal growth. If you're using an online diary platform like Ediary, the entries
-        will be automatically dated.
-    </p>
-
-    <p>
-        <strong>Example:</strong> Imagine leafing through your diary and marveling at how far you've come since that
-        first entry, celebrating your accomplishments and cherishing the memories.
-    </p>
-
-    <h2>6. Craft an introductory entry</h2>
-    <p>
-        Begin your diary with an introductory entry that sets the tone and theme for your writing. Introduce yourself,
-        discuss your interests, what you find important, and your aspirations for the diary. Be open and authentic in
-        expressing yourself.
-    </p>
-
-    <h2>7. Write as if talking to a trusted friend</h2>
-    <p>
-        To make your diary writing more engaging and natural, adopt a friendly and conversational tone. Imagine you're
-        sharing your thoughts with a trusted friend or confidant. This approach encourages honesty and allows your true
-        voice to shine through.
-    </p>
-
-    <h2>8. Embrace the joy of writing</h2>
-    <p>
-        Above all, remember that writing in your diary should be a pleasurable experience, not a chore. It's a space for
-        solace, creativity, and reflection. Enjoy the process and write about things that truly resonate with you.
-    </p>
-
-    <h2>Tips for a Successful Diary Writing Experience</h2>
-    <p>
-        If you're having trouble getting started or want to enhance your diary writing experience, consider these
-        additional tips:
-    </p>
-
-    <h3>Diary Entry Prompts</h3>
+    <h2>What to write when "nothing happened"</h2>
+    <p>Something always happened; it just doesn't feel worth writing. Try one of these:</p>
     <ul>
-        <li>Ask yourself questions like "how was my day?" and "how am I feeling now?"</li>
-        <li>Write about something or someone that caught your attention.</li>
-        <li>Write about something interesting that happened today.</li>
-        <li>Write about what you did today, which made you a step closer to your goal.</li>
-        <li>Write about the person you've been thinking about lately.</li>
-        <li>Write about what is making you happy and what is making you sad.</li>
+        <li><strong>One moment.</strong> The best or worst five minutes of the day, in detail.</li>
+        <li><strong>One feeling.</strong> Name it, then ask where it came from.</li>
+        <li><strong>One person.</strong> Someone you talked to, thought about or miss.</li>
+        <li><strong>One thing on your mind.</strong> A worry, an idea, a decision you're circling.</li>
+        <li><strong>One thing you noticed.</strong> Something you saw, heard, read or tasted.</li>
     </ul>
-
-    <h3>Building a Diary Writing Habit</h3>
-    <ol>
-        <li>Jot down your current feelings or mood.</li>
-        <li>Use lots of details to preserve moments in time.</li>
-        <li>Write about one thought or emotion at a time.</li>
-        <li>Experiment with different writing techniques.</li>
-        <li>Set a time limit for yourself to overcome writer's block.</li>
-    </ol>
-
-    <h3>Embrace Openness and Honesty</h3>
     <p>
-        Your diary is a safe space where you can be open and honest with yourself. Log your deepest emotions, secrets,
-        and desires. This form of catharsis can be beneficial for your mental well-being and personal growth.
+        If you want ready-made questions, browse our <a href="{{ url('journal-prompts') }}">journal prompts</a>; the
+        <a href="{{ url('journal-prompts/evening-reflection') }}">evening reflection prompts</a> are a good place to
+        start.
     </p>
 
-    <h2>Conclusion</h2>
+    <h2>Write as if nobody will read it</h2>
     <p>
-        Starting a diary is a remarkable decision that will bring immense value to your life. By following these tips,
-        you can embark on a writing journey filled with self-discovery, personal growth, and cherished memories.
+        A diary is the one place you don't have to perform. Messy sentences, half-thoughts and unfair opinions are all
+        fine. You will write more honestly if you trust that nobody else will read it, so keep your diary somewhere
+        private. If you use an app, check how it protects your entries; here is
+        <a href="{{ url('security') }}">how Ediary handles privacy</a>.
+    </p>
+
+    <h2>When you miss days (you will)</h2>
+    <p>
+        Missing a day isn't failing. Missing a day and deciding the diary is over is. When you come back, don't try to
+        catch up on everything you missed. Write today's entry, maybe add one line like "busy week, more soon", and
+        carry on. The diary only needs to be continuous enough to be useful, not perfect.
+    </p>
+
+    <h2>Read it back</h2>
+    <p>
+        The real reward of a diary arrives weeks later. Once a month, read your last few weeks of entries. You'll notice
+        patterns you couldn't see day to day: which weeks drained you, which people lifted you, what kept coming up.
+        That moment of recognition is what keeps most people writing.
+    </p>
+
+    <h2>Quick answers</h2>
+    <p>
+        <strong>How long should an entry be?</strong> As long as it takes to say what's on your mind. Three sentences is
+        a fine daily minimum.
+    </p>
+    <p>
+        <strong>Should I write every day?</strong> Aim for most days. Daily is easiest to keep because it never becomes
+        a decision.
+    </p>
+    <p>
+        <strong>Typing or handwriting?</strong> Whichever you'll keep doing. If typing feels slow on a phone, try
+        <a href="{{ url('voice-journal') }}">dictating your entry</a> instead.
+    </p>
+    <p>
+        <strong>What if I don't like what I wrote?</strong> Leave it. Your diary is a record, not a portfolio, and
+        rereading the awkward entries is often the most interesting part.
     </p>
 @endsection

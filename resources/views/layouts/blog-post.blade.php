@@ -5,6 +5,7 @@
     $url = url("blogs/{$post['slug']}");
     $headline = $post['headline'] ?? $post['title'];
     $date = \Illuminate\Support\Carbon::parse($post['date']);
+    $updated = isset($post['updated']) ? \Illuminate\Support\Carbon::parse($post['updated']) : null;
 @endphp
 
 @section('title', $headline)
@@ -16,7 +17,7 @@
     <script type="application/ld+json">
         {!!
             json_encode([
-                '@context' => 'https://schema.org',
+                '@@context' => 'https://schema.org',
                 '@type' => 'Article',
                 'headline' => $headline,
                 'description' => $post['description'],
@@ -48,7 +49,16 @@
                 <div class="flex flex-wrap items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
                     <span class="font-semibold text-gray-800 dark:text-gray-200">{{ $post['author'] }}</span>
                     <span class="h-1 w-1 rounded-full bg-gray-300 dark:bg-gray-600"></span>
-                    <time datetime="{{ $date->toDateString() }}">{{ $date->format('M j, Y') }}</time>
+                    @if ($updated)
+                        <span
+                            >Updated
+                            <time
+                                datetime="{{ $updated->toDateString() }}"
+                                >{{ $updated->format('M j, Y') }}</time
+                            ></span>
+                    @else
+                        <time datetime="{{ $date->toDateString() }}">{{ $date->format('M j, Y') }}</time>
+                    @endif
                     @isset($post['minutes'])
                         <span class="h-1 w-1 rounded-full bg-gray-300 dark:bg-gray-600"></span>
                         <span>{{ $post['minutes'] }} min read</span>

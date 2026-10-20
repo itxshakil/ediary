@@ -53,13 +53,11 @@ final class BlogTest extends TestCase
     }
 
     #[Test]
-    public function it_displays_the_how_to_write_blog_post(): void
+    public function the_retired_how_to_write_post_redirects_to_the_beginners_guide(): void
     {
-        $response = $this->get(route('blogs.how-to-write'));
-
-        $response->assertStatus(200);
-        $response->assertSee('How to Write a Diary');
-        $response->assertSee('blog-content');
+        $this->get('/blogs/how-to-write-diary')
+            ->assertMovedPermanently()
+            ->assertRedirect(url('/blogs/how-to-start-writing-a-diary'));
     }
 
     #[Test]
@@ -102,5 +100,13 @@ final class BlogTest extends TestCase
             ->assertSee('blog-content');
 
         $this->get('/blog')->assertSee($title);
+    }
+
+    #[Test]
+    public function revised_posts_show_when_they_were_updated(): void
+    {
+        $this->get(route('blogs.how-to-start-writing-a-diary'))
+            ->assertSeeInOrder(['Updated', 'datetime="2026-10-20"', 'Oct 20, 2026'], escape: false)
+            ->assertSee('"datePublished":"2024-12-21","dateModified":"2026-10-20"', escape: false);
     }
 }
