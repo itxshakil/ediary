@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Support\Analytics;
+use App\Support\Timezone;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -45,6 +46,13 @@ final class LoginController extends Controller
         }
 
         $request->session()->regenerate();
+
+        // Follow the writer when they travel or move: reminders should land in their evening.
+        $timezone = Timezone::fromBrowser($request->input('timezone'));
+        if ($timezone !== null) {
+            $request->user()->update(['timezone' => $timezone]);
+        }
+
         $analytics->track('login', ['method' => 'password']);
 
         return redirect()->intended('/home');

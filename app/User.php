@@ -22,6 +22,8 @@ use Override;
  * @property string       $email
  * @property string       $password
  * @property string       $username
+ * @property string|null  $timezone
+ * @property bool         $reminders_enabled
  */
 final class User extends Authenticatable implements MustVerifyEmail
 {
@@ -30,7 +32,7 @@ final class User extends Authenticatable implements MustVerifyEmail
     use Notifiable;
 
     protected $fillable = [
-        'username', 'email', 'password',
+        'username', 'email', 'password', 'timezone', 'reminders_enabled',
     ];
 
     protected $hidden = [
@@ -78,6 +80,15 @@ final class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Comment::class);
     }
 
+    /**
+     * The writer's own timezone: streak days and reminder times follow it. Accounts from before
+     * it was recorded fall back to the audience default until their next sign-in records it.
+     */
+    public function localTimezone(): string
+    {
+        return $this->timezone ?? config('app.user_timezone');
+    }
+
     #[Override]
     protected static function booted(): void
     {
@@ -94,6 +105,7 @@ final class User extends Authenticatable implements MustVerifyEmail
         return [
             'email_verified_at' => 'datetime',
             'last_reminder_sent_at' => 'datetime',
+            'reminders_enabled' => 'boolean',
         ];
     }
 

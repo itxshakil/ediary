@@ -68,6 +68,7 @@
                     <!-- Login Form Component -->
                     <form method="POST" action="{{ route('login') }}" class="space-y-6">
                         @csrf
+                        <input type="hidden" name="timezone" data-timezone />
 
                         {{-- Email or username --}}
                         <div>

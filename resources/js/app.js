@@ -9,6 +9,7 @@ import { initOfflineSync } from './modules/offline-store';
 import { initEntryForms } from './modules/entry-form';
 import { initClickTracking } from './modules/analytics';
 import { initPasswordToggles } from './modules/password-toggle';
+import { initTimezoneFields } from './modules/timezone';
 
 initToasts();
 initClickTracking();
@@ -21,5 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initDictation();
     initMoodPickers();
     initEntryForms();
+    initTimezoneFields();
     initOfflineSync();
 });

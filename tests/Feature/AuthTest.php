@@ -156,4 +156,40 @@ final class AuthTest extends TestCase
         $this->assertSame('/home?utm_source=homescreen', $manifest['start_url']);
         $this->assertSame(['Write an entry', 'My entries', 'Writing stats'], array_column($manifest['shortcuts'], 'name'));
     }
+
+    #[Test]
+    public function signup_records_the_browsers_timezone(): void
+    {
+        $this->post('/register', ['email' => 'asha@example.com', 'password' => 'secret-password', 'timezone' => 'Asia/Kolkata']);
+
+        $this->assertSame('Asia/Kolkata', User::sole()->timezone);
+    }
+
+    #[Test]
+    public function a_bogus_timezone_never_blocks_signup(): void
+    {
+        $this->post('/register', ['email' => 'asha@example.com', 'password' => 'secret-password', 'timezone' => 'Mars/Olympus'])
+            ->assertRedirect('/home');
+
+        $this->assertNull(User::sole()->timezone);
+        $this->assertSame(config('app.user_timezone'), User::sole()->localTimezone());
+    }
+
+    #[Test]
+    public function signing_in_follows_the_writer_to_a_new_timezone(): void
+    {
+        $user = User::factory()->create(['timezone' => 'Asia/Kolkata']);
+
+        $this->post('/login', ['login' => $user->username, 'password' => 'password', 'timezone' => 'Europe/London']);
+
+        $this->assertSame('Europe/London', $user->fresh()->timezone);
+    }
+
+    #[Test]
+    public function every_signup_and_login_form_reports_the_timezone(): void
+    {
+        foreach (['/', '/register', '/login'] as $page) {
+            $this->get($page)->assertSeeHtml('<input type="hidden" name="timezone" data-timezone />');
+        }
+    }
 }

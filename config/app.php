@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', false),
+    'debug' => (bool) env('APP_DEBUG', default: false),
 
     /*
     |--------------------------------------------------------------------------
@@ -68,6 +68,9 @@ return [
     */
 
     'timezone' => 'UTC',
+
+    // For people whose own timezone isn't known yet (it is recorded at signup and sign-in).
+    'user_timezone' => env('DEFAULT_USER_TIMEZONE', 'Asia/Kolkata'),
 
     /*
     |--------------------------------------------------------------------------

@@ -68,6 +68,7 @@
                     {{-- Register Form --}}
                     <form method="POST" action="{{ route('register') }}" class="space-y-6">
                         @csrf
+                        <input type="hidden" name="timezone" data-timezone />
 
                         {{-- Email --}}
                         <div>

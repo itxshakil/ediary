@@ -8,67 +8,49 @@ use App\Diary;
 use App\Enums\Mood;
 use App\User;
 use Carbon\Carbon;
-use Carbon\Month;
-use Carbon\WeekDay;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
 
 final class DiaryAnalyticsService
 {
     /**
+     * Consecutive days with at least one entry, counted in the writer's own timezone. The current
+     * streak stays alive until the end of today, so it only breaks once a whole day is missed.
+     *
      * @return array{current:int,longest:int,todayWritten:bool}
      */
     public function streak(User $user): array
     {
-        $entries = $user->diaries()
-            ->select(DB::raw('DATE(created_at) as date'))
-            ->distinct()
-            ->orderBy('date', 'desc')
-            ->pluck('date')
-            ->map(fn (DateTimeInterface|WeekDay|Month|string|int|float|null $date): Carbon => Carbon::parse($date));
+        $timezone = $user->localTimezone();
+        $days = $user->diaries()
+            ->pluck('created_at')
+            ->map(fn (DateTimeInterface|string $at): string => Carbon::parse($at)->setTimezone($timezone)->toDateString())
+            ->unique()
+            ->sort()
+            ->values();
 
-        $currentStreak = 0;
-        $longestStreak = 0;
-        $tempStreak = 0;
-
-        if ($entries->isEmpty()) {
+        if ($days->isEmpty()) {
             return ['current' => 0, 'longest' => 0, 'todayWritten' => false];
         }
 
-        $todayWritten = $entries->first()->isToday();
-        $checkDate = $todayWritten ? today() : today()->subDay();
-
-        foreach ($entries as $entryDate) {
-            if ($entryDate->isSameDay($checkDate)) {
-                $currentStreak++;
-                $tempStreak++;
-                $checkDate = $checkDate->copy()->subDay();
-
-                continue;
-            }
-
-            break;
+        $longest = 0;
+        $run = 0;
+        $previous = null;
+        foreach ($days as $day) {
+            $run = $previous !== null && Carbon::parse($previous)->addDay()->toDateString() === $day ? $run + 1 : 1;
+            $longest = max($longest, $run);
+            $previous = $day;
         }
 
-        $checkDate = $entries->first()->copy();
-
-        foreach ($entries as $entry) {
-            if ($entry->isSameDay($checkDate) || $entry->isSameDay($checkDate->copy()->subDay())) {
-                $tempStreak++;
-                $longestStreak = max($longestStreak, $tempStreak);
-            } else {
-                $tempStreak = 1;
-            }
-
-            $checkDate = $entry->copy()->subDay();
-        }
+        $today = now($timezone)->toDateString();
+        $yesterday = now($timezone)->subDay()->toDateString();
+        $current = in_array($days->last(), [$today, $yesterday], strict: true) ? $run : 0;
 
         return [
-            'current' => $currentStreak,
-            'longest' => max($longestStreak, $currentStreak),
-            'todayWritten' => $todayWritten,
+            'current' => $current,
+            'longest' => $longest,
+            'todayWritten' => $days->last() === $today,
         ];
     }
 

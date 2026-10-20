@@ -89,6 +89,7 @@
 
                             <form method="POST" action="{{ route('register') }}" class="space-y-5 text-left">
                                 @csrf
+                                <input type="hidden" name="timezone" data-timezone />
 
                                 <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
                                     <div>

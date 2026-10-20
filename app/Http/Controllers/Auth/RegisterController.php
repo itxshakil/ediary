@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Auth;
 use App\Actions\User\GenerateUsernameAction;
 use App\Http\Controllers\Controller;
 use App\Support\Analytics;
+use App\Support\Timezone;
 use App\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Contracts\View\Factory;
@@ -44,6 +45,7 @@ final class RegisterController extends Controller
             'username' => $generateUsername->execute(),
             'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
+            'timezone' => Timezone::fromBrowser($request->input('timezone')),
         ]);
 
         event(new Registered($user));
