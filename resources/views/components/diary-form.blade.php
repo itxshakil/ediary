@@ -29,6 +29,8 @@
             </div>
         </div>
 
+        <x-writing-prompt class="mb-4" />
+
         <div class="mb-4">
             <input
                 type="text"

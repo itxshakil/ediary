@@ -8,6 +8,8 @@
             <form method="POST" action="{{ route('diary.store') }}" data-entry-form>
                 @csrf
 
+                <x-writing-prompt class="mb-5" />
+
                 @include('diary._fields', ['entry' => null])
 
                 <p data-offline-note class="mb-3 hidden text-center text-xs text-yellow-600 dark:text-yellow-400">

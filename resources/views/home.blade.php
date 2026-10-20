@@ -11,12 +11,20 @@
             </div>
         </div>
 
-        <x-search-component />
+        {{-- Nothing to search before the first entry. --}}
+        @if ($entries->total() > 0)
+            <x-search-component />
+        @endif
 
         <div class="space-y-4">
-            @foreach ($entries as $entry)
+            @forelse ($entries as $entry)
                 <x-diary-card :entry="$entry" />
-            @endforeach
+            @empty
+                <x-empty-state
+                    title="Your first entry is just for you"
+                    body="Entries are private unless you choose to share them. Write a few lines about today, or tap “Use this prompt” above to get started."
+                />
+            @endforelse
         </div>
 
         <x-diary-paginator :collection="$entries" />
