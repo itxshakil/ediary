@@ -10,7 +10,7 @@
 
                 <x-writing-prompt class="mb-5" />
 
-                @include('diary._fields', ['entry' => null])
+                @include('diary._fields', ['entry' => null, 'prefillTitle' => $prompt])
 
                 <p data-offline-note class="mb-3 hidden text-center text-xs text-yellow-600 dark:text-yellow-400">
                     You're offline. Your entry will be saved on this device and synced when you're back online.

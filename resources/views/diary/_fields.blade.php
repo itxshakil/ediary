@@ -1,5 +1,6 @@
 {{-- Fields shared by the new-entry and edit pages. $entry is the entry being edited, or null. --}}
 @php($entry ??= null)
+@php($prefillTitle ??= null)
 
 <div class="mb-5">
     <x-form.label for="title"> Title <span class="font-normal text-gray-400">(optional)</span></x-form.label>
@@ -7,7 +8,7 @@
         type="text"
         id="title"
         name="title"
-        value="{{ old('title', $entry?->title) }}"
+        value="{{ old('title', $entry?->title ?? $prefillTitle) }}"
         placeholder="Give your entry a title…"
         class="field"
     />

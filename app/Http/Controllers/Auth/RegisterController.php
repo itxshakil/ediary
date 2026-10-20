@@ -26,8 +26,15 @@ final class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    public function showRegistrationForm(): Factory|View
+    public function showRegistrationForm(Request $request): Factory|View
     {
+        // Prompt pages send guests here with ?next=/diaries/create?prompt=...; only that form is
+        // accepted, so the parameter can't be used to redirect anywhere else.
+        $next = $request->string('next')->toString();
+        if (str_starts_with($next, '/diaries/create')) {
+            $request->session()->put('url.intended', url($next));
+        }
+
         return view('auth.register');
     }
 
@@ -54,13 +61,15 @@ final class RegisterController extends Controller
 
         $welcome = "Welcome to Ediary! Your public username is @{$user->username}. You can change it in Settings once your email is verified.";
 
+        $redirect = redirect()->intended('/home')->with('success', $welcome);
+
         if ($request->expectsJson()) {
             return response()->json([
                 'message' => $welcome,
-                'redirect' => '/home',
+                'redirect' => $redirect->getTargetUrl(),
             ], 201);
         }
 
-        return redirect('/home')->with('success', $welcome);
+        return $redirect;
     }
 }

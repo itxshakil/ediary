@@ -24,6 +24,7 @@ use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Response;
 use Throwable;
 
@@ -43,9 +44,10 @@ final class DiaryController extends Controller
         return view('diary.index', ['entries' => $entries]);
     }
 
-    public function create(): Factory|View|Application
+    public function create(Request $request): Factory|View|Application
     {
-        return view('diary.create');
+        // Prompt pages link here with ?prompt=...; it only pre-fills the title field.
+        return view('diary.create', ['prompt' => Str::limit($request->string('prompt')->trim()->toString(), 255, '')]);
     }
 
     public function store(StoreDiaryRequest $request, StoreDiaryAction $action, Analytics $analytics): JsonResponse|RedirectResponse

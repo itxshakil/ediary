@@ -13,6 +13,7 @@ use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\DiaryController;
 use App\Http\Controllers\FollowController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\JournalPromptController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReminderController;
@@ -111,6 +112,9 @@ Route::put('/username', [UsernameController::class, 'update'])->middleware('veri
 
 Route::view('/blog', 'blogs.index');
 Route::permanentRedirect('/blogs', '/blog');
+
+Route::get('/journal-prompts', [JournalPromptController::class, 'index'])->name('journal-prompts');
+Route::get('/journal-prompts/{slug}', [JournalPromptController::class, 'show'])->name('journal-prompts.show');
 foreach (config('blog.posts') as $slug => $post) {
     Route::view("/blogs/{$slug}", "blogs.{$post['view']}", ['post' => ['slug' => $slug] + $post])->name("blogs.{$post['view']}");
 }

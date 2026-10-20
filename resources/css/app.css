@@ -849,6 +849,16 @@ a.blog-card-author-name:hover { color: var(--color-primary-600); }
     .blog-content ol {
         @apply space-y-3 mb-6 list-decimal list-inside text-lg text-gray-700 dark:text-gray-300;
     }
+    /* Journal prompt pages: one prompt per row with its "Write about this" link, no bullets. */
+    .blog-content ul.prompt-list {
+        @apply space-y-0 divide-y divide-gray-100 dark:divide-gray-700/60;
+    }
+    .blog-content ul.prompt-list li {
+        @apply flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6;
+    }
+    .blog-content ul.prompt-list li::before {
+        content: none;
+    }
     .blog-content a:not([class]) {
         @apply text-primary-600 dark:text-primary-400 underline hover:no-underline;
     }

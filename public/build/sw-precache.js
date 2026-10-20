@@ -1,7 +1,7 @@
 self.__EDIARY_BUILD = {
-    "version": "7f0bb64b63b9",
+    "version": "ddc692bbefa7",
     "assets": [
-        "/build/assets/app-CkG-1HgD.css",
+        "/build/assets/app-HRiCmvLV.css",
         "/build/assets/app-pjG2FaKu.js"
     ]
 };

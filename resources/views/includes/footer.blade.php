@@ -15,6 +15,10 @@
                         <a href="/blog" class="hover:text-primary-500 text-gray-400 transition-colors">Blog Articles</a>
                     </li>
                     <li>
+                        <a href="/journal-prompts" class="hover:text-primary-500 text-gray-400 transition-colors"
+                            >Journal Prompts</a>
+                    </li>
+                    <li>
                         <a href="/about" class="hover:text-primary-500 text-gray-400 transition-colors"
                             >About Our Mission</a>
                     </li>
