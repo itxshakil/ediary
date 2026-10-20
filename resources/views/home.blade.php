@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', 'Your journal')
 @section('content')
     <div class="container mx-auto max-w-7xl px-4 py-8">
         <div class="mb-8 grid grid-cols-1 gap-6 lg:grid-cols-3">

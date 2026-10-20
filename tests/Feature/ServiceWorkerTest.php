@@ -86,4 +86,25 @@ final class ServiceWorkerTest extends TestCase
 
         $this->assertSame(1, mb_substr_count($html, "document.getElementById('show-add-form')"));
     }
+
+    #[Test]
+    public function daily_reminders_come_from_periodic_sync_only(): void
+    {
+        $worker = (string) file_get_contents(public_path('service-worker.js'));
+        $pwa = (string) file_get_contents(resource_path('js/modules/pwa.js'));
+
+        $this->assertStringContainsString("addEventListener('periodicsync'", $worker);
+        // One-shot syncs fire straight away, which showed a "reminder" to someone already writing.
+        $this->assertStringNotContainsString("sync.register('daily-reminder')", $worker . $pwa);
+        $this->assertStringNotContainsString('new Notification(', $pwa);
+    }
+
+    #[Test]
+    public function the_installed_app_opens_offline_and_redirects_are_never_cached(): void
+    {
+        $worker = (string) file_get_contents(public_path('service-worker.js'));
+
+        $this->assertStringContainsString('cache.match(request, { ignoreSearch: true })', $worker);
+        $this->assertStringContainsString('fresh.ok && !fresh.redirected', $worker);
+    }
 }

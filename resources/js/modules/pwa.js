@@ -10,8 +10,8 @@ const COPY = {
         icon: '/icons/android-icon-192x192.png',
     },
     B: {
-        title: 'Make Ediary your Daily Habit ✨',
-        body: 'Install & get daily reminders.',
+        title: 'Make Ediary your daily habit ✨',
+        body: 'Install it for one-tap writing, even offline.',
         cta: 'Add to Home Screen',
         icon: '/icons/android-icon-192x192.png',
     },
@@ -44,90 +44,29 @@ function getVariant() {
     return variant;
 }
 
-function reminderContent() {
-    const hour = new Date().getHours();
-
-    if (hour < 12) {
-        return {
-            title: 'Good morning! 🌅',
-            body: 'Start your day by jotting down your thoughts.',
-        };
-    }
-
-    if (hour < 18) {
-        return {
-            title: 'Time for a break? 🌞',
-            body: 'How is your day going? Take a moment to reflect.',
-        };
-    }
-
-    return {
-        title: 'Good evening! 🌙',
-        body: 'Unwind and record your memories of today.',
-    };
-}
-
-function fallbackNotification() {
-    if (Notification.permission !== 'granted') {
-        return;
-    }
-
-    const lastKey = 'last-diary-reminder';
-    const last = Number(localStorage.getItem(lastKey) || 0);
-    const current = now();
-    const reminder = reminderContent();
-
-    if (!last || current - last > DAY) {
-        new Notification(reminder.title, {
-            body: reminder.body,
-            icon: '/icons/android-icon-192x192.png',
-        });
-
-        localStorage.setItem(lastKey, String(current));
-        track('daily_reminder_fallback');
-    }
-}
-
+/**
+ * Asks the browser to wake the worker about once a day for an evening reminder (see
+ * service-worker.js). Only installed apps that allowed notifications get it; email reminders
+ * are the dependable channel for everyone else.
+ */
 async function registerDailyReminder() {
-    if (!('serviceWorker' in navigator)) {
+    if (!('serviceWorker' in navigator) || !('Notification' in window) || Notification.permission !== 'granted') {
         return;
     }
 
     const registration = await navigator.serviceWorker.ready;
-
-    if ('periodicSync' in registration) {
-        try {
-            const status = await navigator.permissions.query({
-                name: 'periodic-background-sync',
-            });
-
-            if (status.state === 'granted') {
-                await registration.periodicSync.register('daily-reminder', {
-                    minInterval: DAY,
-                });
-
-                return;
-            }
-        } catch {
-            // Fall through to the next supported option.
-        }
+    if (!('periodicSync' in registration)) {
+        return;
     }
 
-    if ('SyncManager' in window) {
-        try {
-            const tags = await registration.sync.getTags();
-
-            if (!tags.includes('daily-reminder')) {
-                await registration.sync.register('daily-reminder');
-
-                return;
-            }
-        } catch {
-            // Fall through to in-page notifications.
+    try {
+        const status = await navigator.permissions.query({ name: 'periodic-background-sync' });
+        if (status.state === 'granted') {
+            await registration.periodicSync.register('daily-reminder', { minInterval: DAY });
         }
+    } catch (error) {
+        console.warn('Could not schedule the daily reminder:', error);
     }
-
-    fallbackNotification();
 }
 
 function applyCopy() {
@@ -168,21 +107,42 @@ function hideBanner() {
 }
 
 function maybeShowBanner() {
-    if (localStorage.getItem('pwa:installed') || localStorage.getItem('pwa:banner_disabled')) {
+    if (localStorage.getItem('pwa:installed')) {
         return;
     }
 
     const stay = localStorage.getItem('pwa:stay_10s');
     const visits = JSON.parse(localStorage.getItem('pwa:visit_days') || '[]');
+    const entries = Number(localStorage.getItem('pwa:entry_count') || 0);
     const dismissed = Number(localStorage.getItem('pwa:banner_dismissed') || 0);
+    // Someone who has saved an entry is the likeliest to want the app; otherwise wait for a return visit.
+    const interested = entries >= 1 || (stay && visits.length >= 2);
 
-    if (!stay || visits.length < 2 || now() - dismissed <= 7 * DAY) {
+    if (!interested || now() - dismissed <= 7 * DAY) {
         return;
     }
 
     const banner = document.getElementById('pwa-banner');
 
     if (!banner) {
+        return;
+    }
+
+    // Toasts sit in the same spot (e.g. "Entry saved"); wait for them to go instead of covering them.
+    const toasts = document.getElementById('toasts');
+    if (toasts?.childElementCount) {
+        const observer = new MutationObserver(() => {
+            if (toasts.childElementCount === 0) {
+                observer.disconnect();
+                maybeShowBanner();
+            }
+        });
+        observer.observe(toasts, { childList: true });
+
+        return;
+    }
+
+    if (!banner.classList.contains('hidden')) {
         return;
     }
 
@@ -224,10 +184,6 @@ async function showNotificationPrompt() {
 function incrementEntryCount() {
     const count = Number(localStorage.getItem('pwa:entry_count') || 0) + 1;
     localStorage.setItem('pwa:entry_count', String(count));
-
-    if (count >= 3) {
-        localStorage.setItem('pwa:banner_disabled', '1');
-    }
 }
 
 function bindBannerActions() {
@@ -269,14 +225,7 @@ function bindBannerActions() {
 
 export function initPwaExperience() {
     trackVisits();
-
-    document.addEventListener(
-        'click',
-        async () => {
-            await registerDailyReminder();
-        },
-        { once: true }
-    );
+    registerDailyReminder();
 
     window.addEventListener('beforeinstallprompt', (event) => {
         event.preventDefault();
@@ -290,9 +239,8 @@ export function initPwaExperience() {
         maybeShowBanner();
     }, 10000);
 
-    document.getElementById('diary-form')?.addEventListener('submit', () => {
-        incrementEntryCount();
-    });
+    // New entries only: the edit form is data-entry-form="edit".
+    document.querySelectorAll('form[data-entry-form=""]').forEach((form) => form.addEventListener('submit', incrementEntryCount));
 
     bindBannerActions();
     maybeShowBanner();

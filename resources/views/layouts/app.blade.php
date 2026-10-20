@@ -168,7 +168,7 @@
                     <x-button id="pwa-banner-cta"> Install </x-button>
                     <button
                         id="pwa-banner-dismiss"
-                        class="rounded-full px-4 py-2 text-sm text-gray-500 transition hover:text-gray-700 dark:hover:text-gray-300"
+                        class="rounded-full px-3 py-2 text-sm whitespace-nowrap text-gray-500 transition hover:text-gray-700 dark:hover:text-gray-300"
                     >
                         Not now
                     </button>

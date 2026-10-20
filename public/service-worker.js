@@ -10,8 +10,7 @@ const BUILD = self.__EDIARY_BUILD ?? { version: 'dev', assets: [] };
 // change, so they live in a stable cache (bump CORE_CACHE when one of them does).
 const STATIC_CACHE = `ediary-static-${BUILD.version}`;
 const CORE_CACHE   = 'ediary-core-v1';
-const PAGE_CACHE   = 'ediary-pages-v11';
-const HOME_VARIANTS = ['/', '/?utm_source=homescreen'];
+const PAGE_CACHE   = 'ediary-pages-v12';
 
 const ONE_WEEK = 7 * 24 * 60 * 60 * 1000;
 
@@ -52,7 +51,6 @@ self.addEventListener('activate', event => {
             )
         )
             .then(() => self.clients.claim())
-            .then(registerBackgroundSync)
     );
 });
 
@@ -128,16 +126,16 @@ async function networkFirstPage(request) {
 
     try {
         const fresh = await fetch(request);
-        if (fresh.ok) {
-            const url = new URL(request.url);
-            // The home page is also opened from the home screen with a tracking query; keep both fresh.
-            const keys = url.pathname === '/' ? HOME_VARIANTS : [request];
-            await Promise.all(keys.map(key => putWithTimestamp(cache, key, fresh.clone())));
+        // A redirected response can't answer a navigation later (e.g. "/" sends signed-in people to /home).
+        if (fresh.ok && !fresh.redirected) {
+            await putWithTimestamp(cache, request, fresh.clone());
         }
         return fresh;
     } catch {
+        // The installed app opens /home?utm_source=homescreen; offline, the cached /home will do.
         return (
             (await cache.match(request)) ||
+            (await cache.match(request, { ignoreSearch: true })) ||
             (await caches.match('/offline.html'))
         );
     }
@@ -205,7 +203,11 @@ self.addEventListener('sync', event => {
     if (event.tag === 'sync-diary-entries') {
         event.waitUntil(syncOfflineEntries());
     }
+});
 
+// Installed apps with notifications allowed register this about once a day (see pwa.js). The
+// browser picks the time, so only remind in the evening, when an entry is most likely.
+self.addEventListener('periodicsync', event => {
     if (event.tag === 'daily-reminder') {
         event.waitUntil(sendDailyReminder());
     }
@@ -221,39 +223,15 @@ async function syncOfflineEntries() {
     );
 }
 
-async function registerBackgroundSync() {
-    if ('SyncManager' in self.registration) {
-        try {
-            await self.registration.sync.register('daily-reminder');
-        } catch (_) {}
-    }
-}
-
 async function sendDailyReminder() {
-    if (Notification.permission !== 'granted') return;
-
     const hour = new Date().getHours();
-    let message = "";
-    let title = "Your Daily Diary Reminder";
+    if (Notification.permission !== 'granted' || hour < 18 || hour >= 23) return;
 
-    if (hour < 12) {
-        title = "Good morning! 🌅";
-        message = "Start your day by jotting down your thoughts.";
-    } else if (hour < 18) {
-        title = "Time for a break? 🌞";
-        message = "How is your day going? Take a moment to reflect.";
-    } else {
-        title = "Good evening! 🌙";
-        message = "Unwind and record your memories of today.";
-    }
-
-    await self.registration.showNotification(title, {
-        body: message,
-        icon: '/icons/old/icons-192.png',
-        badge: '/icons/old/icons-24.png',
+    await self.registration.showNotification('A few lines tonight? 🌙', {
+        body: 'Take a minute to write about your day.',
+        icon: '/icons/android-icon-192x192.png',
         tag: 'diary-reminder',
-        requireInteraction: true,
-        data: { url: '/home' }
+        data: { url: '/diaries/create?utm_source=notification' }
     });
 }
 
