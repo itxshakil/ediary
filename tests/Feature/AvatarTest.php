@@ -39,6 +39,15 @@ final class AvatarTest extends TestCase
     }
 
     #[Test]
+    public function generated_usernames_get_letter_initials(): void
+    {
+        $user = User::factory()->create(['username' => 'calm-willow-2006']);
+
+        $this->assertSame('calm-willow-2006', $user->profile->name);
+        $this->assertStringContainsString('>CW<', rawurldecode($user->fresh()->profile->image));
+    }
+
+    #[Test]
     public function pages_do_not_load_third_party_avatars(): void
     {
         $user = User::factory()->create(['email_verified_at' => now()]);

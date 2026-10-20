@@ -26,14 +26,19 @@ final class ServiceWorkerTest extends TestCase
 
         $this->assertCount(2, $lists[1], 'Could not find CORE_FILES and CORE_PAGES in service-worker.js');
 
-        $this->actingAs(User::factory()->create());
+        $user = User::factory()->create();
 
         foreach ($urls[1] as $url) {
             if (is_file(public_path($url))) {
                 continue;
             }
 
-            $this->get($url)->assertOk();
+            // Some pages exist for one audience only ("/" for guests, "/home" once signed in);
+            // the worker skips redirected responses, so each page must load for someone.
+            $this->app['auth']->forgetGuards();
+            $guest = $this->get($url)->status();
+            $signedIn = $this->actingAs($user)->get($url)->status();
+            $this->assertContains(200, [$guest, $signedIn], "{$url} should load for guests or signed-in users");
         }
     }
 
@@ -77,8 +82,8 @@ final class ServiceWorkerTest extends TestCase
     #[Test]
     public function pushed_scripts_are_output_once(): void
     {
-        $html = (string) $this->get('/register')->assertOk()->getContent();
+        $html = (string) $this->actingAs(User::factory()->create())->get(route('diary.search'))->assertOk()->getContent();
 
-        $this->assertSame(1, mb_substr_count($html, "document.getElementById('username')"));
+        $this->assertSame(1, mb_substr_count($html, "document.getElementById('show-add-form')"));
     }
 }

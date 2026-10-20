@@ -61,6 +61,9 @@
                 <p class="mb-6 text-sm text-gray-500 dark:text-gray-400">
                     <a href="{{ route('login') }}" class="text-primary-600 dark:text-primary-400 hover:underline"
                         >Log in</a>
+                    or
+                    <a href="{{ route('register') }}" class="text-primary-600 dark:text-primary-400 hover:underline"
+                        >create a free diary</a>
                     to comment.
                 </p>
             @endauth
@@ -86,6 +89,10 @@
                 @endforelse
             </div>
         </div>
+
+        @guest
+            @include('blogs._cta')
+        @endguest
     </div>
 
     @auth

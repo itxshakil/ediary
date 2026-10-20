@@ -8,9 +8,11 @@ import { initMoodPickers } from './modules/mood-picker';
 import { initOfflineSync } from './modules/offline-store';
 import { initEntryForms } from './modules/entry-form';
 import { initClickTracking } from './modules/analytics';
+import { initPasswordToggles } from './modules/password-toggle';
 
 initToasts();
 initClickTracking();
+initPasswordToggles();
 initPwaExperience();
 
 document.addEventListener('DOMContentLoaded', () => {

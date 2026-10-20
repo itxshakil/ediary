@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Auth;
 
+use App\Actions\User\GenerateUsernameAction;
 use App\Http\Controllers\Controller;
 use App\Support\Analytics;
 use App\User;
@@ -29,16 +30,18 @@ final class RegisterController extends Controller
         return view('auth.register');
     }
 
-    public function register(Request $request, Analytics $analytics): RedirectResponse|JsonResponse
+    public function register(Request $request, GenerateUsernameAction $generateUsername, Analytics $analytics): RedirectResponse|JsonResponse
     {
+        // Stored lowercase so the email works at login however it was typed.
+        $request->merge(['email' => mb_strtolower(mb_trim((string) $request->input('email')))]);
+
         $validated = $request->validate([
-            'username' => ['required', 'string', 'alpha_dash', 'between:5,25', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'confirmed', Password::min(8)],
+            'password' => ['required', 'string', Password::min(8)],
         ]);
 
         $user = User::create([
-            'username' => $validated['username'],
+            'username' => $generateUsername->execute(),
             'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
         ]);
@@ -47,13 +50,15 @@ final class RegisterController extends Controller
         Auth::login($user);
         $analytics->track('sign_up', ['method' => 'email']);
 
+        $welcome = "Welcome to Ediary! Your public username is @{$user->username}. You can change it in Settings once your email is verified.";
+
         if ($request->expectsJson()) {
             return response()->json([
-                'message' => 'Registration successful.',
+                'message' => $welcome,
                 'redirect' => '/home',
             ], 201);
         }
 
-        return redirect('/home');
+        return redirect('/home')->with('success', $welcome);
     }
 }

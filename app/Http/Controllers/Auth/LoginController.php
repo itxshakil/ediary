@@ -27,16 +27,20 @@ final class LoginController extends Controller
 
     public function login(Request $request, Analytics $analytics): RedirectResponse
     {
-        $credentials = $request->validate([
-            'username' => ['required', 'string'],
+        $validated = $request->validate([
+            'login' => ['required', 'string'],
             'password' => ['required', 'string'],
         ]);
 
-        $remember = $request->boolean('remember');
+        // One field takes either: usernames can't contain "@", so it decides which column to match.
+        $login = mb_trim($validated['login']);
+        $credentials = str_contains($login, '@')
+            ? ['email' => mb_strtolower($login), 'password' => $validated['password']]
+            : ['username' => $login, 'password' => $validated['password']];
 
-        if (! Auth::attempt($credentials, $remember)) {
+        if (! Auth::attempt($credentials, $request->boolean('remember'))) {
             throw ValidationException::withMessages([
-                'username' => __('auth.failed'),
+                'login' => __('auth.failed'),
             ]);
         }
 

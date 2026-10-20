@@ -212,6 +212,10 @@
 
                     <x-diary-paginator :collection="$publicEntries" />
                 </section>
+
+                @guest
+                    @include('blogs._cta')
+                @endguest
             </div>
         </div>
     </div>

@@ -69,21 +69,24 @@
                     <form method="POST" action="{{ route('login') }}" class="space-y-6">
                         @csrf
 
-                        {{-- Email --}}
+                        {{-- Email or username --}}
                         <div>
-                            <label for="username" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                                Username
+                            <label for="login" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                                Email or username
                             </label>
                             <input
-                                id="username"
+                                id="login"
                                 type="text"
-                                name="username"
-                                value="{{ old('username') }}"
+                                name="login"
+                                value="{{ old('login') }}"
                                 required
                                 autofocus
+                                autocomplete="username"
+                                autocapitalize="none"
+                                spellcheck="false"
                                 class="field mt-2"
                             />
-                            @error('username')
+                            @error('login')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
@@ -93,7 +96,17 @@
                             <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
                                 Password
                             </label>
-                            <input id="password" type="password" name="password" required class="field mt-2" />
+                            <div class="relative mt-2">
+                                <input
+                                    id="password"
+                                    type="password"
+                                    name="password"
+                                    required
+                                    autocomplete="current-password"
+                                    class="field pr-12"
+                                />
+                                <x-form.password-toggle for="password" />
+                            </div>
                             @error('password')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                             @enderror

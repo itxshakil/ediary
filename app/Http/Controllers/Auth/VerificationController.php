@@ -36,7 +36,7 @@ final class VerificationController extends Controller
             $analytics->track('email_verified');
         }
 
-        return redirect('/home?verified=1');
+        return redirect('/home')->with('success', 'Your email is verified. Thanks!');
     }
 
     public function resend(Request $request): RedirectResponse

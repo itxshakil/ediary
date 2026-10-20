@@ -4,7 +4,7 @@
 //
 //   node scripts/ui-screenshots.mjs [outDir]
 //
-// Env: BASE_URL (default http://ediary.test), CHROME_PATH, and E2E_USERNAME / E2E_PASSWORD
+// Env: BASE_URL (default http://ediary.test), CHROME_PATH, and E2E_USERNAME (username or email) / E2E_PASSWORD
 // to also capture signed-in pages. Use a local test account only.
 
 import { spawn } from 'node:child_process';
@@ -89,7 +89,7 @@ async function open(url) {
 async function signIn() {
     await open(`${BASE}/login`);
     await evaluate(`(() => {
-        document.querySelector('[name=username]').value = ${JSON.stringify(process.env.E2E_USERNAME)};
+        document.querySelector('[name=login]').value = ${JSON.stringify(process.env.E2E_USERNAME)};
         document.querySelector('[name=password]').value = ${JSON.stringify(process.env.E2E_PASSWORD)};
         document.querySelector('[name=password]').form.submit();
     })()`);

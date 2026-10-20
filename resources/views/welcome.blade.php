@@ -39,72 +39,6 @@
     </script>
 @endpush
 
-@push('scripts')
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            let emailInput = document.getElementById('email');
-            let usernameInput = document.getElementById('username');
-
-            let typingTimer;
-            const debounceDelay = 400; // ms
-
-            const statusBox = document.createElement('div');
-            statusBox.className = 'mt-1 text-sm';
-            usernameInput.parentNode.appendChild(statusBox);
-
-            emailInput.addEventListener('input', function () {
-                const email = this.value;
-                const name = email.split('@')[0] || '';
-
-                if (name.length > 3) {
-                    usernameInput.value = name.toLowerCase().replace(/[^a-z0-9_]/g, '');
-                    triggerUsernameCheck();
-                }
-            });
-
-            usernameInput.addEventListener('input', () => {
-                clearTimeout(typingTimer);
-                typingTimer = setTimeout(triggerUsernameCheck, debounceDelay);
-            });
-
-            function triggerUsernameCheck() {
-                const username = usernameInput.value.trim();
-
-                if (username.length < 4) {
-                    statusBox.textContent = 'Minimum 4 characters required';
-                    statusBox.classList = 'mt-1 text-sm text-red-600';
-                    return;
-                }
-
-                statusBox.textContent = 'Checking...';
-                statusBox.classList = 'mt-1 text-sm text-gray-500';
-
-                axios
-                    .post('/api/check-username', { username })
-                    .then((res) => {
-                        if (res.data.success) {
-                            statusBox.textContent = '✔ Username available';
-                            statusBox.classList = 'mt-1 text-sm text-green-600';
-
-                            usernameInput.classList.remove('border-red-500');
-                            usernameInput.classList.add('border-green-500');
-                        } else {
-                            statusBox.textContent = '✖ Username already taken';
-                            statusBox.classList = 'mt-1 text-sm text-red-600';
-
-                            usernameInput.classList.remove('border-green-500');
-                            usernameInput.classList.add('border-red-500');
-                        }
-                    })
-                    .catch(() => {
-                        statusBox.textContent = 'Error checking username';
-                        statusBox.classList = 'mt-1 text-sm text-red-600';
-                    });
-            }
-        });
-    </script>
-@endpush
-
 @section('content')
     <!-- Hero Section -->
     <div class="from-primary-600 via-primary-700 relative overflow-hidden bg-gradient-to-br to-indigo-800 text-white">
@@ -186,33 +120,6 @@
 
                                     <div>
                                         <label
-                                            for="username"
-                                            class="mb-1 block text-left text-sm font-semibold text-gray-700 dark:text-gray-200"
-                                        >Username</label>
-                                        <div class="group relative">
-                                            <input
-                                                id="username"
-                                                type="text"
-                                                name="username"
-                                                required
-                                                placeholder="johndoe"
-                                                value="{{ old('username') }}"
-                                                class="field pr-4 pl-10"
-                                            />
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-focus-within:text-primary-500 absolute top-3.5 left-3 h-5 w-5 text-gray-400 transition-colors">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                <path d="M12 13a3 3 0 1 0 0 -6a3 3 0 0 0 0 6z" />
-                                                <path d="M6.201 18.744a4 4 0 0 1 3.799 -2.744h4a4 4 0 0 1 3.798 2.741" />
-                                                <path d="M19.875 6.27c.7 .398 1.13 1.143 1.125 1.948v7.284c0 .809 -.443 1.555 -1.158 1.948l-6.75 4.27a2.269 2.269 0 0 1 -2.184 0l-6.75 -4.27a2.225 2.225 0 0 1 -1.158 -1.948v-7.285c0 -.809 .443 -1.554 1.158 -1.947l6.75 -3.98a2.33 2.33 0 0 1 2.25 0l6.75 3.98h-.033z" />
-                                            </svg>
-                                        </div>
-                                        @error('username')
-                                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-
-                                    <div>
-                                        <label
                                             for="password"
                                             class="mb-1 block text-left text-sm font-semibold text-gray-700 dark:text-gray-200"
                                         >Password</label>
@@ -223,10 +130,11 @@
                                                 name="password"
                                                 required
                                                 autocomplete="new-password"
-                                                placeholder="•••••••••"
+                                                placeholder="At least 8 characters"
                                                 minlength="8"
-                                                class="field pr-4 pl-10"
+                                                class="field pr-12 pl-10"
                                             />
+                                            <x-form.password-toggle for="password" />
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-focus-within:text-primary-500 absolute top-3.5 left-3 h-5 w-5 text-gray-400 transition-colors">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                                 <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z" />
@@ -237,31 +145,6 @@
                                         @error('password')
                                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                         @enderror
-                                    </div>
-
-                                    <div>
-                                        <label
-                                            for="password_confirmation"
-                                            class="mb-1 block text-left text-sm font-semibold text-gray-700 dark:text-gray-200"
-                                        >Confirm Password</label>
-                                        <div class="group relative">
-                                            <input
-                                                id="password_confirmation"
-                                                type="password"
-                                                name="password_confirmation"
-                                                required
-                                                placeholder="•••••••••"
-                                                autocomplete="new-password"
-                                                minlength="8"
-                                                class="field pr-4 pl-10"
-                                            />
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-focus-within:text-primary-500 absolute top-3.5 left-3 h-5 w-5 text-gray-400 transition-colors">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z" />
-                                                <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
-                                                <path d="M8 11v-4a4 4 0 1 1 8 0v4" />
-                                            </svg>
-                                        </div>
                                     </div>
                                 </div>
 

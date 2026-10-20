@@ -55,7 +55,7 @@
                 <!-- Guest View -->
                 <div class="flex items-center gap-2">
                     <x-button variant="secondary" size="sm" href="{{ route('login') }}">Log in</x-button>
-                    <x-button size="sm" href="{{ route('register') }}" class="max-md:hidden">Sign up</x-button>
+                    <x-button size="sm" href="{{ route('register') }}">Sign up</x-button>
                 </div>
 
             @endguest

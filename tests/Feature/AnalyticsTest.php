@@ -19,10 +19,8 @@ final class AnalyticsTest extends TestCase
     {
         $this->followingRedirects()
             ->post('/register', [
-                'username' => 'newwriter',
                 'email' => 'new@example.com',
                 'password' => 'secret-password',
-                'password_confirmation' => 'secret-password',
             ])
             ->assertOk()
             ->assertSeeHtml('window.dataLayer.push({"event":"sign_up","method":"email"})');
@@ -32,10 +30,8 @@ final class AnalyticsTest extends TestCase
     public function a_json_signup_reports_sign_up_once_the_redirect_target_renders(): void
     {
         $this->postJson('/register', [
-            'username' => 'jsonwriter',
             'email' => 'json@example.com',
             'password' => 'secret-password',
-            'password_confirmation' => 'secret-password',
         ])->assertCreated();
 
         $this->get('/home')->assertSeeHtml('"event":"sign_up"');
@@ -48,7 +44,7 @@ final class AnalyticsTest extends TestCase
         $user = User::factory()->create();
 
         $this->followingRedirects()
-            ->post('/login', ['username' => $user->username, 'password' => 'password'])
+            ->post('/login', ['login' => $user->username, 'password' => 'password'])
             ->assertOk()
             ->assertSeeHtml('window.dataLayer.push({"event":"login","method":"password"})');
     }

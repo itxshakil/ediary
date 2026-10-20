@@ -12,7 +12,7 @@
 
                     <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Username</h2>
                     <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
-                        Your username is used to sign in and appears in your profile link.
+                        Your username appears in your profile link. You can sign in with it or with your email.
                     </p>
 
                     <label for="username" class="sr-only">Username</label>

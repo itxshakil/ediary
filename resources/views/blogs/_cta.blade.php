@@ -4,8 +4,8 @@
         Start a private journal in seconds with just your email. Free, unlimited, and it works offline.
     </p>
     @auth
-        <x-button size="lg" href="/home"> Start writing Now </x-button>
+        <x-button size="lg" href="/home"> Write today's entry </x-button>
     @else
-        <x-button size="lg" href="{{ route('register') }}"> Start Writing now </x-button>
+        <x-button size="lg" href="{{ route('register') }}"> Start writing for free </x-button>
     @endauth
 </div>

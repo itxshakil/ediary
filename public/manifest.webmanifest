@@ -3,7 +3,7 @@
     "name": "Ediary",
     "short_name": "Ediary",
     "description": "A free, private online diary that works offline. Unlimited entries, private by default, and just an email to sign up.",
-    "start_url": "/?utm_source=homescreen",
+    "start_url": "/home?utm_source=homescreen",
     "scope": "/",
     "display": "standalone",
     "orientation": "portrait-primary",
@@ -91,10 +91,10 @@
     ],
     "shortcuts": [
         {
-            "name": "Dashboard",
-            "short_name": "Home",
-            "description": "Read and write diary.",
-            "url": "/home?utm_source=homescreen",
+            "name": "Write an entry",
+            "short_name": "Write",
+            "description": "Start today's diary entry.",
+            "url": "/diaries/create?utm_source=homescreen",
             "icons": [
                 {
                     "src": "/icons/old/icons-96.png",
@@ -103,9 +103,10 @@
             ]
         },
         {
-            "name": "Search",
-            "description": "Search the users on Ediary.",
-            "url": "/search?utm_source=homescreen",
+            "name": "My entries",
+            "short_name": "Entries",
+            "description": "Read your past entries.",
+            "url": "/diaries?utm_source=homescreen",
             "icons": [
                 {
                     "src": "/icons/old/icons-96.png",
@@ -114,64 +115,10 @@
             ]
         },
         {
-            "name": "Change Password",
-            "description": "Change your password.",
-            "url": "/password/change?utm_source=homescreen",
-            "icons": [
-                {
-                    "src": "/icons/old/icons-96.png",
-                    "sizes": "96x96"
-                }
-            ]
-        },
-        {
-            "name": "Settings",
-            "description": "Update your username.",
-            "url": "/settings?utm_source=homescreen",
-            "icons": [
-                {
-                    "src": "/icons/old/icons-96.png",
-                    "sizes": "96x96"
-                }
-            ]
-        },
-        {
-            "name": "FAQ",
-            "description": "Read Frequently Asked Questions.",
-            "url": "/faq?utm_source=homescreen",
-            "icons": [
-                {
-                    "src": "/icons/old/icons-96.png",
-                    "sizes": "96x96"
-                }
-            ]
-        },
-        {
-            "name": "Contact Us",
-            "description": "Contact us by form.",
-            "url": "/contact?utm_source=homescreen",
-            "icons": [
-                {
-                    "src": "/icons/old/icons-96.png",
-                    "sizes": "96x96"
-                }
-            ]
-        },
-        {
-            "name": "About Us",
-            "description": "Read about us.",
-            "url": "/about?utm_source=homescreen",
-            "icons": [
-                {
-                    "src": "/icons/old/icons-96.png",
-                    "sizes": "96x96"
-                }
-            ]
-        },
-        {
-            "name": "Download My Data",
-            "description": "Download your data.",
-            "url": "/request-data?utm_source=homescreen",
+            "name": "Writing stats",
+            "short_name": "Stats",
+            "description": "See your streak and writing stats.",
+            "url": "/diary/stats?utm_source=homescreen",
             "icons": [
                 {
                     "src": "/icons/old/icons-96.png",

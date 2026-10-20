@@ -51,6 +51,9 @@ final class Profile extends Model
     {
         $name = mb_trim((string) ($this->name ?: $this->user?->username));
         $words = preg_split('/[^\p{L}\p{N}]+/u', $name, -1, PREG_SPLIT_NO_EMPTY) ?: ['?'];
+        // "calm-willow-2006" reads as CW, not C2: skip number-only words when there are others.
+        $words = array_values(array_filter($words, static fn (string $word): bool => ! ctype_digit($word))) ?: $words;
+
         $initials = mb_strtoupper(mb_substr($words[0], 0, 1) . (count($words) > 1 ? mb_substr(end($words), 0, 1) : ''));
         $hue = crc32($name) % 360;
 

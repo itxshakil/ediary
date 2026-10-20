@@ -39,11 +39,6 @@ final class User extends Authenticatable implements MustVerifyEmail
 
     protected $with = ['profile'];
 
-    public static function isUsernameTaken(string $username): bool
-    {
-        return self::where('username', $username)->exists();
-    }
-
     /**
      * @return HasMany<Diary, $this>
      */

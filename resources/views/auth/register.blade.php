@@ -2,62 +2,6 @@
 @section('title', 'Create a Free Private Diary')
 @section('description', 'Create your free Ediary account with just an email. Private by default, encrypted at rest, unlimited entries, and works offline.')
 
-@push('scripts')
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const usernameInput = document.getElementById('username');
-
-            if (!usernameInput) return;
-
-            let typingTimer;
-            const debounceDelay = 400;
-
-            let statusBox = document.getElementById('username-status');
-
-            if (!statusBox) {
-                statusBox = document.createElement('div');
-                statusBox.id = 'username-status';
-                statusBox.className = 'mt-1 text-sm';
-                usernameInput.parentNode.appendChild(statusBox);
-            }
-
-            usernameInput.addEventListener('input', () => {
-                clearTimeout(typingTimer);
-                typingTimer = setTimeout(checkUsername, debounceDelay);
-            });
-
-            function checkUsername() {
-                const username = usernameInput.value.trim();
-
-                if (username.length < 4) {
-                    statusBox.textContent = 'Minimum 4 characters required';
-                    statusBox.className = 'mt-1 text-sm text-red-600';
-                    return;
-                }
-
-                statusBox.textContent = 'Checking availability…';
-                statusBox.className = 'mt-1 text-sm text-gray-500';
-
-                axios
-                    .post('/api/check-username', { username })
-                    .then((res) => {
-                        if (res.data.success) {
-                            statusBox.textContent = '✔ Username available';
-                            statusBox.className = 'mt-1 text-sm text-green-600';
-                        } else {
-                            statusBox.textContent = '✖ Username already taken';
-                            statusBox.className = 'mt-1 text-sm text-red-600';
-                        }
-                    })
-                    .catch(() => {
-                        statusBox.textContent = 'Error checking username';
-                        statusBox.className = 'mt-1 text-sm text-red-600';
-                    });
-            }
-        });
-    </script>
-@endpush
-
 @push('head')
     <script type="application/ld+json">
         {
@@ -125,23 +69,6 @@
                     <form method="POST" action="{{ route('register') }}" class="space-y-6">
                         @csrf
 
-                        {{-- Username --}}
-                        <div>
-                            <x-form.label for="username">Username</x-form.label>
-
-                            <x-form.input
-                                id="username"
-                                name="username"
-                                placeholder="johndoe"
-                                required
-                                autocomplete="off"
-                            />
-
-                            @error('username')
-                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                            @enderror
-                        </div>
-
                         {{-- Email --}}
                         <div>
                             <x-form.label for="email">Email Address</x-form.label>
@@ -164,34 +91,23 @@
                         <div>
                             <x-form.label for="password">Password</x-form.label>
 
-                            <x-form.input
-                                id="password"
-                                type="password"
-                                name="password"
-                                placeholder="••••••••"
-                                minlength="8"
-                                required
-                                autocomplete="new-password"
-                            />
+                            <div class="relative">
+                                <x-form.input
+                                    id="password"
+                                    type="password"
+                                    name="password"
+                                    placeholder="At least 8 characters"
+                                    minlength="8"
+                                    required
+                                    autocomplete="new-password"
+                                    class="pr-12"
+                                />
+                                <x-form.password-toggle for="password" />
+                            </div>
 
                             @error('password')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                             @enderror
-                        </div>
-
-                        {{-- Confirm Password --}}
-                        <div>
-                            <x-form.label for="password_confirmation">Confirm Password</x-form.label>
-
-                            <x-form.input
-                                id="password_confirmation"
-                                type="password"
-                                name="password_confirmation"
-                                placeholder="••••••••"
-                                minlength="8"
-                                required
-                                autocomplete="new-password"
-                            />
                         </div>
 
                         {{-- Submit --}}
