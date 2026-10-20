@@ -23,11 +23,11 @@
         content="Start your journaling journey with E-Diary. Private by default, encrypted at rest, and free. Create your account today!"
     />
     <meta name="twitter:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
-    <meta name="og:title" content="Sign Up for E-Diary – A Private Online Diary" />
-    <meta name="og:url" content="https://ediary.shakiltech.com/register" />
-    <meta name="og:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
+    <meta property="og:title" content="Sign Up for E-Diary – A Private Online Diary" />
+    <meta property="og:url" content="https://ediary.shakiltech.com/register" />
+    <meta property="og:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
     <meta
-        name="og:description"
+        property="og:description"
         content="Private, distraction-free journaling with just an email. Create your free account today and start writing your story."
     />
 @endpush

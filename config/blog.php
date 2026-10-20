@@ -9,7 +9,8 @@ declare(strict_types=1);
  * - view: blade view under resources/views/blogs, also the route name suffix (blogs.{view})
  * - title: short title for cards and the article heading; headline: full page title (defaults to title)
  * - description: card and structured-data summary; meta_description: search snippet (defaults to description)
- * - listed: false keeps a post out of the index cards while it stays reachable
+ * - date: first published; updated: last meaningful revision (sitemap lastmod and dateModified, defaults to date)
+ * - listed: false keeps a post out of the index, its structured data and the sitemap while it stays reachable
  */
 return [
     'posts' => [

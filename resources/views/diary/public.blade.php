@@ -1,4 +1,6 @@
 @extends('layouts.app')
+{{-- Entries are shared by link, not published: keep them out of search results. --}}
+@section('robots', 'noindex, nofollow')
 @section('title', $entry->title ?? 'Shared entry')
 @section('content')
     <div class="container mx-auto max-w-3xl px-4 py-8">

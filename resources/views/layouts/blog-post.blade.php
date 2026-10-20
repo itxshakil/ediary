@@ -8,6 +8,7 @@
 @endphp
 
 @section('title', $headline)
+@section('og_type', 'article')
 
 @push('meta')
     <link rel="canonical" href="{{ $url }}" />
@@ -33,7 +34,9 @@
                 'headline' => $headline,
                 'description' => $post['description'],
                 'url' => $url,
+                'mainEntityOfPage' => $url,
                 'datePublished' => $post['date'],
+                'dateModified' => $post['updated'] ?? $post['date'],
                 'author' => ['@type' => 'Person', 'name' => $post['author'], 'url' => url('/')],
                 'publisher' => [
                     '@type' => 'Organization',

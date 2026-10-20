@@ -26,11 +26,11 @@
         content="Discover simple, effective tips for starting your diary. Learn how to set a schedule, choose your topics, and enjoy the process of journaling."
     />
     <meta name="twitter:image" content="https://ediary.shakiltech.com/icons/android-icon-192x192.png" />
-    <meta name="og:title" content="How to Start Writing a Diary: Tips & Tricks for Beginners" />
-    <meta name="og:url" content="https://ediary.shakiltech.com/blogs/how-to-start-writing-a-diary" />
-    <meta name="og:image" content="https://ediary.shakiltech.com/icons/android-icon-192x192.png" />
+    <meta property="og:title" content="How to Start Writing a Diary: Tips & Tricks for Beginners" />
+    <meta property="og:url" content="https://ediary.shakiltech.com/blogs/how-to-start-writing-a-diary" />
+    <meta property="og:image" content="https://ediary.shakiltech.com/icons/android-icon-192x192.png" />
     <meta
-        name="og:description"
+        property="og:description"
         content="Learn how to start writing a diary with easy tips on setting goals, creating a schedule, and making your writing enjoyable. Start journaling today!"
     />
 @endpush

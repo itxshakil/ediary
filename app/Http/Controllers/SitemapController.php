@@ -5,24 +5,27 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Response;
-use Illuminate\Routing\Route as RoutingRoute;
-use Illuminate\Support\Facades\Route;
 
 final class SitemapController extends Controller
 {
     /**
-     * Public pages worth indexing. Blog posts are added from their `blogs.*` route names.
+     * Public pages worth indexing. They carry no lastmod: a guessed date is worse than none.
      */
     private const array PAGES = ['/', 'about', 'faq', 'security', 'for-students', 'contact', 'blog'];
 
     public function index(): Response
     {
-        $blogPosts = collect(Route::getRoutes()->getRoutesByName())
-            ->filter(fn (RoutingRoute $route, string $name): bool => str_starts_with($name, 'blogs.'))
-            ->map(fn (RoutingRoute $route): string => $route->uri());
+        $pages = collect(self::PAGES)->map(fn (string $uri): array => ['loc' => url($uri), 'lastmod' => null]);
 
-        $urls = collect(self::PAGES)->merge($blogPosts)->map(fn (string $uri): string => url($uri))->unique()->values();
+        $posts = collect(config('blog.posts'))
+            ->filter(fn (array $post): bool => $post['listed'] ?? true)
+            ->map(fn (array $post, string $slug): array => [
+                'loc' => url("blogs/{$slug}"),
+                'lastmod' => $post['updated'] ?? $post['date'],
+            ]);
 
-        return response()->view('sitemap.index', ['urls' => $urls])->header('Content-Type', 'text/xml');
+        return response()
+            ->view('sitemap.index', ['urls' => $pages->merge($posts->values())])
+            ->header('Content-Type', 'text/xml');
     }
 }

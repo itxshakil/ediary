@@ -11,14 +11,10 @@
 
     <meta name="color-scheme" content="dark light" />
     <meta name="owner" content="Shakil Alam" />
-    <meta name="author" content="Shakil Alam , itxshakil@gmail.com" />
+    <meta name="author" content="Shakil Alam" />
 
-    <meta name="og:site_name" content="Ediary App" />
-    <meta property="og:type" content="Website" />
-    <meta property="og:logo" content="{{ url('/icons/android-icon-192x192.png') }}" />
-
-    <meta name="og:email" content="appediary@gmail.com" />
-    <meta name="og:country-name" content="India" />
+    <meta property="og:site_name" content="Ediary" />
+    <meta property="og:type" content="@yield('og_type', 'website')" />
 
     <!-- PWA Meta tag -->
 
@@ -45,6 +41,9 @@
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#101828" media="(prefers-color-scheme: dark)" />
 
+    @hasSection('robots')
+        <meta name="robots" content="@yield('robots')" />
+    @endif
     @stack('meta')
 
     <title>
@@ -70,41 +69,6 @@
     <!-- End Google Tag Manager -->
     <x-analytics-events />
     @stack('head')
-
-    <script type="application/ld+json">
-        {
-            "@@context": "https://schema.org",
-            "@type": "MobileApplication",
-            "name": "E-diary",
-            "url": "https://ediary.shakiltech.com",
-            "description": "E-diary is the easiest and safest way to document your thoughts, memories, and experiences. With complete privacy and offline accessibility, it's the most convenient way to track your life journey.",
-            "operatingSystem": "iOS, Android, Web",
-            "applicationCategory": "Productivity",
-            "author": {
-                "@type": "Organization",
-                "name": "Shakil Alam"
-            },
-            "image": "https://ediary.shakiltech.com/icons/android-icon-192x192.png",
-            "screenshot": [
-                "https://ediary.shakiltech.com/images/screenshots/ediary-features.png",
-                "https://ediary.shakiltech.com/screenshots/ediary-welcome.png   "
-            ],
-            "isAccessibleForFree": true,
-            "offers": {
-                "@type": "Offer",
-                "url": "https://ediary.shakiltech.com/login",
-                "priceCurrency": "USD",
-                "price": 0.0,
-                "availability": "https://schema.org/InStock"
-            },
-            "releaseNotes": "E-diary now supports offline entry saving and automatic syncing once you're online again.",
-            "potentialAction": {
-                "@type": "SearchAction",
-                "target": "https://ediary.shakiltech.com/search?q={search_term_string}",
-                "query-input": "required name=search_term_string"
-            }
-        }
-    </script>
 </head>
 
 <body class="accent-primary-500 font-sans antialiased dark:bg-gray-900 dark:text-white" @auth data-signed-in @endauth>

@@ -34,14 +34,14 @@
         content="Start your journaling journey now! Learn 8 surprising benefits of keeping a diary and how it can improve your mental health, creativity, and self-reflection."
     />
     <meta name="twitter:image" content="https://ediary.shakiltech.com/icons/android-icon-192x192.png" />
-    <meta name="og:title" content="8 Good Things Will Happen When You Start Writing Diaries" />
+    <meta property="og:title" content="8 Good Things Will Happen When You Start Writing Diaries" />
     <meta
-        name="og:url"
+        property="og:url"
         content="https://ediary.shakiltech.com/blogs/these-8-good-things-will-happen-when-you-start-writing-diary"
     />
-    <meta name="og:image" content="https://ediary.shakiltech.com/icons/android-icon-192x192.png" />
+    <meta property="og:image" content="https://ediary.shakiltech.com/icons/android-icon-192x192.png" />
     <meta
-        name="og:description"
+        property="og:description"
         content="Learn how writing a diary can help you improve emotional intimacy, work through tough choices, and foster creativity. Start journaling today!"
     />
 @endpush

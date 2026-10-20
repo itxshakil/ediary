@@ -26,11 +26,11 @@
         content="Explore insightful articles on how to start a diary, the benefits of journaling, and expert tips to make the most of your writing."
     />
     <meta name="twitter:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
-    <meta name="og:title" content="Diary Writing Tips and Benefits – Explore Expert Articles on E-Diary" />
-    <meta name="og:url" content="https://ediary.shakiltech.com/blog" />
-    <meta name="og:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
+    <meta property="og:title" content="Diary Writing Tips and Benefits – Explore Expert Articles on E-Diary" />
+    <meta property="og:url" content="https://ediary.shakiltech.com/blog" />
+    <meta property="og:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
     <meta
-        name="og:description"
+        property="og:description"
         content="Learn how to write a diary, explore the benefits of journaling, and read articles from top bloggers and experts. Start your journaling journey today!"
     />
 @endpush
@@ -54,13 +54,14 @@
                     'name' => 'E-Diary',
                     'logo' => ['@type' => 'ImageObject', 'url' => url('/icons/android-icon-192x192.png')],
                 ],
-                'blogPost' => collect($posts)->map(fn (array $post, string $slug) => [
+                'blogPost' => collect($posts)->filter(fn (array $post): bool => $post['listed'] ?? true)->map(fn (array $post, string $slug) => [
                     '@type' => 'BlogPosting',
                     '@id' => url("blogs/{$slug}") . '#BlogPosting',
                     'mainEntityOfPage' => url("blogs/{$slug}"),
                     'headline' => $post['headline'] ?? $post['title'],
                     'description' => $post['description'],
                     'datePublished' => $post['date'],
+                    'dateModified' => $post['updated'] ?? $post['date'],
                     'author' => ['@type' => 'Person', 'name' => $post['author']],
                     'url' => url("blogs/{$slug}"),
                     'keywords' => $post['keywords'] ?? [],

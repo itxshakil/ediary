@@ -100,6 +100,7 @@ Route::get('/settings', SettingController::class)->middleware('verified');
 Route::put('/username', [UsernameController::class, 'update'])->middleware('verified');
 
 Route::view('/blog', 'blogs.index');
+Route::permanentRedirect('/blogs', '/blog');
 foreach (config('blog.posts') as $slug => $post) {
     Route::view("/blogs/{$slug}", "blogs.{$post['view']}", ['post' => ['slug' => $slug] + $post])->name("blogs.{$post['view']}");
 }

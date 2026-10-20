@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
+use App\Http\Middleware\RedirectToCanonicalUrl;
 use App\Http\Middleware\RequestLogger;
+use App\Http\Middleware\SecurityHeaders;
 use App\Services\Core\ErrorReporter;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Application;
@@ -18,6 +20,8 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware
+            ->prepend(RedirectToCanonicalUrl::class)
+            ->append(SecurityHeaders::class)
             ->append(RequestLogger::class);
     })
     ->withSchedule(function (Schedule $schedule): void {

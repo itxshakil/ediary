@@ -1,0 +1,104 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Tests\Feature;
+
+use App\Diary;
+use App\Enums\Privacy;
+use App\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
+use Tests\TestCase;
+
+final class IndexingTest extends TestCase
+{
+    use RefreshDatabase;
+
+    /**
+     * @return iterable<string, array{string}>
+     */
+    public static function privacies(): iterable
+    {
+        yield 'public' => [Privacy::Public->value];
+        yield 'unlisted' => [Privacy::Unlisted->value];
+    }
+
+    #[Test]
+    #[DataProvider(methodName: 'privacies')]
+    public function shared_entries_are_kept_out_of_search_results(string $privacy): void
+    {
+        $diary = Diary::factory()->create(['user_id' => User::factory()->create()->id, 'privacy' => $privacy]);
+
+        $this->get(route('diary.public', $diary))
+            ->assertOk()
+            ->assertSeeHtml('<meta name="robots" content="noindex, nofollow" />');
+    }
+
+    #[Test]
+    public function search_results_are_not_indexed_and_do_not_echo_the_query_into_the_head(): void
+    {
+        $head = str($this->get('/search?q=cheap-pills')->assertOk()->getContent())->before('</head>')->toString();
+
+        $this->assertStringContainsString('<meta name="robots" content="noindex, follow" />', $head);
+        $this->assertStringContainsString('<link rel="canonical" href="' . url('/search') . '" />', $head);
+        $this->assertStringNotContainsString('cheap-pills', $head);
+    }
+
+    #[Test]
+    public function utility_pages_are_not_indexed(): void
+    {
+        foreach (['/success', '/password/reset', '/password/reset/some-token'] as $path) {
+            $this->get($path)->assertOk()->assertSeeHtml('<meta name="robots" content="noindex, nofollow" />');
+        }
+    }
+
+    #[Test]
+    public function content_pages_stay_indexable(): void
+    {
+        foreach (['/', '/about', '/blog', route('blogs.how-to-keep-a-study-journal')] as $path) {
+            $this->get($path)->assertOk()->assertDontSeeHtml('name="robots"');
+        }
+    }
+
+    #[Test]
+    public function the_homepage_describes_the_site_and_the_app(): void
+    {
+        $this->get('/')
+            ->assertOk()
+            ->assertSee('"@type":"WebSite"', escape: false)
+            ->assertSee('"name":"Ediary","alternateName":["E-diary","Ediary App"]', escape: false)
+            ->assertSee('"@type":"WebApplication"', escape: false)
+            ->assertSee('"applicationCategory":"LifestyleApplication"', escape: false);
+    }
+
+    #[Test]
+    public function only_the_homepage_carries_the_app_markup_and_none_offers_a_search_box(): void
+    {
+        $this->get('/about')->assertDontSee('WebApplication')->assertDontSee('MobileApplication');
+        $this->get('/')->assertDontSee('SearchAction')->assertDontSee('MobileApplication');
+    }
+
+    #[Test]
+    public function open_graph_tags_use_the_property_attribute(): void
+    {
+        foreach (['/', '/faq', '/blog', '/login', route('blogs.how-to-write')] as $path) {
+            $this->get($path)
+                ->assertOk()
+                ->assertDontSeeHtml('name="og:')
+                ->assertSeeHtml('<meta property="og:site_name" content="Ediary" />')
+                ->assertDontSeeHtml('og:email');
+        }
+    }
+
+    #[Test]
+    public function responses_carry_baseline_security_headers(): void
+    {
+        $this->get('/about')
+            ->assertHeader('X-Content-Type-Options', 'nosniff')
+            ->assertHeader('X-Frame-Options', 'SAMEORIGIN')
+            ->assertHeader('Referrer-Policy', 'strict-origin-when-cross-origin')
+            ->assertHeader('Permissions-Policy', 'camera=(), geolocation=(), microphone=(self)');
+    }
+}

@@ -26,11 +26,11 @@
         content="Ready to start journaling? Discover easy tips to write your own diary, boost creativity, and express your true feelings. Perfect for beginners and experienced writers."
     />
     <meta name="twitter:image" content="https://ediary.shakiltech.com/icons/android-icon-192x192.png" />
-    <meta name="og:title" content="How to Write a Diary - Start Journaling for Personal Growth" />
-    <meta name="og:url" content="https://ediary.shakiltech.com/blogs/how-to-write-diary" />
-    <meta name="og:image" content="https://ediary.shakiltech.com/icons/android-icon-192x192.png" />
+    <meta property="og:title" content="How to Write a Diary - Start Journaling for Personal Growth" />
+    <meta property="og:url" content="https://ediary.shakiltech.com/blogs/how-to-write-diary" />
+    <meta property="og:image" content="https://ediary.shakiltech.com/icons/android-icon-192x192.png" />
     <meta
-        name="og:description"
+        property="og:description"
         content="Learn to write a meaningful diary with expert advice on self-expression, mental health, and creativity. Start your journey toward personal growth through journaling!"
     />
 @endpush

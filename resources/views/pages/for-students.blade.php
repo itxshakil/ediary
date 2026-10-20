@@ -13,11 +13,11 @@
     <meta name="subject" content="E-diary for students and researchers" />
     <meta name="language" content="en" />
     <meta name="rating" content="General" />
-    <meta name="og:title" content="E-diary - A Private Study Journal That Works Offline" />
-    <meta name="og:url" content="{{ url('for-students') }}" />
-    <meta name="og:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
+    <meta property="og:title" content="E-diary - A Private Study Journal That Works Offline" />
+    <meta property="og:url" content="{{ url('for-students') }}" />
+    <meta property="og:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
     <meta
-        name="og:description"
+        property="og:description"
         content="Study logs, research reflections, and exam-stress notes in one private journal. Free, unlimited, and it works offline."
     />
 @endpush

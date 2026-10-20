@@ -1,40 +1,11 @@
 @extends('layouts.app')
-@section('title', 'Search Users on E-diary')
+@section('title', 'Search people')
+
+@section('robots', 'noindex, follow')
 
 @push('meta')
-    <link rel="canonical" href="{{ url('/search') }}?q={{ request('q') }}" />
-    <meta
-        name="description"
-        content="Search results for '{{ request('q') }}' on E-diary. Find profiles of users, view their follower counts, and explore their journals."
-    />
-    <meta
-        name="keywords"
-        content="E-diary search, user search, find users, connect with users, E-diary profiles, {{ request('q') }}"
-    />
-    <meta property="og:title" content="Search Results | E-diary" />
-    <meta property="og:url" content="{{ url('/search') }}?q={{ request('q') }}" />
-    <meta
-        property="og:description"
-        content="Discover users on E-diary based on '{{ request('q') }}'. Connect and explore profiles."
-    />
-    <meta name="twitter:card" content="summary_large_image" />
-@endpush
-
-@push('head')
-    <script type="application/ld+json">
-        {
-            "@@context": "https://schema.org",
-            "@type": "SearchResultsPage",
-            "mainEntity": {
-                "@type": "SearchAction",
-                "target": {
-                    "@type": "EntryPoint",
-                    "urlTemplate": "/search?q={search_term_string}"
-                },
-                "query": "{{ request('q') }}"
-            }
-        }
-    </script>
+    <link rel="canonical" href="{{ url('/search') }}" />
+    <meta name="description" content="Find people who share their diary entries on Ediary." />
 @endpush
 
 @section('content')

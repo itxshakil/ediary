@@ -9,10 +9,8 @@
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
-    # Redirect Trailing Slashes If Not A Folder...
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_URI} (.+)/$
-    RewriteRule ^ %1 [L,R=301]
+    # Trailing slashes are redirected by the app (RedirectToCanonicalUrl): behind the host's
+    # rewrite into public/, REQUEST_URI here already carries the /public prefix.
 
     # Send Requests To Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d

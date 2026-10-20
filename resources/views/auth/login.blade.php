@@ -23,11 +23,11 @@
         content="Log in to E-Diary, a private, encrypted space to track your thoughts and goals."
     />
     <meta name="twitter:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
-    <meta name="og:title" content="Log in to E-Diary – Your Private Space for Thoughts" />
-    <meta name="og:url" content="https://ediary.shakiltech.com/login" />
-    <meta name="og:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
+    <meta property="og:title" content="Log in to E-Diary – Your Private Space for Thoughts" />
+    <meta property="og:url" content="https://ediary.shakiltech.com/login" />
+    <meta property="og:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
     <meta
-        name="og:description"
+        property="og:description"
         content="E-Diary is privacy-friendly and encrypted at rest. Log in now to continue your journey!"
     />
 @endpush

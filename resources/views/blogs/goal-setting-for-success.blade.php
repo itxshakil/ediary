@@ -24,11 +24,11 @@
         content="Discover actionable strategies for setting goals that lead to success. Make your dreams a reality with the right planning and mindset."
     />
     <meta name="twitter:image" content="https://ediary.shakiltech.com/icons/android-icon-192x192.png" />
-    <meta name="og:title" content="Goal Setting for Success - A Step-by-Step Guide to Achieve Your Dreams" />
-    <meta name="og:url" content="https://ediary.shakiltech.com/blogs/goal-setting-for-success" />
-    <meta name="og:image" content="https://ediary.shakiltech.com/icons/android-icon-192x192.png" />
+    <meta property="og:title" content="Goal Setting for Success - A Step-by-Step Guide to Achieve Your Dreams" />
+    <meta property="og:url" content="https://ediary.shakiltech.com/blogs/goal-setting-for-success" />
+    <meta property="og:image" content="https://ediary.shakiltech.com/icons/android-icon-192x192.png" />
     <meta
-        name="og:description"
+        property="og:description"
         content="Master the art of goal setting and turn your dreams into accomplishments with these proven strategies. Start your journey to success today!"
     />
 @endpush

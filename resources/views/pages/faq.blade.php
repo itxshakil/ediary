@@ -24,11 +24,11 @@
         content="Get answers to common questions about E-diary, including how to create a diary, manage privacy, and print your entries. Visit our support center for more info."
     />
     <meta name="twitter:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
-    <meta name="og:title" content="Frequently Asked Questions | E-diary" />
-    <meta name="og:url" content="https://ediary.shakiltech.com/faq" />
-    <meta name="og:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
+    <meta property="og:title" content="Frequently Asked Questions | E-diary" />
+    <meta property="og:url" content="https://ediary.shakiltech.com/faq" />
+    <meta property="og:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
     <meta
-        name="og:description"
+        property="og:description"
         content="Find answers to common E-diary questions, from creating a diary to managing privacy and printing entries. Get started today!"
     />
 @endpush

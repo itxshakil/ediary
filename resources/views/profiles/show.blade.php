@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('robots', 'noindex, follow')
 
 @section('title', $profile->name . "'s Profile | E-diary")
 
@@ -31,7 +32,6 @@
 @endpush
 
 @push('meta')
-    <meta name="robots" content="noindex, follow" />
     <link rel="canonical" href="{{ request()->fullUrl() }}" />
     <meta name="description" content="{{ $profile->name }}'s profile — {{ $profile->bio }}" />
     <meta property="og:title" content="{{ $profile->name }}'s Profile" />

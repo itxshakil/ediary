@@ -30,9 +30,26 @@ final class BlogTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertSee('Latest Blog Article');
-        $response->assertSee('How to Write a Diary');
         $response->assertSee('8 Good Things That Happen When You Start Journaling');
         $response->assertSee('How to Start Writing a Diary');
+        $response->assertSee('"dateModified":"2026-10-18"', escape: false);
+        // Unlisted posts stay reachable but are left out of the cards and the structured data.
+        $response->assertDontSee('How to Write a Diary');
+    }
+
+    #[Test]
+    public function blogs_without_a_slug_redirects_to_the_blog_index(): void
+    {
+        $this->get('/blogs')->assertMovedPermanently()->assertRedirect(url('/blog'));
+    }
+
+    #[Test]
+    public function a_post_is_marked_up_as_an_article_with_its_dates(): void
+    {
+        $this->get(route('blogs.how-to-keep-a-study-journal'))
+            ->assertOk()
+            ->assertSeeHtml('<meta property="og:type" content="article" />')
+            ->assertSee('"datePublished":"2026-10-18","dateModified":"2026-10-18"', escape: false);
     }
 
     #[Test]

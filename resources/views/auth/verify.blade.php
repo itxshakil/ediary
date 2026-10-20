@@ -20,11 +20,11 @@
         content="Just one step left! Verify your email to activate your encrypted E-Diary account and start writing."
     />
     <meta name="twitter:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
-    <meta name="og:title" content="Verify Your Email – Activate Your Secure E-Diary Account" />
-    <meta name="og:url" content="{{ url('email/verify') }}" />
-    <meta name="og:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
+    <meta property="og:title" content="Verify Your Email – Activate Your Secure E-Diary Account" />
+    <meta property="og:url" content="{{ url('email/verify') }}" />
+    <meta property="og:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
     <meta
-        name="og:description"
+        property="og:description"
         content="Complete your signup. Verify your email to unlock your fully private and secure E-Diary account."
     />
 @endpush

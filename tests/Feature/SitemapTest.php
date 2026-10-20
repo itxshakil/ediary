@@ -24,7 +24,22 @@ final class SitemapTest extends TestCase
         $response->assertSeeHtml('<loc>' . url('/') . '</loc>');
         $response->assertSeeHtml('<loc>' . url('/for-students') . '</loc>');
         $response->assertSeeHtml('<loc>' . url('/security') . '</loc>');
-        $response->assertSeeHtml('<loc>' . route('blogs.how-to-write') . '</loc>');
+        $response->assertSeeHtml('<loc>' . route('blogs.how-to-keep-a-study-journal') . '</loc>');
+    }
+
+    #[Test]
+    public function blog_posts_carry_their_last_modified_date(): void
+    {
+        $this->get('/sitemap.xml')->assertSeeInOrder([
+            '<loc>' . route('blogs.how-to-keep-a-study-journal') . '</loc>',
+            '<lastmod>2026-10-18</lastmod>',
+        ], escape: false);
+    }
+
+    #[Test]
+    public function unlisted_blog_posts_are_left_out(): void
+    {
+        $this->get('/sitemap.xml')->assertDontSeeHtml(route('blogs.how-to-write'));
     }
 
     #[Test]
