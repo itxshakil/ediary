@@ -69,6 +69,73 @@
         <li><strong>Tags:</strong> chapter, method, or theme, like #methods or #chapter-2.</li>
     </ul>
 
+    <h2>Two example entries</h2>
+    <blockquote>
+        #methods #chapter-3. Today I: coded interviews 6 and 7. I decided: merge "time pressure" and "workload" into one
+        code, because participants use the words interchangeably. I'm unsure about: whether that hides a difference
+        between students and staff. Next: check the staff interviews for the distinction before Friday.
+    </blockquote>
+    <blockquote>
+        #literature. Today I: read a 2021 paper on survey fatigue. Reaction: their response-rate drop matches what I saw
+        in my pilot; could justify the shorter questionnaire. Unsure: their sample was all undergraduates. Next: look
+        for a postgraduate study before citing it as support.
+    </blockquote>
+    <p>
+        Neither entry took more than five minutes, and both answer a question a supervisor or examiner is likely to ask
+        months later: why did you do it that way?
+    </p>
+
+    <h2>Weekly and monthly reviews</h2>
+    <p>
+        Once a week, read back your entries and write a short summary: what moved forward, what's blocked, and what you
+        decided. Once a month, read the weekly summaries. This is where the research journal earns its keep: patterns
+        appear, such as a method that keeps causing problems or a theme that keeps resurfacing in your reading.
+    </p>
+
+    <h2>Before a supervisor meeting</h2>
+    <p>Spend ten minutes with your journal the day before and write one entry with three headings:</p>
+    <ul>
+        <li><strong>Since we last met:</strong> two or three lines of progress.</li>
+        <li><strong>Decisions I'd like you to check:</strong> pulled straight from your "I decided" lines.</li>
+        <li><strong>Where I'm stuck:</strong> pulled from your "I'm unsure about" lines.</li>
+    </ul>
+    <p>After the meeting, add what was agreed. Next time, you start from a written record instead of memory.</p>
+
+    <h2>A reflexive journal for qualitative research</h2>
+    <p>
+        In qualitative research, a research journal often doubles as a <strong>reflexive journal</strong>: a record of
+        how your own background, assumptions and reactions might shape what you notice and how you interpret it. After
+        an interview or a coding session, add a line or two on questions like "What surprised me?" and "What did I
+        expect to hear, and did that affect my questions?" Many methods chapters draw on exactly these notes when
+        discussing reflexivity.
+    </p>
+
+    <h2>Keep sensitive data out of it</h2>
+    <p>
+        Your journal is about your thinking, not your raw data. Don't paste participant names, contact details,
+        transcripts or anything your ethics approval says must stay in specific storage. Refer to participants by the
+        codes you use in your project ("P07"), and keep the data itself where your institution requires.
+    </p>
+
+    <h2>Common mistakes</h2>
+    <ul>
+        <li>
+            <strong>Only writing when something big happens.</strong> The small daily decisions are the ones you'll
+            forget.
+        </li>
+        <li>
+            <strong>Leaving out the reasons.</strong> "Dropped question 12" is useless later; "dropped question 12
+            because three pilot participants misread it" is gold.
+        </li>
+        <li>
+            <strong>Deleting dead ends.</strong> Failed approaches are part of the story and often belong in your
+            limitations section.
+        </li>
+        <li>
+            <strong>Writing for an audience.</strong> Nobody else needs to read it, so you can be honest about doubts.
+        </li>
+    </ul>
+
     <h2>How it pays off</h2>
     <ul>
         <li><strong>Supervisor meetings:</strong> scan the last two weeks of entries and you have your agenda.</li>
@@ -80,7 +147,7 @@
     <h2>Choosing where to keep it</h2>
     <p>
         Your journal will hold unpublished ideas and honest doubts, so privacy matters. It also needs to be there when
-        you are: in the archive, the field, or on a train. Look for something private by default, searchable, taggable,
+        you are: in the archive, the field, or on a train. Look for something private by default, organised by tags,
         that works offline and lets you export everything.
         <a href="{{ url('/for-students') }}">Ediary</a> does all of that for free, and our
         <a href="{{ url('/security') }}">security page</a> explains exactly how entries are protected.

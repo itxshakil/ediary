@@ -839,12 +839,13 @@ a.blog-card-author-name:hover { color: var(--color-primary-600); }
     .blog-content ul {
         @apply space-y-3 mb-6 list-none;
     }
+    /* Text flows normally (bold lead-ins stay inline); the bullet is positioned, not a flex item. */
     .blog-content ul li {
-        @apply flex items-start gap-3 text-lg text-gray-700 dark:text-gray-300;
+        @apply relative pl-5 text-lg text-gray-700 dark:text-gray-300;
     }
     .blog-content ul li::before {
         content: "";
-        @apply mt-2.5 w-1.5 h-1.5 rounded-full bg-primary-600 shrink-0;
+        @apply absolute left-0 top-[0.7em] w-1.5 h-1.5 rounded-full bg-primary-600;
     }
     .blog-content ol {
         @apply space-y-3 mb-6 list-decimal list-inside text-lg text-gray-700 dark:text-gray-300;
@@ -857,7 +858,7 @@ a.blog-card-author-name:hover { color: var(--color-primary-600); }
         @apply space-y-0 divide-y divide-gray-100 dark:divide-gray-700/60;
     }
     .blog-content ul.prompt-list li {
-        @apply flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6;
+        @apply flex flex-col gap-1 py-3 pl-0 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6;
     }
     .blog-content ul.prompt-list li::before {
         content: none;

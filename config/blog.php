@@ -32,7 +32,8 @@ return [
             'badge' => 'Students',
             'author' => 'Shakil Alam',
             'date' => '2026-10-18',
-            'minutes' => 6,
+            'updated' => '2026-10-20',
+            'minutes' => 9,
             'related' => ['journaling-prompts-for-students', 'how-to-keep-a-research-journal'],
         ],
         'how-to-keep-a-research-journal' => [
@@ -45,7 +46,8 @@ return [
             'badge' => 'Researchers',
             'author' => 'Shakil Alam',
             'date' => '2026-10-18',
-            'minutes' => 7,
+            'updated' => '2026-10-20',
+            'minutes' => 10,
             'related' => ['how-to-keep-a-study-journal', 'how-to-choose-a-private-journal-app'],
         ],
         'journaling-prompts-for-students' => [

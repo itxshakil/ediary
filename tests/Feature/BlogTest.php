@@ -49,7 +49,7 @@ final class BlogTest extends TestCase
         $this->get(route('blogs.how-to-keep-a-study-journal'))
             ->assertOk()
             ->assertSeeHtml('<meta property="og:type" content="article" />')
-            ->assertSee('"datePublished":"2026-10-18","dateModified":"2026-10-18"', escape: false);
+            ->assertSee('"datePublished":"2026-10-18","dateModified":"2026-10-20"', escape: false);
     }
 
     #[Test]
