@@ -10,9 +10,11 @@ use App\Diary;
 use App\Enums\Mood;
 use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\StoreDiaryRequest;
+use App\Http\Requests\UpdateDiaryRequest;
 use App\Services\Diary\DiaryAnalyticsService;
 use App\Services\Diary\DiaryExploreService;
 use App\Support\Analytics;
+use App\Support\TagList;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -20,6 +22,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\Response;
 use Throwable;
@@ -78,6 +81,43 @@ final class DiaryController extends Controller
 
             return back()->withErrors(['entry' => 'Failed to save entry. Please try again.'])->withInput();
         }
+    }
+
+    public function edit(Request $request, Diary $diary): Factory|View
+    {
+        $this->ensureOwnedBy($request, $diary);
+
+        return view('diary.edit', ['entry' => $diary->load('tags')]);
+    }
+
+    public function update(UpdateDiaryRequest $request, Diary $diary): RedirectResponse
+    {
+        $this->ensureOwnedBy($request, $diary);
+        $attributes = $request->validated();
+
+        DB::transaction(function () use ($diary, $attributes): void {
+            $diary->update([
+                'title' => $attributes['title'] ?? null,
+                'entry' => $attributes['entry'],
+                'mood' => $attributes['mood'] ?? null,
+                'privacy' => $attributes['privacy'] ?? $diary->privacy,
+            ]);
+            $diary->syncTags(TagList::parse($attributes['tags'] ?? null));
+        });
+
+        return redirect()->route('home')->with('success', 'Entry updated.');
+    }
+
+    public function destroy(Request $request, Diary $diary): RedirectResponse
+    {
+        $this->ensureOwnedBy($request, $diary);
+
+        DB::transaction(function () use ($diary): void {
+            $diary->tags()->detach();
+            $diary->delete();
+        });
+
+        return redirect()->route('home')->with('success', 'Entry deleted.');
     }
 
     public function search(Request $request): Factory|View
@@ -306,5 +346,13 @@ final class DiaryController extends Controller
             'Content-Type' => 'text/csv',
             'Content-Disposition' => 'attachment; filename="diary-export.csv"',
         ]);
+    }
+
+    /**
+     * Other people's entries answer 404 rather than 403, so their existence isn't revealed.
+     */
+    private function ensureOwnedBy(Request $request, Diary $diary): void
+    {
+        abort_unless($diary->user_id === $request->user()->id, Response::HTTP_NOT_FOUND);
     }
 }

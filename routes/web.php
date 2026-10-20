@@ -89,6 +89,9 @@ Route::middleware(['auth'])->group(function (): void {
     Route::get('/diaries', [DiaryController::class, 'index']);
     Route::get('/diaries/create', [DiaryController::class, 'create'])->name('diary.create');
     Route::post('/diaries', [DiaryController::class, 'store'])->name('diary.store');
+    Route::get('/diaries/{diary}/edit', [DiaryController::class, 'edit'])->name('diary.edit');
+    Route::put('/diaries/{diary}', [DiaryController::class, 'update'])->name('diary.update');
+    Route::delete('/diaries/{diary}', [DiaryController::class, 'destroy'])->name('diary.destroy');
 
     Route::post('/follow/{user:username}', [FollowController::class, 'store'])->name('follow.store');
 });

@@ -43,26 +43,32 @@ function autoResize(textarea) {
  * Behaviour shared by every <form data-entry-form>: draft autosave, offline saving,
  * Ctrl/Cmd+Enter to submit and a growing entry field. Forms react to `entry-form:reset`
  * for their own extra UI (tags, counters).
+ *
+ * data-entry-form="edit" changes an existing entry: it keeps the editing comforts but never
+ * touches the new-entry draft, and offline it asks to reconnect (edits can't be queued).
  */
 function setupEntryForm(form) {
     const title = form.elements.namedItem('title');
     const entry = form.elements.namedItem('entry');
     const offlineNote = form.querySelector('[data-offline-note]');
+    const editing = form.dataset.entryForm === 'edit';
     let dirty = false;
 
     entry.addEventListener('input', () => {
-        storage.set(DRAFT_KEYS.entry, entry.value);
+        if (!editing) storage.set(DRAFT_KEYS.entry, entry.value);
         dirty = entry.value.trim() !== '';
         autoResize(entry);
     });
-    title?.addEventListener('input', () => storage.set(DRAFT_KEYS.title, title.value));
+    title?.addEventListener('input', () => !editing && storage.set(DRAFT_KEYS.title, title.value));
 
-    if (!entry.value && !title?.value) {
+    if (!editing && !entry.value && !title?.value) {
         entry.value = storage.get(DRAFT_KEYS.entry) ?? '';
         if (title) title.value = storage.get(DRAFT_KEYS.title) ?? '';
     }
     // Let the form's own listeners (counters, sizing) see restored or server-filled text.
     entry.dispatchEvent(new Event('input'));
+    // The saved text of an entry being edited isn't an unsaved change.
+    if (editing) dirty = false;
 
     entry.addEventListener('keydown', (event) => {
         if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') {
@@ -85,11 +91,16 @@ function setupEntryForm(form) {
     form.addEventListener('submit', async (event) => {
         if (navigator.onLine) {
             dirty = false;
-            clearDraft();
+            if (!editing) clearDraft();
             return;
         }
 
         event.preventDefault();
+        if (editing) {
+            toast({ type: 'error', title: "You're offline", message: 'Reconnect to save your changes. Your edits are still in the form.' });
+            return;
+        }
+
         const fields = Object.fromEntries(new FormData(form));
 
         try {

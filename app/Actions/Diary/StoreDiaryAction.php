@@ -6,6 +6,7 @@ namespace App\Actions\Diary;
 
 use App\Diary;
 use App\Enums\Privacy;
+use App\Support\TagList;
 use App\User;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
@@ -32,7 +33,7 @@ final class StoreDiaryAction
                 'allow_comments' => (bool) ($attributes['allow_comments'] ?? true),
             ]);
 
-            $tags = $this->parseTags($attributes['tags'] ?? null);
+            $tags = TagList::parse($attributes['tags'] ?? null);
             if ($tags !== []) {
                 $diary->syncTags($tags);
             }
@@ -46,20 +47,5 @@ final class StoreDiaryAction
         });
 
         return $diary;
-    }
-
-    /**
-     * @return array<int, string>
-     */
-    private function parseTags(mixed $rawTags): array
-    {
-        if (! is_string($rawTags) || mb_trim($rawTags) === '') {
-            return [];
-        }
-
-        return array_values(array_filter(
-            array_map(mb_trim(...), explode(',', $rawTags)),
-            static fn (string $tag): bool => $tag !== '',
-        ));
     }
 }

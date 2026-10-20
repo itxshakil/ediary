@@ -97,6 +97,10 @@
                     read
                 </span>
 
+                @if (! $showOwner && $entry->user_id === auth()->id())
+                    <a href="{{ route('diary.edit', $entry) }}" class="diary-card-share-link">Edit</a>
+                @endif
+
                 @if (! $showOwner && in_array($entry->privacy->value, ['public', 'unlisted'], true))
                     <a href="{{ route('diary.public', $entry) }}" class="diary-card-share-link">Public page &rarr;</a>
                 @endif
