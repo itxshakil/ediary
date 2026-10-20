@@ -1,12 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Explore Public Diary Entries')
-@push('meta')
-    <link rel="canonical" href="{{ url('explore') }}" />
-    <meta
-        name="description"
-        content="Read diary entries that E-diary writers have chosen to share publicly. Every entry is private by default, so these were shared on purpose."
-    />
-@endpush
+@section('description', 'Read diary entries that Ediary writers have chosen to share publicly. Every entry is private by default, so these were shared on purpose.')
 @section('content')
     <div class="container mx-auto max-w-6xl px-4 py-8">
         <x-page-header

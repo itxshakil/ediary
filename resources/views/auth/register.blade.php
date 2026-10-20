@@ -1,36 +1,6 @@
 @extends('layouts.app')
-@section('title', 'Create Your Ediary Account – Join Free Today!')
-@push('meta')
-    <link rel="canonical" href="{{ url('register') }}" />
-    <meta
-        name="description"
-        content="Create your free E-Diary account with just an email. Private by default, encrypted at rest, unlimited entries, and works offline."
-    />
-    <meta
-        name="keywords"
-        content="create diary account, free diary registration, secure diary signup, E-Diary register, start journaling, shakil alam"
-    />
-    <meta name="subject" content="Register for your private E-Diary account" />
-    <meta name="language" content="en" />
-    <meta name="rating" content="General" />
-    <meta name="url" content="https://ediary.shakiltech.com/register" />
-    <meta name="identifier-URL" content="https://ediary.shakiltech.com/register" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@itxshakil" />
-    <meta name="twitter:title" content="Sign Up for E-Diary – Your Private Space for Thoughts" />
-    <meta
-        name="twitter:description"
-        content="Start your journaling journey with E-Diary. Private by default, encrypted at rest, and free. Create your account today!"
-    />
-    <meta name="twitter:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
-    <meta property="og:title" content="Sign Up for E-Diary – A Private Online Diary" />
-    <meta property="og:url" content="https://ediary.shakiltech.com/register" />
-    <meta property="og:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
-    <meta
-        property="og:description"
-        content="Private, distraction-free journaling with just an email. Create your free account today and start writing your story."
-    />
-@endpush
+@section('title', 'Create a Free Private Diary')
+@section('description', 'Create your free Ediary account with just an email. Private by default, encrypted at rest, unlimited entries, and works offline.')
 
 @push('scripts')
     <script>
@@ -93,9 +63,9 @@
         {
             "@@context": "https://schema.org",
             "@type": "WebPage",
-            "name": "E-Diary Registration",
+            "name": "Ediary Registration",
             "url": "https://ediary.shakiltech.com/register",
-            "description": "Start journaling privately with E-Diary. Create your free account today!",
+            "description": "Start journaling privately with Ediary. Create your free account today!",
             "breadcrumb": {
                 "@type": "BreadcrumbList",
                 "itemListElement": [
@@ -115,7 +85,7 @@
             },
             "publisher": {
                 "@type": "Organization",
-                "name": "E-Diary",
+                "name": "Ediary",
                 "url": "https://ediary.shakiltech.com",
                 "logo": {
                     "@type": "ImageObject",

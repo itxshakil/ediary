@@ -1,26 +1,6 @@
 @extends('layouts.app')
-@section('title', 'Private Study Journal for Students & Researchers')
-@push('meta')
-    <link rel="canonical" href="{{ url('for-students') }}" />
-    <meta
-        name="description"
-        content="A free, private journal for students and researchers. Keep study logs, research reflections, and exam-stress notes. Unlimited entries, works offline, email-only signup."
-    />
-    <meta
-        name="keywords"
-        content="journal for students, study journal, research journal, PhD reflective journal, private study notes, offline journal app, reflective journal university"
-    />
-    <meta name="subject" content="E-diary for students and researchers" />
-    <meta name="language" content="en" />
-    <meta name="rating" content="General" />
-    <meta property="og:title" content="E-diary - A Private Study Journal That Works Offline" />
-    <meta property="og:url" content="{{ url('for-students') }}" />
-    <meta property="og:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
-    <meta
-        property="og:description"
-        content="Study logs, research reflections, and exam-stress notes in one private journal. Free, unlimited, and it works offline."
-    />
-@endpush
+@section('title', 'Private Study Journal for Students')
+@section('description', 'A free, private journal for students and researchers: study logs, research reflections and exam-stress notes. Unlimited entries, and it works offline.')
 
 @push('head')
     <script type="application/ld+json">
@@ -30,10 +10,10 @@
             "mainEntity": [
                 {
                     "@type": "Question",
-                    "name": "Is E-diary free for students?",
+                    "name": "Is Ediary free for students?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Yes. E-diary is free with unlimited entries. You only need an email address to sign up."
+                        "text": "Yes. Ediary is free with unlimited entries. You only need an email address to sign up."
                     }
                 },
                 {
@@ -118,10 +98,10 @@
             </div>
         </div>
 
-        <!-- Why E-diary -->
+        <!-- Why Ediary -->
         <div class="bg-gray-50 py-16 dark:bg-gray-800/50">
             <div class="container mx-auto max-w-4xl px-4">
-                <h2 class="mb-10 text-center text-3xl font-bold text-gray-900 dark:text-white">Why E-diary</h2>
+                <h2 class="mb-10 text-center text-3xl font-bold text-gray-900 dark:text-white">Why Ediary</h2>
                 <ul class="grid gap-6 text-gray-700 md:grid-cols-2 dark:text-gray-300">
                     <li>
                         <strong class="text-gray-900 dark:text-white">Works offline.</strong>
@@ -141,7 +121,7 @@
                     </li>
                     <li>
                         <strong class="text-gray-900 dark:text-white">Install it like an app.</strong>
-                        Add E-diary to your phone or laptop home screen. No app store needed.
+                        Add Ediary to your phone or laptop home screen. No app store needed.
                     </li>
                     <li>
                         <strong class="text-gray-900 dark:text-white">Your notes stay yours.</strong>
@@ -218,8 +198,8 @@
             <h2 class="mb-8 text-3xl font-bold text-gray-900 dark:text-white">Questions</h2>
             <div class="space-y-8 text-gray-700 dark:text-gray-300">
                 <div>
-                    <h3 class="mb-2 text-xl font-bold text-gray-900 dark:text-white">Is E-diary free for students?</h3>
-                    <p>Yes. E-diary is free with unlimited entries. You only need an email address to sign up.</p>
+                    <h3 class="mb-2 text-xl font-bold text-gray-900 dark:text-white">Is Ediary free for students?</h3>
+                    <p>Yes. Ediary is free with unlimited entries. You only need an email address to sign up.</p>
                 </div>
                 <div>
                     <h3 class="mb-2 text-xl font-bold text-gray-900 dark:text-white">

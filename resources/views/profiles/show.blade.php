@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('robots', 'noindex, follow')
 
-@section('title', $profile->name . "'s Profile | E-diary")
+@section('title', $profile->name . ' on Ediary')
 
 @push('head')
     <script type="application/ld+json">
@@ -31,14 +31,7 @@
     </script>
 @endpush
 
-@push('meta')
-    <link rel="canonical" href="{{ request()->fullUrl() }}" />
-    <meta name="description" content="{{ $profile->name }}'s profile — {{ $profile->bio }}" />
-    <meta property="og:title" content="{{ $profile->name }}'s Profile" />
-    <meta property="og:description" content="{{ $profile->bio }}" />
-    <meta property="og:image" content="{{ $profile->image }}" />
-    <meta name="twitter:card" content="summary" />
-@endpush
+@section('description', mb_trim($profile->name . "'s profile on Ediary. " . $profile->bio))
 
 @section('content')
     <div class="min-h-screen bg-linear-to-br from-gray-50/80 to-gray-100 dark:from-gray-900/80 dark:to-gray-800">

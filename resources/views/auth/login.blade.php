@@ -1,45 +1,15 @@
 @extends('layouts.app')
-@section('title', 'Login to your Ediary account')
-@push('meta')
-    <link rel="canonical" href="{{ url('login') }}" />
-    <meta
-        name="description"
-        content="Log in to E-Diary and keep writing your private thoughts. Private by default and encrypted at rest."
-    />
-    <meta
-        name="keywords"
-        content="secure diary login, E-Diary secure login, privacy-friendly login, diary app login, shakil alam"
-    />
-    <meta name="subject" content="Log in to access your private diary" />
-    <meta name="language" content="en" />
-    <meta name="rating" content="General" />
-    <meta name="url" content="https://ediary.shakiltech.com/login" />
-    <meta name="identifier-URL" content="https://ediary.shakiltech.com/login" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@itxshakil" />
-    <meta name="twitter:title" content="Log in to E-Diary – Your Private Space for Thoughts" />
-    <meta
-        name="twitter:description"
-        content="Log in to E-Diary, a private, encrypted space to track your thoughts and goals."
-    />
-    <meta name="twitter:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
-    <meta property="og:title" content="Log in to E-Diary – Your Private Space for Thoughts" />
-    <meta property="og:url" content="https://ediary.shakiltech.com/login" />
-    <meta property="og:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
-    <meta
-        property="og:description"
-        content="E-Diary is privacy-friendly and encrypted at rest. Log in now to continue your journey!"
-    />
-@endpush
+@section('title', 'Log in to Ediary')
+@section('description', 'Log in to Ediary and keep writing your private thoughts. Private by default and encrypted at rest.')
 
 @push('head')
     <script type="application/ld+json">
         {
             "@@context": "https://schema.org",
             "@type": "WebPage",
-            "name": "E-Diary Login",
+            "name": "Ediary Login",
             "url": "https://ediary.shakiltech.com/login",
-            "description": "Log in to E-Diary, a private, encrypted space to track your thoughts and goals.",
+            "description": "Log in to Ediary, a private, encrypted space to track your thoughts and goals.",
             "breadcrumb": {
                 "@type": "BreadcrumbList",
                 "itemListElement": [
@@ -59,7 +29,7 @@
             },
             "publisher": {
                 "@type": "Organization",
-                "name": "E-Diary",
+                "name": "Ediary",
                 "url": "https://ediary.shakiltech.com",
                 "logo": {
                     "@type": "ImageObject",

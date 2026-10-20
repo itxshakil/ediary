@@ -29,7 +29,7 @@ final class BlogTest extends TestCase
         $response = $this->get('/blog');
 
         $response->assertStatus(200);
-        $response->assertSee('Latest Blog Article');
+        $response->assertSeeHtml('<title>Journaling Guides, Prompts and Diary Tips | Ediary</title>');
         $response->assertSee('8 Good Things That Happen When You Start Journaling');
         $response->assertSee('How to Start Writing a Diary');
         $response->assertSee('"dateModified":"2026-10-18"', escape: false);
@@ -68,7 +68,7 @@ final class BlogTest extends TestCase
         $response = $this->get(route('blogs.these-8-good-things'));
 
         $response->assertStatus(200);
-        $response->assertSee('8 Good Things Will Happen When You Start Writing Diaries');
+        $response->assertSeeHtml('<title>8 Good Things That Happen When You Start Journaling | Ediary</title>');
         $response->assertSee('blog-content');
     }
 
@@ -88,7 +88,7 @@ final class BlogTest extends TestCase
         $response = $this->get(route('blogs.goal-setting-for-success'));
 
         $response->assertStatus(200);
-        $response->assertSee('Goal Setting for Success');
+        $response->assertSeeHtml('<title>Goal Setting: 5 Steps to Design the Life You Want | Ediary</title>');
         $response->assertSee('blog-content');
     }
 

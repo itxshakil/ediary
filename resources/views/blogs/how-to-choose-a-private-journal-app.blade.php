@@ -7,7 +7,7 @@
 
     <p>
         A journal holds the things you wouldn't say out loud, so it's worth five minutes to check what an app actually
-        does with your words. These seven questions cover what matters. We've answered each one for E-diary too,
+        does with your words. These seven questions cover what matters. We've answered each one for Ediary too,
         honestly, including where other apps make a different trade-off.
     </p>
 
@@ -26,7 +26,7 @@
     </ul>
     <p>
         Neither is wrong. Pick the one that matches your biggest fear: someone reading your journal, or losing it.
-        <strong>E-diary uses encryption at rest</strong> (AES-256), because we think losing years of writing to a
+        <strong>Ediary uses encryption at rest</strong> (AES-256), because we think losing years of writing to a
         forgotten password is the more common disaster. Our
         <a href="{{ url('/security') }}">security page</a>
         explains the details.
@@ -36,45 +36,45 @@
     <p>
         Often only the entry text is encrypted, while titles, tags, and dates are stored as plain text so search and
         filters work. That's a reasonable design, but you should know about it so you can keep sensitive details out of
-        titles. In E-diary, entry text is encrypted, and titles, moods, tags, and dates are not.
+        titles. In Ediary, entry text is encrypted, and titles, moods, tags, and dates are not.
     </p>
 
     <h2>3. How much personal data do I have to give?</h2>
     <p>
         A journal doesn't need your name, birthday, phone number, or contacts. The less you hand over, the less there is
-        to leak. E-diary asks for an email address and a password, and nothing else.
+        to leak. Ediary asks for an email address and a password, and nothing else.
     </p>
 
     <h2>4. How does the company make money?</h2>
     <p>
         If an app is free and shows ads, your attention or data is part of the product. Look for a clear statement that
-        your data is never sold or used for advertising. E-diary has no ads and never sells data.
+        your data is never sold or used for advertising. Ediary has no ads and never sells data.
     </p>
 
     <h2>5. Is everything private by default?</h2>
     <p>
         Some journal apps include social features. That's fine if sharing is opt-in for each entry. Check that a new
-        entry starts private and that nothing is shared unless you choose it. In E-diary every entry starts private, and
+        entry starts private and that nothing is shared unless you choose it. In Ediary every entry starts private, and
         you can choose to share individual entries with followers, by link, or publicly.
     </p>
 
     <h2>6. Does it work offline?</h2>
     <p>
         If you write on trains, planes, or anywhere with patchy signal, offline support matters. Check whether offline
-        entries sync automatically once you're back online. E-diary works offline in the browser and syncs when you
+        entries sync automatically once you're back online. Ediary works offline in the browser and syncs when you
         reconnect.
     </p>
 
     <h2>7. Can I take my journal with me?</h2>
     <p>
         You should be able to export everything in a standard format at any time. If you can't leave, you don't really
-        own your journal. E-diary lets you export all of your entries whenever you like.
+        own your journal. Ediary lets you export all of your entries whenever you like.
     </p>
 
     <h2>Bonus: can you check the claims?</h2>
     <p>
         Open-source apps let anyone inspect how data is handled, which is a strong sign that the privacy claims are
-        real. E-diary's code is
+        real. Ediary's code is
         <a href="https://github.com/itxshakil/ediary" rel="noopener">public on GitHub</a>.
     </p>
 

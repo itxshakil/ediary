@@ -1,54 +1,24 @@
 @extends('layouts.app')
-@section('title', 'Frequently Asked Questions')
+@section('title', 'Ediary FAQ: Privacy, Offline Writing and Your Entries')
 
-@push('meta')
-    <link rel="canonical" href="{{ url('faq') }}" />
-    <meta
-        name="description"
-        content="Find answers to the most common questions about E-diary. Learn how to create a diary, print entries, manage privacy, and more. Start journaling today!"
-    />
-    <meta
-        name="keywords"
-        content="E-diary FAQ, create a diary, print diary entries, privacy on E-diary, diary questions, online diary, E-diary help, diary support"
-    />
-    <meta name="subject" content="Frequently Asked Questions about E-diary" />
-    <meta name="language" content="en" />
-    <meta name="rating" content="General" />
-    <meta name="url" content="https://ediary.shakiltech.com/faq" />
-    <meta name="identifier-URL" content="https://ediary.shakiltech.com/faq" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@itxshakil" />
-    <meta name="twitter:title" content="Frequently Asked Questions | E-diary" />
-    <meta
-        name="twitter:description"
-        content="Get answers to common questions about E-diary, including how to create a diary, manage privacy, and print your entries. Visit our support center for more info."
-    />
-    <meta name="twitter:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
-    <meta property="og:title" content="Frequently Asked Questions | E-diary" />
-    <meta property="og:url" content="https://ediary.shakiltech.com/faq" />
-    <meta property="og:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
-    <meta
-        property="og:description"
-        content="Find answers to common E-diary questions, from creating a diary to managing privacy and printing entries. Get started today!"
-    />
-@endpush
+@section('description', 'Answers to common questions about Ediary: who can see your entries, how privacy works, printing your diary, and why signup needs only an email.')
 
 @push('head')
     <script type="application/ld+json">
         {
             "@@context": "https://schema.org",
             "@type": "FAQPage",
-            "name": "Frequently Asked Questions | E-diary",
-            "headline": "Frequently Asked Questions about E-diary",
-            "description": "Find answers to frequently asked questions about E-diary, including how to create a diary, print entries, manage privacy, and more.",
+            "name": "Frequently Asked Questions | Ediary",
+            "headline": "Frequently Asked Questions about Ediary",
+            "description": "Find answers to frequently asked questions about Ediary, including how to create a diary, print entries, manage privacy, and more.",
             "url": "https://ediary.shakiltech.com/faq",
             "mainEntity": [
                 {
                     "@type": "Question",
-                    "name": "What is E-diary?",
+                    "name": "What is Ediary?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "E-diary is a free platform that helps you track your past, reflect on your present, and make predictions for the future. It allows you to document your life and relive memories with ease."
+                        "text": "Ediary is a free platform that helps you track your past, reflect on your present, and make predictions for the future. It allows you to document your life and relive memories with ease."
                     }
                 },
                 {
@@ -80,7 +50,7 @@
                     "name": "How does privacy work?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "All entries in E-diary are encrypted at rest with AES-256, so a leaked database or backup does not expose readable entries. Entries are private by default, and we never sell your data or show ads. Our security page explains exactly how it works."
+                        "text": "All entries in Ediary are encrypted at rest with AES-256, so a leaked database or backup does not expose readable entries. Entries are private by default, and we never sell your data or show ads. Our security page explains exactly how it works."
                     }
                 },
                 {
@@ -119,13 +89,13 @@
                 <div class="group">
                     <h3 class="mb-4 flex items-center gap-3 text-2xl font-bold text-gray-900 dark:text-white">
                         <span class="bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400 flex h-8 w-8 items-center justify-center rounded-xl text-sm">01</span>
-                        What is E-diary?
+                        What is Ediary?
                     </h3>
                     <div class="pl-11">
                         <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-                            E-diary is a <strong>free online diary platform</strong> that helps you document your life
+                            Ediary is a <strong>free online diary platform</strong> that helps you document your life
                             easily. Write notes from your phone, tablet, or laptop and revisit them anytime to see how
-                            you’ve grown. Whether it’s memories, predictions, or simple thoughts — E-diary keeps them
+                            you’ve grown. Whether it’s memories, predictions, or simple thoughts — Ediary keeps them
                             safe and accessible.
                         </p>
                     </div>

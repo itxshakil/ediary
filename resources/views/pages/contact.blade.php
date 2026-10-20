@@ -1,46 +1,16 @@
 @extends('layouts.app')
-@section('title', 'Contact Us – E-Diary')
+@section('title', 'Contact Ediary')
 
-@push('meta')
-    <link rel="canonical" href="{{ url('contact') }}" />
-    <meta
-        name="description"
-        content="Get in touch with the E-diary support team for bug reports, feature requests, or general inquiries. Use our contact form to reach us quickly and easily."
-    />
-    <meta
-        name="keywords"
-        content="contact E-diary, support, customer service, feature requests, bug reports, contact form, inquiries"
-    />
-    <meta name="subject" content="Contact Us - E-diary" />
-    <meta name="language" content="en" />
-    <meta name="rating" content="General" />
-    <meta name="url" content="https://ediary.shakiltech.com/contact" />
-    <meta name="identifier-URL" content="https://ediary.shakiltech.com/contact" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@itxshakil" />
-    <meta name="twitter:title" content="Contact Us - E-diary" />
-    <meta
-        name="twitter:description"
-        content="Reach out to the E-diary support team for assistance, bug reports, feature requests, or any other inquiries. We're here to help!"
-    />
-    <meta name="twitter:image" content="https://ediary.shakiltech.com/icons/android-icon-192x192.png" />
-    <meta property="og:title" content="Contact Us - E-diary" />
-    <meta property="og:url" content="https://ediary.shakiltech.com/contact" />
-    <meta property="og:image" content="https://ediary.shakiltech.com/icons/android-icon-192x192.png" />
-    <meta
-        property="og:description"
-        content="Need assistance or have a suggestion? Contact the E-diary support team via our easy-to-use contact form. We're happy to help!"
-    />
-@endpush
+@section('description', 'Questions, bug reports or feature ideas? Send a message about Ediary and we\'ll get back to you as soon as we can.')
 
 @push('head')
     <script type="application/ld+json">
         {
             "@@context": "https://schema.org",
             "@type": "WebPage",
-            "name": "Contact Us - E-diary",
+            "name": "Contact Us - Ediary",
             "url": "https://ediary.shakiltech.com/contact",
-            "description": "Contact the E-diary support team for bug reports, feature requests, suggestions, or inquiries. Use the contact form for quick support.",
+            "description": "Contact the Ediary support team for bug reports, feature requests, suggestions, or inquiries. Use the contact form for quick support.",
             "mainEntity": {
                 "@type": "ContactPage",
                 "contactOption": "support",
@@ -56,7 +26,7 @@
                     "urlTemplate": "https://ediary.shakiltech.com/contact",
                     "actionApplication": {
                         "@type": "WebApplication",
-                        "name": "E-diary Contact Form",
+                        "name": "Ediary Contact Form",
                         "operatingSystem": "All",
                         "applicationCategory": "BusinessApplication",
                         "offers": {

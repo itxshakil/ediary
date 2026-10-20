@@ -7,27 +7,7 @@
         <h3 class="mb-8 text-2xl font-bold text-gray-900 dark:text-white">Related Articles</h3>
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
             @foreach ($relatedPosts as $slug => $article)
-                <div class="blog-card group">
-                    <div class="blog-card-body">
-                        <h4 class="blog-card-title">
-                            <a href="{{ url("blogs/{$slug}") }}">{{ $article['title'] }}</a>
-                        </h4>
-                        <p class="blog-card-excerpt">{{ Str::limit($article['description'], 120) }}</p>
-                    </div>
-                    <div class="blog-card-footer">
-                        <div class="blog-card-author">
-                            <span class="blog-card-author-label">Written By</span>
-                            <span class="blog-card-author-name">{{ $article['author'] }}</span>
-                        </div>
-                        <a
-                            href="{{ url("blogs/{$slug}") }}"
-                            class="blog-card-arrow"
-                            aria-label="Read {{ $article['title'] }}"
-                        >
-                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                        </a>
-                    </div>
-                </div>
+                @include('blogs._card', ['slug' => $slug, 'post' => $article, 'heading' => 'h4', 'badge' => false, 'limit' => 120])
             @endforeach
         </div>
     </div>

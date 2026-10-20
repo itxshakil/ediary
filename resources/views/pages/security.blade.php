@@ -1,19 +1,6 @@
 @extends('layouts.app')
-@section('title', 'Security & Privacy at E-diary')
-@push('meta')
-    <link rel="canonical" href="{{ url('security') }}" />
-    <meta
-        name="description"
-        content="How E-diary protects your journal: AES-256 encryption at rest, private by default, email-only signup, offline writing, and open-source code you can check yourself."
-    />
-    <meta
-        name="keywords"
-        content="E-diary security, encrypted diary, private journal, diary encryption, online diary privacy, open source diary"
-    />
-    <meta name="subject" content="How E-diary keeps your journal private" />
-    <meta name="language" content="en" />
-    <meta name="rating" content="General" />
-@endpush
+@section('title', 'How Ediary Keeps Your Diary Private and Secure')
+@section('description', 'How Ediary protects your journal: AES-256 encryption at rest, private by default, email-only signup, offline writing and open-source code you can check.')
 @section('content')
     <div class="bg-white dark:bg-gray-900">
         <x-page-hero
@@ -64,7 +51,7 @@
                     hold the key, a forgotten password means your diary is gone forever.
                 </p>
                 <p class="mb-6 leading-relaxed">
-                    It also means E-diary is not end-to-end encrypted. Our server decrypts an entry when you open it, so
+                    It also means Ediary is not end-to-end encrypted. Our server decrypts an entry when you open it, so
                     in principle the service could read it. We don't, and we built the app so that nothing on our side
                     needs to look at your writing.
                 </p>
@@ -102,7 +89,7 @@
                 <p class="mb-6 leading-relaxed">
                     The Dictate button uses your browser's built-in speech recognition. Some browsers, including Chrome,
                     send your voice to their own speech service (Google, for Chrome) to turn it into text, so dictation
-                    needs an internet connection. E-diary never receives or stores audio: only the text that appears in
+                    needs an internet connection. Ediary never receives or stores audio: only the text that appears in
                     your entry is saved, and it is encrypted like everything else you type. If you'd rather keep your
                     voice off third-party services, simply type instead.
                 </p>

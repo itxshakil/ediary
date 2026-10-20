@@ -1,45 +1,19 @@
 @extends('layouts.app')
 @section('title', 'Verify Your Email Address')
 
-@push('meta')
-    <link rel="canonical" href="{{ url('email/verify') }}" />
-    <meta
-        name="description"
-        content="Verify your email to activate your secure E-Diary account. Your private, encrypted, and distraction-free space for your thoughts is one click away."
-    />
-    <meta name="keywords" content="email verification, secure diary, verify account, private notes app, E-Diary" />
-    <meta name="subject" content="Verify your E-Diary account email" />
-    <meta name="language" content="en" />
-    <meta name="rating" content="General" />
-    <meta name="url" content="{{ url('email/verify') }}" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@itxshakil" />
-    <meta name="twitter:title" content="Verify Your Email – Activate Your Secure E-Diary Account" />
-    <meta
-        name="twitter:description"
-        content="Just one step left! Verify your email to activate your encrypted E-Diary account and start writing."
-    />
-    <meta name="twitter:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
-    <meta property="og:title" content="Verify Your Email – Activate Your Secure E-Diary Account" />
-    <meta property="og:url" content="{{ url('email/verify') }}" />
-    <meta property="og:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
-    <meta
-        property="og:description"
-        content="Complete your signup. Verify your email to unlock your fully private and secure E-Diary account."
-    />
-@endpush
+@section('description', 'Verify your email to activate your secure Ediary account. Your private, encrypted, and distraction-free space for your thoughts is one click away.')
 
 @push('head')
     <script type="application/ld+json">
                 {
                     "@@context": "https://schema.org",
             "@type": "WebPage",
-            "name": "Email Verification – E-Diary",
+            "name": "Email Verification – Ediary",
             "url": "{{ url('email/verify') }}",
-            "description": "Verify your email to activate your secure and encrypted E-Diary account.",
+            "description": "Verify your email to activate your secure and encrypted Ediary account.",
             "publisher": {
                 "@type": "Organization",
-                "name": "E-Diary",
+                "name": "Ediary",
                 "url": "https://ediary.shakiltech.com",
                 "logo": {
                     "@type": "ImageObject",

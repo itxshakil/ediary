@@ -1,12 +1,6 @@
 @extends('layouts.app')
-@section('title', 'About E-diary App')
-@push('meta')
-    <link rel="canonical" href="{{ url('about') }}" />
-    <meta
-        name="description"
-        content="Why E-diary exists: a free, private online diary that works offline, asks for nothing but an email, and never sells your data."
-    />
-@endpush
+@section('title', 'About Ediary: A Free, Private Online Diary')
+@section('description', 'Why Ediary exists: a free, private online diary that works offline, asks for nothing but an email, and never sells your data.')
 @section('content')
     <div class="bg-white dark:bg-gray-900">
         <x-page-hero

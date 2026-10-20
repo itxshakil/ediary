@@ -82,7 +82,7 @@
         Your journal will hold unpublished ideas and honest doubts, so privacy matters. It also needs to be there when
         you are: in the archive, the field, or on a train. Look for something private by default, searchable, taggable,
         that works offline and lets you export everything.
-        <a href="{{ url('/for-students') }}">E-diary</a> does all of that for free, and our
+        <a href="{{ url('/for-students') }}">Ediary</a> does all of that for free, and our
         <a href="{{ url('/security') }}">security page</a> explains exactly how entries are protected.
     </p>
 @endsection

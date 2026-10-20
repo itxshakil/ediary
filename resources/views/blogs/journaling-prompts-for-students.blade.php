@@ -76,7 +76,7 @@
         Keep your prompts somewhere you'll see them, and write at the same time each day, for example right after your
         last study session. Tag your entries, like #exams or #reflection, so you can look back on a theme later. If you
         want a private place to write,
-        <a href="{{ url('/for-students') }}">E-diary is free for students</a>, works offline, and keeps every entry
+        <a href="{{ url('/for-students') }}">Ediary is free for students</a>, works offline, and keeps every entry
         private by default. For a structured daily habit, try our
         <a href="/blogs/how-to-keep-a-study-journal">study journal template</a>.
     </p>

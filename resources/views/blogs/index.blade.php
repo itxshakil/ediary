@@ -1,39 +1,7 @@
 @extends('layouts.app')
-@section('title')
-    Latest Blog Article
-@endsection
+@section('title', 'Journaling Guides, Prompts and Diary Tips')
 
-@push('meta')
-    <link rel="canonical" href="{{ url('blog') }}" />
-    <meta
-        name="description"
-        content="Discover how to start writing a diary and unlock creativity, self-expression, and inspiration. Read articles from top bloggers and experts on diary writing!"
-    />
-    <meta
-        name="keywords"
-        content="diary writing, how to write a diary, benefits of diary writing, journaling tips, personal diary, creative writing, self-expression, diary app"
-    />
-    <meta name="subject" content="Learn to Write a Diary and Explore Benefits of Journaling | E-Diary" />
-    <meta name="language" content="en" />
-    <meta name="rating" content="General" />
-    <meta name="url" content="https://ediary.shakiltech.com/blog" />
-    <meta name="identifier-URL" content="https://ediary.shakiltech.com/blog" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@itxshakil" />
-    <meta name="twitter:title" content="Discover Diary Writing Tips and Benefits – E-Diary Articles" />
-    <meta
-        name="twitter:description"
-        content="Explore insightful articles on how to start a diary, the benefits of journaling, and expert tips to make the most of your writing."
-    />
-    <meta name="twitter:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
-    <meta property="og:title" content="Diary Writing Tips and Benefits – Explore Expert Articles on E-Diary" />
-    <meta property="og:url" content="https://ediary.shakiltech.com/blog" />
-    <meta property="og:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
-    <meta
-        property="og:description"
-        content="Learn how to write a diary, explore the benefits of journaling, and read articles from top bloggers and experts. Start your journaling journey today!"
-    />
-@endpush
+@section('description', 'Guides to starting a diary, journaling prompts for students, keeping study and research journals, and choosing a private journal app.')
 
 @push('head')
     @php
@@ -46,12 +14,12 @@
                 '@type' => 'Blog',
                 '@id' => url('blog'),
                 'mainEntityOfPage' => url('blog'),
-                'name' => 'E-Diary Articles',
+                'name' => 'Ediary Articles',
                 'description' => 'Articles on starting and keeping a diary, journaling for students and researchers, and choosing a private journal.',
                 'publisher' => [
                     '@type' => 'Organization',
                     '@id' => url('/'),
-                    'name' => 'E-Diary',
+                    'name' => 'Ediary',
                     'logo' => ['@type' => 'ImageObject', 'url' => url('/icons/android-icon-192x192.png')],
                 ],
                 'blogPost' => collect($posts)->filter(fn (array $post): bool => $post['listed'] ?? true)->map(fn (array $post, string $slug) => [
@@ -75,41 +43,20 @@
         {{-- Hero --}}
         <div class="mb-16 text-center">
             <p class="text-primary-500 dark:text-primary-400 mb-3 text-xs font-semibold tracking-widest uppercase">
-                E-Diary Journal
+                Ediary Journal
             </p>
             <h1 class="mb-5 text-4xl leading-tight font-extrabold text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-                Latest Articles
+                Journaling Guides and Diary Tips
             </h1>
             <p class="mx-auto max-w-xl text-lg leading-relaxed text-gray-500 dark:text-gray-400">
-                Discover tips and insights on journaling, personal growth, and documenting your life journey.
+                How to start and keep a diary, prompts when you're stuck, and journals for study and research.
             </p>
         </div>
 
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             @foreach (config('blog.posts') as $slug => $post)
                 @continue(! ($post['listed'] ?? true))
-                <div class="blog-card group">
-                    <div class="blog-card-body">
-                        <span class="blog-badge blog-badge-{{ $post['badge_color'] ?? 'blue' }}">{{ $post['badge'] }}</span>
-                        <h2 class="blog-card-title">
-                            <a href="{{ url("blogs/{$slug}") }}">{{ $post['title'] }}</a>
-                        </h2>
-                        <p class="blog-card-excerpt">{{ $post['description'] }}</p>
-                    </div>
-                    <div class="blog-card-footer">
-                        <div class="blog-card-author">
-                            <span class="blog-card-author-label">Written By</span>
-                            <span class="blog-card-author-name">{{ $post['author'] }}</span>
-                        </div>
-                        <a
-                            href="{{ url("blogs/{$slug}") }}"
-                            class="blog-card-arrow"
-                            aria-label="Read {{ $post['title'] }}"
-                        >
-                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                        </a>
-                    </div>
-                </div>
+                @include('blogs._card', ['slug' => $slug, 'post' => $post])
             @endforeach
         </div>
 

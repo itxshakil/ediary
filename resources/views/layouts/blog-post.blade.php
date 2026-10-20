@@ -10,20 +10,7 @@
 @section('title', $headline)
 @section('og_type', 'article')
 
-@push('meta')
-    <link rel="canonical" href="{{ $url }}" />
-    <meta name="description" content="{{ $post['meta_description'] ?? $post['description'] }}" />
-    <meta name="keywords" content="{{ implode(', ', $post['keywords'] ?? []) }}" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@itxshakil" />
-    <meta name="twitter:title" content="{{ $headline }}" />
-    <meta name="twitter:description" content="{{ $post['description'] }}" />
-    <meta name="twitter:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
-    <meta property="og:title" content="{{ $headline }}" />
-    <meta property="og:url" content="{{ $url }}" />
-    <meta property="og:image" content="{{ url('/icons/android-icon-192x192.png') }}" />
-    <meta property="og:description" content="{{ $post['description'] }}" />
-@endpush
+@section('description', $post['meta_description'] ?? $post['description'])
 
 @push('head')
     <script type="application/ld+json">
@@ -35,12 +22,13 @@
                 'description' => $post['description'],
                 'url' => $url,
                 'mainEntityOfPage' => $url,
+                'image' => asset('images/og/ediary.png'),
                 'datePublished' => $post['date'],
                 'dateModified' => $post['updated'] ?? $post['date'],
                 'author' => ['@type' => 'Person', 'name' => $post['author'], 'url' => url('/')],
                 'publisher' => [
                     '@type' => 'Organization',
-                    'name' => 'E-Diary',
+                    'name' => 'Ediary',
                     'url' => url('/'),
                     'logo' => ['@type' => 'ImageObject', 'url' => url('/icons/android-icon-192x192.png')],
                 ],

@@ -50,7 +50,7 @@
     <h2>Organise by course with tags</h2>
     <p>
         Tag every entry with its course or module. When revision starts, open one tag and you have the full history of
-        that subject: what you learned, in what order, and where you struggled. In E-diary you can tap any tag on an
+        that subject: what you learned, in what order, and where you struggled. In Ediary you can tap any tag on an
         entry to see every entry with that tag.
     </p>
 
@@ -81,7 +81,7 @@
     <h2>Getting started</h2>
     <p>
         Pick tonight's study session and write one entry using the template above. If you want a place for it,
-        <a href="{{ url('/for-students') }}">E-diary is free for students</a>, works offline, and keeps every entry
+        <a href="{{ url('/for-students') }}">Ediary is free for students</a>, works offline, and keeps every entry
         private by default.
     </p>
 @endsection

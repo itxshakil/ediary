@@ -41,15 +41,35 @@
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#101828" media="(prefers-color-scheme: dark)" />
 
+    @php
+        // Section values are already escaped by Blade, so they are printed raw below.
+        $pageTitle = mb_trim($__env->yieldContent('title'));
+        $pageTitle = match (true) {
+            $pageTitle === '' => 'Ediary',
+            str_contains($pageTitle, 'Ediary') => $pageTitle,
+            default => $pageTitle . ' | Ediary',
+        };
+        $description = mb_trim($__env->yieldContent('description'));
+        $shareImage = mb_trim($__env->yieldContent('share_image')) ?: asset('images/og/ediary.png');
+    @endphp
+
+    <title>{!! $pageTitle !!}</title>
     @hasSection('robots')
         <meta name="robots" content="@yield('robots')" />
     @endif
+    <link rel="canonical" href="{{ url()->current() }}" />
+    @if ($description !== '')
+        <meta name="description" content="{!! $description !!}" />
+        <meta property="og:description" content="{!! $description !!}" />
+    @endif
+    <meta property="og:title" content="{!! $pageTitle !!}" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:image" content="{{ $shareImage }}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@itxshakil" />
     @stack('meta')
-
-    <title>
-        @yield('title', config('app.name'))
-        | Ediary
-    </title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -166,7 +186,7 @@
                 if (hadController) {
                     window.toast?.({
                         type: 'info',
-                        title: 'E-diary was updated',
+                        title: 'Ediary was updated',
                         message: 'Refresh the page when you are ready to get the latest version.',
                     });
                 }

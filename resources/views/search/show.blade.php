@@ -3,10 +3,7 @@
 
 @section('robots', 'noindex, follow')
 
-@push('meta')
-    <link rel="canonical" href="{{ url('/search') }}" />
-    <meta name="description" content="Find people who share their diary entries on Ediary." />
-@endpush
+@section('description', 'Find people who share their diary entries on Ediary.')
 
 @section('content')
     <div class="min-h-screen bg-linear-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">

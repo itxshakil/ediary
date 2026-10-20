@@ -1,7 +1,42 @@
 @extends('layouts.app')
-@section('title', 'Ediary - A Private Online Diary That Works Offline')
-@push('meta')
-    @include('includes.meta')
+@section('title', 'Private Online Diary That Works Offline')
+@section('description', 'Ediary is a free, private online diary that works offline. Unlimited entries, encrypted at rest, private by default, and just an email to sign up.')
+@push('head')
+    <script type="application/ld+json">
+        {!!
+            json_encode([
+                '@context' => 'https://schema.org',
+                '@graph' => [
+                    [
+                        // WebSite name/alternateName feed the site name Google shows above results.
+                        '@type' => 'WebSite',
+                        '@id' => url('/') . '#website',
+                        'name' => 'Ediary',
+                        'alternateName' => ['E-diary', 'Ediary App'],
+                        'url' => url('/'),
+                    ],
+                    [
+                        '@type' => 'WebApplication',
+                        'name' => 'Ediary',
+                        'url' => url('/'),
+                        'description' => 'A free, private online diary that works offline. Unlimited entries, encrypted at rest and private by default.',
+                        'applicationCategory' => 'LifestyleApplication',
+                        'operatingSystem' => 'Any',
+                        'browserRequirements' => 'Requires a modern web browser. Installable as an app.',
+                        'isAccessibleForFree' => true,
+                        'offers' => ['@type' => 'Offer', 'price' => 0, 'priceCurrency' => 'USD'],
+                        'image' => url('/icons/android-icon-192x192.png'),
+                        'screenshot' => [
+                            url('/images/screenshots/ediary-welcome.png'),
+                            url('/images/screenshots/ediary-features.png'),
+                        ],
+                        'author' => ['@type' => 'Person', 'name' => 'Shakil Alam', 'url' => 'https://github.com/itxshakil'],
+                        'isPartOf' => ['@id' => url('/') . '#website'],
+                    ],
+                ],
+            ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG)
+        !!}
+    </script>
 @endpush
 
 @push('scripts')
@@ -96,14 +131,14 @@
 
                 <!-- Main Headline -->
                 <h1 class="mb-4 text-4xl leading-tight font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-                    Your Life,<br class="hidden sm:block" />
-                    <span class="bg-gradient-to-r from-yellow-200 via-yellow-300 to-yellow-200 bg-clip-text text-transparent">Your Story</span>
+                    A private online diary<br class="hidden sm:block" />
+                    <span class="bg-gradient-to-r from-yellow-200 via-yellow-300 to-yellow-200 bg-clip-text text-transparent">that works offline</span>
                 </h1>
 
                 <!-- Subheadline -->
                 <p class="text-primary-100 mx-auto mb-8 max-w-3xl text-xl leading-relaxed md:text-2xl">
-                    Write freely, even offline. A private journal with unlimited entries, encrypted at rest, and nothing
-                    but an email to sign up.
+                    Your life, your story. Unlimited entries, encrypted at rest, private by default, and nothing but an
+                    email to sign up.
                 </p>
 
                 @guest
@@ -380,11 +415,9 @@
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="mb-12 flex items-center justify-between">
                 <div>
-                    <h2 class="mb-2 text-3xl font-bold text-gray-900 md:text-4xl dark:text-white">
-                        Insights & Inspiration
-                    </h2>
+                    <h2 class="mb-2 text-3xl font-bold text-gray-900 md:text-4xl dark:text-white">From the blog</h2>
                     <p class="text-gray-600 dark:text-gray-400">
-                        Discover tips on journaling, productivity, and personal growth.
+                        Guides to keeping a diary, journaling prompts, and journals for study and research.
                     </p>
                 </div>
                 <a
@@ -396,82 +429,10 @@
                 </a>
             </div>
 
-            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                <!-- Article 1 -->
-                <a
-                    href="{{ route('blogs.goal-setting-for-success') }}"
-                    class="group overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:shadow-xl dark:bg-gray-800"
-                >
-                    <div class="p-8">
-                        <div class="text-primary-600 dark:text-primary-400 mb-4 flex items-center gap-2 text-xs font-semibold tracking-wide uppercase">
-                            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
-                                <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd" />
-                            </svg>
-                            Goal Setting
-                        </div>
-                        <h3 class="group-hover:text-primary-600 dark:group-hover:text-primary-400 mb-3 text-xl font-bold text-gray-900 transition-colors dark:text-white">
-                            5 Steps to Design the Life You've Always Dreamed Of
-                        </h3>
-                        <p class="mb-4 leading-relaxed text-gray-600 dark:text-gray-400">
-                            Turn your goals into achievements with clear, actionable strategies that lead to real
-                            success.
-                        </p>
-                        <div class="flex items-center text-sm text-gray-500 dark:text-gray-500">
-                            <span>By Shakil Alam</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Article 2 -->
-                <a
-                    href="{{ route('blogs.how-to-start-writing-a-diary') }}"
-                    class="group overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:shadow-xl dark:bg-gray-800"
-                >
-                    <div class="p-8">
-                        <div class="mb-4 flex items-center gap-2 text-xs font-semibold tracking-wide text-purple-600 uppercase dark:text-purple-400">
-                            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
-                            </svg>
-                            Getting Started
-                        </div>
-                        <h3 class="group-hover:text-primary-600 dark:group-hover:text-primary-400 mb-3 text-xl font-bold text-gray-900 transition-colors dark:text-white">
-                            How to Start Writing a Diary
-                        </h3>
-                        <p class="mb-4 leading-relaxed text-gray-600 dark:text-gray-400">
-                            All you need is a willingness to write. Start by figuring out what you want to journal about
-                            and let the words flow.
-                        </p>
-                        <div class="flex items-center text-sm text-gray-500 dark:text-gray-500">
-                            <span>By Shakil Alam</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Article 3 -->
-                <a
-                    href="{{ route('blogs.these-8-good-things') }}"
-                    class="group overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:shadow-xl md:col-span-2 lg:col-span-1 dark:bg-gray-800"
-                >
-                    <div class="p-8">
-                        <div class="mb-4 flex items-center gap-2 text-xs font-semibold tracking-wide text-green-600 uppercase dark:text-green-400">
-                            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                            </svg>
-                            Benefits
-                        </div>
-                        <h3 class="group-hover:text-primary-600 dark:group-hover:text-primary-400 mb-3 text-xl font-bold text-gray-900 transition-colors dark:text-white">
-                            8 Good Things That Happen When You Start Journaling
-                        </h3>
-                        <p class="mb-4 leading-relaxed text-gray-600 dark:text-gray-400">
-                            Discover how writing to yourself unlocks creativity, healing, and self-awareness in ways you
-                            never imagined.
-                        </p>
-                        <div class="flex items-center text-sm text-gray-500 dark:text-gray-500">
-                            <span>By Internet Blogger</span>
-                        </div>
-                    </div>
-                </a>
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                @foreach (collect(config('blog.posts'))->filter(fn (array $post): bool => $post['listed'] ?? true)->take(3) as $slug => $post)
+                    @include('blogs._card', ['slug' => $slug, 'post' => $post, 'heading' => 'h3'])
+                @endforeach
             </div>
             <div class="mt-16 text-center md:hidden">
                 <a
@@ -490,7 +451,7 @@
         <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
             <h2 class="mb-6 text-3xl font-bold md:text-5xl">Start your journey today</h2>
             <p class="text-primary-100 mx-auto mb-10 max-w-2xl text-xl">
-                Join thousands who've made journaling a daily habit. Your future self will thank you.
+                Write your first entry in under a minute. Your future self will thank you.
             </p>
             @guest
                 <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -509,7 +470,7 @@
                 </div>
             @endguest
 
-            <p class="text-primary-200 mt-8 text-sm">Free forever. No credit card required. Cancel anytime.</p>
+            <p class="text-primary-200 mt-8 text-sm">Free forever. No credit card. Just an email.</p>
         </div>
     </div>
 
