@@ -90,7 +90,7 @@
                         <a href="/settings"> Settings </a>
 
                         <!-- Logout -->
-                        <form method="POST" action="{{ route('logout') }}">
+                        <form method="POST" action="{{ route('logout') }}" data-logout>
                             @csrf
                             <button>Logout</button>
                         </form>

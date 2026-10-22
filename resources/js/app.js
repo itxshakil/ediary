@@ -11,10 +11,12 @@ import { initClickTracking } from './modules/analytics';
 import { initPasswordToggles } from './modules/password-toggle';
 import { initTimezoneFields } from './modules/timezone';
 import { initWritingPrompts } from './modules/writing-prompt';
+import { initLogoutForms } from './modules/logout';
 
 initToasts();
 initClickTracking();
 initPasswordToggles();
+initLogoutForms();
 initPwaExperience();
 
 document.addEventListener('DOMContentLoaded', () => {

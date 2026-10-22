@@ -10,11 +10,18 @@ const BUILD = self.__EDIARY_BUILD ?? { version: 'dev', assets: [] };
 // change, so they live in a stable cache (bump CORE_CACHE when one of them does).
 const STATIC_CACHE = `ediary-static-${BUILD.version}`;
 const CORE_CACHE   = 'ediary-core-v1';
-const PAGE_CACHE   = 'ediary-pages-v12';
+// Bumped from v12 to drop the signed-in pages older workers cached (#46).
+const PAGE_CACHE   = 'ediary-pages-v13';
 
 const ONE_WEEK = 7 * 24 * 60 * 60 * 1000;
 
-const CORE_PAGES = ['/', '/home', '/blog', '/faq'];
+const CORE_PAGES = ['/', '/blog', '/faq'];
+
+// Only guest-safe pages are kept for offline use. Anything else may show someone's diary, so a
+// page missing from this list just isn't available offline. Logout still clears the lot, because
+// the navbar on these pages shows the signed-in person's name.
+const PUBLIC_PAGES = ['/', '/about', '/faq', '/security', '/for-students', '/contact', '/blog'];
+const PUBLIC_PREFIXES = ['/blogs/', '/journal-prompts'];
 
 const CORE_FILES = [
     '/offline.html',
@@ -59,11 +66,6 @@ self.addEventListener('fetch', event => {
 
     const url = new URL(event.request.url);
 
-    if (url.pathname === '/logout') {
-        event.respondWith(handleLogout(event.request));
-        return;
-    }
-
     if (event.request.mode === 'navigate') {
         event.respondWith(networkFirstPage(event.request));
         return;
@@ -76,6 +78,10 @@ self.addEventListener('fetch', event => {
 
     event.respondWith(networkWithFallback(event.request));
 });
+
+function isPublicPage(pathname) {
+    return PUBLIC_PAGES.includes(pathname) || PUBLIC_PREFIXES.some(prefix => pathname.startsWith(prefix));
+}
 
 function isStaticAsset(pathname) {
     return pathname.match(/\.(js|css|png|jpg|jpeg|svg|webp|woff2)$/);
@@ -127,7 +133,7 @@ async function networkFirstPage(request) {
     try {
         const fresh = await fetch(request);
         // A redirected response can't answer a navigation later (e.g. "/" sends signed-in people to /home).
-        if (fresh.ok && !fresh.redirected) {
+        if (fresh.ok && !fresh.redirected && isPublicPage(new URL(request.url).pathname)) {
             await putWithTimestamp(cache, request, fresh.clone());
         }
         return fresh;
@@ -188,15 +194,6 @@ function revalidateStatic(request, cache) {
             if (res.ok) putWithTimestamp(cache, request, res);
         }).catch(() => {});
     }, 3000);
-}
-
-async function handleLogout(request) {
-    const response = await fetch(request);
-    if (response.status === 204) {
-        const cache = await caches.open(PAGE_CACHE);
-        await cache.delete('/home');
-    }
-    return response;
 }
 
 self.addEventListener('sync', event => {
