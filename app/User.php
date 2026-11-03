@@ -6,6 +6,8 @@ namespace App;
 
 use Database\Factories\UserFactory;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -25,19 +27,17 @@ use Override;
  * @property string|null  $timezone
  * @property bool         $reminders_enabled
  */
+#[Fillable([
+    'username', 'email', 'password', 'timezone', 'reminders_enabled',
+])]
+#[Hidden([
+    'password', 'remember_token',
+])]
 final class User extends Authenticatable implements MustVerifyEmail
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory;
     use Notifiable;
-
-    protected $fillable = [
-        'username', 'email', 'password', 'timezone', 'reminders_enabled',
-    ];
-
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
 
     protected $with = ['profile'];
 

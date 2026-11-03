@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -14,10 +15,9 @@ use Illuminate\Support\Facades\Storage;
 /**
  * @property string $image
  */
+#[Fillable(['name', 'bio', 'image'])]
 final class Profile extends Model
 {
-    protected $fillable = ['name', 'bio', 'image'];
-
     /**
      * @return BelongsTo<User, $this>
      */
