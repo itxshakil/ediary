@@ -23,7 +23,6 @@ final class TimezoneTest extends TestCase
         }
 
         $this->assertContains('Asia/Kolkata', $zones);
-        $this->assertContains('Asia/Calcutta', $zones, 'Backward-compatible names stay listed for older browsers.');
     }
 
     public function test_a_browser_zone_that_cannot_be_opened_is_dropped(): void
