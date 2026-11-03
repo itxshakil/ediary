@@ -7,9 +7,9 @@ namespace App\Console\Commands;
 use App\Enums\ReminderKind;
 use App\Mail\Reminder;
 use App\Services\Diary\DiaryAnalyticsService;
+use App\Support\Timezone;
 use App\User;
 use Carbon\CarbonInterface;
-use DateTimeZone;
 use Illuminate\Console\Attributes\Description;
 use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
@@ -30,7 +30,7 @@ final class SendReminders extends Command
 
     public function handle(DiaryAnalyticsService $analytics): int
     {
-        $eveningZones = collect(DateTimeZone::listIdentifiers(DateTimeZone::ALL_WITH_BC))
+        $eveningZones = collect(Timezone::identifiers())
             ->filter(fn (string $zone): bool => now($zone)->hour === self::LOCAL_HOUR)
             ->values()
             ->all();

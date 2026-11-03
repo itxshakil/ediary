@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Support\Timezone;
 use App\User;
-use DateTimeZone;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -17,7 +17,7 @@ final class ReminderController
     {
         $validated = $request->validate([
             'reminders_enabled' => ['nullable', 'boolean'],
-            'timezone' => ['required', 'string', Rule::in(DateTimeZone::listIdentifiers(DateTimeZone::ALL_WITH_BC))],
+            'timezone' => ['required', 'string', Rule::in(Timezone::identifiers())],
         ]);
 
         $request->user()->update([
