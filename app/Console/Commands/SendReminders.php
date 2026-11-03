@@ -7,9 +7,11 @@ namespace App\Console\Commands;
 use App\Enums\ReminderKind;
 use App\Mail\Reminder;
 use App\Services\Diary\DiaryAnalyticsService;
+use App\Support\Timezone;
 use App\User;
 use Carbon\CarbonInterface;
-use DateTimeZone;
+use Illuminate\Console\Attributes\Description;
+use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
@@ -20,17 +22,15 @@ use Illuminate\Support\Facades\Mail;
  * Runs hourly and emails the writers whose local time is now the reminder hour, at most once a day:
  * a streak about to break, a first-entry nudge on days 1 and 3, or a win-back after 3 and 7 quiet days.
  */
+#[Description('Email evening writing reminders to people for whom it is now evening')]
+#[Signature('diary:send-reminders')]
 final class SendReminders extends Command
 {
     private const int LOCAL_HOUR = 20;
 
-    protected $signature = 'diary:send-reminders';
-
-    protected $description = 'Email evening writing reminders to people for whom it is now evening';
-
     public function handle(DiaryAnalyticsService $analytics): int
     {
-        $eveningZones = collect(DateTimeZone::listIdentifiers(DateTimeZone::ALL_WITH_BC))
+        $eveningZones = collect(Timezone::identifiers())
             ->filter(fn (string $zone): bool => now($zone)->hour === self::LOCAL_HOUR)
             ->values()
             ->all();

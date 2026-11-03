@@ -10,6 +10,7 @@ use App\Enums\Privacy;
 use App\Support\Traits\HasTags;
 use Carbon\Carbon;
 use Database\Factories\DiaryFactory;
+use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -24,19 +25,18 @@ use Illuminate\Support\Facades\Crypt;
  * @property Privacy   $privacy
  * @property Mood|null $mood
  */
+#[Fillable(['entry',
+    'title',
+    'mood',
+    'privacy',
+    'is_featured',
+    'allow_comments',
+])]
 final class Diary extends Model
 {
     /** @use HasFactory<DiaryFactory> */
     use HasFactory;
     use HasTags;
-
-    protected $fillable = ['entry',
-        'title',
-        'mood',
-        'privacy',
-        'is_featured',
-        'allow_comments',
-    ];
 
     /**
      * @return BelongsTo<User, $this>

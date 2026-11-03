@@ -5,20 +5,20 @@ declare(strict_types=1);
 namespace App\Console\Commands;
 
 use App\Profile;
+use Illuminate\Console\Attributes\Description;
+use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Throwable;
 
-final class MigrateProfileImagesFromS3 extends Command
-{
-    protected $signature = 'media:migrate-profile-images
+#[Description('Migrate profile images from S3 to local public storage with verification and safe cleanup')]
+#[Signature('media:migrate-profile-images
         {--dry-run : Do not copy or delete anything}
         {--delete-missing : Set DB image to null if file missing on S3}
-        {--delete-s3 : Delete S3 object only after local verification}';
-
-    protected $description = 'Migrate profile images from S3 to local public storage with verification and safe cleanup';
-
+        {--delete-s3 : Delete S3 object only after local verification}')]
+final class MigrateProfileImagesFromS3 extends Command
+{
     public function handle(): int
     {
         $dryRun = (bool) $this->option('dry-run');
