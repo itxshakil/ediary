@@ -5,20 +5,20 @@ declare(strict_types=1);
 namespace App;
 
 use Database\Factories\CommentFactory;
+use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+#[Fillable([
+    'diary_id',
+    'user_id',
+    'comment',
+])]
 final class Comment extends Model
 {
     /** @use HasFactory<CommentFactory> */
     use HasFactory;
-
-    protected $fillable = [
-        'diary_id',
-        'user_id',
-        'comment',
-    ];
 
     public function user(): BelongsTo
     {
